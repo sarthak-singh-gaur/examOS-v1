@@ -119,8 +119,8 @@ export default function PracticeHub() {
     return (
       <div className="max-w-4xl mx-auto space-y-8 animate-in slide-in-from-bottom-4 duration-500">
         <header>
-          <h1 className="text-3xl font-bold tracking-tight mb-2">Practice Engine</h1>
-          <p className="text-text-secondary text-lg">Choose a subject and filter by topic to begin an MCQ session.</p>
+          <h1 className="text-4xl font-black tracking-tight text-text-main mb-2">Practice Engine</h1>
+          <p className="text-text-dim text-xl">Choose a subject and filter by topic to begin an MCQ session.</p>
         </header>
 
         {/* Subject Selector */}
@@ -128,10 +128,10 @@ export default function PracticeHub() {
           {subjectsData.map(sub => (
             <button
               key={sub.id}
-              className={`px-5 py-2.5 rounded-xl font-medium text-sm transition-all border-2 ${
+              className={`px-6 py-3 rounded-2xl font-bold text-sm transition-all border-2 ${
                 selectedSubject === sub.id 
-                  ? 'bg-primary text-white border-primary shadow-lg shadow-primary/20 scale-105' 
-                  : 'bg-background-soft border-border hover:border-primary/50 hover:text-primary'
+                  ? 'bg-primary text-white border-primary shadow-xl shadow-primary/30 scale-105' 
+                  : 'glass border-primary/10 text-text-dim hover:border-primary/50 hover:text-primary'
               }`}
               onClick={() => setSelectedSubject(sub.id)}
             >
@@ -141,13 +141,13 @@ export default function PracticeHub() {
         </div>
 
         {/* Topic Filter */}
-        <Card className="p-6 space-y-4">
+        <Card className="p-10 space-y-6 glass shadow-2xl rounded-[2.5rem] border-primary/10">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl font-bold flex items-center gap-2">
-              <Filter className="w-5 h-5 text-primary" /> Topics
-              <Badge variant="default">{currentBank?.subjectTitle}</Badge>
+            <h2 className="text-2xl font-black flex items-center gap-3 text-text-main">
+              <Filter className="w-6 h-6 text-primary" /> Topic Filters
+              <Badge variant="outline" className="border-primary/20 bg-primary/5 text-primary uppercase ml-2 px-3 py-1">{currentBank?.subjectTitle}</Badge>
             </h2>
-            <Button variant="outline" className="text-xs" onClick={selectAll}>
+            <Button variant="outline" className="text-xs font-black px-4 py-2 rounded-xl" onClick={selectAll}>
               {selectedTopics.size === 0 ? 'All Selected' : 'Select All'}
             </Button>
           </div>
@@ -159,20 +159,20 @@ export default function PracticeHub() {
                 <button
                   key={topic.id}
                   onClick={() => toggleTopic(topic.id)}
-                  className={`flex items-center justify-between text-left p-4 rounded-xl border-2 transition-all ${
+                  className={`flex items-center justify-between text-left p-5 rounded-2xl border-2 transition-all ${
                     isSelected 
-                      ? 'border-primary bg-primary/5 text-text-primary shadow-sm' 
-                      : 'border-border/50 bg-background-soft text-text-secondary opacity-60'
+                      ? 'border-primary bg-primary/10 text-text-main shadow-lg' 
+                      : 'border-primary/5 bg-primary/5 text-text-dim opacity-60'
                   }`}
                 >
-                  <div>
-                    <p className="font-medium text-sm">{topic.title}</p>
-                    <p className="text-xs text-text-muted mt-1">{topic.unit} · {topic.questions.length} questions</p>
+                  <div className="flex-1 mr-4">
+                    <p className="font-black text-base">{topic.title}</p>
+                    <p className="text-xs font-bold text-text-soft mt-1 uppercase tracking-widest">{topic.unit} · {topic.questions.length} Questions</p>
                   </div>
-                  <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${
-                    isSelected ? 'bg-primary border-primary' : 'border-border'
+                  <div className={`w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-all ${
+                    isSelected ? 'bg-primary border-primary shadow-md shadow-primary/20' : 'border-primary/20 bg-background-main/50'
                   }`}>
-                    {isSelected && <CheckCircle className="w-3.5 h-3.5 text-white" />}
+                    {isSelected && <CheckCircle className="w-4 h-4 text-white" />}
                   </div>
                 </button>
               );
@@ -181,59 +181,60 @@ export default function PracticeHub() {
         </Card>
 
         {/* Start Button */}
-        <div className="flex items-center justify-between bg-background-soft p-6 rounded-2xl border border-border">
+        <div className="flex items-center justify-between glass p-8 rounded-[2.5rem] border-primary/20 shadow-2xl">
           <div>
-            <p className="font-bold text-lg">{questions.length} questions ready</p>
-            <p className="text-text-secondary text-sm">
-              {selectedTopics.size === 0 ? 'All topics selected' : `${selectedTopics.size} topic${selectedTopics.size > 1 ? 's' : ''} selected`}
+            <p className="font-black text-2xl text-text-main">{questions.length} Questions Indexed</p>
+            <p className="text-text-dim text-lg font-bold">
+              {selectedTopics.size === 0 ? 'Full subject syllabus' : `${selectedTopics.size} Topic${selectedTopics.size > 1 ? 's' : ''} filtered`}
             </p>
           </div>
-          <Button variant="primary" className="text-lg px-8 py-3" onClick={startQuiz} disabled={questions.length === 0}>
-            Start Practice <ChevronRight className="w-5 h-5 ml-1" />
+          <Button variant="primary" className="text-xl px-12 py-5 rounded-2xl font-black shadow-2xl shadow-primary/30 active:scale-95" onClick={startQuiz} disabled={questions.length === 0}>
+            Start Engine <ChevronRight className="w-6 h-6 ml-2" />
           </Button>
         </div>
       </div>
     );
   }
 
-  // --- QUIZ COMPLETED ---
   if (quizCompleted) {
     return (
       <div className="max-w-2xl mx-auto space-y-8 animate-in zoom-in-95 duration-500">
-        <Card className="p-10 text-center space-y-6">
-          <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-            <Trophy className="w-10 h-10 text-primary" />
+        <Card className="p-16 text-center space-y-10 glass shadow-2xl rounded-[3rem] border-primary/10">
+          <div className="w-28 h-28 rounded-[2rem] bg-primary/10 flex items-center justify-center mx-auto shadow-inner border border-primary/20">
+            <Trophy className="w-14 h-14 text-primary" />
           </div>
-          <h1 className="text-3xl font-bold">Session Complete!</h1>
-          <p className="text-text-secondary text-lg">{currentBank?.subjectTitle}</p>
-
-          <div className="grid grid-cols-3 gap-4 mt-6">
-            <div className="bg-success/10 rounded-xl p-4">
-              <p className="text-3xl font-bold text-success">{score.correct}</p>
-              <p className="text-sm text-text-secondary mt-1">Correct</p>
-            </div>
-            <div className="bg-error/10 rounded-xl p-4">
-              <p className="text-3xl font-bold text-error">{score.incorrect}</p>
-              <p className="text-sm text-text-secondary mt-1">Incorrect</p>
-            </div>
-            <div className="bg-primary/10 rounded-xl p-4">
-              <p className="text-3xl font-bold text-primary">{scorePercent}%</p>
-              <p className="text-sm text-text-secondary mt-1">Score</p>
-            </div>
+          <div className="space-y-2">
+            <h1 className="text-5xl font-black text-text-main">Session Complete!</h1>
+            <p className="text-text-dim text-xl font-bold uppercase tracking-widest">{currentBank?.subjectTitle}</p>
           </div>
 
-          <ProgressBar progress={scorePercent} />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <div className="glass-light rounded-3xl p-6 border-success/20">
+              <p className="text-5xl font-black text-success">{score.correct}</p>
+              <p className="text-sm font-black text-text-soft mt-2 uppercase tracking-widest">Correct</p>
+            </div>
+            <div className="glass-light rounded-3xl p-6 border-error/20">
+              <p className="text-5xl font-black text-error">{score.incorrect}</p>
+              <p className="text-sm font-black text-text-soft mt-2 uppercase tracking-widest">Incorrect</p>
+            </div>
+            <div className="glass-light rounded-3xl p-6 border-primary/20">
+              <p className="text-5xl font-black text-primary">{scorePercent}%</p>
+              <p className="text-sm font-black text-text-soft mt-2 uppercase tracking-widest">Accuracy</p>
+            </div>
+          </div>
 
-          <p className="text-lg font-medium">
-            {scorePercent >= 80 ? '🔥 Excellent mastery!' : scorePercent >= 50 ? '💪 Good effort! Review weak areas.' : '📚 Keep studying, you\'ll get there!'}
+          <ProgressBar progress={scorePercent} className="h-4" />
+
+          <p className="text-2xl font-black text-text-main">
+            {scorePercent >= 80 ? '🔥 Legendary performance!' : scorePercent >= 50 ? '💪 Solid progress! Keep grinding.' : '📚 Strategy session needed.'}
           </p>
 
-          <div className="flex gap-4 justify-center">
-            <Button variant="outline" onClick={resetQuiz} className="gap-2">
-              <RotateCcw className="w-4 h-4" /> New Session
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Button variant="outline" onClick={resetQuiz} className="gap-3 px-8 py-4 h-auto text-lg rounded-2xl font-bold transition-all hover:scale-105 active:scale-95">
+              <RotateCcw className="w-5 h-5" /> New Session
             </Button>
-            <Button variant="primary" onClick={() => { resetQuiz(); startQuiz(); }} className="gap-2">
-              <BookOpen className="w-4 h-4" /> Retry Same Set
+            <Button variant="primary" onClick={() => { resetQuiz(); startQuiz(); }} className="gap-3 px-8 py-4 h-auto text-lg rounded-2xl font-bold transition-all hover:scale-105 active:scale-95 shadow-xl shadow-primary/20">
+              <BookOpen className="w-5 h-5" /> Re-attempt Set
             </Button>
           </div>
         </Card>
@@ -243,108 +244,111 @@ export default function PracticeHub() {
 
   // --- ACTIVE QUIZ MODE ---
   return (
-    <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-8 animate-in slide-in-from-bottom-4 duration-500">
+    <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-8 animate-in slide-in-from-bottom-4 duration-500 pb-10">
       
       {/* Sidebar: Score & Progress */}
-      <aside className="w-full md:w-64 flex-shrink-0 space-y-4">
-        <Card className="p-4 space-y-4">
+      <aside className="w-full md:w-72 flex-shrink-0 space-y-6">
+        <Card className="p-6 space-y-6 glass border-primary/20 shadow-2xl rounded-3xl sticky top-8">
           <div className="flex justify-between items-center">
-            <h3 className="font-bold text-sm text-text-secondary">SESSION</h3>
-            <button onClick={resetQuiz} className="text-xs text-primary hover:underline font-medium flex items-center gap-1">
-              <RotateCcw className="w-3 h-3" /> Reset
+            <h3 className="font-black text-xs text-text-soft tracking-widest uppercase">Engine Status</h3>
+            <button onClick={resetQuiz} className="text-xs text-error hover:text-error-dark font-black tracking-widest flex items-center gap-1 uppercase transition-colors">
+              <RotateCcw className="w-3 h-3" /> Terminate
             </button>
           </div>
 
-          <div className="space-y-2">
-            <div className="flex justify-between text-sm">
-              <span className="text-text-secondary">Progress</span>
-              <span className="font-bold">{activeQuestionIndex + 1} / {questions.length}</span>
+          <div className="space-y-3">
+            <div className="flex justify-between text-sm font-black">
+              <span className="text-text-dim uppercase tracking-wider">Progress</span>
+              <span className="text-text-main">{activeQuestionIndex + 1} / {questions.length}</span>
             </div>
-            <ProgressBar progress={parseFloat(((activeQuestionIndex / questions.length) * 100).toFixed(2))} />
+            <ProgressBar progress={parseFloat(((activeQuestionIndex / questions.length) * 100).toFixed(2))} className="h-2" />
           </div>
 
-          <div className="grid grid-cols-2 gap-2">
-            <div className="bg-success/10 rounded-lg p-2 text-center">
-              <p className="text-lg font-bold text-success">{score.correct}</p>
-              <p className="text-xs text-text-secondary">Correct</p>
+          <div className="grid grid-cols-2 gap-3">
+            <div className="bg-success/5 border border-success/20 rounded-2xl p-4 text-center">
+              <p className="text-2xl font-black text-success">{score.correct}</p>
+              <p className="text-[10px] font-black text-text-soft uppercase tracking-widest mt-1">Correct</p>
             </div>
-            <div className="bg-error/10 rounded-lg p-2 text-center">
-              <p className="text-lg font-bold text-error">{score.incorrect}</p>
-              <p className="text-xs text-text-secondary">Wrong</p>
+            <div className="bg-error/5 border border-error/20 rounded-2xl p-4 text-center">
+              <p className="text-2xl font-black text-error">{score.incorrect}</p>
+              <p className="text-[10px] font-black text-text-soft uppercase tracking-widest mt-1">Wrong</p>
             </div>
           </div>
 
           {score.total > 0 && (
-            <p className="text-center text-sm font-medium">
+            <div className="pt-2 text-center text-sm font-black uppercase tracking-[0.2em]">
               Accuracy: <span className={scorePercent >= 70 ? 'text-success' : scorePercent >= 40 ? 'text-warning' : 'text-error'}>{scorePercent}%</span>
-            </p>
+            </div>
           )}
         </Card>
 
         {question && (
-          <Card className="p-3 bg-primary/5 border-primary/20">
-            <p className="text-xs text-primary font-medium">{question.topicTitle}</p>
-            <p className="text-xs text-text-muted mt-0.5">{question.unit}</p>
+          <Card className="p-5 glass-light border-primary/10 rounded-2xl shadow-lg">
+            <p className="text-[10px] text-primary font-black uppercase tracking-widest mb-1">{question.topicTitle}</p>
+            <p className="text-sm text-text-dim font-bold">{question.unit}</p>
           </Card>
         )}
       </aside>
 
       {/* Main MCQ Engine */}
-      <main className="flex-1 space-y-6">
-        <header className="flex justify-between items-end">
+      <main className="flex-1 space-y-8">
+        <header className="flex justify-between items-center bg-primary/5 p-6 rounded-3xl border border-primary/10 glass-light">
           <div>
-            <h1 className="text-3xl font-bold">{currentBank?.subjectTitle}</h1>
-            <p className="text-text-secondary mt-1">{questions.length} questions · {selectedTopics.size === 0 ? 'All topics' : `${selectedTopics.size} topics`}</p>
+            <h1 className="text-4xl font-black text-text-main tracking-tight">{currentBank?.subjectTitle}</h1>
+            <p className="text-text-dim mt-1 font-bold">{questions.length} Scenarios available</p>
           </div>
-          <Badge variant="warning" className="h-fit">Q {activeQuestionIndex + 1} of {questions.length}</Badge>
+          <Badge variant="outline" className="h-fit px-4 py-2 border-primary/20 bg-primary/10 text-primary font-black text-sm rounded-xl">Q {activeQuestionIndex + 1} / {questions.length}</Badge>
         </header>
 
         {question ? (
-          <Card className={`p-8 border-2 transition-colors ${status === 'correct' ? 'border-success shadow-success/10' : status === 'incorrect' ? 'border-error shadow-error/10' : 'border-border'}`}>
-            <h2 className="text-2xl font-bold mb-8">{question.question}</h2>
+          <Card className={`p-10 glass shadow-[0_30px_60px_rgba(0,0,0,0.3)] border-2 transition-all duration-500 rounded-[2.5rem] ${status === 'correct' ? 'border-success/50 shadow-success/10' : status === 'incorrect' ? 'border-error/50 shadow-error/10' : 'border-primary/10'}`}>
+            <h2 className="text-3xl font-black text-text-main mb-12 tracking-tight leading-tight">{question.question}</h2>
             
-            <div className="flex flex-col gap-3 mb-8">
+            <div className="flex flex-col gap-4 mb-10">
               {question.options.map((opt, i) => (
                 <Button
                   key={i}
                   variant="outline"
-                  onClick={() => checkAnswer(i)}
+                  onClick={() => !status && checkAnswer(i)}
                   disabled={status !== null}
-                  className={`h-auto py-4 px-6 justify-start text-left normal-case text-base
-                    ${selectedOption === i ? 'ring-2 ring-primary border-primary bg-primary/5' : ''}
-                    ${status === 'correct' && i === question.correctAnswer ? 'bg-success/20 border-success text-success-dark' : ''}
-                    ${status === 'incorrect' && selectedOption === i ? 'bg-error/20 border-error text-error-dark' : ''}
-                    ${status !== null && i === question.correctAnswer && i !== selectedOption ? 'border-success text-success bg-success/5 border-dashed border-2' : ''}
+                  className={`h-auto py-6 px-8 justify-start text-left normal-case text-xl rounded-2xl border-2 transition-all group
+                    ${selectedOption === i ? 
+                      (status === 'correct' ? 'border-success bg-success/10 text-success' : 'border-error bg-error/10 text-error') : 
+                      'glass-light border-primary/5 text-text-dim hover:border-primary/50 hover:text-text-main hover:bg-primary/5'}
+                    ${status !== null && i === question.correctAnswer && i !== selectedOption ? 'border-success/50 text-success bg-success/5 border-dashed active:scale-100' : ''}
+                    ${status !== null && i !== question.correctAnswer && i !== selectedOption ? 'opacity-40 grayscale-[0.8]' : ''}
                   `}
                 >
-                  <span className="w-8 h-8 rounded-full bg-background-main border flex items-center justify-center mr-4 shrink-0 font-medium text-text-secondary">
+                  <span className={`w-10 h-10 rounded-xl border flex items-center justify-center mr-6 shrink-0 font-black transition-colors
+                    ${selectedOption === i ? 'bg-current text-white border-transparent shadow-lg' : 'glass border-primary/10 group-hover:border-primary/50 text-text-soft'}
+                  `}>
                     {String.fromCharCode(65 + i)}
                   </span>
-                  <span className="flex-1 font-medium">{opt}</span>
-                  {status === 'correct' && i === question.correctAnswer && <CheckCircle className="w-6 h-6 text-success shrink-0" />}
-                  {status === 'incorrect' && selectedOption === i && <XCircle className="w-6 h-6 text-error shrink-0" />}
+                  <span className="flex-1 font-bold">{opt}</span>
+                  {status === 'correct' && i === question.correctAnswer && <CheckCircle className="w-8 h-8 text-success shrink-0 ml-4" />}
+                  {status === 'incorrect' && selectedOption === i && <XCircle className="w-8 h-8 text-error shrink-0 ml-4" />}
                 </Button>
               ))}
             </div>
 
             {status && (
-              <div className="flex flex-col md:flex-row gap-6 items-start justify-between border-t p-6 -mx-8 -mb-8 bg-background-soft rounded-b-2xl">
+              <div className="flex flex-col md:flex-row gap-8 items-center justify-between border-t border-primary/10 p-8 -mx-10 -mb-10 glass-heavy rounded-b-[2.5rem] animate-in slide-in-from-top-4 duration-500">
                 <div className="flex-1">
-                  <h4 className={`font-bold flex items-center gap-2 ${status === 'correct' ? 'text-success' : 'text-error'}`}>
-                    {status === 'correct' ? <><CheckCircle className="w-5 h-5"/> Correct!</> : <><AlertTriangle className="w-5 h-5"/> Incorrect</>}
+                  <h4 className={`text-2xl font-black flex items-center gap-3 ${status === 'correct' ? 'text-success' : 'text-error'}`}>
+                    {status === 'correct' ? <><CheckCircle className="w-7 h-7"/> Result: Perfect</> : <><AlertTriangle className="w-7 h-7"/> Result: Incorrect</>}
                   </h4>
-                  <p className="mt-2 text-text-secondary">{question.explanation}</p>
+                  <p className="mt-3 text-text-dim text-lg font-medium leading-relaxed">{question.explanation}</p>
                 </div>
-                <Button variant="primary" onClick={nextQuestion}>
-                  {activeQuestionIndex < questions.length - 1 ? 'Next Question' : 'Finish Session'}
+                <Button variant="primary" className="w-full md:w-fit px-12 py-5 text-xl font-black rounded-2xl shadow-2xl shadow-primary/25 active:scale-95" onClick={nextQuestion}>
+                  {activeQuestionIndex < questions.length - 1 ? 'Next Challenge' : 'Finish Session'}
                 </Button>
               </div>
             )}
 
             {!status && (
               <div className="flex justify-end">
-                <Button variant="outline" onClick={skipQuestion} className="text-text-secondary">
-                  Skip <ChevronRight className="w-4 h-4 ml-1" />
+                <Button variant="outline" onClick={skipQuestion} className="text-text-soft font-black uppercase tracking-widest px-8 py-4 h-auto rounded-xl hover:text-primary transition-all">
+                  Skip <ChevronRight className="w-5 h-5 ml-2" />
                 </Button>
               </div>
             )}

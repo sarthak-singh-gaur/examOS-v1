@@ -232,34 +232,37 @@ export default function ConceptLearningPage() {
 
   return (
     <div className="max-w-4xl mx-auto space-y-6 animate-in fade-in duration-300 pb-20">
-      <header className="flex flex-col gap-4">
-        <button onClick={() => navigate(`/subject/${subjectId}`)} className="flex items-center text-sm font-medium text-text-secondary w-fit hover:text-primary transition-colors">
-          <ArrowLeft className="w-4 h-4 mr-1" /> Back to Curriculum
+      <header className="flex flex-col gap-6">
+        <button onClick={() => navigate(`/subject/${subjectId}`)} className="flex items-center text-sm font-bold text-text-soft w-fit hover:text-primary transition-all group">
+          <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" /> Back to Curriculum
         </button>
-        <ProgressBar progress={stepProgress} className="h-2" />
+        <ProgressBar progress={stepProgress} className="h-3" />
         <div className="flex justify-between items-end">
           <div>
-            <span className="text-primary font-bold tracking-wider text-xs uppercase mb-1 block">Topic {currentTopicIndex + 1} of {unit.topics.length}</span>
-            <h1 className="text-3xl font-bold">{topic.title}</h1>
+            <span className="text-primary font-black tracking-[0.2em] text-[10px] uppercase mb-1 block opacity-80">Topic {currentTopicIndex + 1} of {unit.topics.length}</span>
+            <h1 className="text-4xl font-black text-text-main">{topic.title}</h1>
           </div>
-          <div className="bg-primary/5 text-primary px-4 py-2 rounded-xl border border-primary/10 flex items-center gap-2">
-            <BookOpen className="w-4 h-4" />
-            <span className="text-sm font-bold">Step {currentStep + 1}/{topic.concepts.length}</span>
+          <div className="glass text-primary px-5 py-3 rounded-2xl border-primary/20 flex items-center gap-3 shadow-lg">
+            <BookOpen className="w-5 h-5" />
+            <span className="text-sm font-black">Step {currentStep + 1} of {topic.concepts.length}</span>
           </div>
         </div>
       </header>
 
-      <Card className="p-8 space-y-8 shadow-md border-0 bg-white/70 backdrop-blur-sm">
-        <div className="prose prose-slate max-w-none text-text-primary text-xl leading-relaxed">
+      <Card className="p-10 glass-heavy shadow-2xl space-y-10 border-primary/10">
+        <div className="prose dark:prose-invert prose-slate max-w-none text-text-dim text-xl leading-relaxed">
           <ReactMarkdown 
             remarkPlugins={[remarkGfm, remarkMath]} 
             rehypePlugins={[rehypeKatex]}
             components={{
-              h3: ({node, ...props}) => <h3 className="text-2xl font-bold text-primary mt-8 mb-4" {...props} />,
-              table: ({node, ...props}) => <div className="overflow-x-auto my-6"><table className="min-w-full border-collapse border border-slate-200" {...props} /></div>,
-              th: ({node, ...props}) => <th className="bg-slate-50 border border-slate-200 p-2 text-left font-bold" {...props} />,
-              td: ({node, ...props}) => <td className="border border-slate-200 p-2" {...props} />,
-              code: ({node, inline, ...props}) => inline ? <code className="bg-slate-100 px-1 rounded text-primary-hover font-mono text-sm" {...props} /> : <code className="block bg-slate-900 text-slate-100 p-4 rounded-xl font-mono text-sm my-4" {...props} />
+              h3: ({node, ...props}) => <h3 className="text-3xl font-black text-text-main mt-12 mb-6 tracking-tight border-b border-primary/10 pb-2" {...props} />,
+              p: ({node, ...props}) => <p className="mb-6" {...props} />,
+              table: ({node, ...props}) => <div className="overflow-x-auto my-8 rounded-2xl glass border-primary/10 shadow-inner"><table className="min-w-full border-collapse" {...props} /></div>,
+              th: ({node, ...props}) => <th className="bg-primary/5 border-b border-primary/10 p-4 text-left font-black text-text-main uppercase tracking-widest text-xs" {...props} />,
+              td: ({node, ...props}) => <td className="border-b border-primary/5 p-4 text-text-dim" {...props} />,
+              code: ({node, inline, ...props}) => inline 
+                ? <code className="glass-light px-2 py-0.5 rounded text-primary font-mono text-sm border-primary/20" {...props} /> 
+                : <code className="block black-glass text-slate-100 p-6 rounded-2xl font-mono text-sm my-8 shadow-2xl border border-primary/20 overflow-x-auto" {...props} />
             }}
           >
             {concept.theory}
@@ -270,17 +273,19 @@ export default function ConceptLearningPage() {
         {concept.interactive === 'ALUSimulator' && <ALUSimulator />}
         {concept.interactive === 'StackSimulator' && <StackSimulator />}
         
-        {concept.flowchart && <div className="p-6 bg-white rounded-2xl border-2 border-slate-100 shadow-inner"><MermaidChart chart={concept.flowchart} /></div>}
+        {concept.flowchart && <div className="p-8 glass-light rounded-[2.5rem] border border-primary/10 shadow-inner"><MermaidChart chart={concept.flowchart} /></div>}
       </Card>
 
-      <div className="pt-4">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">?</div>
-          <h3 className="text-2xl font-bold">Knowledge Verification</h3>
+      <div className="pt-12 border-t border-primary/10">
+        <div className="flex items-center gap-4 mb-8">
+          <div className="w-12 h-12 rounded-2xl glass-heavy flex items-center justify-center text-primary shadow-lg border-primary/20">
+             <CheckCircle className="w-7 h-7" />
+          </div>
+          <h3 className="text-3xl font-black text-text-main">Knowledge Verification</h3>
         </div>
         
-        <Card className={`p-8 border-2 shadow-xl transition-all duration-500 ${mcqStatus === 'correct' ? 'border-success bg-success/5' : mcqStatus === 'incorrect' ? 'border-error bg-error/5' : 'bg-white'}`}>
-          <div className="font-bold text-xl mb-8 leading-tight">
+        <Card className={`p-10 glass shadow-2xl transition-all duration-500 border-2 ${mcqStatus === 'correct' ? 'border-success/50 bg-success/5' : mcqStatus === 'incorrect' ? 'border-error/50 bg-error/5' : 'border-primary/10'}`}>
+          <div className="font-black text-2xl text-text-main mb-10 leading-relaxed tracking-tight">
             <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{concept.mcq.question}</ReactMarkdown>
           </div>
           
@@ -289,67 +294,69 @@ export default function ConceptLearningPage() {
                <Button
                  key={i}
                  variant="outline"
-                 onClick={() => checkAnswer(i)}
-                 disabled={mcqStatus === 'correct'}
-                 className={`h-auto py-5 px-6 justify-start text-left normal-case tracking-normal text-lg transition-all
-                  ${selectedOption === i ? 'ring-4 ring-primary/20 border-primary bg-primary/5' : 'hover:bg-slate-50'}
-                  ${mcqStatus === 'correct' && i === concept.mcq.correctAnswer ? 'bg-success/10 border-success text-success-900 shadow-md shadow-success/10' : ''}
-                  ${mcqStatus === 'incorrect' && selectedOption === i ? 'bg-error/10 border-error text-error-900' : ''}
+                 onClick={() => !mcqStatus && checkAnswer(i)}
+                 className={`h-auto py-6 px-8 justify-start text-left normal-case tracking-normal text-xl rounded-2xl border-2 transition-all group
+                  ${selectedOption === i ? 
+                    (mcqStatus === 'correct' ? 'border-success bg-success/10 text-success' : 'border-error bg-error/10 text-error') : 
+                    'glass-light hover:border-primary/50 hover:bg-primary/5 border-primary/5 text-text-dim hover:text-text-main'}
+                  ${mcqStatus && selectedOption !== i ? 'opacity-40 grayscale-[0.8]' : ''}
                  `}
                >
-                 <span className="w-10 h-10 rounded-xl bg-slate-100 border flex items-center justify-center mr-4 text-base font-bold shrink-0">
+                 <span className={`w-10 h-10 rounded-xl flex items-center justify-center mr-5 text-base font-black border-2 transition-colors
+                   ${selectedOption === i ? 'bg-current text-white border-transparent shadow-lg' : 'glass border-primary/10 group-hover:border-primary/50'}
+                 `}>
                    {String.fromCharCode(65 + i)}
                  </span>
-                 <div className="flex-1">
-                   <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{opt}</ReactMarkdown>
+                 <div className="flex-1 font-bold">
+                    <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{opt}</ReactMarkdown>
                  </div>
-                 {mcqStatus === 'correct' && i === concept.mcq.correctAnswer && <CheckCircle className="w-6 h-6 text-success ml-2" />}
-                 {mcqStatus === 'incorrect' && selectedOption === i && <XCircle className="w-6 h-6 text-error ml-2" />}
+                 {mcqStatus === 'correct' && i === concept.mcq.correctAnswer && <CheckCircle className="w-8 h-8 text-success ml-4 shrink-0" />}
+                 {mcqStatus === 'incorrect' && selectedOption === i && <XCircle className="w-8 h-8 text-error ml-4 shrink-0" />}
                </Button>
              ))}
           </div>
 
           {mcqStatus && (
-            <div className={`p-6 rounded-2xl animate-in slide-in-from-top-4 flex flex-col gap-6 ${mcqStatus === 'correct' ? 'bg-success/10 text-success-900' : 'bg-error/10 text-error-900'}`}>
-              <div className="flex items-start gap-4">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${mcqStatus === 'correct' ? 'bg-success text-white' : 'bg-error text-white'}`}>
-                   {mcqStatus === 'correct' ? <CheckCircle className="w-8 h-8"/> : <XCircle className="w-8 h-8"/>}
-                </div>
-                <div>
-                  <p className="font-bold text-lg">{mcqStatus === 'correct' ? 'Excellent Work!' : 'Revision Needed'}</p>
-                  <p className="opacity-90 mt-1 text-lg">{concept.mcq.explanation}</p>
-                </div>
-              </div>
-              <Button variant="primary" className="w-full sm:w-fit px-12 py-6 text-xl shadow-lg shadow-primary/25" onClick={handleNext}>
-                 {currentStep < topic.concepts.length - 1 ? 'Next Step' : currentTopicIndex < unit.topics.length - 1 ? 'Next Topic' : 'Complete Unit'}
-              </Button>
+            <div className={`p-10 rounded-[2.5rem] animate-in slide-in-from-top-4 flex flex-col gap-8 border-2 backdrop-blur-xl ${mcqStatus === 'correct' ? 'border-success/30 bg-success/10' : 'border-error/30 bg-error/10'}`}>
+               <div className="flex items-start gap-6">
+                 <div className={`w-16 h-16 rounded-3xl flex items-center justify-center shrink-0 shadow-2xl ${mcqStatus === 'correct' ? 'bg-success text-white shadow-success/40' : 'bg-error text-white shadow-error/40'}`}>
+                    {mcqStatus === 'correct' ? <CheckCircle className="w-10 h-10"/> : <XCircle className="w-10 h-10"/>}
+                 </div>
+                 <div>
+                   <p className={`font-black text-3xl tracking-tighter mb-2 ${mcqStatus === 'correct' ? 'text-success' : 'text-error'}`}>{mcqStatus === 'correct' ? 'Brilliant Mastery!' : 'Knowledge Gap Found'}</p>
+                   <p className="text-text-dim text-xl font-medium leading-relaxed opacity-90">{concept.mcq.explanation}</p>
+                 </div>
+               </div>
+               <Button variant="primary" className="w-full sm:w-fit px-16 py-6 text-2xl font-black shadow-2xl shadow-primary/30 rounded-[2rem] active:scale-95 transition-transform" onClick={handleNext}>
+                  {currentStep < topic.concepts.length - 1 ? 'Next Step' : currentTopicIndex < unit.topics.length - 1 ? 'Next Topic' : 'Finish Unit'}
+               </Button>
             </div>
           )}
         </Card>
       {/* Topic Navigation Bar */}
-      <footer className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-md border-t border-slate-200 p-4 z-50">
+      <footer className="fixed bottom-0 left-0 right-0 glass backdrop-blur-2xl border-t border-primary/20 p-6 z-50 shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
         <div className="max-w-4xl mx-auto flex justify-between items-center">
           <Button 
             variant="outline" 
             onClick={goToPrevTopic} 
             disabled={!hasPrevTopic}
-            className="flex items-center gap-2 px-6"
+            className="flex items-center gap-3 px-8 h-12 rounded-2xl font-bold transition-all hover:scale-105 active:scale-95"
           >
-            <ArrowLeft className="w-4 h-4" /> Previous Topic
+            <ArrowLeft className="w-5 h-5" /> Previous Topic
           </Button>
           
-          <div className="hidden sm:flex items-center gap-4 text-sm text-text-secondary font-medium">
-            <span className="bg-slate-100 px-3 py-1 rounded-full">{topic.title}</span>
-            <div className="w-1 h-1 bg-slate-300 rounded-full"></div>
-            <span>{currentTopicIndex + 1} of {unit.topics.length}</span>
+          <div className="hidden sm:flex items-center gap-6 text-sm text-text-soft font-black uppercase tracking-widest">
+            <span className="glass px-4 py-1.5 rounded-xl border-primary/10 text-text-dim transition-all">{topic.title}</span>
+            <div className="w-1.5 h-1.5 bg-primary/30 rounded-full"></div>
+            <span className="text-text-soft">{currentTopicIndex + 1} of {unit.topics.length}</span>
           </div>
 
           <Button 
             variant={hasNextTopic ? "outline" : "primary"}
             onClick={hasNextTopic ? goToNextTopic : () => navigate(`/subject/${subjectId}`)} 
-            className="flex items-center gap-2 px-6"
+            className="flex items-center gap-3 px-8 h-12 rounded-2xl font-bold transition-all hover:scale-105 active:scale-95"
           >
-            {hasNextTopic ? 'Next Topic' : 'Finish Unit'} <ArrowLeft className="w-4 h-4 rotate-180" />
+            {hasNextTopic ? 'Next Topic' : 'Finish Unit'} <ArrowLeft className="w-5 h-5 rotate-180" />
           </Button>
         </div>
       </footer>
