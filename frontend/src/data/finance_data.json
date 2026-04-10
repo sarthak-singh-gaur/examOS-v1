@@ -1,0 +1,1012 @@
+{
+  "subjectId": "finance",
+  "units": [
+    {
+      "id": "unit-1",
+      "title": "Unit 1: Theoretical Framework",
+      "description": "Understanding the logic, rules, and fundamental principles that govern global financial reporting.",
+      "topics": [
+        {
+          "id": "u1-s1",
+          "title": "Step 1: Accounting Concepts & Conventions",
+          "concepts": [{
+            "id": "c1-1",
+            "title": "The Pillars of reporting",
+            "theory": "**Accounting Concepts** are basic assumptions on which accounting is based. \n\n* **Business Entity**: Owner and business are separate.\n* **Money Measurement**: Only record what can be measured in money.\n* **Going Concern**: Assume the business will live 'forever'.\n* **Matching**: Expenses of a period must match the revenue of that period.",
+            "mcq": {
+              "id": "m1-1",
+              "question": "Which concept prevents owner's personal grocery bills from being recorded as business expenses?",
+              "options": ["Going Concern", "Money Measurement", "Business Entity", "Matching"],
+              "correctAnswer": 2,
+              "explanation": "Business Entity treats the owner and business as distinct legal/accounting entities."
+            }
+          }]
+        },
+        {
+          "id": "u1-s2",
+          "title": "Step 2: Accounting Conventions",
+          "concepts": [{
+            "id": "c1-2",
+            "title": "The Prudence Principle",
+            "theory": "**Conventions** are customs or traditions used as a guide in preparing accounts.\n\n* **Conservatism (Prudence)**: Anticipate no profit, but provide for all possible losses.\n* **Full Disclosure**: All significant info must be revealed.\n* **Consistency**: Same methods should be used year after year.",
+            "mcq": {
+              "id": "m1-2",
+              "question": "Valuing inventory at 'Cost or NRV, whichever is lower' follows which convention?",
+              "options": ["Materiality", "Consistency", "Conservatism", "Full Disclosure"],
+              "correctAnswer": 2,
+              "explanation": "Conservatism ensures we don't overstate assets or profits by being cautious with valuations."
+            }
+          }]
+        },
+        {
+          "id": "u1-s3",
+          "title": "Step 3: Users of Accounting Information",
+          "concepts": [{
+            "id": "c1-3",
+            "title": "Internal vs External Stakeholders",
+            "theory": "1. **Internal Users**: Managers, owners, employees (concerned with operational performance).\n2. **External Users**: Investors, creditors, tax authorities, and the public (concerned with financial health and compliance).",
+            "mcq": {
+              "id": "m1-3",
+              "question": "Which of these is an EXTERNAL user of accounting information?",
+              "options": ["Production Manager", "CEO", "Income Tax Department", "Internal Auditor"],
+              "correctAnswer": 2,
+              "explanation": "Tax authorities are outside the organization but require financial data for compliance."
+            }
+          }]
+        },
+        {
+          "id": "u1-s4",
+          "title": "Step 4: Accounting Standards & IFRS",
+          "concepts": [{
+            "id": "c1-4",
+            "title": "The Global Language",
+            "theory": "To bring uniformity across borders, **IFRS (International Financial Reporting Standards)** were developed. Most countries have converged their local standards (like Ind AS in India) with IFRS to help global investors compare companies easily.",
+            "mcq": {
+              "id": "m1-4",
+              "question": "What is the primary goal of IFRS?",
+              "options": ["To increase tax revenue", "To provide global uniformity in accounting", "To simplify bookkeeping for small shops", "To replace all local laws"],
+              "correctAnswer": 1,
+              "explanation": "IFRS ensures that a balance sheet in London is comparable to one in Mumbai or New York."
+            }
+          }]
+        },
+        {
+          "id": "u1-s5",
+          "title": "Step 5: Capital vs Revenue Expenditure",
+          "concepts": [{
+            "id": "c1-5",
+            "title": "Asset vs Expense",
+            "theory": "* **Capital Expenditure**: Spending on assets that provide benefits for more than one year (e.g., buying a machine).\n* **Revenue Expenditure**: Regular spending on maintaining day-to-day operations (e.g., paying rent or electricity).",
+            "mcq": {
+              "id": "m1-5",
+              "question": "Installing a new engine in a truck to increase its lifespan is which type of expenditure?",
+              "options": ["Capital", "Revenue", "Deferred Revenue", "Personal"],
+              "correctAnswer": 0,
+              "explanation": "If the spending increases the capacity or life of an asset, it is treated as Capital Expenditure."
+            }
+          }]
+        },
+        {
+          "id": "u1-s6",
+          "title": "Step 6: The Accounting Equation",
+          "concepts": [{
+            "id": "c1-6",
+            "title": "The Balance of Truth",
+            "theory": "The fundamental equation of all accounting is:\n\n**Assets = Liabilities + Equity (Capital)**\n\nEvery transaction must keep this equation in balance. If you buy a car ($10,000) with a loan ($10,000), Assets increase by 10k and Liabilities increase by 10k.",
+            "mcq": {
+              "id": "m1-6",
+              "question": "If total Assets are $50,000 and Liabilities are $20,000, what is the Capital?",
+              "options": ["$70,000", "$30,000", "$50,000", "$10,000"],
+              "correctAnswer": 1,
+              "explanation": "Capital = Assets - Liabilities = 50,000 - 20,000 = 30,000."
+            }
+          }]
+        },
+        {
+          "id": "u1-s7",
+          "title": "Step 7: Cash vs Accrual Basis",
+          "concepts": [{
+            "id": "c1-7",
+            "title": "Timing of Records",
+            "theory": "* **Cash Basis**: Record transactions only when cash moves.\n* **Accrual Basis**: Record transactions when they *occur* (earned or incurred), regardless of cash flow. \n\n**Note**: GAAP and IFRS mandate the **Accrual Basis** for better periodic matching.",
+            "mcq": {
+              "id": "m1-7",
+              "question": "You work in January but get paid in February. Under Accrual basis, when is the expense recorded?",
+              "options": ["January", "February", "Both months", "End of the year"],
+              "correctAnswer": 0,
+              "explanation": "Accrual basis records the expense when the benefit is received (the work performed), not when payment is made."
+            }
+          }]
+        },
+        {
+          "id": "u1-s8",
+          "title": "Step 8: Financial vs Management Accounting",
+          "concepts": [{
+            "id": "c1-8",
+            "title": "External vs Internal Focus",
+            "theory": "* **Financial Accounting**: Focused on providing information to external users (audited statements).\n* **Management Accounting**: Focused on providing internal info for decision-making (budgets, cost reports). It is not legally mandatory to follow GAAP for internal reports.",
+            "mcq": {
+              "id": "m1-8",
+              "question": "Which branch of accounting is strictly governed by GAAP/IFRS?",
+              "options": ["Management Accounting", "Financial Accounting", "Cost Accounting", "Social Accounting"],
+              "correctAnswer": 1,
+              "explanation": "Financial accounting must follow standards to ensure external credibility."
+            }
+          }]
+        },
+        {
+          "id": "u1-s9",
+          "title": "Step 9: Accounting Periodicity",
+          "concepts": [{
+            "id": "c1-9",
+            "title": "The Fiscal Year",
+            "theory": "The life of a business is divided into artificial time intervals (usually 12 months) called **Accounting Periods**. This allows owners to measure performance regularly rather than waiting until the business closes.",
+            "mcq": {
+              "id": "m1-9",
+              "question": "Why is the periodicity concept used in accounting?",
+              "options": ["To pay taxes only once", "To measure profitability at regular intervals", "To hire more accountants", "To avoid errors"],
+              "correctAnswer": 1,
+              "explanation": "Periodicity breaks down the 'infinity' of going concern into measurable cycles."
+            }
+          }]
+        },
+        {
+          "id": "u1-s10",
+          "title": "Step 10: Qualitative Characteristics",
+          "concepts": [{
+            "id": "c1-10",
+            "title": "Quality over Quantity",
+            "theory": "Useful financial information must be:\n1. **Relevant**: Capable of making a difference in decisions.\n2. **Reliable**: Free from error and bias.\n3. **Comparable**: Consistent across years and different companies.\n4. **Understandable**: Clear to users with reasonable business knowledge.",
+            "mcq": {
+              "id": "m1-10",
+              "question": "If a company changes its depreciation method every year, which characteristic is violated?",
+              "options": ["Reliability", "Comparability", "Relevance", "Understandability"],
+              "correctAnswer": 1,
+              "explanation": "Comparability requires consistency in methods over time."
+            }
+          }]
+        }
+      ]
+    },
+    {
+      "id": "unit-2",
+      "title": "Unit 2: The Recording Process",
+      "description": "Translating business events into the formal language of debits and credits.",
+      "topics": [
+        {
+          "id": "u2-s1",
+          "title": "Step 1: Classification of Accounts",
+          "concepts": [{
+            "id": "c2-1",
+            "title": "Personal, Real, and Nominal",
+            "theory": "All accounts are divided into:\n1. **Personal**: Related to individuals/firms (e.g., Ram's A/c, Banks).\n2. **Real**: Related to tangible assets (e.g., Cash, Machinery, Goodwill).\n3. **Nominal**: Related to expenses/incomes (e.g., Salary, Rent, Interest).",
+            "mcq": {
+              "id": "m2-1",
+              "question": "Which account type is 'Machinery'?",
+              "options": ["Personal", "Real", "Nominal", "Virtual"],
+              "correctAnswer": 1,
+              "explanation": "Machinery is an asset, which falls under Real accounts."
+            }
+          }]
+        },
+        {
+          "id": "u2-s2",
+          "title": "Step 2: Golden Rules of Accounting",
+          "concepts": [{
+            "id": "c2-2",
+            "title": "The Laws of Debit/Credit",
+            "theory": "* **Personal**: Debit the Receiver, Credit the Giver.\n* **Real**: Debit what comes in, Credit what goes out.\n* **Nominal**: Debit all Expenses & Losses, Credit all Incomes & Gains.",
+            "mcq": {
+              "id": "m2-2",
+              "question": "What is the rule for Nominal Accounts?",
+              "options": ["Debit receiver", "Credit receiver", "Debit expenses", "Credit expenses"],
+              "correctAnswer": 2,
+              "explanation": "Expenditure is always debited in nominal bookkeeping."
+            }
+          }]
+        },
+        {
+          "id": "u2-s3",
+          "title": "Step 3: Journalizing Transactions",
+          "concepts": [{
+            "id": "c2-3",
+            "title": "The Day Book",
+            "theory": "The **Journal** is the book of prime entry. Every entry consists of:\n1. Date\n2. Account Debited\n3. Account Credited\n4. Narration (Brief explanation).",
+            "mcq": {
+              "id": "m2-3",
+              "question": "What is the brief explanation written below a journal entry called?",
+              "options": ["Summary", "Notation", "Narration", "Annotation"],
+              "correctAnswer": 2,
+              "explanation": "A narration explains the 'why' behind the entry for future audit."
+            }
+          }]
+        },
+        {
+          "id": "u2-s4",
+          "title": "Step 4: Ledger Posting",
+          "concepts": [{
+            "id": "c2-4",
+            "title": "Classifying Data",
+            "theory": "The **Ledger** is where transactions of the same nature are grouped. It is the 'Principal Book'. Posting involves transferring journal data into T-shaped accounts.",
+            "mcq": {
+              "id": "m2-4",
+              "question": "Which book is known as the 'Principal Book' of accounting?",
+              "options": ["Journal", "Ledger", "Cash Book", "Pass Book"],
+              "correctAnswer": 1,
+              "explanation": "The Ledger is the final destination for all transactions where balances are determined."
+            }
+          }]
+        },
+        {
+          "id": "u2-s5",
+          "title": "Step 5: Balancing an Account",
+          "concepts": [{
+            "id": "c2-5",
+            "title": "To Balance c/d",
+            "theory": "At the end of a period, we find the difference between total debits and credits. \n* If Debit > Credit: Debit Balance.\n* If Credit > Debit: Credit Balance.\n'c/d' means Carried Down to next period.",
+            "mcq": {
+              "id": "m2-5",
+              "question": "A Debit balance in a Personal account means:",
+              "options": ["We owe them money", "They owe us money", "No transaction", "The account is closed"],
+              "correctAnswer": 1,
+              "explanation": "Debit the receiver—if someone has a debit balance, they have received value and are our debtors."
+            }
+          }]
+        },
+        {
+          "id": "u2-s6",
+          "title": "Step 6: Simple Cash Book",
+          "concepts": [{
+            "id": "c2-6",
+            "title": "Recording Liquidity",
+            "theory": "A **Cash Book** serves as both a Journal and a Ledger. Only cash receipts (Debit) and cash payments (Credit) are recorded. Credit transactions are NEVER recorded here.",
+            "mcq": {
+              "id": "m2-6",
+              "question": "One of these is NOT recorded in a Cash Book. Which one?",
+              "options": ["Cash Sales", "Cash Purchase", "Credit Sales", "Payment to workers"],
+              "correctAnswer": 2,
+              "explanation": "Cash books only track actual cash flow. Credit sales go to the Sales Journal."
+            }
+          }]
+        },
+        {
+          "id": "u2-s7",
+          "title": "Step 7: Double Column Cash Book",
+          "concepts": [{
+            "id": "c2-7",
+            "title": "Cash and Bank",
+            "theory": "This book has two columns on each side: one for **Cash** and one for **Bank**. A **Contra Entry** occurs when cash is deposited into or withdrawn from the bank (affects both columns).",
+            "mcq": {
+              "id": "m2-7",
+              "question": "What is a 'Contra Entry' marked as in the ledger folio column?",
+              "options": ["X", "C", "B", "R"],
+              "correctAnswer": 1,
+              "explanation": "'C' stands for Contra, indicating the entry doesn't need to be posted elsewhere since both sides are in the cash book."
+            }
+          }]
+        },
+        {
+          "id": "u2-s8",
+          "title": "Step 8: Petty Cash Book",
+          "concepts": [{
+            "id": "c2-8",
+            "title": "Small Expenses",
+            "theory": "Small spends (stamps, tea, fare) are managed by a petty cashier under the **Imprest System**. The main cashier gives a fixed sum (e.g., $100) at the start of the month and replenishes the exact amount spent at the end.",
+            "mcq": {
+              "id": "m2-8",
+              "question": "Which system is typically used for Petty Cash?",
+              "options": ["Accrual system", "Imprest system", "LIFO system", "Double entry only"],
+              "correctAnswer": 1,
+              "explanation": "Imprest system ensures the petty cashier always starts with the same 'float' amount."
+            }
+          }]
+        },
+        {
+          "id": "u2-s9",
+          "title": "Step 9: Trial Balance",
+          "concepts": [{
+            "id": "c2-9",
+            "title": "Checking Accuracy",
+            "theory": "A **Trial Balance** is a statement listing all ledger balances. Total Debits must equal Total Credits. If it balances, the books are *arithmetically* correct, but conceptual errors might still exist.",
+            "mcq": {
+              "id": "m2-9",
+              "question": "A balanced Trial Balance proves which of the following?",
+              "options": ["No errors exist", "Arithmetical accuracy", "The business is profitable", "Assets are safe"],
+              "correctAnswer": 1,
+              "explanation": "It proves the math is right, but 'Error of Principle' (e.g., buying an asset but calling it an expense) can still be present."
+            }
+          }]
+        },
+        {
+          "id": "u2-s10",
+          "title": "Step 10: Bank Reconciliation Statement (BRS)",
+          "concepts": [{
+            "id": "c2-10",
+            "title": "Bridging the Gap",
+            "theory": "A BRS explains why the Cash Book (Bank column) balance doesn't match the Bank Passbook/Statement balance. Common reasons:\n1. Cheques issued but not presented.\n2. Cheques deposited but not cleared.\n3. Bank charges or interest directly added by bank.",
+            "mcq": {
+              "id": "m2-10",
+              "question": "If a cheque is issued but NOT presented for payment, what should we do to the Cash Book balance to match the Passbook?",
+              "options": ["Add it back", "Subtract it", "Ignore it", "Report a fraud"],
+              "correctAnswer": 0,
+              "explanation": "In our Cash Book, we subtracted it when we gave the cheque. Since the bank hasn't paid it yet, we add it back temporarily for reconciliation."
+            }
+          }]
+        }
+      ]
+    },
+    {
+      "id": "unit-3",
+      "title": "Unit 3: Depreciation & Inventory Valuation",
+      "description": "Managing asset life cycles and optimizing the cost of goods sold.",
+      "topics": [
+        {
+          "id": "u3-s1",
+          "title": "Step 1: Introduction to Depreciation",
+          "concepts": [{
+            "id": "c3-1",
+            "title": "Asset Decay",
+            "theory": "**Depreciation** is the permanent and gradual decrease in the value of an asset due to wear and tear, passage of time, or obsolescence. It applies only to **Fixed Assets** (except Land).",
+            "mcq": {
+              "id": "m3-1",
+              "question": "On which of the following assets is depreciation typically NOT charged?",
+              "options": ["Building", "Machinery", "Land", "Furniture"],
+              "correctAnswer": 2,
+              "explanation": "Land is considered to have an infinite useful life and usually appreciates in value."
+            }
+          }]
+        },
+        {
+          "id": "u3-s2",
+          "title": "Step 2: Straight Line Method (SLM)",
+          "concepts": [{
+            "id": "c3-2",
+            "title": "Fixed Installment",
+            "theory": "**SLM** charges an equal amount of depreciation every year. \n\nFormula: $Dep = (Cost - Scrap Value) / Life$\n\nIt is simple and suitable for assets like leases where value declines uniformly.",
+            "mcq": {
+              "id": "m3-2",
+              "question": "If a machine costs $10,000, has a scrap value of $2,000, and a life of 4 years, what is the annual SLM depreciation?",
+              "options": ["$2,000", "$2,500", "$3,000", "$4,000"],
+              "correctAnswer": 0,
+              "explanation": "(10,000 - 2,000) / 4 = 2,000."
+            }
+          }]
+        },
+        {
+          "id": "u3-s3",
+          "title": "Step 3: Written Down Value (WDV)",
+          "concepts": [{
+            "id": "c3-3",
+            "title": "Diminishing Balance",
+            "theory": "**WDV** charges depreciation as a fixed percentage on the *book value* at the start of each year. The depreciation amount decreases every year. Most tax laws prefer this method.",
+            "mcq": {
+              "id": "m3-3",
+              "question": "In which method does the depreciation amount remain constant every year?",
+              "options": ["SLM", "WDV", "Sum of Digits", "Annuity"],
+              "correctAnswer": 0,
+              "explanation": "SLM (Straight Line) uses a fixed amount based on original cost."
+            }
+          }]
+        },
+        {
+          "id": "u3-s4",
+          "title": "Step 4: Provisions and Reserves",
+          "concepts": [{
+            "id": "c3-4",
+            "title": "Future Planning",
+            "theory": "* **Provision**: A charge against profit for a known liability whose amount is uncertain (e.g., Provision for Bad Debts).\n* **Reserve**: An appropriation of profit to strengthen the financial position (e.g., General Reserve).",
+            "mcq": {
+              "id": "m3-4",
+              "question": "Which of these is a 'charge against profit'?",
+              "options": ["General Reserve", "Provision for Depreciation", "Dividend Reserve", "Capital Reserve"],
+              "correctAnswer": 1,
+              "explanation": "Provisions are mandatory expenses (charges) that must be deducted even if there is a loss."
+            }
+          }]
+        },
+        {
+          "id": "u3-s5",
+          "title": "Step 5: Types of Inventory",
+          "concepts": [{
+            "id": "c3-5",
+            "title": "Stock Categories",
+            "theory": "Inventory in a manufacturing concern includes:\n1. **Raw Materials**: Unprocessed items.\n2. **Work-in-Process (WIP)**: Partially completed goods.\n3. **Finished Goods**: Ready for sale.",
+            "mcq": {
+              "id": "m3-5",
+              "question": "Cotton for a textile mill is classified as:",
+              "options": ["Finished Good", "Raw Material", "WIP", "Asset"],
+              "correctAnswer": 1,
+              "explanation": "It is the primary input before processing."
+            }
+          }]
+        },
+        {
+          "id": "u3-s6",
+          "title": "Step 6: Periodic vs Perpetual Inventory",
+          "concepts": [{
+            "id": "c3-6",
+            "title": "Tracking Methods",
+            "theory": "* **Periodic**: Physical count done at the end of the year.\n* **Perpetual**: Continuous record of stock after every sale/purchase. This allows for 'real-time' stock management.",
+            "mcq": {
+              "id": "m3-6",
+              "question": "Which system provides 'real-time' stock balances?",
+              "options": ["Periodic", "Perpetual", "FIFO", "LIFO"],
+              "correctAnswer": 1,
+              "explanation": "Perpetual systems update the inventory account continuously."
+            }
+          }]
+        },
+        {
+          "id": "u3-s7",
+          "title": "Step 7: FIFO Method",
+          "concepts": [{
+            "id": "c3-7",
+            "title": "First-In, First-Out",
+            "theory": "**FIFO** assumes that the oldest items are sold first. During inflation (rising prices), FIFO results in higher profit and higher ending inventory value because the 'old' (cheaper) costs are assigned to sales.",
+            "mcq": {
+              "id": "m3-7",
+              "question": "In a period of RISING prices, which method gives the highest profit?",
+              "options": ["FIFO", "LIFO", "Weighted Average", "SLM"],
+              "correctAnswer": 0,
+              "explanation": "FIFO uses the oldest (cheapest) costs for COGS, leaving higher profit."
+            }
+          }]
+        },
+        {
+          "id": "u3-s8",
+          "title": "Step 8: LIFO Method",
+          "concepts": [{
+            "id": "c3-8",
+            "title": "Last-In, First-Out",
+            "theory": "**LIFO** assumes the newest items are sold first. It is often used to reduce tax in inflationary periods by matching current high costs against revenue. \n\n*Note: LIFO is prohibited under IFRS/Ind AS.*",
+            "mcq": {
+              "id": "m3-8",
+              "question": "Why would a company choose LIFO during inflation?",
+              "options": ["To show high profit", "To reduce income tax", "To simplify records", "To increase stock value"],
+              "correctAnswer": 1,
+              "explanation": "Higher costs lead to lower taxable profit, saving cash on taxes."
+            }
+          }]
+        },
+        {
+          "id": "u3-s9",
+          "title": "Step 9: Weighted Average Cost",
+          "concepts": [{
+            "id": "c3-9",
+            "title": "Smoothing Prices",
+            "theory": "This method calculates an average cost per unit: \n$Average = Total Cost / Total Units$\n\nEvery time new stock is bought, a new average is calculated. It smooths out price fluctuations.",
+            "mcq": {
+              "id": "m3-9",
+              "question": "What is the advantage of the Weighted Average method?",
+              "options": ["It matches physical flow perfectly", "It reduces record-keeping", "It smooths out the effects of price changes", "It is mandatory for all"],
+              "correctAnswer": 2,
+              "explanation": "By averaging, sudden price jumps don't drastically change the COGS of a single sale."
+            }
+          }]
+        },
+        {
+          "id": "u3-s10",
+          "title": "Step 10: Lower of Cost or Market",
+          "concepts": [{
+            "id": "c3-10",
+            "title": "Conservatism in Action",
+            "theory": "Inventory must be recorded at **Cost** or **Net Realizable Value (NRV)**, whichever is lower. This ensures that we do not anticipate extra profit but recognize potential losses immediately.",
+            "mcq": {
+              "id": "m3-10",
+              "question": "If cost is $100 and market price is $80, at what price should stock be recorded?",
+              "options": ["$100", "$80", "$90", "$0"],
+              "correctAnswer": 1,
+              "explanation": "We must choose the lower value (80) to be conservative."
+            }
+          }]
+        }
+      ]
+    },
+    {
+      "id": "unit-4",
+      "title": "Unit 4: Preparation of Final Accounts",
+      "description": "Synthesizing the accounting year into profit metrics and financial position statements.",
+      "topics": [
+        {
+          "id": "u4-s1",
+          "title": "Step 1: Introduction to Final Accounts",
+          "concepts": [{
+            "id": "c4-1",
+            "title": "The End Product",
+            "theory": "**Final Accounts** are prepared at the end of the fiscal year to show the profitability and financial position. It consists of:\n1. **Trading Account**\n2. **Profit & Loss Account**\n3. **Balance Sheet**",
+            "mcq": {
+              "id": "m4-1",
+              "question": "Which of the following is NOT an account but a statement?",
+              "options": ["Trading Account", "P&L Account", "Balance Sheet", "Cash Book"],
+              "correctAnswer": 2,
+              "explanation": "Balance Sheet is a statement of assets and liabilities at a specific point in time, not a running account."
+            }
+          }]
+        },
+        {
+          "id": "u4-s2",
+          "title": "Step 2: Trading Account",
+          "concepts": [{
+            "id": "c4-2",
+            "title": "Direct Performance",
+            "theory": "The **Trading Account** calculates **Gross Profit (GP)**. It includes:\n* **Debits**: Opening Stock, Purchases, Direct Expenses (Wages, Carriage Inward, Fuel).\n* **Credits**: Sales, Closing Stock.\n\n$GP = (Sales + Closing Stock) - (Opening Stock + Purchases + Direct Expenses)$",
+            "mcq": {
+              "id": "m4-2",
+              "question": "Where is 'Carriage Inward' recorded?",
+              "options": ["Trading A/c (Debit)", "P&L A/c (Debit)", "Trading A/c (Credit)", "Balance Sheet"],
+              "correctAnswer": 0,
+              "explanation": "Carriage inward is a direct expense related to bringing goods to the warehouse."
+            }
+          }]
+        },
+        {
+          "id": "u4-s3",
+          "title": "Step 3: Profit & Loss Account",
+          "concepts": [{
+            "id": "c4-3",
+            "title": "Net Performance",
+            "theory": "The **P&L Account** starts with Gross Profit and deducts **Indirect Expenses** (Salaries, Rent, Advertising, Depreciation) to calculate **Net Profit (NP)**.",
+            "mcq": {
+              "id": "m4-3",
+              "question": "Which item is found in the P&L Account?",
+              "options": ["Wages", "Office Salaries", "Carriage Inward", "Opening Stock"],
+              "correctAnswer": 1,
+              "explanation": "Office salaries are indirect administration costs recorded in P&L."
+            }
+          }]
+        },
+        {
+          "id": "u4-s4",
+          "title": "Step 4: The Balance Sheet",
+          "concepts": [{
+            "id": "c4-4",
+            "title": "Financial Snapshot",
+            "theory": "The **Balance Sheet** lists Assets (what we own) and Liabilities (what we owe). \n\n* **Current Assets**: Cash, Debtors, Stock.\n* **Fixed Assets**: Land, Building, Plant.\n* **Liabilities**: Loans, Creditors, Capital.",
+            "mcq": {
+              "id": "m4-4",
+              "question": "Where is 'Net Profit' transferred at the end of the year?",
+              "options": ["To the Bank", "To the Capital account", "To a Drawing account", "To the Suspense account"],
+              "correctAnswer": 1,
+              "explanation": "Net Profit increases the owner's stake (Capital) and is added to it in the Balance Sheet."
+            }
+          }]
+        },
+        {
+          "id": "u4-s5",
+          "title": "Step 5: Adjustment: Closing Stock",
+          "concepts": [{
+            "id": "c4-5",
+            "title": "Unsold Goods",
+            "theory": "Closing stock is the value of unsold goods. It is usually given outside the trial balance as an 'adjustment'.\n\n**Double Treatment**:\n1. Credit side of Trading A/c.\n2. Asset side of Balance Sheet.",
+            "mcq": {
+              "id": "m4-5",
+              "question": "If closing stock is given outside the Trial Balance, where is it recorded?",
+              "options": ["Only Trading A/c", "Only Balance Sheet", "Both Trading and Balance Sheet", "Only P&L A/c"],
+              "correctAnswer": 2,
+              "explanation": "Adjustments outside the trial balance always have a two-fold effect in final accounts."
+            }
+          }]
+        },
+        {
+          "id": "u4-s6",
+          "title": "Step 6: Outstanding Expenses",
+          "concepts": [{
+            "id": "c4-6",
+            "title": "Due but Not Paid",
+            "theory": "**Outstanding Expenses** are expenses related to the current year but not yet paid (e.g., unpaid December salary).\n\n**Treatment**:\n1. Add to the expense in P&L/Trading A/c.\n2. Show as a Liability in the Balance Sheet.",
+            "mcq": {
+              "id": "m4-6",
+              "question": "Outstanding Rent is classified as a:",
+              "options": ["Current Asset", "Current Liability", "Fixed Asset", "Income"],
+              "correctAnswer": 1,
+              "explanation": "It is a debt the business must pay shortly."
+            }
+          }]
+        },
+        {
+          "id": "u4-s7",
+          "title": "Step 7: Prepaid Expenses",
+          "concepts": [{
+            "id": "c4-7",
+            "title": "Paid in Advance",
+            "theory": "**Prepaid Expenses** are payments made in advance for the next period (e.g., Insurance paid for 15 months).\n\n**Treatment**:\n1. Subtract from the expense in P&L.\n2. Show as a Current Asset in the Balance Sheet.",
+            "mcq": {
+              "id": "m4-7",
+              "question": "Prepaid Insurance is considered as:",
+              "options": ["Asset", "Liability", "Gain", "Loss"],
+              "correctAnswer": 0,
+              "explanation": "It represents a benefit we will receive in the future, hence it is an asset."
+            }
+          }]
+        },
+        {
+          "id": "u4-s8",
+          "title": "Step 8: Accrued Income",
+          "concepts": [{
+            "id": "c4-8",
+            "title": "Earned but Not Received",
+            "theory": "**Accrued Income** is income earned during the year but not yet received in cash.\n\n**Treatment**:\n1. Add to the income in P&L A/c.\n2. Show as a Current Asset in the Balance Sheet.",
+            "mcq": {
+              "id": "m4-8",
+              "question": "Where is 'Accrued Interest' shown in the Balance Sheet?",
+              "options": ["Liability side", "Asset side", "Not shown", "Deducted from Capital"],
+              "correctAnswer": 1,
+              "explanation": "It is an amount owed to us, making it an asset."
+            }
+          }]
+        },
+        {
+          "id": "u4-s9",
+          "title": "Step 9: Provision for Doubtful Debts",
+          "concepts": [{
+            "id": "c4-9",
+            "title": "Anticipating Bad Debts",
+            "theory": "Following the **Prudence Concept**, we create a provision (e.g., 5%) for debtors who might not pay. \n\n**Treatment**:\n1. Debit P&L A/c.\n2. Deduct from Debtors in the Balance Sheet.",
+            "mcq": {
+              "id": "m4-9",
+              "question": "Creating a provision for doubtful debts is an application of which concept?",
+              "options": ["Going Concern", "Conservatism (Prudence)", "Materiality", "Money Measurement"],
+              "correctAnswer": 1,
+              "explanation": "We are anticipating a potential loss and providing for it."
+            }
+          }]
+        },
+        {
+          "id": "u4-s10",
+          "title": "Step 10: Sole Proprietorship Final Accounts",
+          "concepts": [{
+            "id": "c4-10",
+            "title": "Single Owner reporting",
+            "theory": "For a sole trader, all Net Profit belongs to the owner. **Drawings** (money taken by the owner for personal use) are deducted from the Capital in the Balance Sheet.",
+            "mcq": {
+              "id": "m4-10",
+              "question": "How are 'Drawings' treated in the Balance Sheet?",
+              "options": ["Added to Capital", "Deducted from Capital", "Shown as an Asset", "Shown as a Liability"],
+              "correctAnswer": 1,
+              "explanation": "Drawings reduce the total equity the owner has in the business."
+            }
+          }]
+        }
+      ]
+    },
+    {
+      "id": "unit-5",
+      "title": "Unit 5: Specialized Accounts",
+      "description": "Handling complex business structures from partnerships to non-profit organizations.",
+      "topics": [
+        {
+          "id": "u5-s1",
+          "title": "Step 1: Partnership Basics",
+          "concepts": [{
+            "id": "c5-1",
+            "title": "The Partnership Deed",
+            "theory": "A **Partnership** is a business owned by two or more people. The **Partnership Deed** is a written agreement containing rules on profit sharing, salary, and interest on capital. If no deed exists, profits are shared equally.",
+            "mcq": {
+              "id": "m5-1",
+              "question": "In the absence of a partnership deed, how are profits shared?",
+              "options": ["Capital ratio", "Equally", "60:40", "Management ratio"],
+              "correctAnswer": 1,
+              "explanation": "Legal default in the absence of an agreement is equal distribution of profit/loss."
+            }
+          }]
+        },
+        {
+          "id": "u5-s2",
+          "title": "Step 2: P&L Appropriation",
+          "concepts": [{
+            "id": "c5-2",
+            "title": "Dividing the Spoils",
+            "theory": "The **P&L Appropriation Account** is prepared AFTER the P&L account to show how Net Profit is divided among partners (interest on capital, salary, transfer to reserves).",
+            "mcq": {
+              "id": "m5-2",
+              "question": "Which of these appears in P&L Appropriation?",
+              "options": ["Office Rent", "Partner's Salary", "Audit Fees", "Depreciation"],
+              "correctAnswer": 1,
+              "explanation": "Partner-specific payments are considered appropriations of profit, not normal business expenses."
+            }
+          }]
+        },
+        {
+          "id": "u5-s3",
+          "title": "Step 3: Admission of a Partner",
+          "concepts": [{
+            "id": "c5-3",
+            "title": "Sacrificing Ratio",
+            "theory": "When a new partner joins, the old partners 'sacrifice' a part of their profit share. \n\n**Sacrificing Ratio** = Old Ratio - New Ratio.\nThis is used to distribute the 'Goodwill' brought in by the new partner.",
+            "mcq": {
+              "id": "m5-3",
+              "question": "Why is the sacrificing ratio calculated?",
+              "options": ["To admit a partner", "To distribute goodwill", "To pay tax", "To close the firm"],
+              "correctAnswer": 1,
+              "explanation": "The new partner pays for the share of profit the old partners give up."
+            }
+          }]
+        },
+        {
+          "id": "u5-s4",
+          "title": "Step 4: Valuation of Goodwill",
+          "concepts": [{
+            "id": "c5-4",
+            "title": "The Intangible Value",
+            "theory": "**Goodwill** is the reputation of a firm which enables it to earn higher profits than a normal firm. \n\n**Average Profit Method**: $Goodwill = Average Profit \times Number of Years' Purchase$.",
+            "mcq": {
+              "id": "m5-4",
+              "question": "If average profit is $10k and purchase period is 3 years, what is the goodwill?",
+              "options": ["$10k", "$20k", "$30k", "$13k"],
+              "correctAnswer": 2,
+              "explanation": "10,000 * 3 = 30,000."
+            }
+          }]
+        },
+        {
+          "id": "u5-s5",
+          "title": "Step 5: Retirement and Death",
+          "concepts": [{
+            "id": "c5-5",
+            "title": "Gaining Ratio",
+            "theory": "When a partner leaves, the remaining partners 'gain' their share. \n\n**Gaining Ratio** = New Ratio - Old Ratio.\nAll accumulated reserves/profits are shared among all partners (including the retiring one) in the old ratio.",
+            "mcq": {
+              "id": "m5-5",
+              "question": "Accumulated profits at the time of retirement are distributed in:",
+              "options": ["New ratio", "Gaining ratio", "Old profit sharing ratio", "Capital ratio"],
+              "correctAnswer": 2,
+              "explanation": "Reserves were earned while everyone was a partner, so they belong to the old team."
+            }
+          }]
+        },
+        {
+          "id": "u5-s6",
+          "title": "Step 6: Non-Profit Organizations (NPOs)",
+          "concepts": [{
+            "id": "c5-6",
+            "title": "Social Reporting",
+            "theory": "NPOs (clubs, hospitals, schools) work for service, not profit. They prepare:\n1. **Receipts & Payments Account** (Summary of Cash Book).\n2. **Income & Expenditure Account** (Equivalent to P&L).\n3. **Balance Sheet**.",
+            "mcq": {
+              "id": "m5-6",
+              "question": "What is the nature of the Receipts & Payments account?",
+              "options": ["Real Account", "Nominal Account", "Personal Account", "Liability Account"],
+              "correctAnswer": 0,
+              "explanation": "It is essentially a cash account summary (Real Account)."
+            }
+          }]
+        },
+        {
+          "id": "u5-s7",
+          "title": "Step 7: Income & Expenditure Account",
+          "concepts": [{
+            "id": "c5-7",
+            "title": "Surplus or Deficit",
+            "theory": "This account is prepared on the **Accrual Basis**. Only revenue items are recorded. A positive balance is called a **Surplus**, while a negative one is a **Deficit**.",
+            "mcq": {
+              "id": "m5-7",
+              "question": "NPOs call their 'Net Profit' as:",
+              "options": ["Revenue", "Capital", "Surplus", "Legacy"],
+              "correctAnswer": 2,
+              "explanation": "Since they don't 'profit' commercially, the excess is termed a surplus."
+            }
+          }]
+        },
+        {
+          "id": "u5-s8",
+          "title": "Step 8: Consignment Accounts",
+          "concepts": [{
+            "id": "c5-8",
+            "title": "Agency Sales",
+            "theory": "A businessman (**Consignor**) sends goods to an agent (**Consignee**) for sale on a commission basis. The risk remains with the consignor until the goods are sold to the final customer.",
+            "mcq": {
+              "id": "m5-8",
+              "question": "Who owns the goods in a consignment during transit?",
+              "options": ["Consignor", "Consignee", "Agent", "Customer"],
+              "correctAnswer": 0,
+              "explanation": "Ownership doesn't transfer to the consignee; they are just a middleman."
+            }
+          }]
+        },
+        {
+          "id": "u5-s9",
+          "title": "Step 9: Del Credere Commission",
+          "concepts": [{
+            "id": "c5-9",
+            "title": "Guaranteeing Credit",
+            "theory": "To encourage the agent to sell on credit, the consignor pays an extra **Del Credere Commission**. In return, the consignee takes the risk of bad debts.",
+            "mcq": {
+              "id": "m5-9",
+              "question": "If Del Credere commission is paid, who bears the loss of bad debts?",
+              "options": ["Consignor", "Consignee", "Insurance company", "Government"],
+              "correctAnswer": 1,
+              "explanation": "The extra commission shifts the bad debt risk to the agent (consignee)."
+            }
+          }]
+        },
+        {
+          "id": "u5-s10",
+          "title": "Step 10: Joint Ventures",
+          "concepts": [{
+            "id": "c5-10",
+            "title": "Temporary Partnership",
+            "theory": "A **Joint Venture** is a temporary partnership for a specific project/time. Once the project is done, the venture ends. Partners are called **Co-venturers**.",
+            "mcq": {
+              "id": "m5-10",
+              "question": "How is a Joint Venture different from a normal Partnership?",
+              "options": ["More people", "Specific project duration", "Higher tax", "Different rules"],
+              "correctAnswer": 1,
+              "explanation": "Ventures are specifically for a task (like building a bridge) and dissolve automatically afterward."
+            }
+          }]
+        }
+      ]
+    },
+    {
+      "id": "unit-6",
+      "title": "Unit 6: Corporate & Modern Trends",
+      "description": "Mastering share capital, financial analysis, and the future of digital reporting.",
+      "topics": [
+        {
+          "id": "u6-s1",
+          "title": "Step 1: Company Share Capital",
+          "concepts": [{
+            "id": "c6-1",
+            "title": "Ownership in Units",
+            "theory": "A **Company** is a legal entity separate from its owners. Its capital is divided into small units called **Shares**. Owners are called **Shareholders**. \n\n* **Authorized Capital**: Maximum capital a company can issue.\n* **Issued Capital**: Part of authorized capital offered to the public.",
+            "mcq": {
+              "id": "m6-1",
+              "question": "What is the smallest unit of a company's capital called?",
+              "options": ["Dividend", "Bond", "Share", "Debit"],
+              "correctAnswer": 2,
+              "explanation": "Shares represent fractional ownership in a corporation."
+            }
+          }]
+        },
+        {
+          "id": "u6-s2",
+          "title": "Step 2: Issue of Shares",
+          "concepts": [{
+            "id": "c6-2",
+            "title": "Par, Premium, and Discount",
+            "theory": "Shares can be issued at:\n1. **Par**: At face value (Face value $10, Issue price $10).\n2. **Premium**: Above face value (Face value $10, Issue price $12). The extra $2 goes to **Securities Premium Account**.\n3. **Discount**: Below face value (Prohibited for most shares under modern laws).",
+            "mcq": {
+              "id": "m6-2",
+              "question": "If a $100 share is issued at $110, the extra $10 is called:",
+              "options": ["Discount", "Premium", "Profit", "Interest"],
+              "correctAnswer": 1,
+              "explanation": "Issuing above face value is an issue at premium."
+            }
+          }]
+        },
+        {
+          "id": "u6-s3",
+          "title": "Step 3: Debentures",
+          "concepts": [{
+            "id": "c6-3",
+            "title": "Borrowed Capital",
+            "theory": "A **Debenture** is a certificate of debt issued by a company under its seal. Unlike shareholders, debenture holders are **Creditors** and receive a fixed rate of **Interest**, which must be paid even if there is a loss.",
+            "mcq": {
+              "id": "m6-3",
+              "question": "What do debenture holders receive from the company?",
+              "options": ["Dividend", "Interest", "Salary", "Bonus"],
+              "correctAnswer": 1,
+              "explanation": "Debentures are loans, so the return is interest, not a share of profit (dividend)."
+            }
+          }]
+        },
+        {
+          "id": "u6-s4",
+          "title": "Step 4: Ratio Analysis",
+          "concepts": [{
+            "id": "c6-4",
+            "title": "Numerical Interpretation",
+            "theory": "Ratios help in comparing financial data across years or companies. \n\n* **Liquidity Ratios**: Ability to pay short-term debts.\n* **Solvency Ratios**: Ability to pay long-term debts.\n* **Profitability Ratios**: Efficiency in generating profit.",
+            "mcq": {
+              "id": "m6-4",
+              "question": "Which ratio measures the efficiency of a company's operations?",
+              "options": ["Liquidity Ratio", "Solvency Ratio", "Profitability Ratio", "Current Ratio"],
+              "correctAnswer": 2,
+              "explanation": "Profitability ratios (like Net Profit Ratio) show how well the company converts sales into earnings."
+            }
+          }]
+        },
+        {
+          "id": "u6-s5",
+          "title": "Step 5: Current Ratio",
+          "concepts": [{
+            "id": "c6-5",
+            "title": "The 2:1 Benchmark",
+            "theory": "The **Current Ratio** measures short-term solvency. \n\n$Ratio = Current Assets / Current Liabilities$\n\nAn ideal ratio is **2:1**, meaning the company has twice the assets needed to cover its immediate debts.",
+            "mcq": {
+              "id": "m6-5",
+              "question": "If Current Assets are $20,000 and Current Liabilities are $10,000, what is the Current Ratio?",
+              "options": ["1:1", "2:1", "1:2", "3:1"],
+              "correctAnswer": 1,
+              "explanation": "20,000 / 10,000 = 2."
+            }
+          }]
+        },
+        {
+          "id": "u6-s6",
+          "title": "Step 6: Debt-Equity Ratio",
+          "concepts": [{
+            "id": "c6-6",
+            "title": "Risk Measurement",
+            "theory": "This ratio shows the proportion of long-term debt to shareholders' equity. \n\n$Ratio = Long Term Debt / Shareholders' Equity$\n\nA high ratio indicates the company is using more borrowed money, which increases financial risk.",
+            "mcq": {
+              "id": "m6-6",
+              "question": "A high Debt-Equity ratio generally signifies:",
+              "options": ["Low risk", "High risk", "High liquidity", "High profit"],
+              "correctAnswer": 1,
+              "explanation": "High debt means high interest obligations, making the company vulnerable during downturns."
+            }
+          }]
+        },
+        {
+          "id": "u6-s7",
+          "title": "Step 7: Cash Flow Statement",
+          "concepts": [{
+            "id": "c7-7",
+            "title": "Tracking the Cash",
+            "theory": "A **Cash Flow Statement** explains why the cash balance changed during a period. It is divided into:\n1. **Operating Activities**: Primary business (selling goods).\n2. **Investing Activities**: Buying/selling fixed assets.\n3. **Financing Activities**: Issuing shares or taking loans.",
+            "mcq": {
+              "id": "m6-7",
+              "question": "Buying a new factory is which type of cash flow activity?",
+              "options": ["Operating", "Investing", "Financing", "Personal"],
+              "correctAnswer": 1,
+              "explanation": "Investment in assets is an investing activity."
+            }
+          }]
+        },
+        {
+          "id": "u6-s8",
+          "title": "Step 8: Cash from Financing",
+          "concepts": [{
+            "id": "c6-8",
+            "title": "Raising Capital",
+            "theory": "Financing activities include:\n* Cash inflows from issuing shares or debentures.\n* Cash outflows for paying dividends or redeeming loans.",
+            "mcq": {
+              "id": "m6-8",
+              "question": "Paying a dividend to shareholders is categorized as:",
+              "options": ["Operating Activity", "Investing Activity", "Financing Activity", "Not a cash flow"],
+              "correctAnswer": 2,
+              "explanation": "Dividends are payments related to raising and maintaining capital (Financing)."
+            }
+          }]
+        },
+        {
+          "id": "u6-s9",
+          "title": "Step 9: Computerized Accounting Systems (CAS)",
+          "concepts": [{
+            "id": "c6-9",
+            "title": "Digital Ledgers",
+            "theory": "CAS use software (like Tally or SAP) to automate the accounting cycle. Benefits:\n1. **Speed**: Instant ledger posting and balance sheet generation.\n2. **Accuracy**: Eliminates manual arithmetic errors.\n3. **Backup**: Easy data recovery.",
+            "mcq": {
+              "id": "m6-9",
+              "question": "What is a major advantage of Computerized Accounting?",
+              "options": ["Higher cost", "Slower processing", "Automated Trial Balance generation", "Requires no security"],
+              "correctAnswer": 2,
+              "explanation": "Once journals are entered, the system automatically updates ledgers and reports in real-time."
+            }
+          }]
+        },
+        {
+          "id": "u6-s10",
+          "title": "Step 10: The Future: Cloud Accounting",
+          "concepts": [{
+            "id": "c6-10",
+            "title": "Reporting from Anywhere",
+            "theory": "**Cloud Accounting** stores financial data on remote servers. Business owners can check profits, invoices, and bank balances from any device with an internet connection. It enables real-time collaboration with auditors.",
+            "mcq": {
+              "id": "m6-10",
+              "question": "Cloud accounting allows users to access financial data via:",
+              "options": ["Only one specific PC", "The Internet", "Physical paper only", "USB drives only"],
+              "correctAnswer": 1,
+              "explanation": "Internet connectivity is the core enabler for cloud-based reporting."
+            }
+          }]
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+

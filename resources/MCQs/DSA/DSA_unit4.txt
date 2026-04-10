@@ -1,0 +1,302 @@
+Data Structures – UNIT-4 MCQ
+1. A tree is a ______ data structure.
+a) Linear b) Non-linear c) Sequential d) Circular
+2. The topmost node of a tree is called ______.
+a) Leaf b) Root c) Parent d) Child
+3. A node with no children is called ______.
+a) Root b) Internal node c) Leaf node d) Parent node
+4. Nodes having the same parent are called ______.
+a) Ancestors b) Siblings c) Descendants d) Leaves
+5. The number of children of a node is called its ______.
+a) Height b) Degree c) Depth d) Level
+6. The maximum degree of any node in the tree is called ______.
+a) Degree of tree b) Height c) Level d) Weight
+7. The number of edges from root to node is called ______.
+a) Height b) Depth c) Weight d) Size
+8. The number of nodes in a tree is called ______.
+a) Weight b) Size c) Order d) Height
+9. A node having at least one child is called ______.
+a) Leaf node b) Internal node c) Root node d) External node
+10. A binary tree has at most ______ children per node.
+a) 1 b) 2 c) 3 d) 4
+11. A tree is a ______ data structure.
+a) Linear b) Non-linear c) Sequential d) Circular
+12. The topmost node of a tree is called ______.
+a) Leaf b) Root c) Parent d) Child
+13. A node with no children is called ______.
+a) Root b) Internal node c) Leaf node d) Parent node
+14. Nodes having the same parent are called ______.
+a) Ancestors b) Siblings c) Descendants d) Leaves
+15. The number of children of a node is called its ______.
+a) Height b) Degree c) Depth d) Level
+16. The maximum degree of any node in the tree is called ______.
+a) Degree of tree b) Height c) Level d) Weight
+17. The number of edges from root to node is called ______.
+a) Height b) Depth c) Weight d) Size
+18. The number of nodes in a tree is called ______.
+a) Weight b) Size c) Order d) Height
+19. A node having at least one child is called ______.
+a) Leaf node b) Internal node c) Root node d) External node
+20. A binary tree has at most ______ children per node.
+a) 1 b) 2 c) 3 d) 4
+21. A tree is a ______ data structure.
+a) Linear b) Non-linear c) Sequential d) Circular
+22. The topmost node of a tree is called ______.
+a) Leaf b) Root c) Parent d) Child
+23. A node with no children is called ______.
+a) Root b) Internal node c) Leaf node d) Parent node
+24. Nodes having the same parent are called ______.
+a) Ancestors b) Siblings c) Descendants d) Leaves
+25. The number of children of a node is called its ______.
+a) Height b) Degree c) Depth d) Level
+26. The maximum degree of any node in the tree is called ______.
+a) Degree of tree b) Height c) Level d) Weight
+27. The number of edges from root to node is called ______.
+a) Height b) Depth c) Weight d) Size
+28. The number of nodes in a tree is called ______.
+a) Weight b) Size c) Order d) Height
+29. A node having at least one child is called ______.
+a) Leaf node b) Internal node c) Root node d) External node
+30. A binary tree has at most ______ children per node.
+a) 1 b) 2 c) 3 d) 4
+31. A tree is a ______ data structure.
+a) Linear b) Non-linear c) Sequential d) Circular
+32. The topmost node of a tree is called ______.
+a) Leaf b) Root c) Parent d) Child
+33. A node with no children is called ______.
+a) Root b) Internal node c) Leaf node d) Parent node
+34. Nodes having the same parent are called ______.
+a) Ancestors b) Siblings c) Descendants d) Leaves
+35. The number of children of a node is called its ______.
+a) Height b) Degree c) Depth d) Level
+36. The maximum degree of any node in the tree is called ______.
+a) Degree of tree b) Height c) Level d) Weight
+37. The number of edges from root to node is called ______.
+a) Height b) Depth c) Weight d) Size
+38. The number of nodes in a tree is called ______.
+a) Weight b) Size c) Order d) Height
+39. A node having at least one child is called ______.
+a) Leaf node b) Internal node c) Root node d) External node
+40. A binary tree has at most ______ children per node.
+a) 1 b) 2 c) 3 d) 4
+41. A tree is a ______ data structure.
+a) Linear b) Non-linear c) Sequential d) Circular
+42. The topmost node of a tree is called ______.
+a) Leaf b) Root c) Parent d) Child
+43. A node with no children is called ______.
+a) Root b) Internal node c) Leaf node d) Parent node
+44. Nodes having the same parent are called ______.
+a) Ancestors b) Siblings c) Descendants d) Leaves
+45. The number of children of a node is called its ______.
+a) Height b) Degree c) Depth d) Level
+46. The maximum degree of any node in the tree is called ______.
+a) Degree of tree b) Height c) Level d) Weight
+47. The number of edges from root to node is called ______.
+a) Height b) Depth c) Weight d) Size
+48. The number of nodes in a tree is called ______.
+a) Weight b) Size c) Order d) Height
+49. A node having at least one child is called ______.
+a) Leaf node b) Internal node c) Root node d) External node
+50. A binary tree has at most ______ children per node.
+a) 1 b) 2 c) 3 d) 4
+51. A tree is a ______ data structure.
+a) Linear b) Non-linear c) Sequential d) Circular
+52. The topmost node of a tree is called ______.
+a) Leaf b) Root c) Parent d) Child
+53. A node with no children is called ______.
+a) Root b) Internal node c) Leaf node d) Parent node
+54. Nodes having the same parent are called ______.
+a) Ancestors b) Siblings c) Descendants d) Leaves
+55. The number of children of a node is called its ______.
+a) Height b) Degree c) Depth d) Level
+56. The maximum degree of any node in the tree is called ______.
+a) Degree of tree b) Height c) Level d) Weight
+57. The number of edges from root to node is called ______.
+a) Height b) Depth c) Weight d) Size
+58. The number of nodes in a tree is called ______.
+a) Weight b) Size c) Order d) Height
+59. A node having at least one child is called ______.
+a) Leaf node b) Internal node c) Root node d) External node
+60. A binary tree has at most ______ children per node.
+a) 1 b) 2 c) 3 d) 4
+61. A tree is a ______ data structure.
+a) Linear b) Non-linear c) Sequential d) Circular
+62. The topmost node of a tree is called ______.
+a) Leaf b) Root c) Parent d) Child
+63. A node with no children is called ______.
+a) Root b) Internal node c) Leaf node d) Parent node
+64. Nodes having the same parent are called ______.
+a) Ancestors b) Siblings c) Descendants d) Leaves
+65. The number of children of a node is called its ______.
+a) Height b) Degree c) Depth d) Level
+66. The maximum degree of any node in the tree is called ______.
+a) Degree of tree b) Height c) Level d) Weight
+67. The number of edges from root to node is called ______.
+a) Height b) Depth c) Weight d) Size
+68. The number of nodes in a tree is called ______.
+a) Weight b) Size c) Order d) Height
+69. A node having at least one child is called ______.
+a) Leaf node b) Internal node c) Root node d) External node
+70. A binary tree has at most ______ children per node.
+a) 1 b) 2 c) 3 d) 4
+71. A tree is a ______ data structure.
+a) Linear b) Non-linear c) Sequential d) Circular
+72. The topmost node of a tree is called ______.
+a) Leaf b) Root c) Parent d) Child
+73. A node with no children is called ______.
+a) Root b) Internal node c) Leaf node d) Parent node
+74. Nodes having the same parent are called ______.
+a) Ancestors b) Siblings c) Descendants d) Leaves
+75. The number of children of a node is called its ______.
+a) Height b) Degree c) Depth d) Level
+76. The maximum degree of any node in the tree is called ______.
+a) Degree of tree b) Height c) Level d) Weight
+77. The number of edges from root to node is called ______.
+a) Height b) Depth c) Weight d) Size
+78. The number of nodes in a tree is called ______.
+a) Weight b) Size c) Order d) Height
+79. A node having at least one child is called ______.
+a) Leaf node b) Internal node c) Root node d) External node
+80. A binary tree has at most ______ children per node.
+a) 1 b) 2 c) 3 d) 4
+81. A tree is a ______ data structure.
+a) Linear b) Non-linear c) Sequential d) Circular
+82. The topmost node of a tree is called ______.
+a) Leaf b) Root c) Parent d) Child
+83. A node with no children is called ______.
+a) Root b) Internal node c) Leaf node d) Parent node
+84. Nodes having the same parent are called ______.
+a) Ancestors b) Siblings c) Descendants d) Leaves
+85. The number of children of a node is called its ______.
+a) Height b) Degree c) Depth d) Level
+86. The maximum degree of any node in the tree is called ______.
+a) Degree of tree b) Height c) Level d) Weight
+87. The number of edges from root to node is called ______.
+a) Height b) Depth c) Weight d) Size
+88. The number of nodes in a tree is called ______.
+a) Weight b) Size c) Order d) Height
+89. A node having at least one child is called ______.
+a) Leaf node b) Internal node c) Root node d) External node
+90. A binary tree has at most ______ children per node.
+a) 1 b) 2 c) 3 d) 4
+91. A tree is a ______ data structure.
+a) Linear b) Non-linear c) Sequential d) Circular
+92. The topmost node of a tree is called ______.
+a) Leaf b) Root c) Parent d) Child
+93. A node with no children is called ______.
+a) Root b) Internal node c) Leaf node d) Parent node
+94. Nodes having the same parent are called ______.
+a) Ancestors b) Siblings c) Descendants d) Leaves
+95. The number of children of a node is called its ______.
+a) Height b) Degree c) Depth d) Level
+96. The maximum degree of any node in the tree is called ______.
+a) Degree of tree b) Height c) Level d) Weight
+97. The number of edges from root to node is called ______.
+a) Height b) Depth c) Weight d) Size
+98. The number of nodes in a tree is called ______.
+a) Weight b) Size c) Order d) Height
+99. A node having at least one child is called ______.
+a) Leaf node b) Internal node c) Root node d) External node
+100. A binary tree has at most ______ children per node.
+a) 1 b) 2 c) 3 d) 4
+Answer Key
+1. b
+2. b
+3. c
+4. b
+5. b
+6. a
+7. b
+8. b
+9. b
+10. b
+11. b
+12. b
+13. c
+14. b
+15. b
+16. a
+17. b
+18. b
+19. b
+20. b
+21. b
+22. b
+23. c
+24. b
+25. b
+26. a
+27. b
+28. b
+29. b
+30. b
+31. b
+32. b
+33. c
+34. b
+35. b
+36. a
+37. b
+38. b
+39. b
+40. b
+41. b
+42. b
+43. c
+44. b
+45. b
+46. a
+47. b
+48. b
+49. b
+50. b
+51. b
+52. b
+53. c
+54. b
+55. b
+56. a
+57. b
+58. b
+59. b
+60. b
+61. b
+62. b
+63. c
+64. b
+65. b
+66. a
+67. b
+68. b
+69. b
+70. b
+71. b
+72. b
+73. c
+74. b
+75. b
+76. a
+77. b
+78. b
+79. b
+80. b
+81. b
+82. b
+83. c
+84. b
+85. b
+86. a
+87. b
+88. b
+89. b
+90. b
+91. b
+92. b
+93. c
+94. b
+95. b
+96. a
+97. b
+98. b
+99. b
+100. b

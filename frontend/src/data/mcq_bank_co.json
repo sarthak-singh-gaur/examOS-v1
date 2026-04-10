@@ -1,0 +1,3662 @@
+{
+  "subjectId": "co",
+  "subjectTitle": "Computer Organization",
+  "topics": [
+    {
+      "id": "rtl-micro-ops",
+      "title": "RTL & Register Transfer Operations",
+      "unit": "Unit 1",
+      "questions": [
+        {
+          "question": "Which notation is conventionally utilized to represent the hardware transfer of data from register R1 to R2?",
+          "options": [
+            "R1 -> R2",
+            "R2 <- R1",
+            "R1 == R2",
+            "R2 = R1"
+          ],
+          "correctAnswer": 1,
+          "explanation": "In standard RTL, a left-pointing arrow denotes the physical routing of data into the destination register from a source.",
+          "id": "co-rtl-micro-ops-1"
+        },
+        {
+          "question": "A common bus system servicing 4 registers of 8 bits each necessitates how many individual multiplexers?",
+          "options": [
+            "4",
+            "8",
+            "16",
+            "32"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The architecture requires one multiplexer for each bit position across the registers, totaling 8 multiplexers.",
+          "id": "co-rtl-micro-ops-2"
+        },
+        {
+          "question": "What is the requisite dimension of each multiplexer required to construct a common bus for 8 registers of 16 bits each?",
+          "options": [
+            "4:1",
+            "8:1",
+            "16:1",
+            "32:1"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The multiplexer size is governed strictly by the number of source registers (8), requiring 3 selection lines.",
+          "id": "co-rtl-micro-ops-3"
+        },
+        {
+          "question": "The memory transfer operation that reads a designated word from the location specified by the Address Register (AR) is formally denoted as:",
+          "options": [
+            "M <- R1",
+            "R1 <- M",
+            "R1 <- AR",
+            "AR <- M"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Register R1 receives the fetched data payload from the specific memory index pointed to by AR.",
+          "id": "co-rtl-micro-ops-4"
+        },
+        {
+          "question": "Tri-state buffers are critically deployed in shared bus architectures to furnish which specific operational state?",
+          "options": [
+            "High impedance (Hi-Z)",
+            "Signal amplification",
+            "Memory persistence",
+            "Error parity correction"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The High Impedance state electrically isolates inactive register outputs from corrupting the shared data bus.",
+          "id": "co-rtl-micro-ops-5"
+        },
+        {
+          "question": "A complex CPU features 32 general-purpose registers, each 64 bits wide. How many distinct selection lines are mandated for the bus multiplexers?",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The required selection lines are defined logarithmically:  lines to uniquely address 32 sources.",
+          "id": "co-rtl-micro-ops-6"
+        },
+        {
+          "question": "What is the fundamental architectural divergence between a tri-state buffer bus and a multiplexer-based shared bus?",
+          "options": [
+            "Operating frequencies",
+            "Decoding versus encoding logic",
+            "High-impedance switching versus combinational logic routing",
+            "Serial versus parallel transmission"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Standard buses utilize tri-state high-impedance to prevent collisions; MUX buses use strict AND/OR combinational routing.",
+          "id": "co-rtl-micro-ops-7"
+        },
+        {
+          "question": "For the memory write operation , which specific CPU control signal must be actively asserted?",
+          "options": [
+            "Memory Read",
+            "Memory Write",
+            "Instruction Fetch",
+            "Operand Decode"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The Memory Write control strobe enables the RAM module to latch the data residing on the system data bus.",
+          "id": "co-rtl-micro-ops-8"
+        },
+        {
+          "question": "Which of the following RTL equations correctly formalizes a micro-operation subjected to a binary control condition ?",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correctAnswer": 0,
+          "explanation": "The colon syntax  definitively specifies the Boolean condition under which the subsequent transfer is authorized.",
+          "id": "co-rtl-micro-ops-9"
+        },
+        {
+          "question": "What architectural mechanism explicitly prevents destructive bus contention in a shared common bus system?",
+          "options": [
+            "The Instruction Register",
+            "The System Clock",
+            "Mutually exclusive Decoder output lines",
+            "The Stack Pointer"
+          ],
+          "correctAnswer": 2,
+          "explanation": "A decoder guarantees that only one specific source register's tri-state buffers are enabled at any given microsecond.",
+          "id": "co-rtl-micro-ops-10"
+        },
+        {
+          "question": "If  and , what is the result of the hardware micro-operation ?",
+          "options": [
+            "0110",
+            "1000",
+            "0100",
+            "1110"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The Exclusive-OR (XOR) operation evaluates to 1 exclusively when corresponding input bits differ: .",
+          "id": "co-rtl-micro-ops-11"
+        },
+        {
+          "question": "To clear the contents of a register without routing zeros from the bus, which logical micro-operation is optimally applied to the register against itself?",
+          "options": [
+            "AND",
+            "OR",
+            "XOR",
+            "NAND"
+          ],
+          "correctAnswer": 2,
+          "explanation": "XORing any binary sequence with itself () inherently forces all bits to logical zero.",
+          "id": "co-rtl-micro-ops-12"
+        },
+        {
+          "question": "In a 64-bit microarchitecture, a bus system engineered using tri-state buffers to service 16 distinct registers requires exactly how many buffers in total?",
+          "options": [
+            "64",
+            "1024",
+            "256",
+            "512"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The architecture demands one buffer per bit per register:  tri-state buffers.",
+          "id": "co-rtl-micro-ops-13"
+        },
+        {
+          "question": "The Boolean control expression  permits the data transfer to execute strictly under which logic state?",
+          "options": [
+            "Both X and Y are 1",
+            "X is 0 and Y is 1",
+            "X is 1 and Y is 0",
+            "Both X and Y are 0"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The control function  evaluates to a logical 1 (true) exclusively when variable X is 0 and variable Y is 1.",
+          "id": "co-rtl-micro-ops-14"
+        },
+        {
+          "question": "A shared common bus is constructed for 16 distinct registers, where each register is 32 bits wide. If implemented using discrete multiplexers, how many physical MUX units are required, and what is their configuration?",
+          "options": [
+            "16 units of 32:1 MUX",
+            "32 units of 16:1 MUX",
+            "1 unit of 16:1 MUX",
+            "64 units of 8:1 MUX"
+          ],
+          "correctAnswer": 1,
+          "explanation": "You need one multiplexer for every bit position across the bus (32 bits). Each multiplexer must be able to select from the 16 available source registers, requiring 32 individual",
+          "id": "co-rtl-micro-ops-15"
+        },
+        {
+          "question": "1 MUXes. 5. Which of the following Register Transfer Language (RTL) statements explicitly utilizes a masking AND logic operation to selectively clear specific bits?",
+          "options": [
+            "R1 <- R1 ∨ R2",
+            "R1 <- R1 ⊕ R2",
+            "R1 <- R1 ∧ R2'",
+            "R1 <- R1' ∧ R2"
+          ],
+          "correctAnswer": 2,
+          "explanation": "To selectively clear bits in R1, you must AND it with a mask (R",
+          "id": "co-rtl-micro-ops-16"
+        },
+        {
+          "question": "The positive magnitude is 00001101. Its 2's complement (inverting and adding 1) yields the correct signed representation: 11110011. 8. Which shift micro-operation is uniquely designed to act as an implicit multiplication by 2 for signed binary numbers?",
+          "options": [
+            "Logical Left Shift",
+            "Arithmetic Left Shift",
+            "Circular Right Shift",
+            "Logical Right Shift"
+          ],
+          "correctAnswer": 1,
+          "explanation": "An arithmetic left shift shifts bits to the left, inherently multiplying the magnitude by the base (",
+          "id": "co-rtl-micro-ops-17"
+        },
+        {
+          "question": ", while strict hardware checks ensure the sign bit does not erroneously flip (overflow). 9. In a Tri-State Buffer common bus architecture, what electrical phenomenon occurs if two separate register output decoders accidentally assert their enable lines simultaneously?",
+          "options": [
+            "High Impedance State",
+            "Logical Parity Correction",
+            "Destructive Bus Contention (Short Circuit)",
+            "Automatic Signal Arbitration"
+          ],
+          "correctAnswer": 2,
+          "explanation": "If two tri-state buffers attempt to drive the shared data bus simultaneously (one driving High, one driving Low), it creates a direct electrical short circuit known as bus contention.",
+          "id": "co-rtl-micro-ops-18"
+        },
+        {
+          "question": "An instruction cycle RTL is given as $T_0 : MAR \\leftarrow PC$. Which subsequent RTL operation logically MUST follow in $T_1$?",
+          "options": [
+            "$IR \\leftarrow M$",
+            "$PC \\leftarrow PC + 1$",
+            "$MBR \\leftarrow AC$",
+            "$MAR \\leftarrow IR(address)$"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Once the Memory Address Register (MAR) holds the program counter address, the very next physical step is fetching the memory contents into the Instruction Register (IR) or MBR.",
+          "id": "co-rtl-micro-ops-19"
+        },
+        {
+          "question": "Which specific hardware unit is entirely absent in a purely Combinational ALU?",
+          "options": [
+            "Multiplexers",
+            "XOR gates",
+            "Clocked Flip-Flops",
+            "Decoders"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Combinational logic relies entirely on present inputs and gate propagation. Flip-flops are sequential memory elements triggered by clocks, which are not part of the core combinational ALU datapath.",
+          "id": "co-rtl-micro-ops-20"
+        },
+        {
+          "question": "Which of the following boolean micro-operations represents the physical action of a masking operation to isolate the lower 4 bits of an 8-bit register?",
+          "options": [
+            "$R1 \\leftarrow R1 \\wedge 0x0F$",
+            "$R1 \\leftarrow R1 \\vee 0xF0$",
+            "$R1 \\leftarrow R1 \\oplus 0xFF$",
+            "$R1 \\leftarrow R1 \\wedge 0xF0$"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The hex mask 0x0F equals 00001111 in binary. ANDing this mask forces the upper 4 bits to 0 while preserving the lower 4 bits exactly as they were.",
+          "id": "co-rtl-micro-ops-21"
+        },
+        {
+          "question": "What physical component guarantees that memory bus lines hold their values long enough for a slow RAM module to read them during a write operation?",
+          "options": [
+            "The ALU",
+            "The Program Counter",
+            "Data Latches/Buffer Registers",
+            "The System Clock"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Buffer registers temporally \"latch\" and hold the stable data states so that slow peripheral memory modules have adequate electrical time to register the write command.",
+          "id": "co-rtl-micro-ops-22"
+        },
+        {
+          "question": "Consider the RTL statement: $xT_0: R1 \\leftarrow R2, R2 \\leftarrow R1$. If R1=5 and R2=10, what is the state of the registers after execution?",
+          "options": [
+            "R1=10, R2=10",
+            "R1=5, R2=5",
+            "R1=10, R2=5",
+            "Unpredictable collision"
+          ],
+          "correctAnswer": 2,
+          "explanation": "In standard RTL, operations separated by a comma execute concurrently in the exact same clock cycle. Therefore, they seamlessly swap their values without overriding each other prematurely.",
+          "id": "co-rtl-micro-ops-23"
+        },
+        {
+          "question": "A logic circuit outputs 1 if and only if exactly an odd number of its inputs are 1. This circuit is fundamentally a:",
+          "options": [
+            "NOR gate array",
+            "Magnitude Comparator",
+            "Parity Generator (XOR network)",
+            "Demultiplexer"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The defining mathematical trait of cascaded XOR gates is that they return a logical 1 strictly when an odd parity of inputs are high.",
+          "id": "co-rtl-micro-ops-24"
+        },
+        {
+          "question": ". UNIT-III: Combinational and Sequential Circuit Architecture 41. Which combinational circuit is strictly necessary to perform mathematical binary addition while factoring in a carry generated from a previous lower-order bit stage?",
+          "options": [
+            "Half Adder",
+            "Full Adder",
+            "Multiplexer",
+            "Half Subtractor"
+          ],
+          "correctAnswer": 1,
+          "explanation": "A Half Adder only accepts two inputs ($A, B$). A Full Adder is mandatory for multi-bit addition because it provides a third input pin ($C_{in}$) to accept the cascading carry.",
+          "id": "co-rtl-micro-ops-25"
+        },
+        {
+          "question": "You are tasked with implementing the boolean function $F(A,B) = A \\oplus B$ using a 4:1 Multiplexer. If A and B are connected to the select lines $S_1, S_0$, what values must be hardwired to the data inputs $D_0, D_1, D_2, D_3$?",
+          "options": [
+            "0, 0, 1, 1",
+            "0, 1, 1, 0",
+            "1, 0, 0, 1",
+            "1, 1, 1, 1"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The XOR truth table outputs 1 for inputs 01 and 10, and 0 for 00 and",
+          "id": "co-rtl-micro-ops-26"
+        },
+        {
+          "question": "Therefore, the data pins corresponding to minterms $m_1$ and $m_2$ ($D_1, D_2$) must be tied High (1). 43. A standard 3-to-8 line decoder is frequently utilized in CPU architecture for which specific purpose?",
+          "options": [
+            "Synthesizing ALU subtraction.",
+            "Resolving cache memory misses.",
+            "Decoding a 3-bit opcode into 8 distinct execution control lines.",
+            "Multiplexing the system data bus."
+          ],
+          "correctAnswer": 2,
+          "explanation": "A decoder takes an $N$-bit binary input and activates exactly one of $2^N$ output lines. It is the primary hardware",
+          "id": "co-rtl-micro-ops-27"
+        },
+        {
+          "question": "What combinatorial circuit is uniquely engineered to output the binary index of the highest-order active input line, ignoring all lower-order active inputs?",
+          "options": [
+            "Binary Decoder",
+            "Multiplexer",
+            "Priority Encoder",
+            "Magnitude Comparator"
+          ],
+          "correctAnswer": 2,
+          "explanation": "A Priority Encoder resolves input collisions (multiple active inputs) by encoding only the input with the highest designated hardware priority into binary form.",
+          "id": "co-rtl-micro-ops-28"
+        },
+        {
+          "question": "The algebraic expression for the 'Borrow Out' ($B_{out}$) of a Full Subtractor is mathematically equivalent to the logic of which circuit?",
+          "options": [
+            "Half Adder Sum",
+            "A modified Full Adder Carry Out where the $A$ input is inverted",
+            "A 2:1 Multiplexer",
+            "An XOR parity generator"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Full Adder Carry = $AB + BC + AC$. Full Subtractor Borrow = $A'B + BC + A'C$. Structurally, it is identical to a Full Adder carry circuit, provided the minuend input ($A$) is passed through a NOT gate.",
+          "id": "co-rtl-micro-ops-29"
+        },
+        {
+          "question": ". The formula $2^N \\ge 10$ dictates that $N=4$ flip-flops are required, as 3 flip-flops max out at 8 states. 56. Which combinational module functions fundamentally as a \"Data Router\", taking a single input and directing it to one of multiple specific outputs?",
+          "options": [
+            "Multiplexer",
+            "Demultiplexer",
+            "Shift Register",
+            "ALU"
+          ],
+          "correctAnswer": 1,
+          "explanation": "A Demultiplexer (DeMux) is the exact inverse of a MUX. It receives a single data stream and routes it to one of $2^N$ output lines based on the selector code.",
+          "id": "co-rtl-micro-ops-30"
+        },
+        {
+          "question": "In an Expanding Opcode scheme, if a 16-bit processor utilizes 4 bits for a standard opcode, allowing 15 two-address instructions, how can it structurally support one-address instructions?",
+          "options": [
+            "By utilizing the 16th invalid opcode (1111) as a prefix escape code to consume the adjacent address field.",
+            "By increasing the bus width to 32 bits.",
+            "By dropping the Program Counter.",
+            "Expanding opcodes are impossible in 16-bit architecture."
+          ],
+          "correctAnswer": 0,
+          "explanation": "Escaping via the unused 1111 opcode tells the decoder that the instruction format has shifted, allowing the bits normally reserved for the first address to be appended to the opcode, creating exponentially more one-address instructions.",
+          "id": "co-rtl-micro-ops-31"
+        },
+        {
+          "question": "The \"Semantic Gap\" in computer architecture historically refers to:",
+          "options": [
+            "The physical distance between the CPU and RAM.",
+            "The latency introduced by the system bus.",
+            "The conceptual disparity between high-level language constructs (like while loops) and primitive machine code.",
+            "The delay in fetching virtual memory pages."
+          ],
+          "correctAnswer": 2,
+          "explanation": "CISC architectures were specifically designed to close this semantic gap by providing highly complex hardware instructions that directly mapped to high-level programming statements.",
+          "id": "co-rtl-micro-ops-32"
+        },
+        {
+          "question": "Which of the following is considered a severe structural hazard in pipelined CPU architectures?",
+          "options": [
+            "A branch instruction flushing the pipeline.",
+            "Data not being ready for an ALU operation.",
+            "Two separate pipeline stages attempting to access the single memory data bus simultaneously.",
+            "A divide-by-zero software exception."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Structural hazards occur when there is a physical hardware conflict—two instructions overlapping in the pipeline demanding the exact same hardware resource (like a memory port) at the identical microsecond.",
+          "id": "co-rtl-micro-ops-33"
+        },
+        {
+          "question": "What is the fundamental characteristic distinguishing Harvard Architecture from Von Neumann Architecture?",
+          "options": [
+            "Harvard lacks a Program Counter.",
+            "Von Neumann uses a single unified memory space and bus for both data and instructions.",
+            "Harvard utilizes solely Virtual Memory.",
+            "Von Neumann does not support I/O devices."
+          ],
+          "correctAnswer": 1,
+          "explanation": "Von Neumann routes data and instructions over the exact same bottleneck bus. Harvard physically separates data memory and instruction memory with dedicated buses, allowing simultaneous fetching.",
+          "id": "co-rtl-micro-ops-34"
+        },
+        {
+          "question": "- Index (12) = 9 bits. 82. What represents the primary hardware inefficiency of the Polling (Programmed I/O) data transfer method?",
+          "options": [
+            "It requires a massive DMA controller.",
+            "It triggers constant hardware interrupts, overwhelming the bus.",
+            "The CPU wastes thousands of clock cycles in a busy-wait loop checking if the slow device is ready.",
+            "It can only transfer 1 bit per second."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Polling forces the high-speed CPU to repeatedly read the status register of a low-speed peripheral, effectively paralyzing the CPU from executing any other useful programs until the I/O is ready.",
+          "id": "co-rtl-micro-ops-35"
+        },
+        {
+          "question": "In the event of a severe Cache Miss, the \"Miss Penalty\" time consists primarily of what physical action?",
+          "options": [
+            "Checking the cache tag directory.",
+            "Flushing the CPU pipeline.",
+            "Fetching the required data block across the slow system bus from Main Memory.",
+            "Resetting the TLB."
+          ],
+          "correctAnswer": 2,
+          "explanation": "A cache miss forces the processor to halt execution and wait for the high-latency RAM to deliver the block, which is the dominant time factor in the miss penalty equation.",
+          "id": "co-rtl-micro-ops-36"
+        },
+        {
+          "question": "Which specific Direct Memory Access (DM",
+          "options": [
+            "transfer mode locks the system bus to transfer an entire massive file without releasing control back to the CPU? A) Cycle Stealing Mode",
+            "Demand Mode",
+            "Interleaved Mode",
+            "Burst Mode"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Burst mode is utilized for high-speed devices like magnetic disks. The DMA controller seizes the bus and holds it exclusively until the entire continuous block of data is completely transferred.",
+          "id": "co-rtl-micro-ops-37"
+        },
+        {
+          "question": "Under Memory-Mapped I/O architecture, how does the CPU structurally differentiate between a RAM memory address and a printer I/O port?",
+          "options": [
+            "By utilizing specialized I/O opcodes (IN / OUT).",
+            "It doesn't; it allocates a specific segment of the unified memory address space strictly to I/O devices.",
+            "By using a separate dedicated I/O bus.",
+            "By checking the TLB."
+          ],
+          "correctAnswer": 1,
+          "explanation": "In memory-mapped I/O, the hardware uses the exact same address bus and standard LOAD/STORE instructions. A predefined range of addresses is physically wired to the peripherals instead of RAM chips.",
+          "id": "co-rtl-micro-ops-38"
+        },
+        {
+          "question": "In a Vectored Interrupt system, what explicit data does the interrupting peripheral send over the data bus to the CPU?",
+          "options": [
+            "The full text of the error message.",
+            "The exact memory address (vector) pointing to its specific Interrupt Service Routine (ISR).",
+            "An instruction opcode.",
+            "A DMA request token."
+          ],
+          "correctAnswer": 1,
+          "explanation": "Unlike non-vectored interrupts where the CPU must poll to find out who interrupted, a vectored device supplies a hardware pointer, allowing the CPU to branch instantly to the correct handler code.",
+          "id": "co-rtl-micro-ops-39"
+        },
+        {
+          "question": "The DMA Controller (DMAC) must request permission from the CPU to seize control of the system buses. Which control signal does the CPU assert to grant this permission?",
+          "options": [
+            "Bus Request (BR)",
+            "Interrupt Acknowledge (INTA)",
+            "Bus Grant (BG)",
+            "Memory Write (MW)"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The DMAC pulls the Bus Request (BR) line high. The CPU finishes its current clock cycle, floats its buses to a high-impedance state, and asserts the Bus Grant (BG) line to hand over control.",
+          "id": "co-rtl-micro-ops-40"
+        },
+        {
+          "question": "A hardware engineer implements a \"Write-Through\" cache. What is the primary operational advantage of this slower policy?",
+          "options": [
+            "It increases the cache hit ratio.",
+            "It natively prevents page faults.",
+            "It guarantees strict Cache Coherence because the Main Memory is always perfectly synchronized with the cache.",
+            "It eliminates the need for an address bus."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Writing to both the cache and main memory simultaneously ensures that any DMA controller or secondary processor reading from RAM will always receive the most up-to-date data.",
+          "id": "co-rtl-micro-ops-41"
+        }
+      ]
+    },
+    {
+      "id": "alu-arithmetic",
+      "title": "ALU & Arithmetic Algorithms",
+      "unit": "Unit 1",
+      "questions": [
+        {
+          "question": "Which micro-operation shifts a binary operand to the left while deterministically inserting a logic 0 into the Least Significant Bit (LSB)?",
+          "options": [
+            "Arithmetic right",
+            "Logical left",
+            "Circular right",
+            "Arithmetic left"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Logical shifts treat data as unsigned binary, systematically inserting 0s into all vacated bit positions.",
+          "id": "co-alu-arithmetic-1"
+        },
+        {
+          "question": "During an arithmetic shift right operation, what transformation occurs to the Most Significant Bit (MSB)?",
+          "options": [
+            "It is inverted",
+            "It is shifted out",
+            "It remains unchanged",
+            "It is replaced by 0"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Arithmetic right shifts duplicate the MSB (the sign bit) to maintain the value's mathematical polarity.",
+          "id": "co-alu-arithmetic-2"
+        },
+        {
+          "question": "Booth's multiplication algorithm is uniquely optimized to process which specific numeric representation natively?",
+          "options": [
+            "Unsigned binary",
+            "IEEE 754 Floating-point",
+            "Signed 2's complement",
+            "Binary Coded Decimal"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Booth's algorithm inherently processes signed numbers without requiring pre-conversion to positive magnitudes.6",
+          "id": "co-alu-arithmetic-3"
+        },
+        {
+          "question": "What specific arithmetic manipulation is executed if the scrutinized Booth bits () are evaluated as 01?",
+          "options": [
+            "Subtraction",
+            "Addition",
+            "Logical shift only",
+            "Halting operation"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The 01 sequence signifies the trailing edge of a string of 1s, necessitating the addition of the multiplicand.6",
+          "id": "co-alu-arithmetic-4"
+        },
+        {
+          "question": "What structural action is mandated in Booth's algorithm if the bit pair () evaluates to 11?",
+          "options": [
+            "Add multiplicand",
+            "Subtract multiplicand",
+            "Arithmetic Right Shift only",
+            "Reset Sequence Counter"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Consecutive identical bits (11 or 00) require no arithmetic intervention, strictly a shift.6",
+          "id": "co-alu-arithmetic-5"
+        },
+        {
+          "question": "The core of the Arithmetic Logic Unit (ALU) is fundamentally constructed using which classification of digital circuits?",
+          "options": [
+            "Sequential memory",
+            "Combinational logic",
+            "Analog comparators",
+            "Delay lines"
+          ],
+          "correctAnswer": 1,
+          "explanation": "ALUs rely entirely on combinational logic gates for immediate, clock-independent mathematical processing.",
+          "id": "co-alu-arithmetic-6"
+        },
+        {
+          "question": "Which architectural register is traditionally designated to hold temporary operands and resultant data during successive ALU operations?",
+          "options": [
+            "Program Counter (PC)",
+            "Accumulator (AC)",
+            "Instruction Register (IR)",
+            "Stack Pointer (SP)"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The Accumulator acts as the primary data nexus for interim arithmetic and logical results.",
+          "id": "co-alu-arithmetic-7"
+        },
+        {
+          "question": "Which specific shift micro-operation establishes a closed loop, routing the shifted-out MSB directly back into the vacant LSB?",
+          "options": [
+            "Logical shift",
+            "Arithmetic shift",
+            "Circular shift (Rotate)",
+            "Linear shift"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Circular shifts (rotations) preserve all bits by feeding exiting bits back into the opposite end of the register.",
+          "id": "co-alu-arithmetic-8"
+        },
+        {
+          "question": "Hardware subtraction of two operands is most efficiently realized in contemporary ALUs utilizing:",
+          "options": [
+            "1's complement addition",
+            "2's complement addition",
+            "9's complement logic",
+            "Sign-magnitude comparators"
+          ],
+          "correctAnswer": 1,
+          "explanation": "2's complement representation permits subtraction using identical parallel adder circuitry simply by asserting the carry-in bit.",
+          "id": "co-alu-arithmetic-9"
+        },
+        {
+          "question": "Which designated flag within the ALU's status register asserts to indicate a negative mathematical result?",
+          "options": [
+            "Zero (Z)",
+            "Carry (C)",
+            "Overflow (V)",
+            "Sign (S)"
+          ],
+          "correctAnswer": 3,
+          "explanation": "The Sign flag is a direct physical reflection of the MSB of the ALU's output bus.",
+          "id": "co-alu-arithmetic-10"
+        },
+        {
+          "question": "What is the precise 2's complement representation of the 4-bit binary operand 0101?",
+          "options": [
+            "1010",
+            "1011",
+            "1100",
+            "1101"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The 1's complement is 1010; logically adding 1 to the LSB yields 1011.",
+          "id": "co-alu-arithmetic-11"
+        },
+        {
+          "question": "When initializing Booth's algorithm to multiply -5 and -7 within a 4-bit architectural system, what is the initial multiplier (Q) encoded in 2's complement?",
+          "options": [
+            "1011",
+            "0101",
+            "1001",
+            "1111"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The positive magnitude +7 is 0111; its 2's complement representation for -7 is 1001.6",
+          "id": "co-alu-arithmetic-12"
+        },
+        {
+          "question": "During the  transitional state in Booth's algorithm, the RTL operation  is mandated. How is this physically synthesized in the ALU hardware?",
+          "options": [
+            "AC + BR",
+            "AC + BR'",
+            "AC + BR' + 1",
+            "AC - BR'"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Subtraction is structurally executed by passing the multiplicand through an inverter (BR') and asserting the  of the adder (+1).7",
+          "id": "co-alu-arithmetic-13"
+        },
+        {
+          "question": "In an arithmetic left shift micro-operation, what specific logic condition triggers the hardware Overflow (V) flag?",
+          "options": [
+            "The shift-in bit evaluates to 1",
+            "The MSB differs from the adjacent bit before shifting",
+            "The LSB state transitions",
+            "The sequence counter reaches zero"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Overflow indicates a sign reversal; it occurs if the MSB changes state during the leftward progression.",
+          "id": "co-alu-arithmetic-14"
+        },
+        {
+          "question": "If an 4-bit accumulator contains 1011, what is the exact binary consequence of a single arithmetic right shift?",
+          "options": [
+            "0101",
+            "1101",
+            "1100",
+            "0110"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The arithmetic right shift duplicates the MSB (1), shifting remaining bits right, discarding the LSB: 1101.",
+          "id": "co-alu-arithmetic-15"
+        },
+        {
+          "question": "A hardware realization of Booth's algorithm employs a Sequence Counter (SC). What is the terminal initialization value for an 8-bit multiplier?",
+          "options": [
+            "7",
+            "8",
+            "9",
+            "0"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The Sequence Counter is initialized to exactly , representing the bit-width of the multiplier.6",
+          "id": "co-alu-arithmetic-16"
+        },
+        {
+          "question": "Multiplying  (multiplicand) and  (multiplier) using Booth's algorithm yields what signed decimal equivalent?",
+          "options": [
+            "12",
+            "-12",
+            "24",
+            "-24"
+          ],
+          "correctAnswer": 0,
+          "explanation": "resolves to -3 (5-bit 2's comp), and  resolves to -4 (4-bit). The product .10",
+          "id": "co-alu-arithmetic-17"
+        },
+        {
+          "question": "Exactly how many processor clock cycles does Booth's algorithm consume to evaluate an -bit multiplier?",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correctAnswer": 2,
+          "explanation": "The algorithm structurally evaluates every adjacent bit pair once, iterating identically  times before termination.",
+          "id": "co-alu-arithmetic-18"
+        },
+        {
+          "question": "To selectively set specific bits within a target register to 1 without mutating the remaining bits, one must apply:",
+          "options": [
+            "A selective-set (OR) mask",
+            "A selective-clear (AND) mask",
+            "A selective-complement (XOR) mask",
+            "A logical right shift"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Executing a logical OR with a mask containing 1s sets the target bits, while 0s leave the original bits unaltered.",
+          "id": "co-alu-arithmetic-19"
+        },
+        {
+          "question": "In division algorithms, why is the restoring method characterized as structurally slower than the non-restoring method?",
+          "options": [
+            "It requires dual multiplication sequences",
+            "It necessitates an extra addition cycle to restore the partial remainder if subtraction yields a negative",
+            "It mandates double-precision shifting",
+            "It utilizes floating-point coprocessors"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Restoring division wastes a clock cycle adding the divisor back to the accumulator whenever a trial subtraction fails.",
+          "id": "co-alu-arithmetic-20"
+        },
+        {
+          "question": "Multiply the signed integers -9 and -13 using Booth's algorithm. What is the precise 8-bit binary product generated in the combined accumulator/multiplier registers?",
+          "options": [
+            "01110101",
+            "00001111",
+            "10001011",
+            "01110011"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The decimal product is 117. Translated into 8-bit signed binary, 117 is mathematically represented as 01110101.8",
+          "id": "co-alu-arithmetic-21"
+        },
+        {
+          "question": "In Booth's algorithm, what specific sequence of Booth bit transitions () optimally handles a continuous block of 1s (e.g., the pattern 011110) in the multiplier?",
+          "options": [
+            "Subtraction followed by immediate addition",
+            "Initial subtraction, multiple null shifts, culminating in addition",
+            "Continuous iterative addition",
+            "Alternating add and subtract cycles"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The algorithm detects the edge via a 10 (subtract), processes the block interior via 11 (shifts), and detects the end via 01 (add).6",
+          "id": "co-alu-arithmetic-22"
+        },
+        {
+          "question": "If a processor deploys a 32-bit ALU constructed via a simple ripple carry adder, what is the critical path delay trap that limits processor frequency?",
+          "options": [
+            "Delay is  constant time",
+            "Delay is logarithmically proportional to",
+            "Delay is linearly proportional to",
+            "Delay is independent of the input operands"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The carry bit must physically ripple through  successive full adder stages, creating an  propagation bottleneck.11",
+          "id": "co-alu-arithmetic-23"
+        },
+        {
+          "question": "A shift micro-operation is applied to an accumulator containing . Following exactly two circular left shifts, what is the resultant binary value?",
+          "options": [
+            "11001010",
+            "01100101",
+            "11001001",
+            "11010010"
+          ],
+          "correctAnswer": 0,
+          "explanation": "First shift: . Second shift loops the MSB (0) to the end: .",
+          "id": "co-alu-arithmetic-24"
+        },
+        {
+          "question": "Within an ALU, implementing the subtraction operation  requires the arithmetic circuit to set the Carry-in () to what specific state while adding the 1's complement of B?",
+          "options": [
+            "1",
+            "0",
+            "Oscillating",
+            "High Impedance"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Standard subtraction is . By deliberately setting , the circuit yields , mathematically equivalent to .",
+          "id": "co-alu-arithmetic-25"
+        },
+        {
+          "question": "Why is Booth's algorithm computationally inferior to standard shift-and-add algorithms when confronted with alternating bit patterns (e.g., 010101)?",
+          "options": [
+            "It cannot process unsigned data",
+            "It skips the shift step entirely",
+            "It predicts the bits incorrectly",
+            "It mandates an arithmetic operation on every single clock cycle"
+          ],
+          "correctAnswer": 3,
+          "explanation": "A trap question: Alternating bits cause constant 10 and 01 transitions, forcing worst-case performance by requiring add/subtracts every cycle instead of null shifts.",
+          "id": "co-alu-arithmetic-26"
+        },
+        {
+          "question": "unique multiple-choice questions (MCQs). As an expert exam setter, I have engineered these questions to introduce cognitive traps, reverse logic (\"NOT\" scenarios), dynamic value recalculations, and edge cases to rigorously test deep conceptual mastery of Computer Organization. UNIT-I: Register Trans",
+          "options": [
+            "0100",
+            "1100",
+            "0000",
+            "1001"
+          ],
+          "correctAnswer": 1,
+          "explanation": "An arithmetic right shift preserves the sign bit (MSB). The MSB 1 is duplicated and shifted right, discarding the LSB, resulting in 1100 (which correctly represents -",
+          "id": "co-alu-arithmetic-27"
+        },
+        {
+          "question": ". 2. Which of the following hardware control conditions will mathematically trigger an overflow flag (V) during a 2’s complement addition of A and B?",
+          "options": [
+            "Adding two positive numbers yields a positive result.",
+            "Adding a positive and a negative number yields a negative result.",
+            "The carry into the MSB differs from the carry out of the MSB.",
+            "The ALU detects a zero result in the accumulator."
+          ],
+          "correctAnswer": 2,
+          "explanation": "The universal hardware logic for overflow in signed addition is an XOR gate connected to the carry-in and carry-out of the sign bit (MSB). If they differ, overflow occurred.",
+          "id": "co-alu-arithmetic-28"
+        },
+        {
+          "question": "In Booth's Multiplication Algorithm, a multiplier sequence of alternating 1s and 0s (e.g., 010101) represents the \"worst-case\" execution scenario. Why?",
+          "options": [
+            "The sequence counter resets prematurely.",
+            "It requires an alternating sequence of Add and Subtract operations on every single clock cycle.",
+            "The arithmetic shift operations are skipped.",
+            "It triggers a hardware overflow exception."
+          ],
+          "correctAnswer": 1,
+          "explanation": "Booth's algorithm is optimized for blocks of continuous 1s or 0s (requiring only shifts). Alternating bits constantly trigger 10 (subtract) and 01 (add) transitions, maximizing ALU workload.",
+          "id": "co-alu-arithmetic-29"
+        },
+        {
+          "question": "that contains 0s in the targeted positions. R2' inverts the mask so 1s become 0s, effectively clearing the target bits. 6. If a system utilizes non-restoring division, what hardware action occurs immediately if the partial remainder evaluates to a negative number?",
+          "options": [
+            "The divisor is added back, and the quotient bit is set to 0.",
+            "The divisor is added in the next step instead of subtracted, and the quotient bit is set to 0.",
+            "A trap interrupt is triggered for division by zero.",
+            "The sequence counter is prematurely terminated."
+          ],
+          "correctAnswer": 1,
+          "explanation": "Unlike restoring division which wastes a cycle adding the divisor back immediately, non-restoring division simply sets the quotient bit to 0 and compensates by adding the divisor in the subsequent cycle.",
+          "id": "co-alu-arithmetic-30"
+        },
+        {
+          "question": "You are tracing Booth's algorithm multiplying -9 and -13 in an 8-bit architecture. What is the initial 8-bit value loaded into the multiplier register (Q)?",
+          "options": [
+            "00001001",
+            "11110011",
+            "11110111",
+            "00001101"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The decimal value is -",
+          "id": "co-alu-arithmetic-31"
+        },
+        {
+          "question": "Using Booth's Algorithm, what happens when the bits $Q_0$ and $Q_{-1}$ are evaluated as 11?",
+          "options": [
+            "Subtract the multiplicand",
+            "Add the multiplicand",
+            "Halt the processor",
+            "Perform an Arithmetic Right Shift only"
+          ],
+          "correctAnswer": 3,
+          "explanation": "In Booth's recoding, encountering a continuous string of identical bits (00 or",
+          "id": "co-alu-arithmetic-32"
+        },
+        {
+          "question": "dictates that no arithmetic operation is necessary; the hardware merely shifts right. 13. A logical shift right operation is performed on the binary data 10110011. What is the state of the MSB and LSB after the operation?",
+          "options": [
+            "MSB=1, LSB=1",
+            "MSB=0, LSB=1",
+            "MSB=1, LSB=0",
+            "MSB=0, LSB=0"
+          ],
+          "correctAnswer": 1,
+          "explanation": "A logical right shift blindly inserts a 0 into the MSB. The entire string shifts right, making the new LSB 1 (which was previously the second bit from the right).",
+          "id": "co-alu-arithmetic-33"
+        },
+        {
+          "question": "If a hardware Sequence Counter (SC) for a Booth multiplier is initialized to 6, what is the maximum positive decimal multiplicand it can process assuming 2's complement?",
+          "options": [
+            "63",
+            "31",
+            "64",
+            "127"
+          ],
+          "correctAnswer": 1,
+          "explanation": "An SC of 6 implies a 6-bit architecture. In signed 6-bit 2's complement, 1 bit is reserved for the sign. The maximum positive value is $2^{(6-",
+          "id": "co-alu-arithmetic-34"
+        },
+        {
+          "question": "} - 1 = 2^5 - 1 = 31$. 16. What is the fundamental disadvantage of using a Ripple Carry Adder in the ALU for 64-bit operands?",
+          "options": [
+            "It requires excessive power consumption.",
+            "It cannot process negative integers.",
+            "The propagation delay increases linearly ($O(n)$) with the bit width.",
+            "It relies on complex look-ahead logic."
+          ],
+          "correctAnswer": 2,
+          "explanation": "In a ripple carry adder, the carry out of each full adder is sequentially fed into the next. The MSB cannot resolve until the carry \"ripples\" through all 64 stages, creating a severe linear time delay bottleneck.",
+          "id": "co-alu-arithmetic-35"
+        },
+        {
+          "question": "In floating-point multiplication algorithms, what is the required hardware action for the exponents of the two operands?",
+          "options": [
+            "They are multiplied.",
+            "They are subtracted.",
+            "They are added.",
+            "They are shifted."
+          ],
+          "correctAnswer": 2,
+          "explanation": "In IEEE 754 floating-point arithmetic, multiplying two numbers requires the mantissas to be multiplied, but the exponents mathematically must be added together.",
+          "id": "co-alu-arithmetic-36"
+        },
+        {
+          "question": "When minimizing a Boolean function using the POS (Product of Sums) K-map technique, what specific values do you circle on the map?",
+          "options": [
+            "Logical 1s",
+            "Logical 0s",
+            "Don't Cares only",
+            "Both 1s and 0s simultaneously"
+          ],
+          "correctAnswer": 1,
+          "explanation": "SOP minimization groups 1s to form product terms. POS minimization groups 0s (maxterms) to form inverted sum terms, followed by applying DeMorgan's to finalize.",
+          "id": "co-alu-arithmetic-37"
+        },
+        {
+          "question": "Which sequential logic trap occurs in an unclocked SR Latch if both Set (S) and Reset (R) inputs are simultaneously driven High (1)?",
+          "options": [
+            "The output begins to toggle indefinitely.",
+            "The outputs $Q$ and $Q'$ both become 0, violating the rule of complementarity.",
+            "The latch enters a high-impedance state.",
+            "It acts as a memory hold state."
+          ],
+          "correctAnswer": 1,
+          "explanation": "In a NOR-based SR Latch, forcing $S=1$ and $R=1$ forces both outputs to",
+          "id": "co-alu-arithmetic-38"
+        },
+        {
+          "question": "A ripple counter constructed using four T-type flip-flops will naturally count from decimal 0 up to what maximum value before resetting?",
+          "options": [
+            "4",
+            "8",
+            "15",
+            "16"
+          ],
+          "correctAnswer": 2,
+          "explanation": "A 4-bit counter possesses $2^4 = 16$ distinct states. Counting begins at 0, meaning the maximum representable binary value is 1111, which equals 15 in decimal.",
+          "id": "co-alu-arithmetic-39"
+        },
+        {
+          "question": ". Subsequent bits are XORed with the preceding binary bit: $1 \\oplus 0 = 1$, $0 \\oplus 1 = 1$, $1 \\oplus 1 = 0$. Result: 1110. 51. Which of the following is NOT a structurally valid application for a Shift Register?",
+          "options": [
+            "Serial-to-Parallel data conversion",
+            "Delaying a digital signal",
+            "Pseudo-random number generation",
+            "Instantly decoding an opcode"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Shift registers manipulate data laterally over multiple clock cycles. Decoding an opcode requires instantaneous combinational logic (a Decoder), not a clocked sequential register.",
+          "id": "co-alu-arithmetic-40"
+        },
+        {
+          "question": "A circuit is designed by connecting the inverted output ($Q'$) of a D flip-flop directly back into its own D input. What hardware function does this synthesize?",
+          "options": [
+            "A permanent Hold state",
+            "A Divide-by-2 Toggle Counter",
+            "A Shift Register",
+            "A Combinational Inverter"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Because the D input always receives the opposite of the current state, the flip-flop will systematically alternate (0, 1, 0,",
+          "id": "co-alu-arithmetic-41"
+        },
+        {
+          "question": "59. If inputs A and B are fed into a Magnitude Comparator, and the logic evaluates $A \\oplus B = 0$, what definitive mathematical conclusion is reached?",
+          "options": [
+            "$A > B$",
+            "$A < B$",
+            "$A = B$",
+            "Both are zero."
+          ],
+          "correctAnswer": 2,
+          "explanation": "An XOR gate evaluates to 0 only when both inputs are absolutely identical. Therefore, if the XOR array outputs all 0s, the operands are mathematically equal.",
+          "id": "co-alu-arithmetic-42"
+        },
+        {
+          "question": "Which code representation mathematically guarantees that calculating the negative (2's complement) of the value ZERO yields the exact same binary sequence?",
+          "options": [
+            "Sign-Magnitude",
+            "1's Complement",
+            "2's Complement",
+            "Biased Exponent"
+          ],
+          "correctAnswer": 2,
+          "explanation": "In 2's complement, 0 is",
+          "id": "co-alu-arithmetic-43"
+        },
+        {
+          "question": "Inverting it yields 1111. Adding 1 yields 10000. Truncating the overflow leaves 0000, proving a unique, mathematically sound zero. UNIT-IV: Processor Organization, Instruction Formats, and Addressing Modes 61. A processor utilizes PC-Relative Addressing. The Program Counter (PC) holds 2000. The inst",
+          "options": [
+            "? A) 2040",
+            "2041",
+            "2042",
+            "2000"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Trap: The PC automatically increments to the next instruction's address before the execution phase. Since the instruction spans 2 words, the PC becomes $2000 + 2 = 2002$. The EA is $2002 + 40 = 2042$.",
+          "id": "co-alu-arithmetic-44"
+        },
+        {
+          "question": "What hardware limitation is considered the primary drawback of using the Immediate Addressing Mode?",
+          "options": [
+            "It requires double the memory fetches.",
+            "The mathematical operand is strictly limited by the remaining bit-width of the instruction format.",
+            "It cannot be used with the ALU.",
+            "It corrupts the Program Counter."
+          ],
+          "correctAnswer": 1,
+          "explanation": "Because the data is jammed into the instruction word itself, its maximum magnitude is constrained by whatever bits are left after deducting the opcode and register fields.",
+          "id": "co-alu-arithmetic-45"
+        },
+        {
+          "question": "The Assembly instruction JNZ 1050 (Jump if Not Zero) evaluates which specific CPU component before executing the branch?",
+          "options": [
+            "The Instruction Register",
+            "The ALU Status Flags Register (Zero Flag)",
+            "The Main Memory",
+            "The Stack Pointer"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Conditional branches rely entirely on the hardware flags generated by the ALU's previous arithmetic operation (e.g., if the previous result was 0, the Z flag is 1, and the jump is ignored).",
+          "id": "co-alu-arithmetic-46"
+        },
+        {
+          "question": "In Base Register Addressing, relocating a massive program block in memory requires the OS to modify:",
+          "options": [
+            "Every individual address within the program block.",
+            "Only the single Base Register value.",
+            "The Program Counter directly.",
+            "The Instruction Decoder."
+          ],
+          "correctAnswer": 1,
+          "explanation": "The Effective Address is dynamically calculated as Base Register + Offset. To move the program, the OS simply updates the base register; all embedded offset instructions remain completely unchanged.",
+          "id": "co-alu-arithmetic-47"
+        },
+        {
+          "question": "Which of the following is strictly a Data Transfer instruction, executing NO mathematical manipulation on the data?",
+          "options": [
+            "INC (Increment)",
+            "CMP (Compare)",
+            "SHR (Shift Right)",
+            "MOV (Move/Load)"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Data transfer instructions (Load, Store, Move) merely copy bit patterns from a source to a destination over the bus without altering the bits through the ALU logic.",
+          "id": "co-alu-arithmetic-48"
+        },
+        {
+          "question": "What explicit architectural role does the Instruction Register (IR) fulfill?",
+          "options": [
+            "It points to the next execution address.",
+            "It caches the ALU output.",
+            "It holds the currently fetched instruction word so the Control Unit can continuously decode it.",
+            "It manages the stack boundary."
+          ],
+          "correctAnswer": 2,
+          "explanation": "The IR acts as a latch holding the binary instruction. The instruction must remain stable in the IR so the hardwired decoders can assert the proper micro-operation lines throughout the cycle.",
+          "id": "co-alu-arithmetic-49"
+        },
+        {
+          "question": "An array A stores 32-bit (4-byte) integers. A loop iterates through it using Indexed Addressing: LOAD R1, 0(R2). To step to the next integer, what mathematical value MUST be added to the index register (R2) in a byte-addressable machine?",
+          "options": [
+            "1",
+            "2",
+            "4",
+            "8"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Because the machine is byte-addressable and the integer spans 4 bytes, the index register must increment by 4 to cleanly stride to the start of the next integer element in memory.",
+          "id": "co-alu-arithmetic-50"
+        },
+        {
+          "question": "In an operating system utilizing Virtual Memory, what critical software data structure maps the logical pages to their physical RAM frame counterparts?",
+          "options": [
+            "The Interrupt Vector Table",
+            "The Page Table",
+            "The Cache Tag Directory",
+            "The Arithmetic Accumulator"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The Page Table resides in main memory and is maintained by the OS. It serves as the master directory, translating CPU-generated virtual addresses into actual physical silicon addresses.",
+          "id": "co-alu-arithmetic-51"
+        }
+      ]
+    },
+    {
+      "id": "boolean-logic-gates",
+      "title": "Boolean Algebra & Logic Gates",
+      "unit": "Unit 2",
+      "questions": [
+        {
+          "question": "Which foundational Boolean theorem states mathematically that ?",
+          "options": [
+            "Consensus Theorem",
+            "DeMorgan's Law",
+            "Associative Law",
+            "Distributive Law"
+          ],
+          "correctAnswer": 1,
+          "explanation": "DeMorgan's law dictates the inversion of individual variables coupled with the flipping of logical operators (OR to AND).",
+          "id": "co-boolean-logic-gates-1"
+        },
+        {
+          "question": "Which discrete logic gate is universally recognized for its ability to synthesize any other Boolean function independently?",
+          "options": [
+            "AND",
+            "XOR",
+            "NAND",
+            "NOT"
+          ],
+          "correctAnswer": 2,
+          "explanation": "NAND (alongside NOR) is a Universal Gate, capable of implementing AND, OR, and NOT operations through specific structural configurations.",
+          "id": "co-boolean-logic-gates-2"
+        },
+        {
+          "question": "A canonical Sum of Products (SOP) expression is structurally constructed entirely from which elements?",
+          "options": [
+            "Maxterms",
+            "Minterms",
+            "Don't care conditions",
+            "Unprimed literals"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Canonical SOP is strictly defined as the logical sum (OR) of all applicable minterms (products containing all variables).",
+          "id": "co-boolean-logic-gates-3"
+        },
+        {
+          "question": "Precisely how many individual plotting cells comprise a standard 4-variable Karnaugh Map?",
+          "options": [
+            "8",
+            "12",
+            "16",
+            "32"
+          ],
+          "correctAnswer": 2,
+          "explanation": "A Karnaugh map for  variables mathematically dictates  cells; thus  distinct cells.16",
+          "id": "co-boolean-logic-gates-4"
+        },
+        {
+          "question": "In K-map simplification, successfully grouping a \"quad\" (four adjacent 1s) mathematically eliminates how many variables from the term?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "correctAnswer": 1,
+          "explanation": "A pair eliminates 1 variable, a quad eliminates 2 variables, and an octet eliminates 3 variables, leaving only the constants.",
+          "id": "co-boolean-logic-gates-5"
+        },
+        {
+          "question": "Which Boolean algebraic law is physically represented by the absorption equation ?",
+          "options": [
+            "Commutative Law",
+            "Absorption Law",
+            "Idempotent Law",
+            "Consensus Theorem"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The Absorption law simplifies logic by recognizing that the presence of  renders the state of  irrelevant.",
+          "id": "co-boolean-logic-gates-6"
+        },
+        {
+          "question": "The Product of Sums (POS) simplification technique focuses on grouping which specific values plotted on a K-map?",
+          "options": [
+            "Logical 1s",
+            "Logical 0s",
+            "Don't Cares strictly",
+            "Essential Prime Implicants"
+          ],
+          "correctAnswer": 1,
+          "explanation": "POS focuses on grouping maxterms, which correspond to the logical 0s present in the function's truth table.15",
+          "id": "co-boolean-logic-gates-7"
+        },
+        {
+          "question": "Which logic gate asserts a logical 1 output exclusively when all of its inputs are identically matched?",
+          "options": [
+            "XOR",
+            "XNOR",
+            "NAND",
+            "OR"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The Exclusive-NOR (XNOR) gate functions as a strict logical equivalence detector.",
+          "id": "co-boolean-logic-gates-8"
+        },
+        {
+          "question": "The Boolean expression  unconditionally evaluates to what logical state?",
+          "options": [
+            "0",
+            "1",
+            "A",
+            "A'"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Under the Law of Complementarity, a variable logically ORed with its own inverse must always yield a true (1) state.",
+          "id": "co-boolean-logic-gates-9"
+        },
+        {
+          "question": "Which mathematical format utilizes the  notation for function declaration?",
+          "options": [
+            "Canonical POS",
+            "Canonical SOP",
+            "Truth Table matrix",
+            "Gray code sequence"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The  notation denotes the Sum of Minterms, which is the canonical SOP format.",
+          "id": "co-boolean-logic-gates-10"
+        },
+        {
+          "question": "To structurally implement a NOT gate utilizing a single NAND gate, what physical alteration must be applied to the inputs?",
+          "options": [
+            "Invert one externally",
+            "Ground one input",
+            "Tie both inputs together",
+            "Connect one to Vcc"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Tying both NAND inputs together forces the gate to evaluate , synthesizing an inverter.",
+          "id": "co-boolean-logic-gates-11"
+        },
+        {
+          "question": "What is the precise logical dual of the Boolean expression ?",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correctAnswer": 0,
+          "explanation": "Duality requires swapping AND/OR operators and simultaneously swapping 1/0 constants, while preserving variables.",
+          "id": "co-boolean-logic-gates-12"
+        },
+        {
+          "question": "Adjacent cells in a properly constructed K-map must logically differ by exactly how many bit positions?",
+          "options": [
+            "0",
+            "1",
+            "2",
+            "Variable"
+          ],
+          "correctAnswer": 1,
+          "explanation": "K-maps employ Gray code numbering along axes to ensure exactly a 1-bit unit distance between adjacent cells.15",
+          "id": "co-boolean-logic-gates-13"
+        },
+        {
+          "question": "Which Boolean algebraic property structurally permits the transposition ?",
+          "options": [
+            "Distributive Property",
+            "Associative Property",
+            "Commutative Property",
+            "Absorptive Property"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The Commutative property dictates that the sequence of operands does not alter the logical outcome.",
+          "id": "co-boolean-logic-gates-14"
+        },
+        {
+          "question": "A \"Don't Care\" (X) condition plotted on a K-map is conceptually treated as:",
+          "options": [
+            "Strictly a logical 0",
+            "Strictly a logical 1",
+            "Either 0 or 1 to optimize grouping",
+            "An invalid hardware state"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Don't Cares act as wildcards, utilized as 1s or 0s depending on which choice yields the largest and simplest K-map loop.",
+          "id": "co-boolean-logic-gates-15"
+        },
+        {
+          "question": "How many distinct variables must a minterm contain within a 3-variable logic function?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "It varies"
+          ],
+          "correctAnswer": 2,
+          "explanation": "By definition, a standard minterm must incorporate all variables of the given function, whether primed or unprimed.",
+          "id": "co-boolean-logic-gates-16"
+        },
+        {
+          "question": "Simplify the Boolean expression  leveraging the Consensus Theorem.",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correctAnswer": 0,
+          "explanation": "The Consensus theorem identifies  as redundant because any condition making  true also makes  or  true.",
+          "id": "co-boolean-logic-gates-17"
+        },
+        {
+          "question": "To accurately map a 5-variable logic function, how many distinct cells are required in the K-map architecture?",
+          "options": [
+            "16",
+            "32",
+            "64",
+            "128"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The cell count is , typically represented visually as two adjacent 16-cell sub-maps.3",
+          "id": "co-boolean-logic-gates-18"
+        },
+        {
+          "question": "When overlaying two 4-variable sub-maps to construct a 5-variable K-map, cells occupying the same relative coordinate on both maps differ by which specific variable?",
+          "options": [
+            "The Least Significant Bit (LSB)",
+            "The middle bit",
+            "The Most Significant Bit (MSB)",
+            "No bits differ"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The MSB structurally separates the map into two distinct spatial planes: the  plane and the  plane.3",
+          "id": "co-boolean-logic-gates-19"
+        },
+        {
+          "question": "Determine the minimum quantity of 2-input NAND gates required to synthesize an equivalent OR gate.",
+          "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Inverting both input signals requires 2 NANDs; feeding those inverted signals into a 3rd NAND gate completes the OR logic.",
+          "id": "co-boolean-logic-gates-20"
+        },
+        {
+          "question": "Simplify the function  utilizing a K-map.",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correctAnswer": 0,
+          "explanation": "Plotting the minterms reveals they occupy all four corners/edges where variable C is 0, simplifying cleanly to .",
+          "id": "co-boolean-logic-gates-21"
+        },
+        {
+          "question": "A grouping of 8 adjacent 1s (an octet) within a 4-variable K-map logically eliminates exactly how many variables?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "correctAnswer": 2,
+          "explanation": "An octet simplifies the logical term down to a single remaining variable, mathematically eliminating 3 variables.",
+          "id": "co-boolean-logic-gates-22"
+        },
+        {
+          "question": "Derive the POS form for a truth table where the output is strictly 0 for input combinations 000 and 011.",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correctAnswer": 0,
+          "explanation": "The maxterms  and  translate directly into the sum products  and .",
+          "id": "co-boolean-logic-gates-23"
+        },
+        {
+          "question": "What terminology defines an implicant that covers at least one specific minterm not covered by any other prime implicant on the K-map?",
+          "options": [
+            "Redundant Implicant",
+            "Essential Prime Implicant",
+            "Prime Implicant",
+            "Ghost Implicant"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Essential Prime Implicants are mathematically mandatory and must be included in the final minimized SOP expression.17",
+          "id": "co-boolean-logic-gates-24"
+        },
+        {
+          "question": "Apply DeMorgan's theorem to simplify the negated product .",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correctAnswer": 0,
+          "explanation": "The AND operators flip to OR operators, and each individual variable's logical state is inverted.",
+          "id": "co-boolean-logic-gates-25"
+        },
+        {
+          "question": "A 3-variable combinational circuit outputs 1 exclusively for inputs 1, 3, 5, and 7. What is the simplified Boolean function?",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "A'"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Examining the binary representation (001, 011, 101, 111), the output is highly correlated entirely to the state of .",
+          "id": "co-boolean-logic-gates-26"
+        },
+        {
+          "question": "Implement the Boolean function  utilizing only NAND gates. What is the minimum gate count required?",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Standard optimal synthesis of an XOR gate utilizes exactly 4 interconnected NAND gates.",
+          "id": "co-boolean-logic-gates-27"
+        },
+        {
+          "question": "In a K-map, edge wrap-around grouping (connecting left edge to right edge) is geometrically valid due to which underlying mathematical principle?",
+          "options": [
+            "Binary fractional addition",
+            "Gray code cyclic adjacency",
+            "DeMorgan's loopback",
+            "The Consensus theorem"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The edges are unit-distance apart; Gray code cyclic properties ensure the opposing edges differ by only one variable.15",
+          "id": "co-boolean-logic-gates-28"
+        },
+        {
+          "question": "Calculate the minimum SOP for  where  represents don't care conditions.",
+          "options": [
+            "C",
+            "A'C",
+            "B'C",
+            "C + A'"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The quad of 1s simplifies perfectly to . Incorporating the don't cares does not yield a larger group, so they are ignored.",
+          "id": "co-boolean-logic-gates-29"
+        },
+        {
+          "question": "To natively realize a Product of Sums (POS) expression, which universal gate cascaded structure is geometrically preferred?",
+          "options": [
+            "NAND-NAND",
+            "NOR-NOR",
+            "AND-OR",
+            "OR-AND"
+          ],
+          "correctAnswer": 1,
+          "explanation": "NOR-NOR logic structures natively and intuitively map to Product of Sums architectural implementations.",
+          "id": "co-boolean-logic-gates-30"
+        },
+        {
+          "question": "If two prime implicants are mapped such that they overlap entirely within the bounds of a larger implicant, they are classified as:",
+          "options": [
+            "Essential",
+            "Redundant",
+            "Maxterms",
+            "Invalid"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Redundant groups must be eliminated from the final expression to achieve true mathematical minimization.",
+          "id": "co-boolean-logic-gates-31"
+        },
+        {
+          "question": "Which encoding sequence ensures that K-map column numbering proceeds as 00, 01, 11, 10?",
+          "options": [
+            "Binary Coded Decimal",
+            "ASCII Encoding",
+            "Excess-3 Code",
+            "Gray Code"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Gray code deliberately rearranges binary progression to guarantee a unit-distance transition between any adjacent cells.15",
+          "id": "co-boolean-logic-gates-32"
+        },
+        {
+          "question": "Simplify the 4-variable function .",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correctAnswer": 2,
+          "explanation": "Visualizing the map allows grouping an octet covering the entire top half () and a quad in the bottom right ().18",
+          "id": "co-boolean-logic-gates-33"
+        },
+        {
+          "question": "In a densely packed 6-variable K-map, exactly how many adjacent cells geometrically surround any single specific target cell?",
+          "options": [
+            "4",
+            "5",
+            "6",
+            "8"
+          ],
+          "correctAnswer": 2,
+          "explanation": "A fundamental rule of K-map topology is that in an -variable space, every cell shares an edge with exactly  other cells.",
+          "id": "co-boolean-logic-gates-34"
+        },
+        {
+          "question": "How many 4-variable sub-maps must be logically tiled to constitute a complete 6-variable K-map?",
+          "options": [
+            "2",
+            "4",
+            "6",
+            "8"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The 64 required cells () are divided into planes. A 4-variable map has 16 cells, therefore  sub-maps are required.12",
+          "id": "co-boolean-logic-gates-35"
+        },
+        {
+          "question": "Simplify  within a 5-variable K-map structure.",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correctAnswer": 3,
+          "explanation": "This complex octet bridges identical corner positions symmetrically across both the  and  logical planes.",
+          "id": "co-boolean-logic-gates-36"
+        },
+        {
+          "question": "Given the equation , implement it utilizing a single specific gate type. Which gate fulfills this?",
+          "options": [
+            "4-input NAND",
+            "4-input NOR",
+            "2-input XNOR",
+            "4-input AND"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Applying DeMorgan's expansion yields , which is the exact definition of a 4-input NOR gate.",
+          "id": "co-boolean-logic-gates-37"
+        },
+        {
+          "question": "Determine the precise number of prime implicants for the function .",
+          "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Analytical grouping yields  (0,2,4,6),  (4,5), and  (2,10), identifying exactly 3 prime implicants.11",
+          "id": "co-boolean-logic-gates-38"
+        },
+        {
+          "question": "During POS minimization, plotting 0s yields an intermediate expression . What is the final function ?",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correctAnswer": 1,
+          "explanation": "To finalize POS, DeMorgan's involution is applied to : , which evaluates to .",
+          "id": "co-boolean-logic-gates-39"
+        },
+        {
+          "question": "A custom logic circuit specifies active minterms . What standard macro-function does this circuit synthesize?",
+          "options": [
+            "3-input NAND",
+            "3-input XNOR",
+            "3-input XOR",
+            "Majority voting gate"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Minterms possessing an odd parity of 1s (001, 010, 100, 111) mathematically define the full 3-input XOR function.",
+          "id": "co-boolean-logic-gates-40"
+        },
+        {
+          "question": "A 6-variable Karnaugh Map is mathematically composed of how many individual geometric cells?",
+          "options": [
+            "16",
+            "32",
+            "64",
+            "128"
+          ],
+          "correctAnswer": 2,
+          "explanation": "A K-map for $n$ variables always requires exactly $2^n$ cells. Therefore, a 6-variable map contains $2^6 = 64$ cells.",
+          "id": "co-boolean-logic-gates-41"
+        },
+        {
+          "question": "You are attempting to synthesize an XOR gate ($A \\oplus B$) using ONLY NOR gates. What is the minimum number of NOR gates required?",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "correctAnswer": 2,
+          "explanation": "While an XOR requires 4 NAND gates, synthesizing it purely with NOR gates requires 5 distinct NOR gates due to the topological differences in inversion scaling.",
+          "id": "co-boolean-logic-gates-42"
+        },
+        {
+          "question": "Apply DeMorgan's involution to the POS term: $(A + B' + C)'$. What is the resulting equivalent SOP term?",
+          "options": [
+            "$A' + B + C'$",
+            "$A' \\cdot B \\cdot C'$",
+            "$A \\cdot B' \\cdot C$",
+            "$A' + B' + C'$"
+          ],
+          "correctAnswer": 1,
+          "explanation": "DeMorgan's Theorem states you must invert every individual literal ($A \\rightarrow A', B' \\rightarrow B, C \\rightarrow C'$) and flip the operators (OR becomes AND), yielding $A'BC'$.",
+          "id": "co-boolean-logic-gates-43"
+        },
+        {
+          "question": "In K-map simplification, an \"Essential Prime Implicant\" is strictly defined as a grouped loop that:",
+          "options": [
+            "Covers the maximum possible number of 1s.",
+            "Covers at least one 1 (minterm) that is NOT covered by any other group.",
+            "Consists entirely of Don't Care conditions.",
+            "Can be eliminated without changing the logic."
+          ],
+          "correctAnswer": 1,
+          "explanation": "If a minterm is covered by only one specific group, that group becomes \"essential\" and must absolutely be included in the final minimized Boolean expression.",
+          "id": "co-boolean-logic-gates-44"
+        },
+        {
+          "question": "A K-map cell located at coordinates $A=0, B=1, C=1, D=0$ is adjacent to which of the following cells?",
+          "options": [
+            "$0011$",
+            "$0100$",
+            "$1010$",
+            "$1111$"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Adjacency in K-maps relies on Gray code, meaning cells must differ by exactly one bit. Comparing 0110 to 0100, only the $C$ bit changes, confirming structural adjacency.",
+          "id": "co-boolean-logic-gates-45"
+        },
+        {
+          "question": "Which Boolean theorem justifies the logic reduction: $X + XY = X$?",
+          "options": [
+            "Consensus Theorem",
+            "DeMorgan's Law",
+            "Absorption Law",
+            "Distributive Law"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The Absorption Law dictates that the term $X$ absorbs the term $XY$, because if $X$ is true, the overall expression is true regardless of the state of $Y$.",
+          "id": "co-boolean-logic-gates-46"
+        },
+        {
+          "question": "In a 5-variable K-map representing variables $A, B, C, D, E$, the structural plane $A=0$ and the plane $A=1$ are overlaid. A grouping of two cells occupying the exact same coordinates on both planes eliminates which variable?",
+          "options": [
+            "B",
+            "E",
+            "A",
+            "C"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Because the two overlaid cells share identical $B, C, D, E$ coordinates and differ exclusively by the MSB $A$ ($0$ vs $1$), the variable $A$ is mathematically eliminated.",
+          "id": "co-boolean-logic-gates-47"
+        },
+        {
+          "question": "Which universal gate naturally outputs a logical 0 ONLY when all of its inputs are pushed to logical 1?",
+          "options": [
+            "AND",
+            "OR",
+            "NAND",
+            "NOR"
+          ],
+          "correctAnswer": 2,
+          "explanation": "A NAND gate is the inverse of an AND gate. An AND gate outputs 1 only when all inputs are 1; therefore, a NAND outputs 0 only when all inputs are",
+          "id": "co-boolean-logic-gates-48"
+        },
+        {
+          "question": "29. Calculate the dual of the Boolean equation: $A \\cdot B + C = 1$.",
+          "options": [
+            "$(A +",
+            "\\cdot C = 0$ B) $A' + B' \\cdot C' = 0$",
+            "$(A + B) \\cdot C = 1$",
+            "$A' \\cdot B' + C' = 1$"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Finding the dual requires swapping AND operators with OR operators (and vice versa), and swapping 1s with 0s. Literals are NEVER inverted in a dual.",
+          "id": "co-boolean-logic-gates-49"
+        },
+        {
+          "question": "You plotted a 4-variable K-map and formed a valid group of 4 cells (a quad). How many variables will remain in the simplified product term?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "correctAnswer": 1,
+          "explanation": "In a 4-variable K-map, grouping 2 cells eliminates 1 variable. Grouping 4 cells eliminates 2 variables, leaving exactly 2 variables in the final product term.",
+          "id": "co-boolean-logic-gates-50"
+        },
+        {
+          "question": "The canonical Sum of Products (SOP) form utilizes the symbol $\\Sigma m$. What does the variable $m$ specifically denote?",
+          "options": [
+            "Maxterms",
+            "Prime Implicants",
+            "Minterms",
+            "Modifiers"
+          ],
+          "correctAnswer": 2,
+          "explanation": "In SOP, $\\Sigma m$ designates the sum of minterms, where each minterm is a logical product containing all variables of the function.",
+          "id": "co-boolean-logic-gates-51"
+        },
+        {
+          "question": "The XOR gate is highly favored in cryptographic circuits because it inherently acts as a:",
+          "options": [
+            "Controllable Inverter",
+            "High Impedance buffer",
+            "Universal logic gate",
+            "Voltage amplifier"
+          ],
+          "correctAnswer": 0,
+          "explanation": "An XOR gate acts as a controllable inverter: $A \\oplus 0 = A$, but $A \\oplus 1 = A'$. Setting one pin high perfectly inverts the data stream on the other pin.",
+          "id": "co-boolean-logic-gates-52"
+        },
+        {
+          "question": "How many rows are mandated in a truth table representing a complex digital circuit with 5 distinct inputs?",
+          "options": [
+            "10",
+            "16",
+            "25",
+            "32"
+          ],
+          "correctAnswer": 3,
+          "explanation": "A truth table maps every possible binary combination of inputs. For $N$ inputs, there are $2^N$ combinations. Therefore, $2^5 = 32$ rows.",
+          "id": "co-boolean-logic-gates-53"
+        },
+        {
+          "question": "What is the result of the boolean operation $X \\oplus X \\oplus X \\oplus X$?",
+          "options": [
+            "1",
+            "X",
+            "0",
+            "X'"
+          ],
+          "correctAnswer": 2,
+          "explanation": "XORing a variable with itself yields 0 ($X \\oplus X = 0$). Because there is an even number (four) of $X$s, they mathematically cancel out entirely to",
+          "id": "co-boolean-logic-gates-54"
+        },
+        {
+          "question": "39. In K-map topology, why are the outer edges of the map considered geometrically adjacent (wrap-around)?",
+          "options": [
+            "Because of binary fractional alignment.",
+            "Because the corresponding axis labels are encoded in Gray code, maintaining a 1-bit difference.",
+            "Due to the Consensus Theorem.",
+            "Because Karnaugh maps are strictly 2-dimensional."
+          ],
+          "correctAnswer": 1,
+          "explanation": "K-maps are conceptually toroids (donut shapes). Gray code numbering along the edges (e.g., 00 on the far left and 10 on the far right) ensures they differ by only one logical bit.",
+          "id": "co-boolean-logic-gates-55"
+        },
+        {
+          "question": "A function $F = \\Sigma m(0,1,2,3)$ on a 2-variable K-map ($A, B$) results in a grouping of all 4 cells. What is the final simplified output?",
+          "options": [
+            "$A+B$",
+            "$A'B'$",
+            "1",
+            "0"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Grouping the entire K-map means the function is true for absolutely every possible input combination. Therefore, the logic simplifies to a constant High (",
+          "id": "co-boolean-logic-gates-56"
+        },
+        {
+          "question": "This is structurally invalid because $Q$ and $Q'$ are mathematically supposed to be inverse logic states. 45. What is the fundamental operational difference between a D Flip-Flop and a D Latch?",
+          "options": [
+            "Latches store 2 bits; Flip-flops store 1 bit.",
+            "Latches are edge-triggered; Flip-flops are level-triggered.",
+            "Latches are level-triggered transparent devices; Flip-flops sample data strictly on the clock edge.",
+            "Flip-flops lack a clock input."
+          ],
+          "correctAnswer": 2,
+          "explanation": "A Latch remains \"transparent\" (output follows input) as long as the enable signal is high. A Flip-Flop locks the input data precisely at the rising or falling edge of the clock pulse.",
+          "id": "co-boolean-logic-gates-57"
+        },
+        {
+          "question": "What is the fundamental purpose of the Memory Indirect Addressing Mode?",
+          "options": [
+            "To speed up execution to 1 clock cycle.",
+            "To access operands stored in CPU registers.",
+            "To retrieve a pointer from memory, which then directs the CPU to the actual data.",
+            "To offset the Program Counter."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Indirect addressing points to a memory word that contains an address, rather than the data itself. This is critical for implementing pointers and passing variable references in software.",
+          "id": "co-boolean-logic-gates-58"
+        },
+        {
+          "question": "Which memory replacement algorithm requires sophisticated hardware counters to meticulously track the chronological usage history of every cache line?",
+          "options": [
+            "Random",
+            "First-In-First-Out (FIFO)",
+            "Least Recently Used (LRU)",
+            "Optimal"
+          ],
+          "correctAnswer": 2,
+          "explanation": "LRU is highly efficient but structurally expensive. It must update timing counters or shift registers upon every single cache hit to ensure it evicts the block that has sat dormant the longest.",
+          "id": "co-boolean-logic-gates-59"
+        }
+      ]
+    },
+    {
+      "id": "combinational-sequential",
+      "title": "Combinational & Sequential Circuits",
+      "unit": "Unit 3",
+      "questions": [
+        {
+          "question": "A digital circuit designated to add two 1-bit operands to produce both a Sum and a Carry output is termed a:",
+          "options": [
+            "Full Adder",
+            "Half Adder",
+            "Multiplexer",
+            "Magnitude Comparator"
+          ],
+          "correctAnswer": 1,
+          "explanation": "A Half Adder is constrained to adding only two bits, lacking the capability to accept a Carry-in from a previous stage.",
+          "id": "co-combinational-sequential-1"
+        },
+        {
+          "question": "Which combinatorial circuit acts functionally as a \"Data Selector\"?",
+          "options": [
+            "Decoder",
+            "Demultiplexer",
+            "Multiplexer",
+            "Priority Encoder"
+          ],
+          "correctAnswer": 2,
+          "explanation": "A Multiplexer logically selects one of  available data inputs to route to a single unified output line.",
+          "id": "co-combinational-sequential-2"
+        },
+        {
+          "question": "A  line decoder features exactly how many primary input selection lines?",
+          "options": [
+            "1",
+            "3",
+            "8",
+            "11"
+          ],
+          "correctAnswer": 1,
+          "explanation": "It decodes a 3-bit binary input vector into 8 distinct, mutually exclusive active output lines.",
+          "id": "co-combinational-sequential-3"
+        },
+        {
+          "question": "Which sophisticated flip-flop architecture successfully eliminates the invalid/indeterminate state inherent in the basic SR flip-flop?",
+          "options": [
+            "D Flip-flop",
+            "T Flip-flop",
+            "JK Flip-flop",
+            "Master-Slave Latch"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The JK flip-flop intelligently toggles its output state when both input lines are driven to logic 1, resolving the SR invalid state.",
+          "id": "co-combinational-sequential-4"
+        },
+        {
+          "question": "A combinational circuit's instantaneous output state depends strictly and entirely upon:",
+          "options": [
+            "Historical past inputs",
+            "Current present inputs",
+            "The leading clock edge",
+            "Internal memory latches"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Combinational logic is devoid of memory elements; outputs rely purely on immediate input signal propagation.",
+          "id": "co-combinational-sequential-5"
+        },
+        {
+          "question": "Which hardware device is utilized to translate binary/BCD codes into corresponding Seven Segment display actuation signals?",
+          "options": [
+            "Multiplexer",
+            "Priority Encoder",
+            "Decoder",
+            "Ripple Counter"
+          ],
+          "correctAnswer": 2,
+          "explanation": "A specialized decoder translates the 4-bit BCD input into 7 distinct lines to illuminate the proper LED segments.",
+          "id": "co-combinational-sequential-6"
+        },
+        {
+          "question": "Structurally, sequential circuits consist of combinational logic tightly paired with what crucial component?",
+          "options": [
+            "Memory elements",
+            "Operational amplifiers",
+            "Tri-state buffers",
+            "The ALU"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Memory elements (flip-flops or latches) capture and store the logical state across clock cycles.",
+          "id": "co-combinational-sequential-7"
+        },
+        {
+          "question": "Which specific register variant shifts logical data laterally, one bit position at a time?",
+          "options": [
+            "Parallel In Parallel Out",
+            "Shift Register",
+            "Buffer Register",
+            "Asynchronous Counter"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Shift registers physically move data bits laterally through a chain of flip-flops upon sequential clock pulses.",
+          "id": "co-combinational-sequential-8"
+        },
+        {
+          "question": "An active-HIGH SR latch subjected to input conditions  will immediately transition to which state?",
+          "options": [
+            "Set",
+            "Reset",
+            "Invalid",
+            "Hold"
+          ],
+          "correctAnswer": 1,
+          "explanation": "A high state on the Reset (R) terminal unequivocally forces the Q output to a logical 0.",
+          "id": "co-combinational-sequential-9"
+        },
+        {
+          "question": "Which sequential memory device natively toggles its output state upon every active clock edge when asserted?",
+          "options": [
+            "T Flip-flop",
+            "D Flip-flop",
+            "SR Flip-flop",
+            "Transparent Latch"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The T (Toggle) flip-flop changes its internal state if, and only if, the  input is held at logic 1 during the clock pulse.",
+          "id": "co-combinational-sequential-10"
+        },
+        {
+          "question": "A combinational circuit explicitly comparing two operands  and  to determine if , , or  is known as a:",
+          "options": [
+            "Parallel Adder",
+            "Code Converter",
+            "Magnitude Comparator",
+            "Decoder array"
+          ],
+          "correctAnswer": 2,
+          "explanation": "A magnitude comparator evaluates the relative numerical magnitude of two binary inputs, activating corresponding state outputs.",
+          "id": "co-combinational-sequential-11"
+        },
+        {
+          "question": "What is the fundamental mathematical characteristic equation defining a D flip-flop?",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correctAnswer": 0,
+          "explanation": "The next state  directly mirrors the D (Data) input, ignoring the current state.",
+          "id": "co-combinational-sequential-12"
+        },
+        {
+          "question": "A complete Full Subtractor circuit physically incorporates how many input terminals?",
+          "options": [
+            "2",
+            "3",
+            "4",
+            "1"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The circuit requires three inputs: the Minuend, the Subtrahend, and the Borrow-in from a previous stage.",
+          "id": "co-combinational-sequential-13"
+        },
+        {
+          "question": "Which class of flip-flop is primarily and almost exclusively utilized to construct shift registers?",
+          "options": [
+            "SR",
+            "T",
+            "D",
+            "JK"
+          ],
+          "correctAnswer": 2,
+          "explanation": "D flip-flops easily and predictably pass data sequentially from one stage to the next without toggling risks.",
+          "id": "co-combinational-sequential-14"
+        },
+        {
+          "question": "In an asynchronous (ripple) counter topology, the master clock signal is applied physically to:",
+          "options": [
+            "All flip-flops simultaneously",
+            "Only the first flip-flop",
+            "Only the final flip-flop",
+            "The clear terminals"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Only the first stage receives the master clock; the output of each stage acts as the clock for the subsequent stage.21",
+          "id": "co-combinational-sequential-15"
+        },
+        {
+          "question": "The theoretical minimum number of NAND gates required to fully synthesize a Half Adder circuit is:",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "correctAnswer": 2,
+          "explanation": "It demands exactly 5 interconnected NAND gates to simultaneously generate both the Sum (XOR equivalent) and Carry (AND equivalent) logic.",
+          "id": "co-combinational-sequential-16"
+        },
+        {
+          "question": "Exactly how many  multiplexers are required to construct a  hierarchical multiplexer?",
+          "options": [
+            "8",
+            "15",
+            "16",
+            "31"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The hierarchical routing tree requires 8 MUXes in the first stage, then 4, then 2, then 1, totaling 15 multiplexers.19",
+          "id": "co-combinational-sequential-17"
+        },
+        {
+          "question": "A Full Adder circuit can be structurally synthesized by combining:",
+          "options": [
+            "Two Half Adders and an OR gate",
+            "Two Half Adders and an AND gate",
+            "One Half Adder and an XOR gate",
+            "Three Half Adders"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The two partial sums combine via a secondary XOR, while the partial carries combine via an OR gate to form the final Carry-out.",
+          "id": "co-combinational-sequential-18"
+        },
+        {
+          "question": "To implement an arbitrary 4-variable Boolean function using a Multiplexer, the minimum size MUX required is:",
+          "options": [
+            "4:1",
+            "8:1",
+            "16:1",
+            "32:1"
+          ],
+          "correctAnswer": 1,
+          "explanation": "An  MUX processes 3 variables via its select lines; the 4th variable is evaluated and fed into the data input pins.",
+          "id": "co-combinational-sequential-19"
+        },
+        {
+          "question": "What is the total modulus (number of unique states) of a standard 4-bit ripple counter?",
+          "options": [
+            "4",
+            "8",
+            "15",
+            "16"
+          ],
+          "correctAnswer": 3,
+          "explanation": "A 4-bit counter physically sequences from binary 0000 to 1111, yielding exactly 16 distinct combinational states ().",
+          "id": "co-combinational-sequential-20"
+        },
+        {
+          "question": "Which binary code ensures that only a single bit changes between any two successive values, highly useful in minimizing errors in mechanical encoders?",
+          "options": [
+            "BCD",
+            "ASCII",
+            "Gray Code",
+            "Excess-3"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Gray code is a specialized unweighted code designed specifically for 1-bit unit distance transitions.21",
+          "id": "co-combinational-sequential-21"
+        },
+        {
+          "question": "Within a standard JK flip-flop, the detrimental \"race-around condition\" manifests when:",
+          "options": [
+            "",
+            "",
+            "",
+            "and pulse width is excessive"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Continuous rapid toggling during a long active clock pulse causes severe output instability before the clock edge falls.21",
+          "id": "co-combinational-sequential-22"
+        },
+        {
+          "question": "A Master-Slave flip-flop dual-stage configuration was engineered specifically to solve what persistent problem?",
+          "options": [
+            "Excessive power consumption",
+            "Propagation delay",
+            "The Race-around condition",
+            "Indeterminate states"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The slave stage edge-triggers only after the master stage locks, decisively preventing continuous feedback toggling.",
+          "id": "co-combinational-sequential-23"
+        },
+        {
+          "question": "To rapidly convert a JK flip-flop into a Toggle (T) flip-flop through hardwiring:",
+          "options": [
+            "Connect J and K to ground",
+            "Short J and K together",
+            "Connect J to Q'",
+            "Invert K"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Shorting J and K creates a single T input node (), replicating toggle functionality.20",
+          "id": "co-combinational-sequential-24"
+        },
+        {
+          "question": "A serial-in shift register requires exactly how many discrete clock pulses to fully load 4 bits of external data?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Serial loading moves data linearly one bit at a time, requiring one full clock pulse per bit ingested.",
+          "id": "co-combinational-sequential-25"
+        },
+        {
+          "question": "The difference output of a full subtractor mathematically matches which specific output of a full adder?",
+          "options": [
+            "Half Subtractor difference",
+            "Full Adder Sum",
+            "Comparator equality",
+            "Decoder output"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Both outputs are mathematically defined by the exact same Boolean XOR sequence: .21",
+          "id": "co-combinational-sequential-26"
+        },
+        {
+          "question": "An -bit synchronous counter is driven by a master clock frequency . What is the observed frequency at the output of the final flip-flop stage?",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correctAnswer": 2,
+          "explanation": "Each flip-flop stage physically divides the incoming clock frequency by 2, resulting in exponential reduction.",
+          "id": "co-combinational-sequential-27"
+        },
+        {
+          "question": "A combinational logic device capable of routing data from a single input line to one of multiple specific output lines is termed a:",
+          "options": [
+            "Multiplexer",
+            "Demultiplexer",
+            "Encoder",
+            "Parallel Adder"
+          ],
+          "correctAnswer": 1,
+          "explanation": "A Demultiplexer functions as an intelligent data distributor, reverse-routing compared to a MUX.",
+          "id": "co-combinational-sequential-28"
+        },
+        {
+          "question": "Synthesizing Excess-3 code from standard BCD code requires the logical addition of what specific binary value?",
+          "options": [
+            "0011",
+            "0110",
+            "1001",
+            "0101"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Excess-3 is generated algorithmically by adding decimal 3 (binary 0011) to each discrete BCD digit.",
+          "id": "co-combinational-sequential-29"
+        },
+        {
+          "question": "To construct an abbreviated Mod-12 counter, the theoretical minimum number of flip-flops required is:",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "12"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Four flip-flops provide up to 16 native states (), which is the minimum power of two .",
+          "id": "co-combinational-sequential-30"
+        },
+        {
+          "question": "Which specific encoder variant prioritizes and encodes the highest-value active input line while ignoring lower-value inputs?",
+          "options": [
+            "Binary Encoder",
+            "Priority Encoder",
+            "Octal Encoder",
+            "Hexadecimal Encoder"
+          ],
+          "correctAnswer": 1,
+          "explanation": "A Priority encoder resolves simultaneous active inputs by outputting the binary code of the highest-ranked line.",
+          "id": "co-combinational-sequential-31"
+        },
+        {
+          "question": "The standard excitation table for a D flip-flop mathematically reveals that the required  input is always identical to:",
+          "options": [
+            "The Present state",
+            "The Inverted state",
+            "The Next state",
+            "The Clock signal"
+          ],
+          "correctAnswer": 2,
+          "explanation": "To achieve any target state , the D input must be driven to exactly equal .",
+          "id": "co-combinational-sequential-32"
+        },
+        {
+          "question": "Analyzing a JK flip-flop excitation table, forcing a transition from Present State 0 to Next State 1 strictly mandates inputs J and K to be:",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correctAnswer": 1,
+          "explanation": "Asserting  guarantees the next state becomes 1; the state of K is entirely irrelevant (Don't Care).",
+          "id": "co-combinational-sequential-33"
+        },
+        {
+          "question": "A 4-bit synchronous UP counter sits at state 1011. What is the logic state of the flip-flop inputs assuming T-type flip-flops are utilized? (Format: T3 T2 T1 T0)",
+          "options": [
+            "0 1 0 1",
+            "0 1 1 1",
+            "1 0 1 1",
+            "1 1 1 1"
+          ],
+          "correctAnswer": 0,
+          "explanation": "T inputs evaluate the AND combination of previous Qs. T0=1, T1=Q0=1, T2=Q0Q1=0, T3=Q0Q1Q2=0. Thus, 0101 commands the correct bit toggles to reach 1100.",
+          "id": "co-combinational-sequential-34"
+        },
+        {
+          "question": "To optimally design a complex combinational circuit handling 5 inputs and 1 output using multiplexers, what is the most efficient single IC choice?",
+          "options": [
+            "16:1 MUX",
+            "32:1 MUX",
+            "8:1 MUX",
+            "64:1 MUX"
+          ],
+          "correctAnswer": 0,
+          "explanation": "A 16:1 MUX processes 4 select lines; the 5th variable (and its complement) is hardwired directly to the data inputs.",
+          "id": "co-combinational-sequential-35"
+        },
+        {
+          "question": "A standard ring counter physically initialized with the pattern 1000 exhibits exactly how many distinct valid states?",
+          "options": [
+            "4",
+            "8",
+            "15",
+            "16"
+          ],
+          "correctAnswer": 0,
+          "explanation": "A ring counter simply circulates the single '1' indefinitely, resulting in exactly  distinct states for  flip-flops.",
+          "id": "co-combinational-sequential-36"
+        },
+        {
+          "question": "A Johnson (Twisted Ring) counter constructed using a chain of 5 flip-flops generates a sequence of how many states?",
+          "options": [
+            "5",
+            "10",
+            "16",
+            "32"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The twisted feedback loop of a Johnson counter yields exactly  states, calculating to  states.",
+          "id": "co-combinational-sequential-37"
+        },
+        {
+          "question": "The internal propagation delay of a single flip-flop is 20ns. What is the absolute maximum safe clock frequency for a 4-bit asynchronous (ripple) counter?",
+          "options": [
+            "50 MHz",
+            "25 MHz",
+            "12.5 MHz",
+            "100 MHz"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Cumulative delay is . Safe operating frequency .",
+          "id": "co-combinational-sequential-38"
+        },
+        {
+          "question": "Which of the following describes the critical invalid state logic trap necessitating correction in parallel BCD adders?",
+          "options": [
+            "Sum > 9 requires adding binary 0110",
+            "Sum > 15 requires adding 0110",
+            "Carry out acts as the sole validity indicator",
+            "Subtraction mandates double 2's complement"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Hardware BCD addition mathematically corrects sums exceeding the decimal bound of 9 by adding 6 (0110).",
+          "id": "co-combinational-sequential-39"
+        },
+        {
+          "question": "To physically realize the Boolean expression  utilizing an  MUX, which specific data input pins () must be tied to logic 1 (Vcc)?",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correctAnswer": 0,
+          "explanation": "Extracting the minterms directly yields 1, 2, and 7. Consequently, the data input pins  must be pulled HIGH.",
+          "id": "co-combinational-sequential-40"
+        },
+        {
+          "question": "Which of the following input combinations strictly acts as a \"Don't Care\" condition when designing a BCD to 7-segment decoder?",
+          "options": [
+            "1001 (Decimal 9)",
+            "0000 (Decimal 0)",
+            "1100 (Decimal 12)",
+            "0111 (Decimal 7)"
+          ],
+          "correctAnswer": 2,
+          "explanation": "BCD is strictly valid only from 0000 (",
+          "id": "co-combinational-sequential-41"
+        },
+        {
+          "question": "To construct a highly reliable synchronous counter, which type of flip-flop is universally preferred to avoid undefined states?",
+          "options": [
+            "Unclocked SR Latch",
+            "JK or T Flip-Flop",
+            "Monostable Multivibrator",
+            "D Latch"
+          ],
+          "correctAnswer": 1,
+          "explanation": "JK flip-flops solve the invalid state of SR flip-flops by using internal feedback to toggle instead. T (Toggle) flip-flops are derived from JK and natively designed for counter sequencing.",
+          "id": "co-combinational-sequential-42"
+        },
+        {
+          "question": "In sequential circuit design, what does the \"Excitation Table\" specifically define?",
+          "options": [
+            "The output of the circuit based on present inputs.",
+            "The required flip-flop inputs needed to force a specific transition from the Present State to the Next State.",
+            "The maximum clock frequency of the flip-flop.",
+            "The thermal tolerances of the silicon chip."
+          ],
+          "correctAnswer": 1,
+          "explanation": "While a truth table predicts outputs from inputs, an excitation table works backwards: it informs the engineer exactly what logic inputs must be applied to achieve a desired state change.",
+          "id": "co-combinational-sequential-43"
+        },
+        {
+          "question": "Convert a binary output 1011 to its corresponding Gray Code utilizing combinational XOR logic.",
+          "options": [
+            "1110",
+            "1010",
+            "1101",
+            "0100"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Gray code conversion: The MSB remains the same (",
+          "id": "co-combinational-sequential-44"
+        },
+        {
+          "question": "Why is the Master-Slave flip-flop architecture critical for edge-triggered memory?",
+          "options": [
+            "It doubles the memory capacity to 2 bits.",
+            "It physically isolates the output from the input during the clock pulse, preventing the destructive \"race-around\" condition.",
+            "It allows for ternary logic storage.",
+            "It bypasses the need for a system clock."
+          ],
+          "correctAnswer": 1,
+          "explanation": "In a race-around condition, an active clock level allows rapid, uncontrolled toggling. The master-slave uses an inverted clock for the slave, ensuring data only transfers when the clock edge falls, breaking the feedback loop.",
+          "id": "co-combinational-sequential-45"
+        },
+        {
+          "question": "upon every clock pulse, perfectly dividing the clock frequency by 2. 55. How many discrete flip-flops are mathematically required to construct a synchronous MOD-10 (Decade) counter?",
+          "options": [
+            "2",
+            "3",
+            "4",
+            "10"
+          ],
+          "correctAnswer": 2,
+          "explanation": "A MOD-10 counter requires 10 distinct states (0 through",
+          "id": "co-combinational-sequential-46"
+        },
+        {
+          "question": "When calculating the structural delay of an Asynchronous (Ripple) counter, if each flip-flop has a propagation delay of 10ns, what is the total delay for a 4-bit counter to settle?",
+          "options": [
+            "10ns",
+            "20ns",
+            "40ns",
+            "0ns"
+          ],
+          "correctAnswer": 2,
+          "explanation": "In a ripple counter, the clock is not parallel. The output of flip-flop 1 clocks flip-flop 2, and so on. The delay is cumulative: $4 \\times 10\\text{ns} = 40\\text{ns}$.",
+          "id": "co-combinational-sequential-47"
+        },
+        {
+          "question": "A 4-bit Ring Counter is pre-loaded with the binary sequence 1000. After exactly 6 clock pulses, what is the structural state of the counter?",
+          "options": [
+            "0010",
+            "0100",
+            "1000",
+            "0001"
+          ],
+          "correctAnswer": 0,
+          "explanation": "A ring counter simply shifts the 1 continuously in a loop. Modulo 4 means it returns to 1000 after 4 pulses. Pulse 5 is 0100, and pulse 6 is",
+          "id": "co-combinational-sequential-48"
+        },
+        {
+          "question": "Which addressing mode completely bypasses the need for a memory fetch phase because the actual data is physically embedded within the instruction itself?",
+          "options": [
+            "Direct",
+            "Indirect",
+            "Register",
+            "Immediate"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Immediate addressing embeds the operand directly in the address field of the instruction word. No RAM access is executed to fetch the operand, making it extremely fast.",
+          "id": "co-combinational-sequential-49"
+        },
+        {
+          "question": "A processor features 64 distinct registers and supports an instruction set of 40 unique operations. In a 32-bit instruction format containing an opcode, two register fields, and an immediate operand, what is the maximum bit-width available for the immediate operand?",
+          "options": [
+            "12 bits",
+            "14 bits",
+            "16 bits",
+            "18 bits"
+          ],
+          "correctAnswer": 1,
+          "explanation": "40 operations require 6 bits for Opcode ($\\lceil\\log_2(",
+          "id": "co-combinational-sequential-50"
+        },
+        {
+          "question": "\\rceil$). 64 registers require 6 bits per register ($\\lceil\\log_2(64)\\rceil$). Format: $32 - 6 (\\text{Opcode}) - 6 (\\text{Reg1}) - 6 (\\text{Reg2}) = 14$ bits remaining. 64. The Auto-Decrement addressing mode is notoriously leveraged by compilers to natively simulate which hardware data structure ope",
+          "options": [
+            "Queue Enqueue",
+            "Array Indexing",
+            "Stack PUSH",
+            "Stack POP"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Pre-decrementing a register drops the address pointer down by one block, after which the data is written to that new address. This perfectly mimics a top-down Stack PUSH operation.",
+          "id": "co-combinational-sequential-51"
+        },
+        {
+          "question": "In a One-Address instruction format (e.g., ADD X), where does the CPU inherently assume the second required operand resides?",
+          "options": [
+            "In the Instruction Register",
+            "At the top of the Stack",
+            "In the Accumulator (AC)",
+            "In the Base Register"
+          ],
+          "correctAnswer": 2,
+          "explanation": "One-address architectures are strictly Accumulator-based. The instruction specifies one memory operand, while the Accumulator implicitly supplies the second operand and receives the final result.",
+          "id": "co-combinational-sequential-52"
+        },
+        {
+          "question": "90 \\times 10 + 0.10 \\times (10 + 100) = 9 + 11 = 20\\text{ns}$. (Assuming concurrent access is not used). 93. The \"Principle of Spatial Locality\" relies on the statistical probability that:",
+          "options": [
+            "Data accessed recently will be accessed again soon.",
+            "The CPU will execute code sequentially in adjacent memory locations.",
+            "Cache misses are random.",
+            "Interrupts occur in clusters."
+          ],
+          "correctAnswer": 1,
+          "explanation": "Spatial locality assumes that if address $X$ is accessed (like an array element or sequential instruction), address $X+1$ is highly likely to be demanded next, justifying fetching entire blocks into cache.",
+          "id": "co-combinational-sequential-53"
+        }
+      ]
+    },
+    {
+      "id": "cpu-instruction-format",
+      "title": "CPU Architecture & Instruction Format",
+      "unit": "Unit 4",
+      "questions": [
+        {
+          "question": "Which critical CPU register tracks execution flow by holding the memory address of the next instruction to be fetched?",
+          "options": [
+            "Instruction Register (IR)",
+            "Accumulator (AC)",
+            "Program Counter (PC)",
+            "Stack Pointer (SP)"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The PC mathematically dictates the sequential and branching flow of all program execution.28",
+          "id": "co-cpu-instruction-format-1"
+        },
+        {
+          "question": "The designated opcode field within an instruction explicitly specifies:",
+          "options": [
+            "The physical operand address",
+            "The operation to be performed",
+            "The target PC value",
+            "The processor interrupt status"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Opcode is the binary instruction that tells the CPU decoder what specific hardware action (Add, Load, etc.) to trigger.26",
+          "id": "co-cpu-instruction-format-2"
+        },
+        {
+          "question": "A strict stack-organized computer framework operates continuously on which data sequencing principle?",
+          "options": [
+            "FIFO",
+            "LIFO",
+            "Round Robin",
+            "Priority queueing"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Stacks operate structurally on a Last-In-First-Out mechanism for all push and pop operations.",
+          "id": "co-cpu-instruction-format-3"
+        },
+        {
+          "question": "Which addressing mode structurally embeds the operand value directly within the bits of the instruction itself?",
+          "options": [
+            "Immediate",
+            "Direct",
+            "Indirect",
+            "Register"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Immediate addressing requires zero additional memory fetches, as the data is the operand.5",
+          "id": "co-cpu-instruction-format-4"
+        },
+        {
+          "question": "In theoretical Zero-address instruction formats, where are the operands assumed to be located?",
+          "options": [
+            "Within CPU Registers",
+            "The Accumulator",
+            "The top of the Stack",
+            "L1 Cache"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Stack architecture inherently targets the top two elements of the stack for ALU operations, eliminating the need for explicit addresses.",
+          "id": "co-cpu-instruction-format-5"
+        },
+        {
+          "question": "Which discrete phase of the instruction cycle actually retrieves the data from memory based on the calculated Effective Address?",
+          "options": [
+            "Fetch Instruction",
+            "Decode Opcode",
+            "Execute Instruction",
+            "Write-back result"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The Execute phase resolves the operand location, fetches the data, and performs the ALU operation.",
+          "id": "co-cpu-instruction-format-6"
+        },
+        {
+          "question": "The Instruction Register (IR) serves what explicit architectural purpose?",
+          "options": [
+            "Pointing to memory addresses",
+            "Holding the currently fetched instruction word",
+            "Storing ALU results temporarily",
+            "Managing the stack boundary"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The IR physically retains the current instruction word so the control unit decode logic can constantly analyze it.",
+          "id": "co-cpu-instruction-format-7"
+        },
+        {
+          "question": "Which addressing mode explicitly specifies that the target operand is located physically inside a CPU register?",
+          "options": [
+            "Direct memory",
+            "Indirect",
+            "Register",
+            "Implied"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Register addressing accesses data natively within the high-speed CPU registers, avoiding RAM latency.",
+          "id": "co-cpu-instruction-format-8"
+        },
+        {
+          "question": "A Reduced Instruction Set Computer (RISC) architecture is heavily characterized by:",
+          "options": [
+            "Highly variable length instructions",
+            "A massive array of complex addressing modes",
+            "Reduced, simple, single-cycle instructions",
+            "Direct memory-to-memory operations"
+          ],
+          "correctAnswer": 2,
+          "explanation": "RISC pipelines simplify opcodes to achieve rapid execution, usually completing one instruction per clock cycle.25",
+          "id": "co-cpu-instruction-format-9"
+        },
+        {
+          "question": "Which fundamental data manipulation instruction logically flips all bits within a target register?",
+          "options": [
+            "AND",
+            "NEG",
+            "NOT (Complement)",
+            "XOR"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The NOT (Complement) operation mathematically achieves the strict 1's complement of the data.",
+          "id": "co-cpu-instruction-format-10"
+        },
+        {
+          "question": "A standard PUSH hardware operation onto a memory stack executes in which sequence?",
+          "options": [
+            "Increments SP, then stores data",
+            "Decrements SP, then stores data",
+            "Only stores data",
+            "Only alters the SP"
+          ],
+          "correctAnswer": 1,
+          "explanation": "In standard top-down stack architecture, the Stack Pointer (SP) decreases to allocate space before the data is written.",
+          "id": "co-cpu-instruction-format-11"
+        },
+        {
+          "question": "Which addressing mode is naturally implied in the assembly instruction \"ADD R1, R2\"?",
+          "options": [
+            "Register",
+            "Immediate",
+            "Direct",
+            "Base"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The instruction dictates that both operands reside securely within the internal CPU registers.",
+          "id": "co-cpu-instruction-format-12"
+        },
+        {
+          "question": "The conceptual disparity between high-level programming constructs and low-level machine execution capabilities is defined as the:",
+          "options": [
+            "Execution gap",
+            "Semantic gap",
+            "Architectural gap",
+            "Translation gap"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Complex Instruction Set Computers (CISC) were historically engineered to close this semantic gap with dense, powerful instructions.25",
+          "id": "co-cpu-instruction-format-13"
+        },
+        {
+          "question": "Which critical CPU component orchestrates all internal timing, gating, and synchronization?",
+          "options": [
+            "The ALU",
+            "The Cache Controller",
+            "The Control Unit (CU)",
+            "The System Buses"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The CU acts as the central nervous system, directing data traffic and operational timing across the entire CPU.",
+          "id": "co-cpu-instruction-format-14"
+        },
+        {
+          "question": "What mode is actively utilized if the instruction's address field directly contains the physical memory address of the operand?",
+          "options": [
+            "Indirect",
+            "Direct",
+            "Immediate",
+            "Relative"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Direct addressing points completely straight to the RAM location housing the data.",
+          "id": "co-cpu-instruction-format-15"
+        },
+        {
+          "question": "Which of the following operations is strictly classified as a Data Transfer operation rather than manipulation?",
+          "options": [
+            "ADD",
+            "SHIFT",
+            "LOAD",
+            "OR"
+          ],
+          "correctAnswer": 2,
+          "explanation": "LOAD physically moves data bits from memory into a CPU register without mathematically altering the bits.",
+          "id": "co-cpu-instruction-format-16"
+        },
+        {
+          "question": "In a custom instruction architecture defining exactly 45 distinct instructions, how many bits are strictly required for the opcode field?",
+          "options": [
+            "4",
+            "5",
+            "6",
+            "7"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Using logarithms:  bits, which supplies enough capacity to encode up to 64 distinct instructions.27",
+          "id": "co-cpu-instruction-format-17"
+        },
+        {
+          "question": "If a processor utilizes a 32-bit instruction length, featuring a 6-bit opcode and two 5-bit register identifiers, what is the maximum bit-size of the remaining immediate operand field?",
+          "options": [
+            "14 bits",
+            "16 bits",
+            "18 bits",
+            "20 bits"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Subtraction calculation:  remaining bits.27",
+          "id": "co-cpu-instruction-format-18"
+        },
+        {
+          "question": "Program Counter (PC) relative addressing determines the target Effective Address (EA) via which calculation?",
+          "options": [
+            "EA = Address field directly",
+            "EA = PC + Address field offset",
+            "EA = Base Register + Address",
+            "EA = Index Register + Address"
+          ],
+          "correctAnswer": 1,
+          "explanation": "A signed mathematical offset is dynamically added to the current value of the Program Counter.5",
+          "id": "co-cpu-instruction-format-19"
+        },
+        {
+          "question": "Under Indirect Addressing mode, the address field embedded within the instruction logically refers to:",
+          "options": [
+            "The actual data operand",
+            "A pointer in memory housing the true address of the operand",
+            "The address of the next instruction",
+            "The top of the stack"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The instruction provides an address pointing to a memory word that acts as a secondary pointer to the final data.",
+          "id": "co-cpu-instruction-format-20"
+        },
+        {
+          "question": "Which addressing mode was specifically engineered to optimize array processing and repetitive loop constructs?",
+          "options": [
+            "Immediate",
+            "Direct",
+            "Indexed",
+            "Implied"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Indexed addressing effortlessly steps through sequential memory arrays by iteratively incrementing an index register.",
+          "id": "co-cpu-instruction-format-21"
+        },
+        {
+          "question": "The Auto-increment addressing mode structurally alters the index register's value at what specific point in time?",
+          "options": [
+            "Before operand fetch",
+            "After operand fetch",
+            "Randomly during decode",
+            "It does not alter it"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The hardware retrieves the operand utilizing the current address, and subsequently post-increments the register for the next cycle.24",
+          "id": "co-cpu-instruction-format-22"
+        },
+        {
+          "question": "Auto-decrement addressing mode is frequently leveraged by compilers to natively implement which data structure?",
+          "options": [
+            "Queue",
+            "Linked Array",
+            "Stack",
+            "Binary Tree"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Pre-decrementing the address before data access accurately simulates a top-down stack PUSH operation.",
+          "id": "co-cpu-instruction-format-23"
+        },
+        {
+          "question": "Translating and evaluating the mathematical expression  on a pure stack machine demands which sequence?",
+          "options": [
+            "PUSH A, PUSH B, ADD, PUSH C, PUSH D, ADD, MUL",
+            "ADD A B, ADD C D, MUL",
+            "LOAD A, ADD B D",
+            "No valid sequence"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Zero-address stack architectures rigidly rely on Reverse Polish Notation (RPN) for expression evaluation.",
+          "id": "co-cpu-instruction-format-24"
+        },
+        {
+          "question": "A processor core houses 64 registers. A standard R-type instruction references 3 distinct registers. How many instruction bits are consumed entirely by register identifiers?",
+          "options": [
+            "6",
+            "12",
+            "18",
+            "24"
+          ],
+          "correctAnswer": 2,
+          "explanation": "64 registers mathematically require 6 bits to identify uniquely.  total bits.29",
+          "id": "co-cpu-instruction-format-25"
+        },
+        {
+          "question": "Which dynamic addressing mode is structurally superior for relocating entire blocks of code seamlessly in memory during runtime?",
+          "options": [
+            "Direct",
+            "Indirect",
+            "Base Register",
+            "Immediate"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Base register addressing allows massive program blocks to shift dynamically by merely updating the single base register pointer.",
+          "id": "co-cpu-instruction-format-26"
+        },
+        {
+          "question": "Within a strict one-address instruction format, the second target operand is implicitly assumed to be located in:",
+          "options": [
+            "The Program Counter",
+            "Main Memory",
+            "The Accumulator",
+            "The Instruction Register"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The architecture dictates the Accumulator holds one operand implicitly and physically receives the resulting calculation.",
+          "id": "co-cpu-instruction-format-27"
+        },
+        {
+          "question": "What execution bottleneck does a 'Branch Delay Slot' in RISC architectures attempt to solve?",
+          "options": [
+            "Cache miss latency",
+            "Memory bandwidth bottlenecks",
+            "Pipelining control hazards (branch penalties)",
+            "ALU overflow handling"
+          ],
+          "correctAnswer": 2,
+          "explanation": "It mitigates the pipeline flush penalty by executing an independent instruction while the branch target address is resolving.25",
+          "id": "co-cpu-instruction-format-28"
+        },
+        {
+          "question": "Which specific instruction alters the program execution sequence permanently and unconditionally?",
+          "options": [
+            "JMP (Jump)",
+            "ADD",
+            "JZ (Jump if Zero)",
+            "CMP"
+          ],
+          "correctAnswer": 0,
+          "explanation": "JMP aggressively forces the PC to latch a new address, disregarding all current ALU status flags.",
+          "id": "co-cpu-instruction-format-29"
+        },
+        {
+          "question": "A vintage 16-bit processor utilizes an instruction with a 4-bit opcode. How many individual memory locations can be directly addressed?",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correctAnswer": 0,
+          "explanation": "The available address field is  bits. The maximum addressable space is therefore  or 4K locations.",
+          "id": "co-cpu-instruction-format-30"
+        },
+        {
+          "question": "What does strict \"Orthogonality\" in an instruction set design imply to a programmer?",
+          "options": [
+            "Execution is always high speed",
+            "All addressing modes can be applied symmetrically to all instructions",
+            "Restricted register usage",
+            "Short opcodes only"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Orthogonality denotes a highly symmetrical, intuitive, and flexible architectural design lacking arbitrary restrictions.",
+          "id": "co-cpu-instruction-format-31"
+        },
+        {
+          "question": "A subroutine CALL instruction inherently performs which hardware operation behind the scenes?",
+          "options": [
+            "Clears the stack completely",
+            "Pushes the current PC to the stack",
+            "Pops the PC from the stack",
+            "Resets the PC to 0"
+          ],
+          "correctAnswer": 1,
+          "explanation": "It fundamentally saves the critical return address onto the stack before violently branching to the subroutine.",
+          "id": "co-cpu-instruction-format-32"
+        },
+        {
+          "question": "A 2-word instruction is located at memory address 300. It utilizes PC-relative addressing with a declared offset of 50. What is the calculated Effective Address (EA)?",
+          "options": [
+            "350",
+            "351",
+            "352",
+            "302"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Cognitive Trap: The PC naturally increments to 302 after fetching the complete 2-word instruction. The true EA is .",
+          "id": "co-cpu-instruction-format-33"
+        },
+        {
+          "question": "Consider a 32-bit CPU supporting 70 diverse instructions. An I-type format contains an Opcode, 2 Registers (6 bits each), and an Immediate. What is the maximum unsigned immediate value?",
+          "options": [
+            "8191",
+            "16383",
+            "4095",
+            "32767"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Opcode = 7 bits. Registers = 12 bits. Immediate =  bits. Max value is .26",
+          "id": "co-cpu-instruction-format-34"
+        },
+        {
+          "question": "If a processor's Base Register contains 1000, its Index Register contains 20, and the instruction offset is 5, what is the EA in Base-Indexed with offset mode?",
+          "options": [
+            "1025",
+            "1020",
+            "1005",
+            "25"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The hardware simply cascades the additions: EA = Base + Index + Offset = .",
+          "id": "co-cpu-instruction-format-35"
+        },
+        {
+          "question": "A processor utilizes expanding opcodes. If 4-bit opcodes allow for 15 two-address instructions, how many one-address instructions can be manufactured from the remaining 1 opcode (assuming 6-bit address fields)?",
+          "options": [
+            "16",
+            "32",
+            "64",
+            "128"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The single \"escape\" opcode acts as a prefix, freeing up the 6 bits of the second address field, yielding exactly  new instructions.",
+          "id": "co-cpu-instruction-format-36"
+        },
+        {
+          "question": "In a CPU where instruction execution is heavily interleaved through a pipeline, a Structural Hazard is triggered when:",
+          "options": [
+            "Input data is not ready",
+            "A branch is unexpectedly taken",
+            "Two distinct instructions demand simultaneous use of the same physical hardware unit",
+            "System interrupts fire"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Structural hazards involve physical resource conflicts, such as two pipeline stages attempting to drive the memory bus simultaneously.30",
+          "id": "co-cpu-instruction-format-37"
+        },
+        {
+          "question": "Why is Cache Addressing firmly NOT classified as a standard Instruction Addressing Mode?",
+          "options": [
+            "It operates too fast for the CPU",
+            "It is managed entirely transparently by the hardware, invisible to the programmer",
+            "It requires microcode programming",
+            "It uses strictly internal registers"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Addressing modes define logical data access methodologies for programmers. Caching is a physical hardware optimization invisible to logical execution.5",
+          "id": "co-cpu-instruction-format-38"
+        },
+        {
+          "question": "Which specific addressing mode is strictly utilized to retrieve functional pointers from memory before accessing the actual data?",
+          "options": [
+            "Indexed Addressing",
+            "PC-Relative Addressing",
+            "Memory Indirect Addressing",
+            "Base-Register Addressing"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Memory indirect architecture first fetches a pointer from memory, then uses that pointer as an address to fetch the actual target data.24",
+          "id": "co-cpu-instruction-format-39"
+        },
+        {
+          "question": "An array A is processed where each data element consumes 4 words. If an indexed mode  is used to iterate, what numerical value serves as the multiplier for stride access?",
+          "options": [
+            "1",
+            "2",
+            "4",
+            "5"
+          ],
+          "correctAnswer": 2,
+          "explanation": "To access successive elements dynamically, the index counter must be mathematically multiplied by the element size (4 words) to calculate the correct stride offset.",
+          "id": "co-cpu-instruction-format-40"
+        },
+        {
+          "question": "In a pure Stack-Organized CPU (Zero-Address architecture), how is the mathematical operation SUBTRACT physically executed?",
+          "options": [
+            "It subtracts the accumulator from the memory address.",
+            "It pops the top two elements, subtracts them, and pushes the result back.",
+            "It uses immediate addressing only.",
+            "It requests a DMA transfer."
+          ],
+          "correctAnswer": 1,
+          "explanation": "Zero-address architectures lack explicit operands. ALUs in these CPUs are hardwired to implicitly pop the top two words from the stack, perform the opcode, and push the answer back.",
+          "id": "co-cpu-instruction-format-41"
+        },
+        {
+          "question": "A highly orthogonal Instruction Set Architecture (IS",
+          "options": [
+            "implies that: A) All instructions are exactly 8 bits long.",
+            "Memory is isolated from I/O ports.",
+            "Any addressing mode can be symmetrically applied to any instruction opcode.",
+            "The processor utilizes microprogramming."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Orthogonality means flexibility. A compiler can combine any operation (like ADD or LOAD) with any addressing mode seamlessly, without arbitrary hardware restrictions.",
+          "id": "co-cpu-instruction-format-42"
+        },
+        {
+          "question": "If a CPU architecture heavily features a Branch Delay Slot, it is definitively classified as a:",
+          "options": [
+            "CISC architecture",
+            "Stack architecture",
+            "RISC pipeline architecture",
+            "Harvard architecture"
+          ],
+          "correctAnswer": 2,
+          "explanation": "RISC architectures use deep pipelining. A branch causes a pipeline stall (bubble). Compilers fill the \"delay slot\" following the branch with an independent instruction to prevent wasting a clock cycle.",
+          "id": "co-cpu-instruction-format-43"
+        },
+        {
+          "question": "The hardware operation of a subroutine RETURN instruction essentially executes which stack operation?",
+          "options": [
+            "PUSH PC",
+            "POP PC",
+            "POP AC",
+            "CLEAR SP"
+          ],
+          "correctAnswer": 1,
+          "explanation": "A CALL pushes the return address to the stack. A RETURN simply pops that saved address off the top of the stack and jams it directly back into the Program Counter, resuming original execution.",
+          "id": "co-cpu-instruction-format-44"
+        },
+        {
+          "question": "What is the explicit architectural function of a Translation Lookaside Buffer (TLB)?",
+          "options": [
+            "To cache the most recently fetched CPU instructions.",
+            "To act as a DMA controller for graphics cards.",
+            "To act as an ultra-fast associative cache specifically for storing recent Virtual-to-Physical page table translations.",
+            "To buffer I/O keyboard strokes."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Accessing page tables in main memory to translate addresses is incredibly slow. The TLB caches these translations directly inside the CPU; a TLB hit bypasses the memory translation lookup entirely.",
+          "id": "co-cpu-instruction-format-45"
+        }
+      ]
+    },
+    {
+      "id": "memory-cache",
+      "title": "Memory Hierarchy & Cache",
+      "unit": "Unit 5",
+      "questions": [
+        {
+          "question": "Which discrete level of memory functions directly as an ultra-high-speed buffer isolating the CPU from slower Main Memory?",
+          "options": [
+            "Read-Only Memory (ROM)",
+            "Flash Storage",
+            "Cache Memory",
+            "Secondary Magnetic Disk"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Cache physically buffers frequently accessed instructions and data payloads to match the rapid execution speeds of the CPU core.33",
+          "id": "co-memory-cache-1"
+        },
+        {
+          "question": "Which of the following specific memory architectures is inherently non-volatile?",
+          "options": [
+            "SRAM",
+            "DRAM",
+            "Cache",
+            "ROM"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Read-Only Memory (ROM) is physically constructed to retain its data matrix indefinitely even when system power is completely severed.34",
+          "id": "co-memory-cache-2"
+        },
+        {
+          "question": "Ascending the computer memory hierarchy pyramid, which storage tier represents the fastest access speeds and smallest capacities?",
+          "options": [
+            "Level 2 Cache",
+            "Main Memory (RAM)",
+            "CPU Registers",
+            "Magnetic Disk"
+          ],
+          "correctAnswer": 2,
+          "explanation": "CPU Registers are structurally etched directly into the processor core, operating synchronously at the exact frequency of the CPU.35",
+          "id": "co-memory-cache-3"
+        },
+        {
+          "question": "Dynamic RAM (DRAM) is critically characterized by its strict architectural need to be:",
+          "options": [
+            "Flashed via ultraviolet light",
+            "Erased electrically",
+            "Periodically refreshed",
+            "Programmed only once"
+          ],
+          "correctAnswer": 2,
+          "explanation": "DRAM utilizes microscopic capacitors that physically leak electrical charge over milliseconds, mandating continuous refresh cycles to preserve data logic.",
+          "id": "co-memory-cache-4"
+        },
+        {
+          "question": "The software-driven process of artificially expanding RAM capacity by utilizing segments of the hard disk is termed:",
+          "options": [
+            "Cache layering",
+            "Flash extension",
+            "Virtual Memory",
+            "ROM shadowing"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Virtual memory dynamically swaps chunks of memory (pages) between physical RAM and disk, simulating an immense, unified memory space.36",
+          "id": "co-memory-cache-5"
+        },
+        {
+          "question": "A \"Page Fault\" exception occurs explicitly when:",
+          "options": [
+            "The Cache completely misses",
+            "The physical RAM is structurally full",
+            "A logically requested page is not currently present in main memory",
+            "The hard disk crashes mechanically"
+          ],
+          "correctAnswer": 2,
+          "explanation": "A page fault forces the Operating System to pause execution and fetch the missing data page from the slow secondary storage into RAM.",
+          "id": "co-memory-cache-6"
+        },
+        {
+          "question": "Which specific classification of memory utilizes bistable flip-flop circuits to store data bits?",
+          "options": [
+            "ROM",
+            "DRAM",
+            "SRAM",
+            "EEPROM"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Static RAM (SRAM) employs complex bistable latching circuitry (typically 6 transistors per cell), requiring absolutely no refresh cycles.",
+          "id": "co-memory-cache-7"
+        },
+        {
+          "question": "The absolute smallest addressable entity within computer memory organization is conventionally a:",
+          "options": [
+            "Data Block",
+            "Byte",
+            "Cell",
+            "Memory Page"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Memory is structurally divided into microscopic cells, where each cell acts as a uniquely addressable location.38",
+          "id": "co-memory-cache-8"
+        },
+        {
+          "question": "The systemic process of transporting blocks of data from a slower memory tier to a faster memory tier is formally termed:",
+          "options": [
+            "Mapping",
+            "Thrashing",
+            "Fetching",
+            "Swapping"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Memory mapping mathematically transfers and translates blocks or pages up the hierarchy to optimize access speeds.",
+          "id": "co-memory-cache-9"
+        },
+        {
+          "question": "Assume Main memory size is  and Cache size is . If the calculated index field is 12 bits, what is the precise size of the Tag field in Direct Mapping?",
+          "options": [
+            "7 bits",
+            "9 bits",
+            "12 bits",
+            "14 bits"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Total address width = 21 bits (since ).  tag bits.4",
+          "id": "co-memory-cache-10"
+        },
+        {
+          "question": "In cache mapping mathematics, catastrophic \"Thrashing\" is most frequently observed in which mapping technique?",
+          "options": [
+            "Direct Mapping",
+            "Fully Associative",
+            "Set-Associative",
+            "Virtual Mapping"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Constant swapping occurs because multiple heavily utilized memory blocks mathematically map to the exact same singular cache line.39",
+          "id": "co-memory-cache-11"
+        },
+        {
+          "question": "Which sophisticated replacement algorithm systematically replaces the cache block that has not been referenced for the longest chronological time?",
+          "options": [
+            "FIFO (First In First Out)",
+            "LIFO (Last In First Out)",
+            "LRU (Least Recently Used)",
+            "Random Selection"
+          ],
+          "correctAnswer": 2,
+          "explanation": "LRU utilizes hardware counters to meticulously track the chronological usage history of blocks for optimal, logical replacement.30",
+          "id": "co-memory-cache-12"
+        },
+        {
+          "question": "To successfully construct a  unified memory module utilizing  memory chips, exactly how many physical chips are required?",
+          "options": [
+            "2",
+            "4",
+            "8",
+            "16"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Simple capacity division: Total capacity divided by individual chip capacity:  chips.40",
+          "id": "co-memory-cache-13"
+        },
+        {
+          "question": "An associative memory module (CAM) fundamentally works on the architectural principle of:",
+          "options": [
+            "Address matching",
+            "Data content matching",
+            "Sequential block access",
+            "LIFO processing"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Content Addressable Memory (CAM) searches all cells concurrently by comparing input data against the data content, ignoring physical addresses entirely.",
+          "id": "co-memory-cache-14"
+        },
+        {
+          "question": "Under a strict \"write-through\" cache update policy:",
+          "options": [
+            "Data is written exclusively to the L1 cache",
+            "Data is written to memory only upon block replacement eviction",
+            "Data is simultaneously updated in both the cache and the main memory",
+            "Memory writes are queued indefinitely"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This ensures extremely high data consistency across the hierarchy but incurs notoriously slower write performance times.10",
+          "id": "co-memory-cache-15"
+        },
+        {
+          "question": "A Set-Associative cache architecture maps a given main memory block to:",
+          "options": [
+            "Any random cache line",
+            "One strictly specific cache line",
+            "A specific set of lines, anywhere within that set",
+            "Random sets"
+          ],
+          "correctAnswer": 2,
+          "explanation": "It bridges the gap between direct and fully associative by allowing a block flexibility to sit anywhere within a mathematically designated set.39",
+          "id": "co-memory-cache-16"
+        },
+        {
+          "question": "A computer achieves a cache hit ratio of 80%. Cache access time is 40ns and Main Memory is 100ns. What is the calculated Effective Access Time (EAT)?",
+          "options": [
+            "40ns",
+            "52ns",
+            "60ns",
+            "140ns"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Calculation: .31",
+          "id": "co-memory-cache-17"
+        },
+        {
+          "question": "What does the \"Valid Bit\" integrated within a cache line metadata tag indicate?",
+          "options": [
+            "The data has been modified (dirty)",
+            "The data perfectly matches main memory",
+            "The line contains legitimate, readable data",
+            "The block is locked by the OS"
+          ],
+          "correctAnswer": 2,
+          "explanation": "It differentiates completely empty, stale, or powered-off cache lines from lines containing active, trustworthy data blocks.",
+          "id": "co-memory-cache-18"
+        },
+        {
+          "question": "The infamous \"Cache Coherence\" problem arises primarily in which architectural configurations?",
+          "options": [
+            "Simple Uniprocessors",
+            "Symmetric Multiprocessor systems (SMP)",
+            "Virtual memory paging systems",
+            "Solid State Flash drives"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Multiple CPUs with isolated, private L1 caches modifying shared variables lead quickly to mathematically inconsistent data states across the system.4",
+          "id": "co-memory-cache-19"
+        },
+        {
+          "question": "Which architectural implementation factor most effectively reduces the \"Miss Penalty\" in cache systems?",
+          "options": [
+            "Expanding the L1 cache size",
+            "Increasing set associativity",
+            "Deployment of an L2 Cache layer",
+            "Utilizing random replacement policies"
+          ],
+          "correctAnswer": 2,
+          "explanation": "A multi-level cache hierarchy (L2) prevents the massive penalty of fetching directly from highly latent RAM upon an L1 miss.",
+          "id": "co-memory-cache-20"
+        },
+        {
+          "question": "Assuming a main memory block is mathematically identified as . In a direct-mapped cache containing exactly  lines, which exact line does block  map to?",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correctAnswer": 2,
+          "explanation": "The direct mapping algorithm is determined strictly by standard modulo arithmetic: Block Number modulo Total Cache Lines.32",
+          "id": "co-memory-cache-21"
+        },
+        {
+          "question": "A memory system utilizes 24-bit addresses. The Block size is 4 words. A direct-mapped cache has 512 lines. What is the exact bit-size of the tag field?",
+          "options": [
+            "11 bits",
+            "13 bits",
+            "15 bits",
+            "9 bits"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Words/block = 4 (, offset=2). Lines = 512 (, index=9). Tag = Total Address (24) - Index (9) - Offset (2) = 13 bits.41",
+          "id": "co-memory-cache-22"
+        },
+        {
+          "question": "Consider an array A mapped to an initially empty cache featuring 16-word blocks. A loop executes causing an inevitable miss on . Assuming sequential access, what is the resultant statistical miss ratio?",
+          "options": [
+            "0.50",
+            "0.25",
+            "0.0625",
+            "0.125"
+          ],
+          "correctAnswer": 2,
+          "explanation": "1 miss fetches an entire block of 16 words. Thus, you suffer 1 miss per 16 accesses .32",
+          "id": "co-memory-cache-23"
+        },
+        {
+          "question": "In a 4-way set associative cache containing 16 blocks total, Main memory block 216 maps directly to which cache set?",
+          "options": [
+            "Set 0",
+            "Set 1",
+            "Set 2",
+            "Set 3"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Total sets = Cache Blocks / Ways =  Sets. Mapping equation = Block Number mod Total Sets = .32",
+          "id": "co-memory-cache-24"
+        },
+        {
+          "question": "A page table resides deep in main memory (100ns access). The TLB hit ratio is a robust 90% with a 10ns access time. What is the Effective Access Time with the TLB active?",
+          "options": [
+            "110ns",
+            "120ns",
+            "130ns",
+            "140ns"
+          ],
+          "correctAnswer": 1,
+          "explanation": "EAT = Hit Rate * (TLB time + Mem time) + Miss Rate * (TLB time + Mem time for Page Table + Mem time for Data). .",
+          "id": "co-memory-cache-25"
+        },
+        {
+          "question": "Cache Size is , Block Size is 32 Bytes. Main Memory is . Under a Fully Associative mapping scheme, exactly how many bits represent the Index field?",
+          "options": [
+            "0",
+            "5",
+            "10",
+            "15"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Cognitive trap: A Fully associative mapping architecture utilizes absolutely no index bits; the address splits simply into the Tag and the Offset.39",
+          "id": "co-memory-cache-26"
+        },
+        {
+          "question": "If physical RAM size is physically increased by adding modules to the motherboard, the size of the logical virtual memory:",
+          "options": [
+            "Increases proportionally",
+            "Decreases",
+            "Remains completely unchanged",
+            "Doubles"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Virtual memory is bounded entirely by the processor's logical address architecture (e.g., 32-bit or 64-bit), remaining independent of physical RAM constraints.",
+          "id": "co-memory-cache-27"
+        },
+        {
+          "question": "A system has 21-bit main memory addresses and a Direct-Mapped cache with a 12-bit Index field. What is the exact bit-size of the remaining Tag field?",
+          "options": [
+            "12 bits",
+            "21 bits",
+            "9 bits",
+            "4 bits"
+          ],
+          "correctAnswer": 2,
+          "explanation": "In direct mapping, Address = Tag + Index + Offset. Assuming a 1-word block (0 offset bits), the Tag is simply Total Address (",
+          "id": "co-memory-cache-28"
+        },
+        {
+          "question": "A Fully Associative cache architecture is distinct because it completely eliminates which standard address field?",
+          "options": [
+            "The Tag field",
+            "The Offset field",
+            "The Index field",
+            "The Valid bit"
+          ],
+          "correctAnswer": 2,
+          "explanation": "In fully associative mapping, a memory block can be stored in absolutely ANY cache line. Because placement is not mathematically constrained to a specific row, the Index field is structurally nonexistent.",
+          "id": "co-memory-cache-29"
+        },
+        {
+          "question": "In Virtual Memory architecture, a \"Page Fault\" is definitively an exception indicating that:",
+          "options": [
+            "The CPU attempted to divide by zero.",
+            "The requested logical page is currently resting on the hard disk and is missing from physical RAM.",
+            "The physical RAM has caught fire.",
+            "The Cache is completely full."
+          ],
+          "correctAnswer": 1,
+          "explanation": "Virtual memory maps a massive logical space. If the CPU requests an address that is currently swapped out to the slow hard drive, the memory management",
+          "id": "co-memory-cache-30"
+        },
+        {
+          "question": "A system employs a \"Write-Back\" cache policy. What vital piece of metadata is required in the cache tag to ensure data integrity?",
+          "options": [
+            "A Parity Bit",
+            "A Dirty Bit (Modified Bit)",
+            "An Index Bit",
+            "A Read-Only Flag"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Write-back delays writing to main memory until the block is evicted. The hardware uses a \"Dirty Bit\" to track if the CPU has altered the cache block. If dirty, it must be written to RAM upon eviction.",
+          "id": "co-memory-cache-31"
+        },
+        {
+          "question": "Calculate the Effective Access Time (EAT) given: Cache hit ratio = 90%, Cache access time = 10ns, Main Memory access time = 100ns.",
+          "options": [
+            "110ns",
+            "20ns",
+            "19ns",
+            "100ns"
+          ],
+          "correctAnswer": 1,
+          "explanation": "EAT formula: $H \\times C + (1-H) \\times (C + M)$. Thus, $",
+          "id": "co-memory-cache-32"
+        },
+        {
+          "question": "A hardware catastrophe known as \"Thrashing\" occurs most violently in which cache mapping architecture?",
+          "options": [
+            "Fully Associative",
+            "Set Associative",
+            "Direct Mapping",
+            "Virtual Mapping"
+          ],
+          "correctAnswer": 2,
+          "explanation": "In direct mapping, two distinct memory blocks mapping to the exact same cache line will constantly overwrite each other if accessed in an alternating loop, dropping the hit rate to nearly",
+          "id": "co-memory-cache-33"
+        }
+      ]
+    },
+    {
+      "id": "io-dma",
+      "title": "I/O Organization & DMA",
+      "unit": "Unit 5",
+      "questions": [
+        {
+          "question": "Which primitive I/O communication method mandates that the CPU constantly burn cycles checking the hardware device status?",
+          "options": [
+            "Interrupt-driven I/O",
+            "Direct Memory Access (DMA)",
+            "Polling (Programmed I/O)",
+            "Channel I/O"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Polling is notoriously inefficient because it wastes vital CPU cycles actively querying unready devices in a tight loop.5",
+          "id": "co-io-dma-1"
+        },
+        {
+          "question": "The acronym DMA technically stands for:",
+          "options": [
+            "Direct Memory Access",
+            "Dynamic Memory Allocation",
+            "Data Memory Array",
+            "Digital Memory Address"
+          ],
+          "correctAnswer": 0,
+          "explanation": "DMA enables high-speed peripherals to bypass the CPU entirely, transferring data directly to or from the system RAM.34",
+          "id": "co-io-dma-2"
+        },
+        {
+          "question": "What specific systemic event can trigger a hardware Interrupt?",
+          "options": [
+            "External hardware signal",
+            "Internal software trap/fault",
+            "I/O device readiness notification",
+            "All of the above"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Interrupts are comprehensive asynchronous alerts generated by peripherals, catastrophic software faults (divide by zero), or external hardware traps.",
+          "id": "co-io-dma-3"
+        },
+        {
+          "question": "Which fundamental computing principle governs the statistical success of cache memory operation?",
+          "options": [
+            "Principle of Locality of Reference",
+            "Virtual memory mapping",
+            "Sequential Polling",
+            "Parallel Concurrency"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Both spatial and temporal locality dictate statistically that data located near recently utilized data will be demanded again imminently.",
+          "id": "co-io-dma-4"
+        },
+        {
+          "question": "Which specific DMA transfer mode aggressively suspends the CPU for just a single clock cycle to transfer exactly one word of data?",
+          "options": [
+            "Burst mode",
+            "Block mode",
+            "Cycle Stealing mode",
+            "Demand transfer mode"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Cycle stealing delicately takes control of the system bus for minimal, interspersed durations, strictly to prevent total CPU starvation.",
+          "id": "co-io-dma-5"
+        },
+        {
+          "question": "Vectored interrupt architectures dictate that the interrupting hardware device must supply the CPU with:",
+          "options": [
+            "The complete data payload",
+            "The specific branch address/vector",
+            "The updated stack pointer",
+            "An execution opcode"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The supplied vector points the CPU directly to the exact starting address of the corresponding Interrupt Service Routine (ISR) in memory.37",
+          "id": "co-io-dma-6"
+        },
+        {
+          "question": "Isolated I/O (also known as I/O Mapped I/O) architecture ensures operations utilize:",
+          "options": [
+            "Completely shared memory addresses",
+            "A distinctly separate address space strictly for I/O",
+            "Software Polling only",
+            "Only internal registers"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Distinct, segregated address spaces mathematically prevent peripheral I/O ports from consuming valuable RAM memory addresses.",
+          "id": "co-io-dma-7"
+        },
+        {
+          "question": "What specialized hardware component massively accelerates Virtual Memory to physical memory address translation?",
+          "options": [
+            "The DMA Controller",
+            "The Translation Lookaside Buffer (TLB)",
+            "A hardware Multiplexer",
+            "The Interrupt Controller"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The TLB acts physically as an ultra-fast associative cache dedicated entirely to storing recent page table translation entries.",
+          "id": "co-io-dma-8"
+        },
+        {
+          "question": "The \"Burst mode\" DMA transfer protocol is most optimally suited for:",
+          "options": [
+            "Keyboard stroke input",
+            "Mouse movement tracking",
+            "Magnetic disk sequential transfers",
+            "Printer carriage control"
+          ],
+          "correctAnswer": 2,
+          "explanation": "High-speed, high-volume peripherals require locking the system bus to transfer massive, contiguous data blocks rapidly.",
+          "id": "co-io-dma-9"
+        },
+        {
+          "question": "Implementing Memory-Mapped I/O implies structurally that:",
+          "options": [
+            "I/O uses separate read/write command lines",
+            "I/O devices physically share the identical CPU address space as RAM",
+            "Main memory is stored within the I/O devices",
+            "DMA hardware is disabled"
+          ],
+          "correctAnswer": 1,
+          "explanation": "No separate, specialized I/O instructions are needed; standard LOAD/STORE instructions transparently interact with the I/O ports.30",
+          "id": "co-io-dma-10"
+        },
+        {
+          "question": "Daisy Chaining is a physical hardware mechanism historically used for:",
+          "options": [
+            "Cache block mapping",
+            "Memory interleaving optimization",
+            "Bus Arbitration and resolving Interrupt priority",
+            "Connecting ROM chips"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Hardware devices are connected linearly to dynamically grant acknowledgment priority to the device physically nearest to the CPU core.",
+          "id": "co-io-dma-11"
+        },
+        {
+          "question": "To successfully interface a rapid processor with a highly slow, legacy memory module, the processor must be configured to:",
+          "options": [
+            "Assert a hardware interrupt",
+            "Insert cyclical WAIT states",
+            "Deploy a DMA controller",
+            "Stop the master clock entirely"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Wait states intentionally freeze the processor's execution pipeline until the slow memory acknowledges that data is stable and ready.",
+          "id": "co-io-dma-12"
+        },
+        {
+          "question": "The CPU is busy evaluating logic 80% of the time. A DMA controller transfers a  block taking . If Cycle Stealing mode is deployed over Burst mode, what happens to the CPU's overall efficiency?",
+          "options": [
+            "It plummets",
+            "It increases slightly",
+            "It remains completely unaffected",
+            "It reaches a theoretical 100%"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Cycle stealing interleaves memory transfers selectively, preventing the CPU from freezing entirely during the 1ms block transfer, optimizing throughput.",
+          "id": "co-io-dma-13"
+        },
+        {
+          "question": "Why is Dynamic RAM (DRAM) universally chosen for Main Memory over Static RAM (SRAM), despite being significantly slower?",
+          "options": [
+            "It does not require power to retain data.",
+            "It utilizes just 1 transistor and a capacitor per cell, allowing massive storage density and lower cost.",
+            "It has a faster clock speed.",
+            "It natively supports DMA burst modes."
+          ],
+          "correctAnswer": 1,
+          "explanation": "SRAM requires complex 6-transistor flip-flops per cell, making it bulky and expensive (ideal for tiny caches). DRAM's simple 1-transistor design allows Gigabytes of storage on a single cheap chip.",
+          "id": "co-io-dma-14"
+        },
+        {
+          "question": "What specific hardware collision does Daisy-Chaining resolve in a CPU interrupt system?",
+          "options": [
+            "Cache memory mapping collisions.",
+            "Multiple I/O devices asserting the interrupt request line at the exact same microsecond.",
+            "Two programs attempting to write to the same RAM address.",
+            "Hard disk sector fragmentation."
+          ],
+          "correctAnswer": 1,
+          "explanation": "Daisy-chaining connects interrupt acknowledgment lines in a physical hardware series. If multiple devices interrupt, the hardware signal reaches the closest physical device first, inherently resolving the priority conflict.",
+          "id": "co-io-dma-15"
+        }
+      ]
+    },
+    {
+      "id": "general-co",
+      "title": "General Computer Organization",
+      "unit": "Mixed",
+      "questions": [
+        {
+          "question": "When implementing the hardware logic $R1 \\leftarrow R1 + R2' + 1$, what mathematical operation is being physically synthesized?",
+          "options": [
+            "$R1 + R2$",
+            "$R1 - R2$",
+            "$R1 \\times R2$",
+            "$R1 / R2$"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Adding the 1's complement ($R2'$) and asserting a 1 to the carry-in mathematically synthesizes 2's complement subtraction: $R1 - R2$.",
+          "id": "co-general-co-1"
+        },
+        {
+          "question": "to 1001 (9). Any input pattern from 1010 (10) to 1111 (15) will physically never occur, hence they are plotted as \"Don't Cares\" (X). 33. Applying the Consensus Theorem to the expression $AB + A'C + BC$ yields:",
+          "options": [
+            "$AB + BC$",
+            "$A'C + BC$",
+            "$AB + A'C$",
+            "$ABC$"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The Consensus Theorem states that the term $BC$ is mathematically redundant. Any variable state making $BC$ true guarantees that either $AB$ or $A'C$ must also be true.",
+          "id": "co-general-co-2"
+        },
+        {
+          "question": "96. You are engineering a 1 Megabyte ($1024 \\text{ KB}$) RAM board. Your supplier provides $128 \\text{ KB}$ RAM IC chips. How many physical chips must be wired onto the board?",
+          "options": [
+            "4",
+            "8",
+            "16",
+            "32"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Simple capacity division evaluates the hardware requirement: $1024 \\text{ KB total} / 128 \\text{ KB per chip} = 8$ distinct chips.",
+          "id": "co-general-co-3"
+        }
+      ]
+    }
+  ]
+}

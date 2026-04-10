@@ -1,0 +1,1432 @@
+{
+  "subjectId": "dsa",
+  "units": [
+    {
+      "id": "unit-1",
+      "title": "Unit 1: Introduction to DSA & Analysis",
+      "description": "Foundations of data organization and the mathematics of algorithmic efficiency.",
+      "topics": [
+        {
+          "id": "u1-s1",
+          "title": "Step 1: Data, Information & Data Structures",
+          "concepts": [
+            {
+              "id": "c1-1",
+              "title": "The Hierarchy of Meaning",
+              "theory": "In computing, we distinguish between raw facts and meaningful context:\n\n* **Data**: Raw, unorganized facts (e.g., '101', 'John').\n* **Information**: Data processed to be useful (e.g., 'Roll No: 101 Name: John').\n\n**Data Structure**: A specialized format for organizing, processing, retrieving, and storing data. It defines the relationship between data elements and the operations allowed on them.",
+              "flowchart": "graph LR\n    D[Data] -->|Process| I[Information]\n    I -->|Structure| DS[Data Structure]\n    style DS fill:#dbeafe,stroke:#2563eb",
+              "mcq": {
+                "id": "m1-1",
+                "question": "What is the primary purpose of a Data Structure?",
+                "options": [
+                  "To increase storage space",
+                  "To organize data for efficient access and modification",
+                  "To convert data into electricity",
+                  "To manufacture hardware"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Data structures provide the logical and mathematical model of a particular organization of data."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s2",
+          "title": "Step 2: Linear vs Non-Linear Structures",
+          "concepts": [
+            {
+              "id": "c1-2",
+              "title": "Structural Categorization",
+              "theory": "Data structures are broadly classified into two categories:\n\n1. **Linear Data Structures**: Elements are arranged in a sequential order. Each element has a unique predecessor and successor (except the first and last).\n   * Examples: Arrays, Linked Lists, Stacks, Queues.\n2. **Non-Linear Data Structures**: Elements are arranged in a hierarchical or networked fashion.\n   * Examples: Trees, Graphs.",
+              "mcq": {
+                "id": "m1-2",
+                "question": "Which of the following is a Non-Linear Data Structure?",
+                "options": [
+                  "Array",
+                  "Linked List",
+                  "Stack",
+                  "Tree"
+                ],
+                "correctAnswer": 3,
+                "explanation": "Trees are non-linear because they represent hierarchical relationships rather than a simple sequence."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s3",
+          "title": "Step 3: Abstract Data Types (ADT)",
+          "concepts": [
+            {
+              "id": "c1-3",
+              "title": "Logical vs Physical",
+              "theory": "An **Abstract Data Type (ADT)** is a mathematical model for data types where the data type is defined by its behavior (semantics) from the point of view of a user of the data.\n\n* It specifies **what** the data structure does (operations like `push`, `pop`, `enqueue`), but not **how** it is implemented in memory.\n* Implementation is the 'physical' realization using pointers, arrays, etc.",
+              "mcq": {
+                "id": "m1-3",
+                "question": "What does an ADT define?",
+                "options": [
+                  "Code implementation in C",
+                  "Memory address of variables",
+                  "Logical operations and properties",
+                  "Compiler optimization rules"
+                ],
+                "correctAnswer": 2,
+                "explanation": "ADT focuses on the logical interface and behavior, hiding implementation details (encapsulation)."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s4",
+          "title": "Step 4: Algorithm Analysis: Time & Space",
+          "concepts": [
+            {
+              "id": "c1-4",
+              "title": "Measuring Efficiency",
+              "theory": "The efficiency of an algorithm is measured in two dimensions:\n\n1. **Time Complexity**: The amount of time taken by an algorithm to run as a function of the input size ($n$).\n2. **Space Complexity**: The amount of memory (RAM) required by the algorithm during its execution.\n\nWe prioritize **Time Complexity** in modern computing because memory is relatively cheap compared to processing time.",
+              "mcq": {
+                "id": "m1-4",
+                "question": "An algorithm that takes more memory but runs faster is showing high performance in which area?",
+                "options": [
+                  "Space Efficiency",
+                  "Time Efficiency",
+                  "Reliability",
+                  "Scalability"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Reducing runtime increases time efficiency, often at the cost of additional memory (Time-Space Tradeoff)."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s5",
+          "title": "Step 5: Big O Notation (Worst Case)",
+          "concepts": [
+            {
+              "id": "c1-5",
+              "title": "The Upper Bound",
+              "theory": "**Big O Notation ($O$)** provides the formal measure of the *Worst Case* scenario for an algorithm. It gives an upper bound on the growth rate of an algorithm's runtime.\n\nIf an algorithm's runtime $f(n)$ is $O(g(n))$, it means $f(n)$ grows no faster than $g(n)$ as $n$ approaches infinity.\n\n**Example**: A linear search has a worst-case complexity of $O(n)$.",
+              "mcq": {
+                "id": "m1-5",
+                "question": "What does Big O notation specifically measure?",
+                "options": [
+                  "Best case performance",
+                  "Average case performance",
+                  "Upper bound (Worst case)",
+                  "Memory consumption only"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Big O identifies the maximum time an algorithm could possibly take for a given input size."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s6",
+          "title": "Step 6: Omega and Theta Notations",
+          "concepts": [
+            {
+              "id": "c1-6",
+              "title": "Lower and Tight Bounds",
+              "theory": "1. **Big Omega ($\\Omega$)**: Represents the **Best Case** or Lower Bound. It signifies that the algorithm will take *at least* this much time.\n2. **Big Theta ($\\Theta$)**: Represents the **Average Case** or Tight Bound. If an algorithm is $O(g(n))$ and $\\Omega(g(n))$, it is said to be $\\Theta(g(n))$.\n\nThese notations allow us to categorize algorithms precisely within complexity classes.",
+              "mcq": {
+                "id": "m1-6",
+                "question": "Which notation is used for a 'Tight Bound' (average case)?",
+                "options": [
+                  "O",
+                  "Ω",
+                  "Θ",
+                  "α"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Theta (Θ) bound occurs when the upper and lower bounds are the same."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s7",
+          "title": "Step 7: Complexity Classes Hierarchy",
+          "concepts": [
+            {
+              "id": "c1-7",
+              "title": "Rate of Growth",
+              "theory": "Standard complexity classes from most efficient to least efficient:\n\n1. $O(1)$ - Constant Time\n2. $O(\\log n)$ - Logarithmic Time\n3. $O(n)$ - Linear Time\n4. $O(n \\log n)$ - Linearithmic Time\n5. $O(n^2)$ - Quadratic Time\n6. $O(2^n)$ - Exponential Time\n7. $O(n!)$ - Factorial Time",
+              "mcq": {
+                "id": "m1-7",
+                "question": "Which of the following complexities is the LEAST efficient for large N?",
+                "options": [
+                  "O(n log n)",
+                  "O(n^2)",
+                  "O(2^n)",
+                  "O(n)"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Exponential growth O(2^n) becomes unmanageable extremely quickly as N increases."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s8",
+          "title": "Step 8: Static vs Dynamic Memory in C",
+          "concepts": [
+            {
+              "id": "c1-8",
+              "title": "Stack vs Heap",
+              "theory": "In C, data structures can be stored in two ways:\n\n* **Static Allocation (Stack)**: Memory size is fixed at compile-time (e.g., `int arr[100];`). It is automatically managed but lacks flexibility.\n* **Dynamic Allocation (Heap)**: Memory is allocated at runtime using `malloc()` or `calloc()` (e.g., `int *p = malloc(n * sizeof(int));`). This is essential for expandable structures like Linked Lists.",
+              "mcq": {
+                "id": "m1-8",
+                "question": "Which function is used in C to allocate memory on the Heap?",
+                "options": [
+                  "scanf()",
+                  "printf()",
+                  "malloc()",
+                  "main()"
+                ],
+                "correctAnswer": 2,
+                "explanation": "malloc stands for 'memory allocation' and is the standard way to request heap memory in C."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s9",
+          "title": "Step 9: Master Theorem Introduction",
+          "concepts": [
+            {
+              "id": "c1-9",
+              "title": "Recursive Analysis",
+              "theory": "The **Master Theorem** provides a cook-book solution for solving recurrence relations that occur in Divide and Conquer algorithms.\n\nFor a recurrence of the form: $T(n) = aT(n/b) + f(n)$\nwhere $a \\ge 1$ and $b > 1$, we compare $f(n)$ with $n^{\\log_b a}$ to determine the asymptotic bound.",
+              "mcq": {
+                "id": "m1-9",
+                "question": "For which type of algorithms is Master Theorem most useful?",
+                "options": [
+                  "Iterative loops",
+                  "Single line updates",
+                  "Divide and Conquer algorithms",
+                  "Sequential processing"
+                ],
+                "correctAnswer": 2,
+                "explanation": "It solves recursive equations that describe the split-and-merge process of divide and conquer."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s10",
+          "title": "Step 10: Calculating Loop Complexity",
+          "concepts": [
+            {
+              "id": "c1-10",
+              "title": "Iterative Analysis",
+              "theory": "To find the time complexity of a loop:\n\n1. Identify the basic operation inside the loop.\n2. Count how many times the loop executes in relation to $n$.\n\n* **Simple loop**: `for(i=0; i<n; i++)` $\rightarrow O(n)$\n* **Nested loop**: Two nested loops $\rightarrow O(n^2)$\n* **Logarithmic loop**: `for(i=1; i<n; i*=2)` $\rightarrow O(\\log n)$",
+              "mcq": {
+                "id": "m1-10",
+                "question": "What is the time complexity of a simple nested loop where both run from 0 to N?",
+                "options": [
+                  "O(n)",
+                  "O(2n)",
+                  "O(n^2)",
+                  "O(log n)"
+                ],
+                "correctAnswer": 2,
+                "explanation": "The inner loop runs N times for each N iterations of the outer loop, resulting in N * N = N^2."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-2",
+      "title": "Unit 2: Linear Lists - Arrays & Linked Lists",
+      "description": "Mastering sequential data storage from fixed arrays to dynamic linked structures.",
+      "topics": [
+        {
+          "id": "u2-s1",
+          "title": "Step 1: Array Mechanics & Address Calculation",
+          "concepts": [
+            {
+              "id": "c2-1",
+              "title": "Mapping Contiguous Memory",
+              "theory": "In C, an array is a collection of elements of same type stored in contiguous memory locations. The address of an element at index $i$ is calculated as:\n\n**Address($A[i]$) = BaseAddress + $i$ * SizeOfElement**\n\nThis calculation happens in $O(1)$ time, which is why array access is extremely fast.",
+              "mcq": {
+                "id": "m2-1",
+                "question": "If base address is 1000 and element size is 4, what is the address of A[5]?",
+                "options": [
+                  "1005",
+                  "1020",
+                  "1016",
+                  "1009"
+                ],
+                "correctAnswer": 1,
+                "explanation": "1000 + (5 * 4) = 1000 + 20 = 1020."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s2",
+          "title": "Step 2: 2D Array Mapping (RMO & CMO)",
+          "concepts": [
+            {
+              "id": "c2-2",
+              "title": "Row and Column Major Order",
+              "theory": "Since memory is 1D, 2D arrays $A[M][N]$ must be flattened:\n\n1. **Row-Major Order (RMO)**: Stores row-by-row. \n   * Address($A[i][j]$) = Base + ($i * N + j$) * Size\n2. **Column-Major Order (CMO)**: Stores column-by-column.\n   * Address($A[i][j]$) = Base + ($j * M + i$) * Size",
+              "mcq": {
+                "id": "m2-2",
+                "question": "Which mapping is used by the C compiler by default?",
+                "options": [
+                  "Row-Major Order",
+                  "Column-Major Order",
+                  "Random Order",
+                  "Diagonal Order"
+                ],
+                "correctAnswer": 0,
+                "explanation": "C and C++ use Row-Major Order for multi-dimensional arrays."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s3",
+          "title": "Step 3: Array Operations: Insertion & Deletion",
+          "concepts": [
+            {
+              "id": "c2-3",
+              "title": "The Cost of Shifting",
+              "theory": "Inserting or deleting an element in an array (except at the end) requires **Shifting** other elements to maintain contiguity.\n\n* **Insertion**: Shift elements to the right. Worst Case: $O(n)$.\n* **Deletion**: Shift elements to the left. Worst Case: $O(n)$.",
+              "mcq": {
+                "id": "m2-3",
+                "question": "Why is inserting at the middle of an array slower than at the end?",
+                "options": [
+                  "Requires more RAM",
+                  "Requires shifting the subsequent elements",
+                  "Compiler doesn't allow it",
+                  "Index becomes invalid"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Array elements must be contiguous; a gap is not allowed, so shifting is mandatory."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s4",
+          "title": "Step 4: Pointer Arithmetic in C",
+          "concepts": [
+            {
+              "id": "c2-4",
+              "title": "Arrays are Pointers",
+              "theory": "In C, the array name is a constant pointer to the first element. `*(arr + i)` is exactly the same as `arr[i]`.\n\nIncrementing a pointer (`ptr++`) doesn't add 1 to the address; it adds `1 * sizeof(type)`, jumping exactly to the next element.",
+              "mcq": {
+                "id": "m2-4",
+                "question": "What is equivalent to 'arr[3]' in pointer notation?",
+                "options": [
+                  "*arr + 3",
+                  "&arr + 3",
+                  "*(arr + 3)",
+                  "arr + 3"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Adding 3 to the pointer and then dereferencing it gives the value at index 3."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s5",
+          "title": "Step 5: Introduction to Linked Lists",
+          "concepts": [
+            {
+              "id": "c2-5",
+              "title": "Dynamic Dispersed Memory",
+              "theory": "A Linked List is a collection of elements called **Nodes**. Each node contains:\n1. **Data**: The value stored.\n2. **Next Pointer**: The address of the next node in memory.\n\nUnlike arrays, nodes can be anywhere in RAM, allowing for easy expansion without reallocating the entire structure.",
+              "mcq": {
+                "id": "m2-5",
+                "question": "What is the primary advantage of Linked Lists over Arrays?",
+                "options": [
+                  "Faster random access",
+                  "Dynamic resizing",
+                  "Less memory overhead",
+                  "Simple implementation"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Linked lists can grow or shrink at runtime without costly reallocations."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s6",
+          "title": "Step 6: Singly Linked List: Insertion",
+          "concepts": [
+            {
+              "id": "c2-6",
+              "title": "Connecting the Chain",
+              "theory": "To insert a node, we must update the pointers:\n\n1. **At Beginning**: New node points to current Head; Head moves to New node ($O(1)$).\n2. **At End**: Traverse to NULL, point last node to New node ($O(n)$).\n3. **In Middle**: Point New node to 'Next', point 'Prev' to New node.",
+              "flowchart": "graph LR\n    New[New Node] -->|Points to| B[Next Node]\n    A[Prev Node] -->|Points to| New\n    style New fill:#dcfce7",
+              "mcq": {
+                "id": "m2-6",
+                "question": "What is the time complexity of inserting a node at the beginning of a linked list?",
+                "options": [
+                  "O(n)",
+                  "O(1)",
+                  "O(log n)",
+                  "O(n^2)"
+                ],
+                "correctAnswer": 1,
+                "explanation": "It only requires changing two pointers, regardless of list size."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s7",
+          "title": "Step 7: Singly Linked List: Deletion",
+          "concepts": [
+            {
+              "id": "c2-7",
+              "title": "Isolating the Node",
+              "theory": "To delete a node:\n1. Find the node to be deleted and its predecessor.\n2. Change the predecessor's 'Next' pointer to skip the deleted node.\n3. **Crucial**: Use `free()` to release the memory of the deleted node to prevent memory leaks.",
+              "mcq": {
+                "id": "m2-7",
+                "question": "Which C function must be called to properly delete a node from heap memory?",
+                "options": [
+                  "clear()",
+                  "delete()",
+                  "free()",
+                  "remove()"
+                ],
+                "correctAnswer": 2,
+                "explanation": "free() is the C-standard function to return dynamic memory to the heap."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s8",
+          "title": "Step 8: Doubly Linked Lists (DLL)",
+          "concepts": [
+            {
+              "id": "c2-8",
+              "title": "Bidirectional Flow",
+              "theory": "In a **Doubly Linked List**, each node has two pointers: `next` and `prev`.\n\n* **Pro**: Allows backward traversal and easier deletion of a node if you have its pointer.\n* **Con**: Requires more memory (extra pointer per node) and slightly more complex code for insertion/deletion.",
+              "flowchart": "graph LR\n    A[Prev | Data | Next] <--> B[Prev | Data | Next] <--> C[Prev | Data | Next]\n    style B fill:#dbeafe",
+              "mcq": {
+                "id": "m2-8",
+                "question": "How many pointers are updated when deleting a middle node from a Doubly Linked List?",
+                "options": [
+                  "1",
+                  "2",
+                  "3",
+                  "4"
+                ],
+                "correctAnswer": 1,
+                "explanation": "You update the 'Next' of the previous node and the 'Prev' of the next node."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s9",
+          "title": "Step 9: Circular Linked Lists",
+          "concepts": [
+            {
+              "id": "c2-9",
+              "title": "The Infinite Loop",
+              "theory": "In a **Circular Linked List**, the last node's 'Next' pointer points back to the Head node instead of NULL.\n\nThis is useful for round-robin scheduling (OS) or any task that requires cyclical processing. There is no natural 'end' to the list.",
+              "mcq": {
+                "id": "m2-9",
+                "question": "What happens if you traverse a circular linked list without a stopping condition?",
+                "options": [
+                  "Memory leak",
+                  "Program crashes",
+                  "Infinite loop",
+                  "It stops at the tail"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Since there is no NULL pointer, traversal never hits an end unless you track the starting node."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s10",
+          "title": "Step 10: Sparse Matrices",
+          "concepts": [
+            {
+              "id": "c2-10",
+              "title": "Compression Efficiency",
+              "theory": "A matrix with a majority of zero elements is called a **Sparse Matrix**. Storing it as a 2D array is wasteful.\n\nInstead, we store only the non-zero elements using a Linked List (where each node stores row, col, and value). This drastically reduces space complexity for large, mostly-empty data sets.",
+              "mcq": {
+                "id": "m2-10",
+                "question": "If a 1000x1000 matrix has only 500 non-zero values, which storage is better?",
+                "options": [
+                  "2D Array",
+                  "Linked List Representation",
+                  "Stack",
+                  "Queue"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The array would take 1 million slots, while the list takes only 500 nodes (about 0.05% of the space)."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-3",
+      "title": "Unit 3: Linear Lists - Stacks & Queues",
+      "description": "Mastering restricted-access structures for recursion, scheduling, and buffering.",
+      "topics": [
+        {
+          "id": "u3-s1",
+          "title": "Step 1: The Stack ADT (LIFO)",
+          "concepts": [
+            {
+              "id": "c3-1",
+              "title": "Last-In, First-Out",
+              "theory": "A **Stack** is a linear data structure that follows the **Last-In, First-Out (LIFO)** principle. The element added last is the first one to be removed.\n\nKey Operations:\n* **Push**: Add an element to the top ($O(1)$).\n* **Pop**: Remove the top element ($O(1)$).\n* **Peek/Top**: View the top element without removing it.",
+              "mcq": {
+                "id": "m3-1",
+                "question": "Which real-world analogy best describes a Stack?",
+                "options": [
+                  "A queue at a movie theater",
+                  "A pile of dinner plates",
+                  "A printer's task list",
+                  "A spreadsheet"
+                ],
+                "correctAnswer": 1,
+                "explanation": "You can only add a plate to the top, and you must take from the top to avoid breaking the pile."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s2",
+          "title": "Step 2: Stack Implementation (Array)",
+          "concepts": [
+            {
+              "id": "c3-2",
+              "title": "Fixed Bounds",
+              "theory": "Using an array, we maintain a variable `top` initialized to -1.\n\n* **Push**: Increment `top`, then store value. Error if `top == MAX_SIZE - 1` (**Stack Overflow**).\n* **Pop**: Retrieve value, then decrement `top`. Error if `top == -1` (**Stack Underflow**).",
+              "mcq": {
+                "id": "m3-2",
+                "question": "What is the status of a stack when 'top == -1'?",
+                "options": [
+                  "Overflow",
+                  "Underflow / Empty",
+                  "Half Full",
+                  "Garbage value"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Since indices start at 0, -1 indicates there are no elements in the stack."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s3",
+          "title": "Step 3: Stack Implementation (Linked List)",
+          "concepts": [
+            {
+              "id": "c3-3",
+              "title": "Dynamic Growth",
+              "theory": "In a linked list stack, the 'Top' is always the **Head** node.\n\n* **Push**: Create a new node, point its 'Next' to current Head, update Head to New Node.\n* **Pop**: Move Head to Head->Next and free the old node.\n\n**Advantage**: It never overflows unless the entire system runs out of RAM.",
+              "mcq": {
+                "id": "m3-3",
+                "question": "In a linked-stack, which node acts as the 'Top' for O(1) efficiency?",
+                "options": [
+                  "The last node",
+                  "The head node",
+                  "The middle node",
+                  "Any random node"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Operations at the head of a linked list are O(1); operations at the tail require O(n) traversal."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s4",
+          "title": "Step 4: Expression Notations",
+          "concepts": [
+            {
+              "id": "c3-4",
+              "title": "Infix, Prefix, & Postfix",
+              "theory": "1. **Infix**: Operator between operands ($A + B$). Standard for humans but requires parentheses for priority.\n2. **Prefix (Polish)**: Operator before operands ($+ AB$).\n3. **Postfix (Reverse Polish)**: Operator after operands ($AB +$). **Preferred by compilers** because it is parenthesis-free and unambiguous.",
+              "mcq": {
+                "id": "m3-4",
+                "question": "What is the postfix form of '(A + B) * C'?",
+                "options": [
+                  "AB+C*",
+                  "ABC*+",
+                  "+ABC*",
+                  "AB*C+"
+                ],
+                "correctAnswer": 0,
+                "explanation": "First A+B becomes AB+, then that result is multiplied by C, becoming AB+C*."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s5",
+          "title": "Step 5: Postfix Evaluation Algorithm",
+          "concepts": [
+            {
+              "id": "c3-5",
+              "title": "Stack-Based Calculus",
+              "theory": "1. Scan the postfix string from left to right.\n2. If operand, **Push** to stack.\n3. If operator, **Pop** twice, apply operator, and **Push** result back.\n4. Final value in stack is the answer.\n\n**Example**: `5 3 +` $\rightarrow$ Push 5, Push 3, Pop 3 and 5, Add $\rightarrow$ Push 8.",
+              "mcq": {
+                "id": "m3-5",
+                "question": "What value results from evaluating '10 2 / 5 +'?",
+                "options": [
+                  "10",
+                  "5",
+                  "15",
+                  "2"
+                ],
+                "correctAnswer": 0,
+                "explanation": "10/2 = 5; then 5+5 = 10."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s6",
+          "title": "Step 6: The Queue ADT (FIFO)",
+          "concepts": [
+            {
+              "id": "c3-6",
+              "title": "First-In, First-Out",
+              "theory": "A **Queue** follows the **First-In, First-Out (FIFO)** principle. Elements are added at the **Rear** and removed from the **Front**.\n\nKey Operations:\n* **Enqueue**: Add to Rear ($O(1)$).\n* **Dequeue**: Remove from Front ($O(1)$).\n* **Front**: View the first element.",
+              "mcq": {
+                "id": "m3-6",
+                "question": "In which structure is data deleted from the same end it was inserted?",
+                "options": [
+                  "Queue",
+                  "Stack",
+                  "Linked List",
+                  "Array"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Stacks use only one end (Top); Queues use two distinct ends (Front and Rear)."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s7",
+          "title": "Step 7: Circular Queues",
+          "concepts": [
+            {
+              "id": "c3-7",
+              "title": "Modulo Wrap-Around",
+              "theory": "In a linear array queue, if you enqueue and dequeue repeatedly, the `rear` hits the end but the `front` has left empty slots behind. \n\n**Solution**: Use the **Modulo Operator (%)** to wrap the pointers back to 0.\n`rear = (rear + 1) % MAX_SIZE`",
+              "mcq": {
+                "id": "m3-7",
+                "question": "What problem does a Circular Queue solve?",
+                "options": [
+                  "Memory leaks",
+                  "Wasted space in linear arrays",
+                  "Infinite recursion",
+                  "Slow sorting"
+                ],
+                "correctAnswer": 1,
+                "explanation": "It allows the reuse of empty slots at the beginning of the array after dequeuing."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s8",
+          "title": "Step 8: Double Ended Queues (Deque)",
+          "concepts": [
+            {
+              "id": "c3-8",
+              "title": "The Hybrid Structure",
+              "theory": "A **Deque** (pronounced 'deck') allows insertion and deletion at both the **Front** and **Rear**. \n\nIt can act as both a Stack (using only one side) and a Queue (Standard FIFO).",
+              "mcq": {
+                "id": "m3-8",
+                "question": "A Deque can be used to implement which data structure?",
+                "options": [
+                  "Only Stacks",
+                  "Only Queues",
+                  "Both Stacks and Queues",
+                  "Neither"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Because it supports operations at both ends, it covers the requirements of both LIFO and FIFO."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s9",
+          "title": "Step 9: Priority Queues",
+          "concepts": [
+            {
+              "id": "c3-9",
+              "title": "Values over Arrival Time",
+              "theory": "In a **Priority Queue**, each element has an associated priority. Elements with higher priority are dequeued before those with lower priority.\n\nUsed heavily in OS Process Scheduling and Dijkstra’s Shortest Path algorithm.",
+              "mcq": {
+                "id": "m3-9",
+                "question": "In a Hospital Emergency Room, patients are treated based on severity. This is an example of:",
+                "options": [
+                  "Stack",
+                  "Simple Queue",
+                  "Priority Queue",
+                  "Circular Queue"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Severity acts as 'Priority', allowing critical cases to skip the line."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s10",
+          "title": "Step 10: Stack & Queue Complexity Summary",
+          "concepts": [
+            {
+              "id": "c3-10",
+              "title": "The Constant-Time Goal",
+              "theory": "| Operation | Stack | Queue | Circular Queue |\n|---|---|---|---|\n| Insert | O(1) | O(1) | O(1) |\n| Delete | O(1) | O(1) | O(1) |\n| Search | O(n) | O(n) | O(n) |\n\nBoth structures are optimized for $O(1)$ access at their primary entry/exit points.",
+              "mcq": {
+                "id": "m3-10",
+                "question": "What is the time complexity of a standard 'Enqueue' operation?",
+                "options": [
+                  "O(log n)",
+                  "O(1)",
+                  "O(n)",
+                  "O(n^2)"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Adding to the rear of a queue requires only one pointer update."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-4",
+      "title": "Unit 4: Non-Linear Lists - Trees",
+      "description": "Building hierarchical data models for efficient searching and indexing.",
+      "topics": [
+        {
+          "id": "u4-s1",
+          "title": "Step 1: Tree Terminology",
+          "concepts": [
+            {
+              "id": "c4-1",
+              "title": "Hierarchical Basics",
+              "theory": "A **Tree** is a non-linear data structure representing a hierarchy.\n\n* **Root**: The top-most node.\n* **Edge**: The link between two nodes.\n* **Leaf**: A node with no children.\n* **Height**: Number of edges from root to deepest leaf.\n* **Depth**: Number of edges from root to the specific node.",
+              "mcq": {
+                "id": "m4-1",
+                "question": "What is a node with no children called?",
+                "options": [
+                  "Root",
+                  "Stem",
+                  "Leaf",
+                  "Branch"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Leaves are the terminal nodes of a tree structure."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s2",
+          "title": "Step 2: Binary Tree Anatomy",
+          "concepts": [
+            {
+              "id": "c4-2",
+              "title": "The Rule of Two",
+              "theory": "A **Binary Tree** is a tree where each node has at most two children, referred to as the left child and the right child.\n\n**Properties**:\n* Max nodes at level $i$: $2^i$.\n* Max nodes in tree of height $h$: $2^{h+1} - 1$.",
+              "mcq": {
+                "id": "m4-2",
+                "question": "What is the maximum number of nodes at level 3 of a binary tree?",
+                "options": [
+                  "3",
+                  "6",
+                  "8",
+                  "9"
+                ],
+                "correctAnswer": 2,
+                "explanation": "2^3 = 8."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s3",
+          "title": "Step 3: Array Representation of Trees",
+          "concepts": [
+            {
+              "id": "c4-3",
+              "title": "Implicit Links",
+              "theory": "For a complete binary tree, we can use an array:\n* Root at index 0.\n* Left child of $i$ is at $2i + 1$.\n* Right child of $i$ is at $2i + 2$.\n* Parent of $i$ is at $\\lfloor(i-1)/2\rfloor$.",
+              "mcq": {
+                "id": "m4-3",
+                "question": "In an array representation, if a node is at index 5, where is its left child?",
+                "options": [
+                  "10",
+                  "11",
+                  "12",
+                  "6"
+                ],
+                "correctAnswer": 1,
+                "explanation": "2 * 5 + 1 = 11."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s4",
+          "title": "Step 4: Binary Search Tree (BST)",
+          "concepts": [
+            {
+              "id": "c4-4",
+              "title": "The Search Property",
+              "theory": "A BST is a binary tree with the following property for every node:\n1. All values in the **Left Subtree** are smaller than the node.\n2. All values in the **Right Subtree** are larger than the node.\n\nThis allows for searching in $O(\\log n)$ average time.",
+              "mcq": {
+                "id": "m4-4",
+                "question": "Where would you insert '15' in a BST if the root is '20'?",
+                "options": [
+                  "Left Subtree",
+                  "Right Subtree",
+                  "As the new Root",
+                  "Cannot be inserted"
+                ],
+                "correctAnswer": 0,
+                "explanation": "15 is less than 20, so it must go to the left."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s5",
+          "title": "Step 5: BST Insertion",
+          "concepts": [
+            {
+              "id": "c4-5",
+              "title": "Finding the Slot",
+              "theory": "Insertion in a BST is simple: compare the value with the current node. If smaller, go left. If larger, go right. Repeat until you hit a NULL slot.",
+              "flowchart": "graph TD\n    A[Compare with Root] -->|Smaller| B[Go Left]\n    A -->|Larger| C[Go Right]\n    B --> D{Is NULL?}\n    D -->|Yes| E[Attach Node]\n    style E fill:#dcfce7",
+              "mcq": {
+                "id": "m4-5",
+                "question": "What is the worst-case time complexity of BST insertion?",
+                "options": [
+                  "O(1)",
+                  "O(log n)",
+                  "O(n)",
+                  "O(n log n)"
+                ],
+                "correctAnswer": 2,
+                "explanation": "In a skewed tree (like a linked list), you may have to traverse all N nodes."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s6",
+          "title": "Step 6: BST Deletion: Leaf and Single-Child",
+          "concepts": [
+            {
+              "id": "c4-6",
+              "title": "Simple Removal",
+              "theory": "1. **Leaf Node**: Simply set the parent's pointer to NULL and free the node.\n2. **One Child**: Point the parent directly to the child, bypassing the deleted node.",
+              "mcq": {
+                "id": "m4-6",
+                "question": "If you delete a node with one child, what happens to that child?",
+                "options": [
+                  "It is also deleted",
+                  "It becomes the root",
+                  "It is inherited by the deleted node's parent",
+                  "It is moved to the right"
+                ],
+                "correctAnswer": 2,
+                "explanation": "The child is linked directly to the parent of the node being removed."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s7",
+          "title": "Step 7: BST Deletion: Two Children",
+          "concepts": [
+            {
+              "id": "c4-7",
+              "title": "Inorder Succesor",
+              "theory": "To delete a node with two children:\n1. Find its **Inorder Successor** (smallest node in the right subtree).\n2. Copy the successor's value to the current node.\n3. Delete the successor (which will have either zero or one child).",
+              "mcq": {
+                "id": "m4-7",
+                "question": "Who is the 'Inorder Successor' of a node?",
+                "options": [
+                  "The largest in left subtree",
+                  "The smallest in right subtree",
+                  "The root node",
+                  "The sibling node"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The smallest in the right subtree is the next element in sorted order."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s8",
+          "title": "Step 8: DFS Traversals (Pre, In, Post)",
+          "concepts": [
+            {
+              "id": "c4-8",
+              "title": "Visiting Order",
+              "theory": "1. **Preorder**: Root $\rightarrow$ Left $\rightarrow$ Right.\n2. **Inorder**: Left $\rightarrow$ Root $\rightarrow$ Right (Gives sorted values for BST).\n3. **Postorder**: Left $\rightarrow$ Right $\rightarrow$ Root.",
+              "mcq": {
+                "id": "m4-8",
+                "question": "Which traversal of a BST gives the elements in ascending order?",
+                "options": [
+                  "Preorder",
+                  "Inorder",
+                  "Postorder",
+                  "Level-order"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Inorder (L-Root-R) matches the logical sorted sequence of a BST."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s9",
+          "title": "Step 9: Level Order Traversal (BFS)",
+          "concepts": [
+            {
+              "id": "c4-9",
+              "title": "Breadth-First Visitation",
+              "theory": "Level Order traversal visits nodes level-by-level (top to bottom, left to right). It uses a **Queue** internally to keep track of nodes to visit next.",
+              "mcq": {
+                "id": "m4-9",
+                "question": "Which data structure is required to implement Level Order traversal?",
+                "options": [
+                  "Stack",
+                  "Queue",
+                  "Priority Queue",
+                  "Array"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Queues maintain the correct 'first-discovered, first-visited' order for BFS."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s10",
+          "title": "Step 10: Threaded Binary Trees",
+          "concepts": [
+            {
+              "id": "c4-10",
+              "title": "Utilizing NULL Pointers",
+              "theory": "In many binary trees, nearly half the pointers are NULL. \n\n**Threaded Binary Trees** replace these NULL pointers with 'threads' that point to the Inorder Successor or Predecessor, allowing for stack-less and recursion-less traversal.",
+              "mcq": {
+                "id": "m4-10",
+                "question": "What do 'threads' in a binary tree point to?",
+                "options": [
+                  "Parent nodes",
+                  "Root node",
+                  "Inorder processor/predecessor",
+                  "Random leaf"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Threads enable efficient traversal without the overhead of recursion."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-5",
+      "title": "Unit 5: Non-Linear Lists - Graphs",
+      "description": "Mapping complex networks and optimizing paths between vertices.",
+      "topics": [
+        {
+          "id": "u5-s1",
+          "title": "Step 1: Introduction to Graphs",
+          "concepts": [
+            {
+              "id": "c5-1",
+              "title": "Nodes and Connections",
+              "theory": "A **Graph** $G = (V, E)$ consists of a set of **Vertices (V)** and **Edges (E)**. \n\n* **Directed**: Edges have a specific direction ($A \to B$).\n* **Undirected**: Edges are bidirectional ($A - B$).\n* **Weighted**: Edges have numerical values (costs/distances).",
+              "mcq": {
+                "id": "m5-1",
+                "question": "What is the degree of a vertex in an undirected graph?",
+                "options": [
+                  "Number of edges connected to it",
+                  "Number of nodes in the graph",
+                  "The weight of its edges",
+                  "Its depth from the root"
+                ],
+                "correctAnswer": 0,
+                "explanation": "Degree is simply the count of edges incident to that vertex."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s2",
+          "title": "Step 2: Adjacency Matrix",
+          "concepts": [
+            {
+              "id": "c5-2",
+              "title": "Density and Matrices",
+              "theory": "An **Adjacency Matrix** is a 2D array of size $V \times V$. \n* If an edge exists between $i$ and $j$, $Matrix[i][j] = 1$ (or weight).\n* **Pros**: Constant time check for edge existence.\n* **Cons**: Consumes $O(V^2)$ space, wasteful for sparse graphs.",
+              "mcq": {
+                "id": "m5-2",
+                "question": "How much space does an Adjacency Matrix occupy for a graph with 100 vertices?",
+                "options": [
+                  "100 units",
+                  "200 units",
+                  "10,000 units",
+                  "1,000 units"
+                ],
+                "correctAnswer": 2,
+                "explanation": "V^2 = 100 * 100 = 10,000."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s3",
+          "title": "Step 3: Adjacency List",
+          "concepts": [
+            {
+              "id": "c5-3",
+              "title": "Space-Efficient Links",
+              "theory": "An **Adjacency List** uses an array of linked lists. Each array index $i$ corresponds to vertex $i$, and its list contains all its neighbors.\n\n**Pros**: Uses only $O(V+E)$ space; ideal for large, sparse networks like the Internet or Social Media.",
+              "mcq": {
+                "id": "m5-3",
+                "question": "Which representation is better for a graph with many nodes but very few edges?",
+                "options": [
+                  "Adjacency Matrix",
+                  "Adjacency List",
+                  "2D Array",
+                  "Binary Tree"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Adjacency List only uses memory for existing edges, minimizing wasted space."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s4",
+          "title": "Step 4: BFS (Breadth First Search)",
+          "concepts": [
+            {
+              "id": "c5-4",
+              "title": "Level-by-Level Discovery",
+              "theory": "BFS explores neighbors level-by-level using a **Queue**. \n\n1. Enqueue start node and mark as 'Visited'.\n2. While queue is not empty: Dequeue, visit all unvisited neighbors, mark them, and Enqueue them.",
+              "mcq": {
+                "id": "m5-4",
+                "question": "Which data structure is essential for BFS traversal?",
+                "options": [
+                  "Stack",
+                  "Queue",
+                  "Tree",
+                  "Array"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Queues ensure that nodes discovered earlier are processed first (FIFO)."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s5",
+          "title": "Step 5: DFS (Depth First Search)",
+          "concepts": [
+            {
+              "id": "c5-5",
+              "title": "Deep Exploration",
+              "theory": "DFS explores as far as possible along each branch before backtracking. It uses a **Stack** (or recursion).\n\n1. Push start node to stack.\n2. While stack not empty: Pop, mark visited, Push all unvisited neighbors.",
+              "flowchart": "graph TD\n    A[Start] --> B[Branch 1]\n    B --> C[Deep Node]\n    C --> D[Backtrack]\n    D --> E[Branch 2]\n    style A fill:#dbeafe",
+              "mcq": {
+                "id": "m5-5",
+                "question": "What is the internal mechanism typically used for recursive DFS?",
+                "options": [
+                  "Heap",
+                  "Call Stack",
+                  "File Buffer",
+                  "Registry"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Recursion implicitly uses the system's Call Stack to remember the traversal path."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s6",
+          "title": "Step 6: Spanning Trees & MST",
+          "concepts": [
+            {
+              "id": "c6-1",
+              "title": "Minimum Cost Connectivity",
+              "theory": "A **Spanning Tree** is a subset of edges that connects all vertices without any cycles. A **Minimum Spanning Tree (MST)** is a spanning tree where the sum of edge weights is minimized.",
+              "mcq": {
+                "id": "m5-6",
+                "question": "How many edges are in a spanning tree of a graph with V vertices?",
+                "options": [
+                  "V",
+                  "V + 1",
+                  "V - 1",
+                  "E"
+                ],
+                "correctAnswer": 2,
+                "explanation": "To connect V nodes without cycles, exactly V-1 edges are needed."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s7",
+          "title": "Step 7: Prim’s Algorithm",
+          "concepts": [
+            {
+              "id": "c5-7",
+              "title": "Growing the Tree",
+              "theory": "Prim's is a **Greedy** algorithm. It starts with a single vertex and greedily expands by adding the cheapest edge that connects an 'in-tree' vertex to an 'out-tree' vertex.",
+              "mcq": {
+                "id": "m5-7",
+                "question": "Prim's algorithm is best categorized as:",
+                "options": [
+                  "Divide and Conquer",
+                  "Greedy",
+                  "Dynamic Programming",
+                  "Backtracking"
+                ],
+                "correctAnswer": 1,
+                "explanation": "It makes locally optimal choices at each step to find the global minimum."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s8",
+          "title": "Step 8: Kruskal’s Algorithm",
+          "concepts": [
+            {
+              "id": "c5-8",
+              "title": "Merging Components",
+              "theory": "Kruskal's sorts all edges by weight and adds them one-by-one, **only if they don't form a cycle**. It uses the Disjoint Set Union (DSU) structure to detect cycles efficiently.",
+              "mcq": {
+                "id": "m5-8",
+                "question": "What is the first step in Kruskal's algorithm?",
+                "options": [
+                  "Pick a start vertex",
+                  "Sort all edges by weight",
+                  "Delete all cycles",
+                  "Find the median weight"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Kruskal's is edge-centric; it processes edges from smallest to largest."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s9",
+          "title": "Step 9: Dijkstra’s Shortest Path",
+          "concepts": [
+            {
+              "id": "c5-9",
+              "title": "Single-Source Optima",
+              "theory": "Dijkstra's finds the shortest path from a starting node to all other nodes in a weighted graph (no negative weights).\n\nIt maintains a set of 'unvisited' nodes and iteratively picks the node with the minimum tentative distance.",
+              "mcq": {
+                "id": "m5-9",
+                "question": "Under what condition does Dijkstra's algorithm fail?",
+                "options": [
+                  "Large graphs",
+                  "Undirected graphs",
+                  "Negative edge weights",
+                  "Multiple sources"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Negative weights can create scenarios where a longer path looks shorter after a negative jump, breaking the greedy logic."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s10",
+          "title": "Step 10: Warshall’s Algorithm",
+          "concepts": [
+            {
+              "id": "c5-10",
+              "title": "Transitive Closure",
+              "theory": "Warshall's algorithm is used to find the **Reachability Matrix** of a directed graph. It determines if there is a path (of any length) between every pair of vertices $(i, j)$.",
+              "mcq": {
+                "id": "m5-10",
+                "question": "What does a '1' in the final Warshall matrix at position (i, j) mean?",
+                "options": [
+                  "i and j are adjacent",
+                  "There is a path from i to j",
+                  "i is the parent of j",
+                  "i and j are the same node"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Warshall's matrix defines reachability (path existence) rather than direct adjacency."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-6",
+      "title": "Unit 6: Sorting & Searching Techniques",
+      "description": "Optimizing data organization for rapid retrieval and comparison.",
+      "topics": [
+        {
+          "id": "u6-s1",
+          "title": "Step 1: Bubble Sort",
+          "concepts": [
+            {
+              "id": "c6-1",
+              "title": "Adjacent Swapping",
+              "theory": "**Bubble Sort** repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The largest element 'bubbles up' to its correct position in each pass.\n\n* **Complexity**: $O(n^2)$ Average/Worst case, $O(n)$ Best case (if optimized with a flag).",
+              "mcq": {
+                "id": "m6-1",
+                "question": "What happens after the first pass of Bubble Sort?",
+                "options": [
+                  "Smallest element reaches the end",
+                  "Largest element reaches the end",
+                  "The array is fully sorted",
+                  "The first element is sorted"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Bubble sort guarantees that the largest element moves to the last position after the first pass."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s2",
+          "title": "Step 2: Selection Sort",
+          "concepts": [
+            {
+              "id": "c6-2",
+              "title": "Minimum Selection",
+              "theory": "**Selection Sort** divides the array into sorted and unsorted parts. It repeatedly finds the minimum element from the unsorted part and swaps it with the first element of the unsorted part.\n\n* **Complexity**: $O(n^2)$ always, regardless of initial order.",
+              "mcq": {
+                "id": "m6-2",
+                "question": "How many swaps does Selection Sort perform per pass?",
+                "options": [
+                  "N swaps",
+                  "N/2 swaps",
+                  "At most 1 swap",
+                  "Log N swaps"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Selection sort finds the minimum first, and then performs a single swap to place it."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s3",
+          "title": "Step 3: Insertion Sort",
+          "concepts": [
+            {
+              "id": "c6-3",
+              "title": "Card Player's Logic",
+              "theory": "**Insertion Sort** builds the sorted array one element at a time. It takes each element and 'inserts' it into its correct position relative to the elements already sorted.\n\n* **Complexity**: $O(n^2)$ Worst case, but extremely efficient ($O(n)$) for nearly sorted data.",
+              "mcq": {
+                "id": "m6-3",
+                "question": "Which sorting algorithm is most efficient for an almost sorted array?",
+                "options": [
+                  "Bubble Sort",
+                  "Selection Sort",
+                  "Insertion Sort",
+                  "Merge Sort"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Insertion sort only needs to perform minimal comparisons if elements are already close to their final positions."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s4",
+          "title": "Step 4: Merge Sort",
+          "concepts": [
+            {
+              "id": "c6-4",
+              "title": "Divide and Conquer",
+              "theory": "**Merge Sort** recursively divides the array into halves until each subarray contains one element, then **merges** them back together in sorted order.\n\n* **Complexity**: $O(n \\log n)$ always.\n* **Drawback**: Requires $O(n)$ extra space for merging.",
+              "mcq": {
+                "id": "m6-4",
+                "question": "What is the time complexity of Merge Sort?",
+                "options": [
+                  "O(n)",
+                  "O(n^2)",
+                  "O(n log n)",
+                  "O(log n)"
+                ],
+                "correctAnswer": 2,
+                "explanation": "The log N divisions combined with N comparisons for merging results in N log N."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s5",
+          "title": "Step 5: Quick Sort",
+          "concepts": [
+            {
+              "id": "c6-5",
+              "title": "Pivot Partitioning",
+              "theory": "**Quick Sort** picks an element as a **Pivot** and partitions the array such that elements smaller than the pivot are on the left and larger ones on the right. It then recurses on the partitions.\n\n* **Complexity**: $O(n \\log n)$ Average, $O(n^2)$ Worst case (if pivot is poorly chosen).",
+              "mcq": {
+                "id": "m6-5",
+                "question": "Which case results in O(n^2) for Quick Sort with a first-element pivot?",
+                "options": [
+                  "Random array",
+                  "Sorted array",
+                  "Dense array",
+                  "Sparse array"
+                ],
+                "correctAnswer": 1,
+                "explanation": "If the array is already sorted, picking the first element as pivot creates extremely unbalanced partitions (N-1 and 0)."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s6",
+          "title": "Step 6: Heap Sort",
+          "concepts": [
+            {
+              "id": "c6-6",
+              "title": "Binary Heap Utilization",
+              "theory": "**Heap Sort** converts the array into a **Max-Heap**, then repeatedly extracts the maximum element and moves it to the end of the array.\n\n* **Complexity**: $O(n \\log n)$ always. \n* **Advantage**: Unlike Merge Sort, it is in-place ($O(1)$ extra space).",
+              "mcq": {
+                "id": "m6-6",
+                "question": "Which structure does Heap Sort use internally?",
+                "options": [
+                  "Balanced BST",
+                  "Binary Heap",
+                  "Hash Table",
+                  "Stack"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Heap sort treats the array as a complete binary tree satisfying the heap property."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s7",
+          "title": "Step 7: Hashing & Hash Functions",
+          "concepts": [
+            {
+              "id": "c6-7",
+              "title": "Mapping to Indices",
+              "theory": "**Hashing** is used to uniquely identify an object from a group using a **Hash Function**. The function maps a large key to a small integer index.\n\n**Good Hash Function**: \n1. Easy to compute.\n2. Uniform distribution (minimized collisions).\n3. Deterministic.",
+              "mcq": {
+                "id": "m6-7",
+                "question": "What is a 'Collision' in hashing?",
+                "options": [
+                  "Memory shortage",
+                  "Two different keys map to the same index",
+                  "Data corruption",
+                  "Infinite loop"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Collisions occur when the hash function produces identical indices for different input keys."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s8",
+          "title": "Step 8: Collision Resolution: Open Addressing",
+          "concepts": [
+            {
+              "id": "c6-8",
+              "title": "Linear Probing",
+              "theory": "In **Open Addressing**, if a collision occurs, we seek another open slot in the hash table.\n\n**Linear Probing**: $Index = (hash(key) + i) \\% Size$. It checks the next available slot sequentially. \n* **Problem**: Primary Clustering (groups of filled slots slowing down search).",
+              "mcq": {
+                "id": "m6-8",
+                "question": "Which issue is prominent in Linear Probing?",
+                "options": [
+                  "Primary Clustering",
+                  "Memory leak",
+                  "High recursion",
+                  "Segmentation fault"
+                ],
+                "correctAnswer": 0,
+                "explanation": "Clustering occurs when items map to nearby slots, creating long chains of occupied cells."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s9",
+          "title": "Step 9: Collision Resolution: Chaining",
+          "concepts": [
+            {
+              "id": "c6-9",
+              "title": "Linking Collisions",
+              "theory": "In **Chaining**, each cell of the hash table is a **Linked List**. If multiple keys map to the same cell, they are simply added to that list.\n\n**Pros**: Table never gets 'full'; better for unpredictable loads.\n**Cons**: Uses extra memory for pointers.",
+              "mcq": {
+                "id": "m6-9",
+                "question": "What is the structure of each bucket in Chaining?",
+                "options": [
+                  "Array",
+                  "Linked List",
+                  "Stack",
+                  "Queue"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Linked lists allow for an unlimited number of collisions to be stored at a single index."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s10",
+          "title": "Step 10: Performance Summary",
+          "concepts": [
+            {
+              "id": "c6-10",
+              "title": "The Final Verdict",
+              "theory": "| Algorithm | Average | Worst | Space |\n|---|---|---|---|\n| Bubble | $O(n^2)$ | $O(n^2)$ | $O(1)$ |\n| Quick | $O(n \\log n)$ | $O(n^2)$ | $O(\\log n)$ |\n| Merge | $O(n \\log n)$ | $O(n \\log n)$ | $O(n)$ |\n| Hashing | $O(1)$ | $O(n)$ | $O(n)$ |\n\nSelecting the right DS and Algorithm depends entirely on the data size, memory constraints, and required operations.",
+              "mcq": {
+                "id": "m6-10",
+                "question": "Which algorithm offers O(1) average search time?",
+                "options": [
+                  "Binary Search",
+                  "Hashing",
+                  "Linear Search",
+                  "Quick Sort"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Hashing allows for direct index access, making search constant time on average."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

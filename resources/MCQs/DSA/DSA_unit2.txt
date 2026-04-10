@@ -1,0 +1,303 @@
+Data Structures – UNIT-2 MCQ
+Multiple Choice Questions
+1. An array is a collection of ______ elements.
+a) Different type
+b) Same type
+c) Random type
+d) Character type
+2. The index of the first element in most programming arrays is
+a) 0
+b) 1
+c) -1
+d) 2
+3. The number of elements in an array is called
+a) Size
+b) Index
+c) Address
+d) Type
+4. A two-dimensional array is also known as
+a) Linear array
+b) Matrix
+c) Pointer array
+d) Character array
+5. The memory location of an array element is calculated using
+a) Base address
+b) Offset formula
+c) Index
+d) All of these
+6. Which data structure stores elements in contiguous memory?
+a) Linked List
+b) Array
+c) Tree
+d) Graph
+7. Sparse matrices contain
+a) Equal number of zeros and non-zeros
+b) Mostly zero elements
+c) No zero elements
+d) Only diagonal elements
+8. Sparse matrices help in
+a) Increasing memory usage
+b) Reducing memory usage
+c) Deleting data
+d) Sorting data
+9. A lower triangular matrix contains non-zero elements
+a) Above diagonal
+b) On diagonal only
+c) Below diagonal
+d) Randomly
+10. An upper triangular matrix contains non-zero elements
+a) Above diagonal
+b) Below diagonal
+c) Both sides
+d) None
+11. In a triangular matrix, elements on the diagonal are
+a) Always zero
+b) Always non-zero
+c) May be zero or non-zero
+d) Always 1
+12. A tri-diagonal matrix has non-zero elements on
+a) One diagonal
+b) Three diagonals
+c) Four diagonals
+d) Five diagonals
+13. Sparse matrix representation reduces
+a) Memory space
+b) Processing speed
+c) Input size
+d) Data type
+14. Linked list elements are called
+a) Nodes
+b) Blocks
+c) Arrays
+d) Trees
+15. Each node in a linked list contains
+a) Data only
+b) Pointer only
+c) Data and pointer
+d) Address only
+16. Linked lists store elements in
+a) Contiguous memory
+b) Random memory locations
+c) Fixed memory
+d) Sequential memory
+17. The first node of a linked list is accessed using
+a) Tail pointer
+b) Head pointer
+c) Root pointer
+d) End pointer
+18. The last node of a linked list points to
+a) First node
+b) Previous node
+c) NULL
+d) Random node
+19. Traversal of a linked list means
+a) Deleting nodes
+b) Visiting each node
+c) Adding nodes
+d) Sorting nodes
+20. Insertion in a linked list requires
+a) Memory allocation
+b) Pointer adjustment
+c) Both a and b
+d) None
+21. Deletion from a linked list requires
+a) Freeing memory
+b) Updating pointer
+c) Both
+d) None
+22. Searching in a linked list is generally
+a) Sequential
+b) Binary
+c) Random
+d) Indexed
+23. Sequential list is another name for
+a) Linked list
+b) Array
+c) Stack
+d) Queue
+24. In sequential representation, elements are stored
+a) Randomly
+b) Contiguously
+c) Linked
+d) Dynamically
+25. Linked lists are dynamic because
+a) Size can change
+b) Fixed size
+c) No pointer
+d) No memory
+26. Doubly linked lists have
+a) One pointer
+b) Two pointers
+c) Three pointers
+d) No pointer
+27. In doubly linked lists, nodes contain
+a) Data and next pointer
+b) Data, previous and next pointer
+c) Data only
+d) Two data fields
+28. Doubly linked list allows traversal
+a) Forward only
+b) Backward only
+c) Both directions
+d) None
+29. Header linked list contains
+a) Extra node at beginning
+b) Extra node at end
+c) Extra node in middle
+d) No extra node
+30. Header node stores
+a) List information
+b) Data only
+c) Address only
+d) No information
+31. Linked lists are suitable for
+a) Frequent insertion and deletion
+b) Fixed size storage
+c) Fast indexing
+d) Sorting
+32. Arrays are suitable for
+a) Random access
+b) Dynamic insertion
+c) Pointer manipulation
+d) Linked storage
+33. Time complexity of traversal in linked list is
+a) O(1)
+b) O(n)
+c) O(log n)
+d) O(n²)
+34. Time complexity of searching in unsorted linked list is
+a) O(1)
+b) O(n)
+c) O(log n)
+d) O(n²)
+35. Deleting the first node requires
+a) Changing head pointer
+b) Changing tail pointer
+c) No change
+d) Sorting
+36. Inserting at beginning requires
+a) Updating head pointer
+b) Updating tail pointer
+c) Updating last node
+d) None
+37. A null pointer indicates
+a) No node
+b) Last node
+c) First node
+d) Error
+38. Memory allocation in linked list is done using
+a) malloc()
+b) free()
+c) printf()
+d) scanf()
+39. Memory deallocation is done using
+a) malloc()
+b) free()
+c) new()
+d) delete()
+40. Two dimensional arrays require
+a) Two indices
+b) One index
+c) Three indices
+d) No index
+41. Row major order stores array elements
+a) Row by row
+b) Column by column
+c) Diagonally
+d) Randomly
+42. Column major order stores elements
+a) Row wise
+b) Column wise
+c) Diagonal wise
+d) Random
+43. In a sparse matrix, number of zeros is
+a) Less
+b) More
+c) Equal
+d) None
+44. Lower triangular matrix size is
+a) n(n+1)/2
+b) n²
+c) n(n-1)/2
+d) n
+45. Upper triangular matrix size is
+a) n(n+1)/2
+b) n²
+c) n(n-1)/2
+d) n
+46. Tri-diagonal matrix contains
+a) 3n-2 elements
+b) n² elements
+c) n elements
+d) 2n elements
+47. Linked list nodes are connected using
+a) Index
+b) Pointer
+c) Variable
+d) Loop
+48. Insertion in middle requires
+a) Finding location
+b) Changing pointers
+c) Both
+d) None
+49. Deletion in middle requires
+a) Updating previous node pointer
+b) Free memory
+c) Both
+d) None
+50. Sequential search compares
+a) First element only
+b) Each element sequentially
+c) Random elements
+d) Sorted elements
+Answer Key
+1. b
+2. a
+3. a
+4. b
+5. d
+6. b
+7. b
+8. b
+9. c
+10. a
+11. c
+12. b
+13. a
+14. a
+15. c
+16. b
+17. b
+18. c
+19. b
+20. c
+21. c
+22. a
+23. b
+24. b
+25. a
+26. b
+27. b
+28. c
+29. a
+30. a
+31. a
+32. a
+33. b
+34. b
+35. a
+36. a
+37. a
+38. a
+39. b
+40. a
+41. a
+42. b
+43. b
+44. a
+45. a
+46. a
+47. b
+48. c
+49. c
+50. b

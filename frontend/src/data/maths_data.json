@@ -1,0 +1,1430 @@
+{
+  "subjectId": "maths",
+  "units": [
+    {
+      "id": "unit-1",
+      "title": "Unit 1: Set Theory & Relation Logic",
+      "description": "The mathematical foundation of collections and their interactions.",
+      "topics": [
+        {
+          "id": "u1-s1",
+          "title": "Step 1: Set Definitions & Cardinality",
+          "concepts": [
+            {
+              "id": "c1-1",
+              "title": "What is a Set?",
+              "theory": "A **Set** is a well-defined collection of distinct objects. \n\n### Representation Methods\n1. **Roster Method**: Listing elements $\\{1, 2, 3\\}$.\n2. **Set-Builder Notation**: $\\{x \\mid x \\text{ is an even integer}\\}$.\n\n### Cardinality ($|A|$)\nThe number of elements in a set. For example, if $A = \\{a, b, c\\}$, then $|A| = 3$.",
+              "mcq": {
+                "id": "m1-1",
+                "question": "What is the cardinality of the set $A = \\{ \\emptyset, \\{1, 2\\}, 3 \\}$?",
+                "options": [
+                  "2",
+                  "3",
+                  "4",
+                  "Infinite"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The set contains three distinct objects: the empty set, a nested set, and the number 3."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s2",
+          "title": "Step 2: Duals and Venn Diagrams",
+          "concepts": [
+            {
+              "id": "c1-2",
+              "title": "Visualizing Logic",
+              "theory": "Venn Diagrams represent sets as circles within a **Universal Set ($U$)**. \n\n* **Union ($A \\cup B$)**: Everything in A OR B.\n* **Intersection ($A \\cap B$)**: Only things in BOTH A and B.\n\n### Inclusion-Exclusion Principle\nFor two sets: $|A \\cup B| = |A| + |B| - |A \\cap B|$.",
+              "flowchart": "graph TD\n    U[Universal Set] --> A((Set A))\n    U --> B((Set B))\n    A --- AB{A ∩ B}\n    B --- AB\n    style AB fill:#f9f,stroke:#333,stroke-width:2px",
+              "mcq": {
+                "id": "m1-2",
+                "question": "If $|A|=10$, $|B|=15$, and $|A \\cap B|=5$, what is $|A \\cup B|$?",
+                "options": [
+                  "30",
+                  "20",
+                  "25",
+                  "15"
+                ],
+                "correctAnswer": 1,
+                "explanation": "10 + 15 - 5 = 20."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s3",
+          "title": "Step 3: Power Sets and Subsets",
+          "concepts": [
+            {
+              "id": "c1-3",
+              "title": "The Set of Sets",
+              "theory": "A set $A$ is a **subset** of $B$ ($A \\subseteq B$) if every element of $A$ is also in $B$. \n\n### Power Set ($\\mathscr{P}(S)$)\nThe set of **all** possible subsets of $S$. \n\n**Theorem**: If $|S| = n$, then $|\\mathscr{P}(S)| = 2^n$.",
+              "mcq": {
+                "id": "m1-3",
+                "question": "How many elements are in the Power Set of $\\{ \\text{Red, Green, Blue} \\}$?",
+                "options": [
+                  "3",
+                  "6",
+                  "8",
+                  "9"
+                ],
+                "correctAnswer": 2,
+                "explanation": "2^3 = 8."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s4",
+          "title": "Step 4: Advanced Set Operations",
+          "concepts": [
+            {
+              "id": "c1-4",
+              "title": "Beyond Union & Intersection",
+              "theory": "1. **Difference ($A - B$)**: Elements in A but NOT in B.\n2. **Complement ($A'$)**: Elements in $U$ but not in $A$.\n3. **Symmetric Difference ($A \\Delta B$)**: Elements in $(A \\cup B)$ but NOT in $(A \\cap B)$. \n   * Formula: $(A - B) \\cup (B - A)$",
+              "mcq": {
+                "id": "m1-4",
+                "question": "If $U = \\{1, 2, 3, 4, 5\\}$ and $A = \\{1, 2\\}$, what is $A'$?",
+                "options": [
+                  "{1, 2}",
+                  "{3, 4, 5}",
+                  "{}",
+                  "{1, 2, 3, 4, 5}"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The complement contains all elements in the universal set not present in A."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s5",
+          "title": "Step 5: Set Identities and Proofs",
+          "concepts": [
+            {
+              "id": "c1-5",
+              "title": "The Algebra of Sets",
+              "theory": "Just like algebra has rules ($x + 0 = x$), sets have identities:\n\n* **De Morgan's Laws**:\n  1. $(A \\cup B)' = A' \\cap B'$\n  2. $(A \\cap B)' = A' \\cup B'$\n* **Distributive Laws**:\n  1. $A \\cup (B \\cap C) = (A \\cup B) \\cap (A \\cup C)$",
+              "mcq": {
+                "id": "m1-5",
+                "question": "Which law states that $(A \\cup B)' = A' \\cap B'$?",
+                "options": [
+                  "Commutative Law",
+                  "Distributive Law",
+                  "De Morgan's Law",
+                  "Associative Law"
+                ],
+                "correctAnswer": 2,
+                "explanation": "De Morgan's laws describe how to distribute a complement over a union or intersection."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s6",
+          "title": "Step 6: Cartesian Products",
+          "concepts": [
+            {
+              "id": "c1-6",
+              "title": "Ordered Pairs",
+              "theory": "The **Cartesian Product** $A \\times B$ is the set of all ordered pairs $(a, b)$ where $a \\in A$ and $b \\in B$. \n\n**Cardinality**: $|A \\times B| = |A| \\cdot |B|$.\n\nExample: If $A=\\{1,2\\}$ and $B=\\{x,y\\}$, then $A \\times B = \\{(1,x), (1,y), (2,x), (2,y)\\}$.",
+              "mcq": {
+                "id": "m1-6",
+                "question": "If $|A|=4$ and $|B|=3$, how many elements are in $|A \\times B|$?",
+                "options": [
+                  "7",
+                  "12",
+                  "64",
+                  "81"
+                ],
+                "correctAnswer": 1,
+                "explanation": "4 * 3 = 12."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s7",
+          "title": "Step 7: Properties of Relations I",
+          "concepts": [
+            {
+              "id": "c1-7",
+              "title": "Reflexive and Symmetric",
+              "theory": "A relation $R$ on set $A$ is a subset of $A \\times A$.\n\n* **Reflexive**: $(a, a) \\in R$ for every $a \\in A$.\n* **Symmetric**: If $(a, b) \\in R$, then $(b, a) \\in R$.\n* **Anti-symmetric**: If $(a, b) \\in R$ and $(b, a) \\in R$, then $a = b$.",
+              "mcq": {
+                "id": "m1-7",
+                "question": "Which property is satisfied if for every x, (x, x) is in the relation?",
+                "options": [
+                  "Symmetric",
+                  "Transitive",
+                  "Reflexive",
+                  "Irreflexive"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Reflexive means every element relates to itself."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s8",
+          "title": "Step 8: Properties of Relations II",
+          "concepts": [
+            {
+              "id": "c1-8",
+              "title": "Transitive and Equivalence",
+              "theory": "* **Transitive**: If $(a, b) \\in R$ and $(b, c) \\in R$, then $(a, c) \\in R$.\n\n### Equivalence Relation\nA relation that is **Reflexive, Symmetric, AND Transitive**. \n\nEquivalence relations partition a set into disjoint subsets called **Equivalence Classes**.",
+              "mcq": {
+                "id": "m1-8",
+                "question": "To be an Equivalence Relation, a relation must be:",
+                "options": [
+                  "Reflexive only",
+                  "Reflexive and Symmetric only",
+                  "Reflexive, Symmetric, and Transitive",
+                  "Partial Order"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Equivalence requires all three fundamental properties."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s9",
+          "title": "Step 9: Partial Ordering (Posets)",
+          "concepts": [
+            {
+              "id": "c1-9",
+              "title": "Order Matters",
+              "theory": "A relation is a **Partial Order** if it is **Reflexive, Anti-symmetric, AND Transitive**. \n\nExample: The '$\\le$' relation on integers. \n* $1 \\le 1$ (Reflexive)\n* If $a \\le b$ and $b \\le a$, then $a = b$ (Anti-symmetric)\n* If $a \\le b$ and $b \\le c$, then $a \\le c$ (Transitive)",
+              "mcq": {
+                "id": "m1-9",
+                "question": "What property distinguishes a Partial Order from an Equivalence Relation?",
+                "options": [
+                  "Reflexive",
+                  "Transitive",
+                  "Anti-symmetric vs Symmetric",
+                  "Cardinality"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Partial orders are anti-symmetric, while equivalence relations are symmetric."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s10",
+          "title": "Step 10: Warshall’s Algorithm",
+          "concepts": [
+            {
+              "id": "c1-10",
+              "title": "Transitive Closures",
+              "theory": "The **Transitive Closure** of a relation $R$ is the smallest transitive relation that contains $R$. \n\n**Warshall's Algorithm** is an $O(n^3)$ method to find the transitive closure using the adjacency matrix of the relation.",
+              "flowchart": "graph TD\n    Start[Initial Matrix M0] --> LoopK[For k = 1 to n]\n    LoopK --> LoopI[For i = 1 to n]\n    LoopI --> LoopJ[For j = 1 to n]\n    LoopJ --> Update[M[i,j] = M[i,j] OR (M[i,k] AND M[k,j])]\n    Update --> NextJ[Next j]\n    NextJ --> NextI[Next i]\n    NextI --> NextK[Next k]\n    NextK --> End[Transitive Closure Matrix]",
+              "mcq": {
+                "id": "m1-10",
+                "question": "What is the time complexity of Warshall's Algorithm for a set of n elements?",
+                "options": [
+                  "O(n)",
+                  "O(n²)",
+                  "O(n³)",
+                  "O(log n)"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Warshall's uses three nested loops over the number of vertices, resulting in cubic time complexity."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-2",
+      "title": "Unit 2: Functions, Induction & Recurrence",
+      "description": "Mapping relationships and proving mathematical truths through structure.",
+      "topics": [
+        {
+          "id": "u2-s1",
+          "title": "Step 1: Introduction to Functions",
+          "concepts": [
+            {
+              "id": "c2-1",
+              "title": "Domain, Codomain, and Range",
+              "theory": "A **Function** $f: A \\rightarrowightarrow B$ is a rule that assigns to each element $a \\in A$ exactly one element $b \\in B$. \n\n* **Domain ($A$)**: The set of inputs.\n* **Codomain ($B$)**: The set of potential outputs.\n* **Range**: The set of actual outputs $\\{f(a) \\mid a \\in A\\}$.",
+              "mcq": {
+                "id": "m2-1",
+                "question": "If $f(x) = x^2$ from $\\mathbb{R}$ to $\\mathbb{R}$, what is the range?",
+                "options": [
+                  "$\\mathbb{R}$",
+                  "$\\{x \\mid x \\ge 0\\}$",
+                  "$\\{x \\mid x > 0\\}$",
+                  "$\\mathbb{Z}$"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Squares of real numbers are always non-negative."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s2",
+          "title": "Step 2: Types of Mappings",
+          "concepts": [
+            {
+              "id": "c2-2",
+              "title": "1-1 and Onto",
+              "theory": "1. **Injective (1-1)**: Every input maps to a unique output. $f(x) = f(y) \\implies x = y$.\n2. **Surjective (Onto)**: Range = Codomain. Every output has at least one input.\n3. **Bijective**: Both Injective and Surjective. A perfect 1-to-1 pairing.",
+              "mcq": {
+                "id": "m2-2",
+                "question": "A function that is both injective and surjective is called:",
+                "options": [
+                  "Bijective",
+                  "Composite",
+                  "Inversion",
+                  "Constant"
+                ],
+                "correctAnswer": 0,
+                "explanation": "A bijection is a one-to-one correspondence."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s3",
+          "title": "Step 3: Inverse Functions",
+          "concepts": [
+            {
+              "id": "c2-3",
+              "title": "The Backward Rule",
+              "theory": "A function $f$ has an **Inverse** $f^{-1}$ if and only if $f$ is a **Bijection**. \n\nIdentity Property: $f^{-1}(f(x)) = x$.",
+              "mcq": {
+                "id": "m2-3",
+                "question": "What condition must a function satisfy to be invertible?",
+                "options": [
+                  "Must be linear",
+                  "Must be surjective only",
+                  "Must be bijective",
+                  "Must be continuous"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Only bijections allow for a unique backward mapping for every element."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s4",
+          "title": "Step 4: Function Composition",
+          "concepts": [
+            {
+              "id": "c2-4",
+              "title": "Chaining Rules",
+              "theory": "If $f: A \\rightarrowightarrow B$ and $g: B \\rightarrowightarrow C$, then the **Composition** $(g \\circ f): A \\rightarrowightarrow C$ is defined as $(g \\circ f)(x) = g(f(x))$. \n\n**Note**: Composition is associative but NOT usually commutative ($f \\circ g \neq g \\circ f$).",
+              "mcq": {
+                "id": "m2-4",
+                "question": "If $f(x) = x+1$ and $g(x) = x^2$, what is $(g \\circ f)(x)$?",
+                "options": [
+                  "$x^2 + 1$",
+                  "$(x+1)^2$",
+                  "$2x+1$",
+                  "$x^2+x$"
+                ],
+                "correctAnswer": 1,
+                "explanation": "g(f(x)) = g(x+1) = (x+1)^2."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s5",
+          "title": "Step 5: Recursively Defined Functions",
+          "concepts": [
+            {
+              "id": "c2-5",
+              "title": "Self-Reference in Math",
+              "theory": "A recursive definition consists of:\n1. **Base Case**: The value for the smallest input.\n2. **Recursive Step**: The value for $n$ based on values for $< n$.\n\nExample (Factorial):\n* $F(0) = 1$\n* $F(n) = n \\cdot F(n-1)$",
+              "mcq": {
+                "id": "m2-5",
+                "question": "What is the result of the recursive function $f(0)=1, f(n)=f(n-1)+2$ for $f(3)$?",
+                "options": [
+                  "3",
+                  "5",
+                  "7",
+                  "9"
+                ],
+                "correctAnswer": 2,
+                "explanation": "f(1)=3, f(2)=5, f(3)=7."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s6",
+          "title": "Step 6: Peano's Axioms",
+          "concepts": [
+            {
+              "id": "c2-6",
+              "title": "Building Natural Numbers",
+              "theory": "Italian mathematician Giuseppe Peano defined the set $\\mathbb{N}$ using 5 axioms:\n1. 0 is a natural number.\n2. Every $n$ has a successor $S(n)$.\n3. 0 is not the successor of any number.\n4. Different numbers have different successors.\n5. If a property holds for 0 and its successor, it holds for all numbers (induction basis).",
+              "mcq": {
+                "id": "m2-6",
+                "question": "According to Peano, which number is NOT a successor of any natural number?",
+                "options": [
+                  "0",
+                  "1",
+                  "Infinity",
+                  "Prime numbers"
+                ],
+                "correctAnswer": 0,
+                "explanation": "0 is the formal starting point in Peano's construction."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s7",
+          "title": "Step 7: Mathematical Induction I",
+          "concepts": [
+            {
+              "id": "c2-7",
+              "title": "The Domino Effect",
+              "theory": "Used to prove statements for all $n \\in \\mathbb{N}$.\n\n1. **Basis Step**: Prove $P(1)$ is true.\n2. **Induction Hypothesis**: Assume $P(k)$ is true.\n3. **Inductive Step**: Show that $P(k) \\implies P(k+1)$.",
+              "mcq": {
+                "id": "m2-7",
+                "question": "What are you assuming during the 'Induction Hypothesis'?",
+                "options": [
+                  "The statement is false",
+                  "The statement is true for n=1",
+                  "The statement is true for some arbitrary k",
+                  "The statement is true for all n"
+                ],
+                "correctAnswer": 2,
+                "explanation": "You assume truth for k to build a bridge to k+1."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s8",
+          "title": "Step 8: Mathematical Induction II (Strong)",
+          "concepts": [
+            {
+              "id": "c2-8",
+              "title": "Full History Induction",
+              "theory": "In **Strong Induction**, instead of just assuming $P(k)$, we assume the statement is true for **ALL** values from $1$ to $k$. \n\nThis is essential for proving properties of Prime Numbers (Fundamental Theorem of Arithmetic) and recursive structures.",
+              "mcq": {
+                "id": "m2-8",
+                "question": "When is Strong Induction preferred over Weak Induction?",
+                "options": [
+                  "For simpler proofs",
+                  "When P(k+1) depends on multiple previous values (not just P(k))",
+                  "When there is no base case",
+                  "When the set is infinite"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Strong induction allows you to use any or all previously proven values."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s9",
+          "title": "Step 9: Discrete Numeric Functions",
+          "concepts": [
+            {
+              "id": "c2-9",
+              "title": "Sequence Algebra",
+              "theory": "Numeric functions (sequences) can be added, multiplied, or shifted.\n\n* **Sum**: $(a+b)_n = a_n + b_n$\n* **Shift**: $S^k a$ where $(S^k a)_n = a_{n+k}$. \n\nExample: If $a_n = 2^n$, then $S^1 a_n = 2^{n+1}$.",
+              "mcq": {
+                "id": "m2-9",
+                "question": "If $a_n = n$ and $b_n = 1$, what is $(a+b)_5$?",
+                "options": [
+                  "1",
+                  "5",
+                  "6",
+                  "10"
+                ],
+                "correctAnswer": 2,
+                "explanation": "a5=5, b5=1. Sum = 6."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s10",
+          "title": "Step 10: Generating Functions",
+          "concepts": [
+            {
+              "id": "c2-10",
+              "title": "Sequences as Series",
+              "theory": "A **Generating Function** packages an infinite sequence into a single algebraic object: \n$G(x) = \\sum_{n=0}^{\\infty} a_n x^n$. \n\nFor example, the sequence $\\{1, 1, 1, \\dots\\}$ has the generating function: \n$x^0 + x^1 + x^2 + \\dots = \\frac{1}{1-x}$.",
+              "mcq": {
+                "id": "m2-10",
+                "question": "What sequence is generated by $G(x) = \\frac{1}{1-x}$?",
+                "options": [
+                  "{0, 0, 0...}",
+                  "{1, 1, 1...}",
+                  "{1, 2, 3...}",
+                  "{1, -1, 1...}"
+                ],
+                "correctAnswer": 1,
+                "explanation": "This is the geometric series sum for |x| < 1 with all coefficients as 1."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-3",
+      "title": "Unit 3: Algebraic Structures & Group Theory",
+      "description": "Understanding the deep symmetries and rules governing mathematical operations.",
+      "topics": [
+        {
+          "id": "u3-s1",
+          "title": "Step 1: Binary Operations",
+          "concepts": [
+            {
+              "id": "c3-1",
+              "title": "Rule of Closure",
+              "theory": "A **Binary Operation** $*$ on a set $S$ is a rule that assigns to each $(a, b) \\in S \\times S$ a unique element $a * b \\in S$. \n\n* **Closure**: $a, b \\in S \\implies a * b \\in S$.\n* **Associative**: $(a * b) * c = a * (b * c)$.\n* **Commutative**: $a * b = b * a$.",
+              "mcq": {
+                "id": "m3-1",
+                "question": "Which of these is NOT a binary operation on the set of natural numbers $\\mathbb{N}$?",
+                "options": [
+                  "Addition (+)",
+                  "Multiplication (×)",
+                  "Subtraction (-)",
+                  "Exponentiation (^)"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Subtraction is not closed in N because 2 - 5 = -3, which is an integer but not a natural number."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s2",
+          "title": "Step 2: Identity and Inverse",
+          "concepts": [
+            {
+              "id": "c3-2",
+              "title": "The Null and the Opposite",
+              "theory": "* **Identity ($e$)**: $a * e = e * a = a$. \n   * Addition: $e = 0$.\n   * Multiplication: $e = 1$.\n* **Inverse ($a^{-1}$)**: $a * a^{-1} = e$. \n   * Addition: $-a$.\n   * Multiplication: $1/a$.",
+              "mcq": {
+                "id": "m3-2",
+                "question": "What is the multiplicative identity element for real numbers?",
+                "options": [
+                  "0",
+                  "1",
+                  "-1",
+                  "i"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Any number multiplied by 1 remains unchanged."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s3",
+          "title": "Step 3: Semi-groups and Monoids",
+          "concepts": [
+            {
+              "id": "c3-3",
+              "title": "Structural Hierarchy",
+              "theory": "1. **Algebaric Structure**: A set with one or more binary operations.\n2. **Semi-group**: Closed + Associative.\n3. **Monoid**: Semi-group + Identity element ($e$).",
+              "mcq": {
+                "id": "m3-3",
+                "question": "A semi-group with an identity element is called a:",
+                "options": [
+                  "Group",
+                  "Monoid",
+                  "Ring",
+                  "Field"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Monoids add the concept of an identity to the associativity of a semi-group."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s4",
+          "title": "Step 4: Defining a Group",
+          "concepts": [
+            {
+              "id": "c3-4",
+              "title": "The Four Pillars",
+              "theory": "A set $G$ with operation $*$ is a **Group** if it satisfies:\n1. **Closure**: $a * b \\in G$.\n2. **Associativity**: $(a * b) * c = a * (b * c)$.\n3. **Identity**: There exists $e$ such that $a * e = a$.\n4. **Inverse**: For every $a$, there exists $a^{-1}$ such that $a * a^{-1} = e$.",
+              "mcq": {
+                "id": "m3-4",
+                "question": "Which property is the final requirement to turn a Monoid into a Group?",
+                "options": [
+                  "Commutativity",
+                  "Inverse",
+                  "Distributivity",
+                  "Cardinality"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Every element in a group must have a corresponding inverse element."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s5",
+          "title": "Step 5: Abelian Groups",
+          "concepts": [
+            {
+              "id": "c3-5",
+              "title": "Commutative Excellence",
+              "theory": "An **Abelian Group** is a group where the operation is also **Commutative** ($a * b = b * a$). \n\nExamples:\n* $(\\mathbb{Z}, +)$ is Abelian.\n* Matrix multiplication is usually NOT Abelian.",
+              "mcq": {
+                "id": "m3-5",
+                "question": "Named after Niels Henrik Abel, an Abelian group must be:",
+                "options": [
+                  "Finite",
+                  "Cyclic",
+                  "Commutative",
+                  "Infinite"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Abelian refers to the commutativity of the group operation."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s6",
+          "title": "Step 6: Subgroups",
+          "concepts": [
+            {
+              "id": "c3-6",
+              "title": "Groups within Groups",
+              "theory": "A subset $H$ of group $G$ is a **Subgroup** if $H$ itself is a group under the same operation. \n\n**Subgroup Test**: $H$ is a subgroup if:\n1. $H$ is non-empty.\n2. $a, b \\in H \\implies a * b \\in H$.\n3. $a \\in H \\implies a^{-1} \\in H$.",
+              "mcq": {
+                "id": "m3-6",
+                "question": "Is the set of even integers $(E, +)$ a subgroup of the set of all integers $(\\mathbb{Z}, +)$?",
+                "options": [
+                  "Yes",
+                  "No",
+                  "Only if positive",
+                  "Only if zero is excluded"
+                ],
+                "correctAnswer": 0,
+                "explanation": "Even integers are closed, have identity (0), and inverses under addition."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s7",
+          "title": "Step 7: Order of Group and Elements",
+          "concepts": [
+            {
+              "id": "c3-7",
+              "title": "Frequency and Size",
+              "theory": "* **Order of Group $|G|$**: The number of elements in the group.\n* **Order of Element $O(a)$**: The smallest positive integer $n$ such that $a^n = e$. \n\nIf no such $n$ exists, the element has infinite order.",
+              "mcq": {
+                "id": "m3-7",
+                "question": "In the group $(\\mathbb{Z}_4, +)$, what is the order of the number 2?",
+                "options": [
+                  "1",
+                  "2",
+                  "3",
+                  "4"
+                ],
+                "correctAnswer": 1,
+                "explanation": "2 + 2 = 4 ≡ 0 (mod 4). Since 0 is the identity, the order is 2."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s8",
+          "title": "Step 8: Cyclic Groups",
+          "concepts": [
+            {
+              "id": "c3-8",
+              "title": "One Generator to Rule Them All",
+              "theory": "A group $G$ is **Cyclic** if every element can be written as $a^n$ for some $a \\in G$. The element $a$ is called the **Generator**. \n\n**Property**: Every cyclic group is Abelian.",
+              "mcq": {
+                "id": "m3-8",
+                "question": "A group generated by a single element is known as:",
+                "options": [
+                  "Simple Group",
+                  "Cyclic Group",
+                  "Universal Group",
+                  "Normal Group"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Cyclic groups are built entirely from powers or multiples of one element."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s9",
+          "title": "Step 9: Cosets and Lagrange's Theorem",
+          "concepts": [
+            {
+              "id": "c3-9",
+              "title": "The Geometry of Groups",
+              "theory": "If $H$ is a subgroup of $G$, a **Left Coset** is $aH = \\{ah \\mid h \\in H\\}$. \n\n**Lagrange's Theorem**: If $G$ is a finite group, then the order of any subgroup $H$ must divide the order of $G$. \n$|G| = [G:H] \\cdot |H|$ where $[G:H]$ is the index.",
+              "mcq": {
+                "id": "m3-9",
+                "question": "Can a group of order 15 have a subgroup of order 4?",
+                "options": [
+                  "Yes",
+                  "No",
+                  "Only if it is cyclic",
+                  "Depends on elements"
+                ],
+                "correctAnswer": 1,
+                "explanation": "According to Lagrange's theorem, 4 must divide 15. Since it doesn't, no such subgroup can exist."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s10",
+          "title": "Step 10: Group Homomorphism",
+          "concepts": [
+            {
+              "id": "c3-10",
+              "title": "Structural Mapping",
+              "theory": "A function $f: G \\rightarrowightarrow G'$ is a **Homomorphism** if it preserves the operation: \n$f(a * b) = f(a) * f(b)$. \n\n**Kernel**: The set of elements in $G$ that map to the identity in $G'$. It is a measure of how much 'information' is lost in the mapping.",
+              "mcq": {
+                "id": "m3-10",
+                "question": "What does a group homomorphism preserve?",
+                "options": [
+                  "Element colors",
+                  "The cardinality of the set",
+                  "The group's binary operation structure",
+                  "The number of prime factors"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Homomorphisms ensure that the result of an operation in the first group maps correctly to the operation result in the second."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-4",
+      "title": "Unit 4: Propositional & Predicate Logic",
+      "description": "The calculus of truth and reasoning that forms the basis of computer science.",
+      "topics": [
+        {
+          "id": "u4-s1",
+          "title": "Step 1: Atomic Propositions & Connectives",
+          "concepts": [
+            {
+              "id": "c4-1",
+              "title": "The Binary of Truth",
+              "theory": "A **Proposition** is a declarative statement that is either True (T) or False (F).\n\n* **Negation ($\neg p$)**: Opposite truth value.\n* **Conjunction ($p \\land q$)**: True only if BOTH are true.\n* **Disjunction ($p \\lor q$)**: True if at least one is true.",
+              "mcq": {
+                "id": "m4-1",
+                "question": "Which connective results in 'True' if at least one proposition is true?",
+                "options": [
+                  "Negation",
+                  "Conjunction",
+                  "Disjunction",
+                  "Conditional"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Disjunction (OR) is true whenever there is at least one T input."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s2",
+          "title": "Step 2: Conditional Logic",
+          "concepts": [
+            {
+              "id": "c4-2",
+              "title": "If-Then Reasoning",
+              "theory": "The **Conditional** ($p \\to q$) is False ONLY when $p$ is True and $q$ is False.\n\n* **Converse**: $q \\to p$\n* **Inverse**: $\neg p \\to \neg q$\n* **Contrapositive**: $\neg q \\to \neg p$ (Logically equivalent to $p \\to q$)",
+              "mcq": {
+                "id": "m4-2",
+                "question": "Which of the following is logically equivalent to $p \\to q$?",
+                "options": [
+                  "$q \\to p$",
+                  "$\neg p \\to \neg q$",
+                  "$\neg q \\to \neg p$",
+                  "$p \\land q$"
+                ],
+                "correctAnswer": 2,
+                "explanation": "The contrapositive always shares the same truth value as the original conditional statement."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s3",
+          "title": "Step 3: Truth Table Mastery",
+          "concepts": [
+            {
+              "id": "c4-3",
+              "title": "Exhaustive Evaluation",
+              "theory": "A truth table for $n$ variables has $2^n$ rows. It maps every possible combination of truth values to the result of a logical expression.",
+              "mcq": {
+                "id": "m4-3",
+                "question": "How many rows are in a truth table for $(p \\land q) \\to (r \\lor s)$?",
+                "options": [
+                  "4",
+                  "8",
+                  "16",
+                  "32"
+                ],
+                "correctAnswer": 2,
+                "explanation": "There are 4 variables (p, q, r, s), so 2^4 = 16 rows."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s4",
+          "title": "Step 4: Tautologies & Contradictions",
+          "concepts": [
+            {
+              "id": "c4-4",
+              "title": "Absolute Truths",
+              "theory": "* **Tautology**: A statement that is True in all possible cases (e.g., $p \\lor \neg p$).\n* **Contradiction**: A statement that is False in all possible cases (e.g., $p \\land \neg p$).\n* **Contingency**: Neither a tautology nor a contradiction.",
+              "mcq": {
+                "id": "m4-4",
+                "question": "Which of these is a Tautology?",
+                "options": [
+                  "$p \\land q$",
+                  "$\neg p$",
+                  "$p \\lor \neg p$",
+                  "$p \\to \neg p$"
+                ],
+                "correctAnswer": 2,
+                "explanation": "p OR not p is always true because an element is either itself or its opposite."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s5",
+          "title": "Step 5: Logic Identities",
+          "concepts": [
+            {
+              "id": "c4-5",
+              "title": "Simplifying Logic",
+              "theory": "* **De Morgan's Laws**:\n  1. $\neg(p \\land q) \\equiv \neg p \\lor \neg q$\n  2. $\neg(p \\lor q) \\equiv \neg p \\land \neg q$\n* **Distributive Laws**:\n  1. $p \\land (q \\lor r) \\equiv (p \\land q) \\lor (p \\land r)$",
+              "mcq": {
+                "id": "m4-5",
+                "question": "What is the negation of 'It is raining AND it is cold' using De Morgan's Law?",
+                "options": [
+                  "It is not raining and not cold",
+                  "It is not raining or not cold",
+                  "It is raining and cold",
+                  "It is raining or cold"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Not(A and B) = (Not A) OR (Not B)."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s6",
+          "title": "Step 6: Normal Forms I (DNF)",
+          "concepts": [
+            {
+              "id": "c4-6",
+              "title": "Disjunctive Normal Form",
+              "theory": "A formula is in **DNF** if it is a sum (OR) of products (AND). \n\nExample: $(p \\land q) \\lor (\neg p \\land r)$. \nEvery truth table has a unique DNF representation based on the rows where the result is True.",
+              "mcq": {
+                "id": "m4-6",
+                "question": "DNF stands for:",
+                "options": [
+                  "Double Negative Form",
+                  "Disjunctive Normal Form",
+                  "Direct Node Function",
+                  "Distributed Numeric Field"
+                ],
+                "correctAnswer": 1,
+                "explanation": "DNF represents logic as a series of AND-clauses joined by ORs."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s7",
+          "title": "Step 7: Normal Forms II (CNF)",
+          "concepts": [
+            {
+              "id": "c4-7",
+              "title": "Conjunctive Normal Form",
+              "theory": "A formula is in **CNF** if it is a product (AND) of sums (OR). \n\nExample: $(p \\lor q) \\land (\neg p \\lor r)$. \nCNF is critical for Automated Theorem Proving and SAT solvers.",
+              "mcq": {
+                "id": "m4-7",
+                "question": "In CNF, the individual units joined by ANDs are called:",
+                "options": [
+                  "Minterms",
+                  "Maxterms/Clauses",
+                  "Variables",
+                  "Atoms"
+                ],
+                "correctAnswer": 1,
+                "explanation": "CNF consists of clauses (OR expressions) joined together by AND operations."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s8",
+          "title": "Step 8: Rules of Inference",
+          "concepts": [
+            {
+              "id": "c4-8",
+              "title": "Logical Deductions",
+              "theory": "Rules used to prove the validity of an argument:\n\n1. **Modus Ponens**: $(p \\to q) \\land p \\implies q$\n2. **Modus Tollens**: $(p \\to q) \\land \neg q \\implies \neg p$\n3. **Syllogism**: $(p \\to q) \\land (q \\to r) \\implies p \\to r$",
+              "mcq": {
+                "id": "m4-8",
+                "question": "If 'If it rains, the grass gets wet' (p -> q) and 'The grass is not wet' (not q), then 'It did not rain' (not p). What rule is this?",
+                "options": [
+                  "Modus Ponens",
+                  "Modus Tollens",
+                  "Hypothetical Syllogism",
+                  "Addition"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Modus Tollens allows us to conclude the negation of the antecedent from the negation of the consequent."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s9",
+          "title": "Step 9: Predicates & Quantifiers",
+          "concepts": [
+            {
+              "id": "c4-9",
+              "title": "Universal vs Existential",
+              "theory": "Propositions about variables $P(x)$:\n\n* **Universal Quantifier ($\\forall x$)**: P(x) is true for ALL x in the domain.\n* **Existential Quantifier ($\\exists x$)**: P(x) is true for AT LEAST ONE x.",
+              "mcq": {
+                "id": "m4-9",
+                "question": "Which symbol represents 'There exists'?",
+                "options": [
+                  "∀",
+                  "∃",
+                  "∝",
+                  "Σ"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The backward E denotes the existential quantifier."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s10",
+          "title": "Step 10: Nested Quantifiers",
+          "concepts": [
+            {
+              "id": "c4-10",
+              "title": "Multi-variable Logic",
+              "theory": "Quantifiers can be combined: $\\forall x \\exists y P(x, y)$. \n\n**Note**: The order matters! \n* $\\forall x \\exists y (\\text{love}(x, y))$ = Everyone loves someone.\n* $\\exists y \\forall x (\\text{love}(x, y))$ = There is one person whom everyone loves.",
+              "mcq": {
+                "id": "m4-10",
+                "question": "Does swapping the order of different quantifiers change the meaning?",
+                "options": [
+                  "Always",
+                  "Never",
+                  "Often",
+                  "Only for finite sets"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Swapping a universal and existential quantifier usually changes the logical scope and meaning of the statement."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-5",
+      "title": "Unit 5: Posets, Hasse Diagrams & Lattices",
+      "description": "Visualizing order and structural constraints in mathematical sets.",
+      "topics": [
+        {
+          "id": "u5-s1",
+          "title": "Step 1: Introduction to Posets",
+          "concepts": [
+            {
+              "id": "c5-1",
+              "title": "Partially Ordered Sets",
+              "theory": "A set $S$ with a relation $R$ is a **Poset** if $R$ is:\n1. **Reflexive**: $aRa$.\n2. **Anti-symmetric**: $aRb$ and $bRa \\implies a=b$.\n3. **Transitive**: $aRb$ and $bRc \\implies aRc$.\n\nNotation: $(S, \\le)$. Example: $(\\mathbb{Z}, \\le)$ or $(\\mathscr{P}(S), \\subseteq)$.",
+              "mcq": {
+                "id": "m5-1",
+                "question": "Which property is NOT required for a relation to be a partial order?",
+                "options": [
+                  "Reflexive",
+                  "Symmetric",
+                  "Anti-symmetric",
+                  "Transitive"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Partial orders must be anti-symmetric; if a relation is symmetric and transitive, it is an equivalence relation, not a partial order."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s2",
+          "title": "Step 2: Hasse Diagrams",
+          "concepts": [
+            {
+              "id": "c5-2",
+              "title": "Drawing the Order",
+              "theory": "A **Hasse Diagram** is a simplified visual of a Poset. \n\n**Rules**:\n1. If $a < b$, place $b$ above $a$ and draw a line.\n2. No loops (reflexivity is implied).\n3. No redundant lines (transitivity is implied).",
+              "flowchart": "graph BT\n    A[1] --- B[2]\n    A --- C[3]\n    B --- D[6]\n    C --- D\n    style D fill:#dbeafe",
+              "mcq": {
+                "id": "m5-2",
+                "question": "In a Hasse diagram, if a line exists between 'a' (below) and 'b' (above), what do we know?",
+                "options": [
+                  "a is greater than b",
+                  "b covers a",
+                  "a is equal to b",
+                  "a and b are incomparable"
+                ],
+                "correctAnswer": 1,
+                "explanation": "A line indicates an immediate successor relationship, also known as 'covering' in poset theory."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s3",
+          "title": "Step 3: Maximal and Minimal Elements",
+          "concepts": [
+            {
+              "id": "c5-3",
+              "title": "Boundary Elements",
+              "theory": "* **Maximal**: No element is strictly greater than it.\n* **Minimal**: No element is strictly less than it.\n\n**Note**: A poset can have multiple maximal and minimal elements.",
+              "mcq": {
+                "id": "m5-3",
+                "question": "Can a finite poset have zero maximal elements?",
+                "options": [
+                  "Yes",
+                  "No",
+                  "Only if it is cyclic",
+                  "Depends on cardinality"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Every finite non-empty poset must have at least one maximal and at least one minimal element."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s4",
+          "title": "Step 4: Greatest and Least Elements",
+          "concepts": [
+            {
+              "id": "c5-4",
+              "title": "The Global Leaders",
+              "theory": "* **Greatest (Unit)**: An element $g$ such that $x \\le g$ for ALL $x \\in S$.\n* **Least (Zero)**: An element $l$ such that $l \\le x$ for ALL $x \\in S$.\n\n**Uniqueness**: Unlike maximal/minimal elements, the Greatest and Least elements (if they exist) are **unique**.",
+              "mcq": {
+                "id": "m5-4",
+                "question": "What is the least element in the poset of divisors of 12 $(\\{1, 2, 3, 4, 6, 12\\}, \\mid)$?",
+                "options": [
+                  "0",
+                  "1",
+                  "12",
+                  "None"
+                ],
+                "correctAnswer": 1,
+                "explanation": "1 divides every number in the set, making it the least element."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s5",
+          "title": "Step 5: Upper and Lower Bounds",
+          "concepts": [
+            {
+              "id": "c5-5",
+              "title": "GLB and LUB",
+              "theory": "For a subset $A \\subseteq S$:\n* **Least Upper Bound (LUB/Join)**: The smallest element that is $\\ge$ all elements in $A$.\n* **Greatest Lower Bound (GLB/Meet)**: The largest element that is $\\le$ all elements in $A$.",
+              "mcq": {
+                "id": "m5-5",
+                "question": "In $(\\mathbb{Z}, \\le)$, what is the LUB of $\\{3, 5, 8\\}$?",
+                "options": [
+                  "3",
+                  "5",
+                  "8",
+                  "None"
+                ],
+                "correctAnswer": 2,
+                "explanation": "8 is the smallest integer that is greater than or equal to all elements in the set."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s6",
+          "title": "Step 6: Lattices as Posets",
+          "concepts": [
+            {
+              "id": "c5-6",
+              "title": "Defining a Lattice",
+              "theory": "A Poset $(L, \\le)$ is a **Lattice** if **every pair** of elements $\\{a, b\\}$ has a unique LUB (Join $\\lor$) and a unique GLB (Meet $\\land$). \n\nFormula notation: \n* $a \\lor b = \\text{LUB}(a, b)$\n* $a \\land b = \\text{GLB}(a, b)$.",
+              "mcq": {
+                "id": "m5-6",
+                "question": "If every pair of elements in a poset has a LUB and GLB, it is called a:",
+                "options": [
+                  "Monoid",
+                  "Group",
+                  "Lattice",
+                  "Subset"
+                ],
+                "correctAnswer": 2,
+                "explanation": "The existence of join and meet for all pairs is the defining property of a lattice."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s7",
+          "title": "Step 7: Sublattices",
+          "concepts": [
+            {
+              "id": "c5-7",
+              "title": "Structure Preservation",
+              "theory": "A subset $M$ of lattice $L$ is a **Sublattice** if for every $a, b \\in M$, their join $a \\lor b$ and meet $a \\land b$ are also in $M$.",
+              "mcq": {
+                "id": "m5-7",
+                "question": "Does a subset of a lattice have to be a sublattice?",
+                "options": [
+                  "Always",
+                  "Never",
+                  "Only if it contains the Join and Meet of its elements in L",
+                  "Only if it is finite"
+                ],
+                "correctAnswer": 2,
+                "explanation": "A sublattice must be closed under the join and meet operations of the parent lattice."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s8",
+          "title": "Step 8: Distributive Lattices",
+          "concepts": [
+            {
+              "id": "c5-8",
+              "title": "The Distributive Law",
+              "theory": "A lattice is **Distributive** if for all $a, b, c$:\n1. $a \\land (b \\lor c) = (a \\land b) \\lor (a \\land c)$\n2. $a \\lor (b \\land c) = (a \\lor b) \\land (a \\lor c)$\n\n**Note**: Every chain is a distributive lattice.",
+              "mcq": {
+                "id": "m5-8",
+                "question": "Which law is satisfied in a Distributive Lattice?",
+                "options": [
+                  "Identity Law",
+                  "De Morgan's Law",
+                  "Distributive Law",
+                  "Absorption Law"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Distributive lattices allow meet to distribute over join and vice-versa, similar to numeric algebra."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s9",
+          "title": "Step 9: Complemented Lattices",
+          "concepts": [
+            {
+              "id": "c5-9",
+              "title": "Unique Opposites",
+              "theory": "In a bounded lattice (with 0 and 1), an element $a'$ is a **Complement** of $a$ if:\n* $a \\land a' = 0$\n* $a \\lor a' = 1$\n\nA lattice is **Complemented** if every element has at least one complement.",
+              "mcq": {
+                "id": "m5-9",
+                "question": "In a Complemented Lattice, every element must have:",
+                "options": [
+                  "A successor",
+                  "A complement",
+                  "An inverse",
+                  "A prime factor"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Complemented lattices ensure that for every element, there is another that 'completes' it to the bounds."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s10",
+          "title": "Step 10: Boolean Algebra as Lattices",
+          "concepts": [
+            {
+              "id": "c5-10",
+              "title": "The Ultimate Structure",
+              "theory": "A **Boolean Algebra** is simply a lattice that is **BOTH Distributive AND Complemented**. \n\nThis structure forms the mathematical backbone of digital circuit design and computer logic gates.",
+              "mcq": {
+                "id": "m5-10",
+                "question": "Boolean Algebra is a specialized type of:",
+                "options": [
+                  "Semi-group",
+                  "Lattice",
+                  "Arithmetic",
+                  "Ring"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Boolean algebra is a complemented distributive lattice, usually denoted as (B, +, ., ', 0, 1)."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-6",
+      "title": "Unit 6: Graph Theory & Special Graphs",
+      "description": "Modeling complex relationships and networks using nodes and edges.",
+      "topics": [
+        {
+          "id": "u6-s1",
+          "title": "Step 1: Introduction to Graphs",
+          "concepts": [
+            {
+              "id": "c6-1",
+              "title": "Nodes and Edges",
+              "theory": "A **Graph** $G = (V, E)$ consists of a set of vertices $V$ and edges $E$. \n\n* **Simple Graph**: No loops or multiple edges between two nodes.\n* **Directed Graph (Digraph)**: Edges have a specific direction (arrows).\n* **Weight**: A numerical value assigned to an edge (e.g., distance).",
+              "mcq": {
+                "id": "m6-1",
+                "question": "A graph with no loops or multiple edges is called a:",
+                "options": [
+                  "Multi-graph",
+                  "Simple Graph",
+                  "Pseudo-graph",
+                  "Hyper-graph"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Simple graphs are defined by having at most one edge between any two distinct vertices and no loops."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s2",
+          "title": "Step 2: Degrees and Handshaking Lemma",
+          "concepts": [
+            {
+              "id": "c6-2",
+              "title": "The Power of sum",
+              "theory": "* **Degree**: Number of edges connected to a vertex $v$, denoted $deg(v)$.\n\n**Handshaking Lemma**: The sum of the degrees of all vertices is exactly twice the number of edges. \n$\\sum_{v \\in V} deg(v) = 2|E|$ \n\n**Corollary**: In any graph, the number of vertices with odd degree is even.",
+              "mcq": {
+                "id": "m6-2",
+                "question": "If a graph has 10 edges, what is the sum of the degrees of all its vertices?",
+                "options": [
+                  "10",
+                  "20",
+                  "5",
+                  "Infinite"
+                ],
+                "correctAnswer": 1,
+                "explanation": "2 * 10 = 20."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s3",
+          "title": "Step 3: Types of Special Graphs",
+          "concepts": [
+            {
+              "id": "c6-3",
+              "title": "Standard Graph Models",
+              "theory": "1. **Complete Graph ($K_n$)**: Every node is connected to every other node. $|E| = \\frac{n(n-1)}{2}$.\n2. **Bipartite Graph**: Vertices can be split into two sets $V_1, V_2$ such that no edge exists within the same set.\n3. **Regular Graph**: Every vertex has the same degree.",
+              "mcq": {
+                "id": "m6-3",
+                "question": "In a complete graph K5, how many edges are present?",
+                "options": [
+                  "5",
+                  "10",
+                  "15",
+                  "20"
+                ],
+                "correctAnswer": 1,
+                "explanation": "5 * (5-1) / 2 = 10."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s4",
+          "title": "Step 4: Connectivity and Paths",
+          "concepts": [
+            {
+              "id": "c6-4",
+              "title": "Flow and Connection",
+              "theory": "* **Path**: A sequence of distinct edges connecting a sequence of vertices.\n* **Cycle**: A path that starts and ends at the same vertex.\n* **Connected Graph**: A path exists between every pair of vertices.",
+              "mcq": {
+                "id": "m6-4",
+                "question": "A closed path that starts and ends at the same vertex is called a:",
+                "options": [
+                  "Walk",
+                  "Path",
+                  "Cycle",
+                  "Edge"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Cycles are circular paths where no vertex (other than start/end) is repeated."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s5",
+          "title": "Step 5: Adjacency Matrices",
+          "concepts": [
+            {
+              "id": "c6-5",
+              "title": "Graphs as Binary Grids",
+              "theory": "In an **Adjacency Matrix** $A$, the entry $a_{ij} = 1$ if there is an edge between $v_i$ and $v_j$, and $0$ otherwise. \n\n**Property**: For an undirected graph, the adjacency matrix is always symmetric.",
+              "mcq": {
+                "id": "m6-5",
+                "question": "What does a '1' represent in an adjacency matrix of a simple graph?",
+                "options": [
+                  "A loop",
+                  "An edge between two nodes",
+                  "An isolated node",
+                  "The weight of a node"
+                ],
+                "correctAnswer": 1,
+                "explanation": "A 1 indicates connectivity between the row node and column node."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s6",
+          "title": "Step 6: Eulerian Graphs",
+          "concepts": [
+            {
+              "id": "c6-6",
+              "title": "Seven Bridges Logic",
+              "theory": "* **Eulerian Path**: A path that uses every **edge** exactly once.\n* **Eulerian Circuit**: A cycle that uses every edge exactly once.\n\n**Condition (Euler)**: A connected graph has an Eulerian Circuit if and only if **every** vertex has an even degree.",
+              "mcq": {
+                "id": "m6-6",
+                "question": "For a graph to have an Eulerian circuit, what condition must all its vertices satisfy?",
+                "options": [
+                  "Must have odd degree",
+                  "Must have even degree",
+                  "Must be prime",
+                  "Must be connected to a central node"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Even degrees ensure you can enter and leave every vertex using different edges until the circuit is complete."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s7",
+          "title": "Step 7: Hamiltonian Graphs",
+          "concepts": [
+            {
+              "id": "c6-7",
+              "title": "Visiting Every Vertex",
+              "theory": "A **Hamiltonian Cycle** visits every **vertex** exactly once. \n\nDifference: Euler = every EDGE; Hamilton = every VERTEX. Hamiltonian problems are generally NP-complete (hard to solve) and are the basis of the Traveling Salesperson Problem (TSP).",
+              "mcq": {
+                "id": "m6-7",
+                "question": "The Traveling Salesperson Problem (TSP) is most closely related to finding a:",
+                "options": [
+                  "Eulerian Path",
+                  "Hamiltonian Cycle",
+                  "Spanning Tree",
+                  "Matching"
+                ],
+                "correctAnswer": 1,
+                "explanation": "TSP seeks the shortest cycle that visits every city (vertex) exactly once."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s8",
+          "title": "Step 8: Trees",
+          "concepts": [
+            {
+              "id": "c6-8",
+              "title": "Acyclic Symmetries",
+              "theory": "A **Tree** is a connected graph with no cycles. \n\n**Properties**:\n1. A tree with $n$ vertices has exactly $n-1$ edges.\n2. There is exactly one unique path between any two vertices.\n3. Adding one edge to a tree always creates a cycle.",
+              "mcq": {
+                "id": "m6-8",
+                "question": "How many edges does a tree with 100 vertices have?",
+                "options": [
+                  "100",
+                  "99",
+                  "101",
+                  "50"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Tree edges = n - 1."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s9",
+          "title": "Step 9: Spanning Trees",
+          "concepts": [
+            {
+              "id": "c6-9",
+              "title": "Minimal Connectivity",
+              "theory": "A **Spanning Tree** is a subgraph that contains all vertices of the original graph and is a tree. \n\n**Minimum Spanning Tree (MST)**: For a weighted graph, the spanning tree with the minimum total edge weight. Common algorithms: Prim's and Kruskal's.",
+              "mcq": {
+                "id": "m6-9",
+                "question": "Which of these is used to find a Minimum Spanning Tree?",
+                "options": [
+                  "Dijkstra's Algorithm",
+                  "Warshall's Algorithm",
+                  "Kruskal's Algorithm",
+                  "Binary Search"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Kruskal's algorithm builds an MST by adding edges in increasing order of weight."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s10",
+          "title": "Step 10: Graph Coloring",
+          "concepts": [
+            {
+              "id": "c6-10",
+              "title": "The Four Color Theorem",
+              "theory": "**Graph Coloring** is an assignment of labels (colors) to vertices such that no two adjacent vertices share the same color. \n\n**Chromatic Number $\\chi(G)$**: The minimum number of colors needed. \n**Four Color Theorem**: Any planar graph can be colored with at most 4 colors.",
+              "mcq": {
+                "id": "m6-10",
+                "question": "What is the chromatic number of a complete graph K3 (a triangle)?",
+                "options": [
+                  "1",
+                  "2",
+                  "3",
+                  "4"
+                ],
+                "correctAnswer": 2,
+                "explanation": "In K3, every node is connected to all others, so each must have a unique color."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

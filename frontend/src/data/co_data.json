@@ -1,0 +1,1429 @@
+{
+  "subjectId": "co",
+  "units": [
+    {
+      "id": "unit-1",
+      "title": "Unit 1: Register Transfer & Logic Atoms",
+      "description": "Foundational hardware language and the microscopic logic of data movement.",
+      "topics": [
+        {
+          "id": "u1-s1",
+          "title": "Step 1: RTL & Symbolic Notation",
+          "concepts": [
+            {
+              "id": "c1-1",
+              "title": "The Grammar of Hardware",
+              "theory": "Register Transfer Language (RTL) is the symbolic notation used to describe the internal organization of digital computers. It serves as the universal grammar of computer hardware.\n\n### Key Symbols\n* **Capital Letters**: Denotes a Register (e.g., $R1, R2, MAR$)\n* **Arrow (←)**: Denotes transfer (e.g., $R2 \\leftarrow R1$)\n* **Comma (,)**: Simultaneous operations (e.g., $R1 \\leftarrow R2, R2 \\leftarrow R1$)\n\nThink of RTL like **stage directions** in a play—it dictates exactly which data moves where and when.",
+              "mcq": {
+                "id": "m1-1",
+                "question": "What does the RTL statement R1 ← R2 signify?",
+                "options": [
+                  "R1 and R2 are added",
+                  "R1 is cleared",
+                  "Content of R2 is copied to R1",
+                  "R1 is copied to R2"
+                ],
+                "correctAnswer": 2,
+                "explanation": "The arrow points to the destination. Data moves from the right operand to the left."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s2",
+          "title": "Step 2: Hardware Registers",
+          "concepts": [
+            {
+              "id": "c1-2",
+              "title": "Physical Storage Units",
+              "theory": "Registers are the fastest storage in a computer, constructed using **Flip-Flops**. A 16-bit register is essentially 16 D-flip-flops aligned in parallel.\n\n### Parts of a Register\n* **Upper Byte**: $R1(8-15)$ or $R1_H$\n* **Lower Byte**: $R1(0-7)$ or $R1_L$\n\nRegisters work on **Clock Edges**. Data is only latched (saved) when the clock signal transitions from 0 to 1 (Rising Edge).",
+              "mcq": {
+                "id": "m1-2",
+                "question": "Which component is primarily used to build a hardware register?",
+                "options": [
+                  "Logic Gates",
+                  "Flip-Flops",
+                  "Multiplexers",
+                  "Decoders"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Flip-flops are the basic units of sequential logic capable of storing 1 bit of data."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s3",
+          "title": "Step 3: Simultaneous Transfers",
+          "concepts": [
+            {
+              "id": "c1-3",
+              "title": "The Edge-Triggering Magic",
+              "theory": "In software, swapping $A$ and $B$ requires a `temp` variable. In hardware, RTL allows: \n$$R1 \\leftarrow R2, R2 \\leftarrow R1$$\n\nThis works because of **Propagation Delay**. During the clock edge, the old values of $R1$ and $R2$ are read from the outputs and settled at the inputs before the new values are actually latched inside the flip-flops. \n\n### Formula for No-Conflict\n$T_{setup} < T_{clock} - T_{prop}$",
+              "mcq": {
+                "id": "m1-3",
+                "question": "Why is a simultaneous swap possible in hardware registers without a third register?",
+                "options": [
+                  "Because they share a common bus",
+                  "Due to propagation delay and edge-triggering",
+                  "Because they are bidirectional",
+                  "It is not possible"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Edge-triggered flip-flops read input state just before the clock edge, allowing a clean swap."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s4",
+          "title": "Step 4: Common Bus System (MUX)",
+          "concepts": [
+            {
+              "id": "c1-4",
+              "title": "System-Wide Interconnects",
+              "theory": "Instead of wiring every register to every other register (which creates a 'spaghetti' of wires), we use a **Common Bus**.\n\n### MUX-Based Bus\nA system with four 4-bit registers requires four 4-to-1 Multiplexers. The **Selection Lines** ($S_1, S_0$) determine which register currently occupies the bus.\n\n$Bus = S_1 S_0$",
+              "flowchart": "graph TD\n    R0[Reg 0] --> M[MUX]\n    R1[Reg 1] --> M\n    R2[Reg 2] --> M\n    R3[Reg 3] --> M\n    S((Select Lines)) --> M\n    M --- B[Common Bus]",
+              "mcq": {
+                "id": "m1-4",
+                "question": "If we have 8 registers, how many selection lines are needed for the common bus?",
+                "options": [
+                  "2",
+                  "3",
+                  "4",
+                  "8"
+                ],
+                "correctAnswer": 1,
+                "explanation": "To select 1 out of 8 ($2^3$), we need 3 selection lines."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s5",
+          "title": "Step 5: Tri-State Bus Control",
+          "concepts": [
+            {
+              "id": "c1-5",
+              "title": "The High-Z State",
+              "theory": "A more efficient bus construction uses **Tri-State Buffers**. These buffers have three possible output states:\n1. **Logic 0**\n2. **Logic 1**\n3. **High Impedance (Hi-Z)**\n\nIn **Hi-Z**, the buffer behaves like an open circuit, effectively disconnecting the register from the bus. This allows multiple devices to share one wire without electrical conflicts.",
+              "mcq": {
+                "id": "m1-5",
+                "question": "What is the primary function of the High-Impedance (Hi-Z) state?",
+                "options": [
+                  "To boost signal strength",
+                  "To invert the input",
+                  "To electrically disconnect from the bus",
+                  "To speed up data transfer"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Hi-Z prevents two devices from driving the bus at the same time, avoiding short circuits."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s6",
+          "title": "Step 6: Memory Read Flow",
+          "concepts": [
+            {
+              "id": "c1-6",
+              "title": "Fetching from RAM",
+              "theory": "Memory access involves two steps in RTL:\n1. **Address Preparation**: $MAR \\leftarrow Address$\n2. **Transfer**: $DR \\leftarrow M[MAR]$\n\nThe **MAR** (Memory Address Register) must hold the address before the **Read** signal is asserted. The requested data then flows into the **DR** (Data Register).",
+              "mcq": {
+                "id": "m1-6",
+                "question": "Which register holds the address of the memory location to be accessed?",
+                "options": [
+                  "DR",
+                  "MAR",
+                  "PC",
+                  "AC"
+                ],
+                "correctAnswer": 1,
+                "explanation": "MAR (Memory Address Register) is the dedicated portal for sending addresses to memory."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s7",
+          "title": "Step 7: Memory Write Flow",
+          "concepts": [
+            {
+              "id": "c1-7",
+              "title": "Storing to RAM",
+              "theory": "Writing to memory is the inverse of reading:\n1. **Address Preparation**: $MAR \\leftarrow Address$\n2. **Data Preparation**: $DR \\leftarrow Value$\n3. **Write**: $M[MAR] \\leftarrow DR$\n\nNote that memory operations are significantly slower than CPU cycles, often requiring multiple clock ticks to stabilize.",
+              "mcq": {
+                "id": "m1-7",
+                "question": "What is the correct RTL for a memory write operation?",
+                "options": [
+                  "DR ← M[MAR]",
+                  "M[MAR] ← DR",
+                  "MAR ← DR",
+                  "M[DR] ← MAR"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Data moves FROM the Data Register (DR) INTO the memory location pointed to by MAR."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s8",
+          "title": "Step 8: Arithmetic Micro-ops",
+          "concepts": [
+            {
+              "id": "c1-8",
+              "title": "Binary Math in Gates",
+              "theory": "Arithmetic micro-operations are realized using **Adders**. \n\n* **Add**: $R3 \\leftarrow R1 + R2$\n* **Subtract**: $R3 \\leftarrow R1 + \\bar{R2} + 1$ (2's Complement method)\n* **Increment**: $R1 \\leftarrow R1 + 1$\n* **Decrement**: $R1 \\leftarrow R1 - 1$",
+              "interactive": "ALUSimulator",
+              "mcq": {
+                "id": "m1-8",
+                "question": "How is subtraction (R1 - R2) typically implemented in hardware?",
+                "options": [
+                  "Using a subtractor circuit",
+                  "R1 + (1's complement of R2)",
+                  "R1 + (2's complement of R2)",
+                  "R1 - (2's complement of R2)"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Computers use 2's complement addition to perform subtraction efficiently."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s9",
+          "title": "Step 9: Logic Micro-ops",
+          "concepts": [
+            {
+              "id": "c1-9",
+              "title": "Bitwise Manipulation",
+              "theory": "Logic operations are performed bit-by-bit independently. \n\n* **AND**: $F = A \\cdot B$ (Useful for **Masking** bits)\n* **OR**: $F = A + B$ (Useful for **Setting** bits)\n* **XOR**: $F = A \\oplus B$ (Useful for **Toggling** bits)\n* **Complement**: $F = \\bar{A}$",
+              "mcq": {
+                "id": "m1-9",
+                "question": "Which logic operation is most suitable for 'Selective Clear' (setting specific bits to 0)?",
+                "options": [
+                  "OR",
+                  "XOR",
+                  "AND with 0s",
+                  "AND with 1s"
+                ],
+                "correctAnswer": 2,
+                "explanation": "ANDing a bit with 0 always results in 0, clearing it."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u1-s10",
+          "title": "Step 10: Shift Operations & Overflow",
+          "concepts": [
+            {
+              "id": "c1-10",
+              "title": "Moving the Bits",
+              "theory": "Shifts move bits left or right within a register.\n\n1. **Logical Shift**: Fills the gap with 0.\n2. **Circular Shift (Rotate)**: Bits wrap around from ends.\n3. **Arithmetic Shift**: Preserves the **Sign Bit**.\n\n### 🚩 The Overflow Trap\nIn an Arithmetic Left Shift, if the sign bit changes, an arithmetic **overflow** has occurred. \n$$V = R_{n-1} \\oplus R_{n-2}$$",
+              "mcq": {
+                "id": "m1-10",
+                "question": "What happens during an arithmetic right shift?",
+                "options": [
+                  "A 0 is inserted at the left",
+                  "The sign bit is duplicated",
+                  "The bits wrap around",
+                  "All bits are inverted"
+                ],
+                "correctAnswer": 1,
+                "explanation": "To preserve the number's sign, the MSB (sign bit) must be duplicated during a right shift."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-2",
+      "title": "Unit 2: Boolean Architecture & Minimization",
+      "description": "Mastering the mathematics of logic gates and circuit optimization.",
+      "topics": [
+        {
+          "id": "u2-s1",
+          "title": "Step 1: Boolean Identities",
+          "concepts": [
+            {
+              "id": "c2-1",
+              "title": "The Laws of Logic",
+              "theory": "Boolean algebra differs from standard algebra. \n\n* **Idempotent Law**: $A \\cdot A = A$ and $A + A = A$\n* **Complement Law**: $A \\cdot \\bar{A} = 0$ and $A + \\bar{A} = 1$\n* **Redundancy Law**: $A + AB = A$\n\nThese laws allow us to remove unnecessary gates from a physical circuit, saving cost and reducing heat.",
+              "mcq": {
+                "id": "m2-1",
+                "question": "Simplify: A + AB",
+                "options": [
+                  "B",
+                  "A",
+                  "AB",
+                  "1"
+                ],
+                "correctAnswer": 1,
+                "explanation": "By the Redundancy Law, A + AB = A(1 + B). Since 1 + B = 1, the result is A."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s2",
+          "title": "Step 2: Duality Principle",
+          "concepts": [
+            {
+              "id": "c2-2",
+              "title": "The Mirror Image of Logic",
+              "theory": "Every Boolean identity has a **Dual**. To find the dual:\n1. Change AND (·) to OR (+)\n2. Change OR (+) to AND (·)\n3. Change 0 to 1 and 1 to 0\n\n*Example*: The dual of $A+1=1$ is $A\\cdot 0=0$.",
+              "mcq": {
+                "id": "m2-2",
+                "question": "What is the dual of the identity A(B+C) = AB + AC?",
+                "options": [
+                  "A+(B·C) = (A+B)·(A+C)",
+                  "A+(B+C) = AB + C",
+                  "A·B + C = A+BC",
+                  "None of these"
+                ],
+                "correctAnswer": 0,
+                "explanation": "Swap all ANDs for ORs and vice versa to find the dual according to Distributive Law."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s3",
+          "title": "Step 3: De Morgan’s Theorem",
+          "concepts": [
+            {
+              "id": "c2-3",
+              "title": "Breaking the Bar",
+              "theory": "De Morgan's theorems are crucial for converting between gate types:\n1. **NOR to AND**: $\\overline{A + B} = \\bar{A} \\cdot \\bar{B}$\n2. **NAND to OR**: $\\overline{A \\cdot B} = \\bar{A} + \\bar{B}$\n\n*Mnemonic*: 'Break the bar, change the sign.'",
+              "mcq": {
+                "id": "m2-3",
+                "question": "According to De Morgan's Law, what is the complement of (A·B)?",
+                "options": [
+                  "A + B",
+                  "A' + B'",
+                  "A'B'",
+                  "AB'"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The complement of a product is the sum of the complements."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s4",
+          "title": "Step 4: Consensus Theorem",
+          "concepts": [
+            {
+              "id": "c2-4",
+              "title": "Identifying Redundant Terms",
+              "theory": "The Consensus Theorem is a high-level optimization rule:\n$$AB + \\bar{A}C + BC = AB + \\bar{A}C$$\n\nThe term $BC$ is redundant because it represents the logic already covered by the $A$ and $\\bar{A}$ variants. In hardware design, eliminating this term removes redundant gates without changing the circuit's output.",
+              "mcq": {
+                "id": "m2-4",
+                "question": "In the expression XY + X'Z + YZ, which term is the 'Consensus' term?",
+                "options": [
+                  "XY",
+                  "X'Z",
+                  "YZ",
+                  "None"
+                ],
+                "correctAnswer": 2,
+                "explanation": "YZ is the consensus of XY and X'Z. It is redundant."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s5",
+          "title": "Step 5: Canonical Forms (SOP/POS)",
+          "concepts": [
+            {
+              "id": "c2-5",
+              "title": "Standardizing Logic",
+              "theory": "There are two ways to describe any Truth Table mathematically:\n1. **SOP (Sum of Products)**: Based on where the output is **1** (Minterms).\n2. **POS (Product of Sums)**: Based on where the output is **0** (Maxterms).\n\n*Example SOP*: $f(A,B) = \\sum m(1, 2, 3)$",
+              "mcq": {
+                "id": "m2-5",
+                "question": "Which form is constructed using Minterms?",
+                "options": [
+                  "Product of Sums (POS)",
+                  "Sum of Products (SOP)",
+                  "Gray Code",
+                  "K-Map"
+                ],
+                "correctAnswer": 1,
+                "explanation": "SOP is the logical OR (Sum) of varios AND (Product) terms called minterms."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s6",
+          "title": "Step 6: Universal Gate: NAND",
+          "concepts": [
+            {
+              "id": "c2-6",
+              "title": "Designing with NAND Only",
+              "theory": "A NAND gate is **Functionally Complete**. You can build any circuit using just NAND gates.\n\n### NAND Gate Library\n* **NOT**: Join both inputs of one NAND.\n* **AND**: NAND followed by a NOT.\n* **OR**: De Morgan approach (Invert inputs, then NAND).",
+              "mcq": {
+                "id": "m2-6",
+                "question": "How many NAND gates are required to implement a NOT gate?",
+                "options": [
+                  "1",
+                  "2",
+                  "3",
+                  "4"
+                ],
+                "correctAnswer": 0,
+                "explanation": "Shorting the inputs of a NAND gate makes it act as a NOT gate."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s7",
+          "title": "Step 7: Universal Gate: NOR",
+          "concepts": [
+            {
+              "id": "c2-7",
+              "title": "Designing with NOR Only",
+              "theory": "Like NAND, the NOR gate is universal. \n\n* **OR**: NOR followed by a NOT.\n* **AND**: De Morgan approach (Invert inputs, then NOR).\n\nManufacturers often prefer universal gates because it's cheaper to mass-produce one type of IC (like the **7400 NAND**) than many different types.",
+              "mcq": {
+                "id": "m2-7",
+                "question": "Which of these is considered a Universal Gate?",
+                "options": [
+                  "AND",
+                  "OR",
+                  "XOR",
+                  "NOR"
+                ],
+                "correctAnswer": 3,
+                "explanation": "Both NAND and NOR can implement all other basic logic gates."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s8",
+          "title": "Step 8: K-Map Foundations",
+          "concepts": [
+            {
+              "id": "c2-8",
+              "title": "Visual Minimization",
+              "theory": "Karnaugh Maps (K-Maps) provide a visual way to simplify Boolean expressions without complex algebra.\n\n### The Rules\n1. Use **Gray Code** ($00, 01, 11, 10$) for indexing.\n2. Group cells in powers of 2 (1, 2, 4, 8).\n3. Only **one bit** should change between adjacent cells.",
+              "mcq": {
+                "id": "m2-8",
+                "question": "What is the Gray Code sequence for a 2-variable axis in a K-Map?",
+                "options": [
+                  "00, 01, 10, 11",
+                  "00, 11, 01, 10",
+                  "00, 01, 11, 10",
+                  "0, 1, 2, 3"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Gray code ensures only one bit changes between adjacent cells, enabling logical adjacency."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s9",
+          "title": "Step 9: 4-Variable K-Map",
+          "concepts": [
+            {
+              "id": "c2-9",
+              "title": "Solving Complex Logic",
+              "theory": "A 4-variable map has 16 cells. \n\n### Strategic Grouping\n* **Quad**: A group of 4 (eliminates 2 variables).\n* **Octet**: A group of 8 (eliminates 3 variables).\n* **Wrapping**: Top cells are adjacent to bottom cells; left cells are adjacent to right cells.",
+              "mcq": {
+                "id": "m2-9",
+                "question": "In a 4-variable K-map, how many variables does a 'Quad' (group of 4) eliminate?",
+                "options": [
+                  "1",
+                  "2",
+                  "3",
+                  "4"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Each doubling of group size (2 to 4) eliminates one more variable."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u2-s10",
+          "title": "Step 10: Don't Care Conditions (X)",
+          "concepts": [
+            {
+              "id": "c2-10",
+              "title": "The Power of Indifference",
+              "theory": "In many designs, certain input combinations will never occur (e.g., BCD numbers 10-15). We mark these with an **X** (Don't Care).\n\n### Optimization Advantage\nYou can treat **X** as either 0 or 1. Use it as a **1** to make your groups larger (and expression simpler), or a **0** to avoid creating unnecessary groups.",
+              "mcq": {
+                "id": "m2-10",
+                "question": "How are 'Don't Care' conditions used in a K-Map?",
+                "options": [
+                  "They must always be grouped",
+                  "They must never be grouped",
+                  "They can be used as 1 to simplify groups",
+                  "They act as a circuit reset"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Don't cares give flexibility to expand groups and minimize the final logic expression."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-3",
+      "title": "Unit 3: Combinational & Sequential Circuits",
+      "description": "Building the building blocks: from simple adders to memory-storing flip-flops.",
+      "topics": [
+        {
+          "id": "u3-s1",
+          "title": "Step 1: Adding Bits (Half & Full Adders)",
+          "concepts": [
+            {
+              "id": "c3-1",
+              "title": "The Binary Math Machine",
+              "theory": "The **Half Adder** performs $A + B$ for 2 bits, producing a Sum $(S)$ and Carry $(C)$. \n* $S = A \\oplus B$\n* $C = AB$\n\nHowever, computers usually need to add 3 bits (including a Carry-in from a previous stage). This requires a **Full Adder**.\n* $Sum = A \\oplus B \\oplus C_{in}$\n* $C_{out} = AB + BC_{in} + AC_{in}$",
+              "mcq": {
+                "id": "m3-1",
+                "question": "How many inputs does a Full Adder circuit have?",
+                "options": [
+                  "2",
+                  "3",
+                  "4",
+                  "8"
+                ],
+                "correctAnswer": 1,
+                "explanation": "A full adder takes 3 inputs: two operand bits and one carry-in bit."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s2",
+          "title": "Step 2: Binary Subtractors",
+          "concepts": [
+            {
+              "id": "c3-2",
+              "title": "The Logic of Borrow",
+              "theory": "Like adders, subtractors come in Half and Full versions. \n\n* **Half Subtractor**: Computes $A - B$ for bits, producing Difference $(D)$ and Borrow $(B)$.\n* $D = A \\oplus B$\n* $Borrow = \\bar{A}B$\n\nIn modern CPUs, we rarely use dedicated subtractors; we use an adder with **2's Complement** logic instead.",
+              "mcq": {
+                "id": "m3-2",
+                "question": "What is the Boolean expression for the 'Borrow' output of a Half Subtractor?",
+                "options": [
+                  "AB",
+                  "A + B",
+                  "A'B",
+                  "AB'"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Borrow is 1 only when A is 0 and B is 1 (0 - 1 = 1 with a borrow)."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s3",
+          "title": "Step 3: Decoders (74LS138)",
+          "concepts": [
+            {
+              "id": "c3-3",
+              "title": "Converting Binary to Selection",
+              "theory": "A Decoder converts an $n$-bit binary code into $2^n$ unique output lines. \n\n### IC 74LS138 (3-to-8 Decoder)\nThis is the industry-standard chip for selecting memory banks. If the input is `101` (binary 5), output line **$Y_5$** is activated. Output lines on the 74LS138 are **Active Low** (they drop to 0V when selected).",
+              "mcq": {
+                "id": "m3-3",
+                "question": "In a 3-to-8 decoder, how many output lines are activated for any single input combination?",
+                "options": [
+                  "1",
+                  "3",
+                  "8",
+                  "Dependent on the code"
+                ],
+                "correctAnswer": 0,
+                "explanation": "Decoders are unique-line selectors; only one line is ever 'active' at a time."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s4",
+          "title": "Step 4: Encoders & Priority",
+          "concepts": [
+            {
+              "id": "c3-4",
+              "title": "Selection to Binary",
+              "theory": "An Encoder is the reverse of a decoder. It converts $2^n$ inputs into an $n$-bit binary code.\n\n### Priority Encoders\nWhat if two inputs go high simultaneously? A **Priority Encoder** solves this by only encoding the input with the highest numerical index. This is critical for **Interrupt Management** in CPUs.",
+              "mcq": {
+                "id": "m3-4",
+                "question": "Which circuit is used to convert a decimal button press into a 4-bit BCD code?",
+                "options": [
+                  "Decoder",
+                  "Encoder",
+                  "Multiplexer",
+                  "Comparator"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Encoders take multiple individual lines and produce a compressed binary representation."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s5",
+          "title": "Step 5: Multiplexers (The Selectors)",
+          "concepts": [
+            {
+              "id": "c3-5",
+              "title": "Data Steering Logic",
+              "theory": "A Multiplexer (MUX) is like a **train track switch**. It selects one of many data inputs and routes it to a single output based on select lines.\n\n### IC 74LS151 (8-to-1 MUX)\nWith 3 select lines $(S_2, S_1, S_0)$, it can choose between 8 different data sources. MUXs are often called 'Universal Logic Elements' because they can implement *any* Boolean function without additional gates.",
+              "mcq": {
+                "id": "m3-5",
+                "question": "How many select lines are required for a 16-to-1 Multiplexer?",
+                "options": [
+                  "2",
+                  "4",
+                  "8",
+                  "16"
+                ],
+                "correctAnswer": 1,
+                "explanation": "To select 1 out of 16 ($2^4$), we need 4 select lines."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s6",
+          "title": "Step 6: Demultiplexers",
+          "concepts": [
+            {
+              "id": "c3-6",
+              "title": "Data Distribution",
+              "theory": "A Demultiplexer (DEMUX) takes one input and routes it to one of many outputs. It is structurally almost identical to a decoder. In fact, a **3-to-8 Decoder with an Enable pin** can be used as a 1-to-8 DEMUX.",
+              "mcq": {
+                "id": "m3-6",
+                "question": "A demultiplexer consists of how many data input lines?",
+                "options": [
+                  "1",
+                  "2^n",
+                  "n",
+                  "Infinite"
+                ],
+                "correctAnswer": 0,
+                "explanation": "A DEMUX always has exactly 1 data input line that it distributes to multiple outputs."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s7",
+          "title": "Step 7: Latch vs. Flip-Flop",
+          "concepts": [
+            {
+              "id": "c3-7",
+              "title": "Storing the First Bit",
+              "theory": "Memory requires feedback loops. \n\n* **Latch**: Level-sensitive (changes whenever the clock is High). Unstable for fast computers.\n* **Flip-Flop**: Edge-sensitive (changes only at the instant of the 0 to 1 transition).\n\n### D Flip-Flop (Data)\nThis is the bread-and-butter of computer memory. Output $Q$ becomes whatever input $D$ was at the moment of the clock edge.",
+              "mcq": {
+                "id": "m3-7",
+                "question": "What is the primary difference between a Latch and a Flip-Flop?",
+                "options": [
+                  "Size",
+                  "Voltage Level",
+                  "Edge-triggering vs Level-triggering",
+                  "Number of transistors"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Flip-flops change state only on clock edges, making them more stable for synchronous circuits."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s8",
+          "title": "Step 8: JK Flip-Flop",
+          "concepts": [
+            {
+              "id": "c3-8",
+              "title": "The Universal State Machine",
+              "theory": "The JK Flip-Flop improves on the SR-latch by eliminating the forbidden state. \n\n### Truth Table Highlights:\n* **J=0, K=0**: No change.\n* **J=1, K=0**: Set (Q=1).\n* **J=0, K=1**: Clear (Q=0).\n* **J=1, K=1**: **Toggle** (Inverse of previous state).\n\nThis 'Toggle' mode makes the JK-FF the perfect building block for binary counters.",
+              "mcq": {
+                "id": "m3-8",
+                "question": "What happens to the output of a JK Flip-Flop when J=1 and K=1?",
+                "options": [
+                  "Output becomes 1",
+                  "Output becomes 0",
+                  "Output toggles",
+                  "Forbidden state"
+                ],
+                "correctAnswer": 2,
+                "explanation": "JK-FF's toggle mode is its defining feature, used in frequency division and counters."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s9",
+          "title": "Step 9: Master-Slave JK FF",
+          "concepts": [
+            {
+              "id": "c3-9",
+              "title": "Solving the Race Condition",
+              "theory": "In a regular JK-FF, if $J=1$ and $K=1$, and the clock pulse is too long, the output may toggle multiple times unpredictably before the pulse ends (The **Race Around Condition**).\n\n### Master-Slave Solution\nThis circuit uses two flip-flops. The **Master** reads the input while the clock is High, but the **Slave** only updates the output when the clock goes Low. This ensures exactly one toggle per clock pulse.",
+              "mcq": {
+                "id": "m3-9",
+                "question": "Which configuration effectively eliminates the 'Race Around' condition?",
+                "options": [
+                  "D-Latch",
+                  "Tri-State Buffer",
+                  "Master-Slave JK",
+                  "Half Adder"
+                ],
+                "correctAnswer": 2,
+                "explanation": "The dual-stage logic of Master-Slave prevents multiple toggles during a single clock pulse."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u3-s10",
+          "title": "Step 10: Counter Architectures",
+          "concepts": [
+            {
+              "id": "c3-10",
+              "title": "Binary Tick-Tock",
+              "theory": "Counters are strings of JK flip-flops in toggle mode.\n\n1. **Asynchronous (Ripple) Counter**: Each FF is clocked by the *previous* FF. Easy but slow (delay accumulates).\n2. **Synchronous Counter**: EVERY FF is clocked by the same global clock signal. Fast and precise, used in all modern CPUs.\n\n### MOD Number\nA counter with $n$ bits can count up to $2^n$ unique states.",
+              "mcq": {
+                "id": "m3-10",
+                "question": "If all flip-flops in a counter transition at the same time, the counter is called:",
+                "options": [
+                  "Ripple Counter",
+                  "Asynchronous Counter",
+                  "Synchronous Counter",
+                  "Cascaded Counter"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Synchronous counters share a common clock line to ensure simultaneous bit updates."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-4",
+      "title": "Unit 4: Micro-Programs & CPU Control",
+      "description": "The brain's brain: how the CPU interprets instructions and orchestrates hardware.",
+      "topics": [
+        {
+          "id": "u4-s1",
+          "title": "Step 1: Instruction Code Anatomy",
+          "concepts": [
+            {
+              "id": "c4-1",
+              "title": "The Language of Silicon",
+              "theory": "A computer instruction is a binary code that specifies a sequence of micro-operations. \n\n### The Standard 16-bit Format\n* **Bit 15**: Addressing Mode $(I)$ - 0 for Direct, 1 for Indirect.\n* **Bits 12-14**: **Opcode** (Operation Code) - What to do (ADD, SUB, etc.).\n* **Bits 0-11**: **Address** - Where the data is.\n\nThis format allows for $2^3 = 8$ operation types and $2^{12} = 4096$ memory locations.",
+              "mcq": {
+                "id": "m4-1",
+                "question": "What does the 'Opcode' part of an instruction represent?",
+                "options": [
+                  "The memory address",
+                  "The operation to be performed",
+                  "The register index",
+                  "The clock speed"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Opcode (Operation Code) tells the CPU which specific circuit (Adder, Logic, etc.) to activate."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s2",
+          "title": "Step 2: Von Neumann Architecture",
+          "concepts": [
+            {
+              "id": "c4-2",
+              "title": "The Stored Program Concept",
+              "theory": "Before Von Neumann, computers were re-wired for every task. He proposed the **Stored Program Concept**: instructions and data are both stored in the same memory. \n\n### Core Components\n1. **Memory Unit**: Stores code and data.\n2. **ALU**: Performs math.\n3. **Control Unit**: Fetches and decodes code.\n4. **Input/Output**: Interacts with the world.",
+              "mcq": {
+                "id": "m4-2",
+                "question": "What is the defining feature of Von Neumann architecture?",
+                "options": [
+                  "Multiple CPUs",
+                  "Separate memory for code and data",
+                  "Single memory for both code and data",
+                  "No memory required"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Sharing memory for both instructions and data is the hallmark of Von Neumann design."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s3",
+          "title": "Step 3: Indirect Addressing",
+          "concepts": [
+            {
+              "id": "c4-3",
+              "title": "The Pointer Logic",
+              "theory": "In **Direct Addressing**, the instruction contains the address of the operand. In **Indirect Addressing**, the instruction contains the address of *another address*.\n\n### Math Logic\n* **Direct**: $Operand = M[Address]$\n* **Indirect**: $Operand = M[M[Address]]$\n\nThis is the hardware basis for **Pointers** in high-level languages like C++.",
+              "mcq": {
+                "id": "m4-3",
+                "question": "If Bit 15 of an instruction is 1, which addressing mode is used?",
+                "options": [
+                  "Direct",
+                  "Indirect",
+                  "Immediate",
+                  "Register"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Bit 15 is the 'Mode bit'. 1 specifies Indirect addressing."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s4",
+          "title": "Step 4: Central CPU Registers",
+          "concepts": [
+            {
+              "id": "c4-4",
+              "title": "The Inner Sanctuary",
+              "theory": "The CPU relies on dedicated registers to manage the workflow:\n* **Program Counter (PC)**: Holds the address of the *next* instruction.\n* **Instruction Register (IR)**: Holds the *current* instruction code.\n* **Accumulator (AC)**: The primary math register.\n* **Temporary Register (TR)**: Holds scratch data during cycles.",
+              "mcq": {
+                "id": "m4-4",
+                "question": "Which register is automatically incremented after every instruction fetch?",
+                "options": [
+                  "IR",
+                  "PC",
+                  "AC",
+                  "MAR"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The PC (Program Counter) must point to the next address so the sequence continues correctly."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s5",
+          "title": "Step 5: The Instruction Cycle",
+          "concepts": [
+            {
+              "id": "c4-5",
+              "title": "The Hearbeat of the CPU",
+              "theory": "Every instruction follows a strict timeline:\n1. **Fetch**: $MAR \\leftarrow PC$ then $IR \\leftarrow M[MAR], PC \\leftarrow PC + 1$\n2. **Decode**: Opcode is sent to the Control Unit.\n3. **Execute**: The specific micro-operations for that opcode are performed. \n\nThis cycle repeats billions of times per second in modern processors.",
+              "mcq": {
+                "id": "m4-5",
+                "question": "In which phase is the PC (Program Counter) updated?",
+                "options": [
+                  "Fetch",
+                  "Decode",
+                  "Execute",
+                  "Interrupt"
+                ],
+                "correctAnswer": 0,
+                "explanation": "PC is incremented during the Fetch phase to prepare for the next cycle."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s6",
+          "title": "Step 6: Hardwired Control Unit",
+          "concepts": [
+            {
+              "id": "c4-6",
+              "title": "Logic Gate Orchestration",
+              "theory": "In Hardwired control, the Control Unit is a physical network of logic gates (AND, OR, NOT). \n\n* **Pros**: Extremely fast (speed of electricity).\n* **Cons**: Inflexible. To change the instruction set, you must physically redesign the silicon.\n\nCommon in RISC architectures like Apple's M-series chips.",
+              "mcq": {
+                "id": "m4-6",
+                "question": "What is a major disadvantage of a Hardwired Control Unit?",
+                "options": [
+                  "Slow speed",
+                  "High cost",
+                  "Inflexibility to change",
+                  "High memory usage"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Hardwired units cannot be 'updated' via software; they are fixed logic."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s7",
+          "title": "Step 7: Micro-programmed Control",
+          "concepts": [
+            {
+              "id": "c4-7",
+              "title": "ROM-Based Intelligence",
+              "theory": "Instead of gates, the control signals are stored in a special **ROM** called **Control Memory**. Each instruction (like ADD) is broken down into a sequence of 'Micro-instructions' stored in this ROM. \n\n* **Pros**: Very flexible. Upgrading the CPU is as simple as flashing a new ROM.\n* **Cons**: Slower than hardwired.",
+              "mcq": {
+                "id": "m4-7",
+                "question": "Where are control signals stored in a micro-programmed control unit?",
+                "options": [
+                  "Main Memory (RAM)",
+                  "Instruction Register",
+                  "Control Memory (ROM)",
+                  "ALU"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Control memory houses the micro-routines for every opcode."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s8",
+          "title": "Step 8: Micro-instruction Format",
+          "concepts": [
+            {
+              "id": "c4-8",
+              "title": "Encoding the Micro-ops",
+              "theory": "A micro-instruction typically has four fields:\n1. **CD (Condition)**: Status bits to check (Z-flag, C-flag).\n2. **BR (Branch)**: Type of jump to next micro-instruction.\n3. **AD (Address)**: Where to jump in Control Memory.\n4. **F (Fields)**: Specify the actual micro-operations (e.g., Load AC).",
+              "mcq": {
+                "id": "m4-8",
+                "question": "What does the 'CD' field in a micro-instruction do?",
+                "options": [
+                  "Calculates Data",
+                  "Checks Conditions for branching",
+                  "Clears the Decoder",
+                  "Counts bits"
+                ],
+                "correctAnswer": 1,
+                "explanation": "CD (Condition bit) allows conditional branching in the micro-code."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s9",
+          "title": "Step 9: Sequencing Logic",
+          "concepts": [
+            {
+              "id": "c4-9",
+              "title": "The Control Loop",
+              "theory": "The **Sequencer** is the hardware that generates the address for the next micro-instruction. It can:\n* **Increment**: Move to next step.\n* **Uncondtional Branch**: Jump to sub-routine.\n* **Conditional Branch**: Jump based on Status Flags.\n* **Map**: Convert IR opcode into a starting ROM address.",
+              "mcq": {
+                "id": "m4-9",
+                "question": "Which component determines the address of the next micro-instruction?",
+                "options": [
+                  "ALU",
+                  "Control Address Register (CAR)",
+                  "Instruction Register",
+                  "PC"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The CAR points to the current location in the Control Memory (ROM)."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u4-s10",
+          "title": "Step 10: Address Mapping",
+          "concepts": [
+            {
+              "id": "c4-10",
+              "title": "Opcode to ROM Entry",
+              "theory": "When a 4-bit opcode arrives (e.g., `1011`), it must be 'mapped' to the starting address of its micro-routine in ROM. \n\n### Mapping Technique\nA 0 is added to the left and two 0s to the right. \n`1011` → `0 1011 00`\nThis gives each instruction a fixed 'slot' or entry point in the control memory.",
+              "mcq": {
+                "id": "m4-10",
+                "question": "If a 4-bit opcode is mapped to a 7-bit address by adding 0s, what is the mapped address for 1010?",
+                "options": [
+                  "1010000",
+                  "0101000",
+                  "0001010",
+                  "1101000"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Adding 0 at start and two 0s at end: 0 + 1010 + 00 = 0101000."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-5",
+      "title": "Unit 5: Arithmetic & Memory Hierarchy",
+      "description": "The math of multiplication and the physics of memory speed.",
+      "topics": [
+        {
+          "id": "u5-s1",
+          "title": "Step 1: Shift and Add Multiplication",
+          "concepts": [
+            {
+              "id": "c5-1",
+              "title": "The Pencil-and-Paper Logic",
+              "theory": "Binary multiplication is simpler than decimal because we only multiply by 0 or 1. \n\n### The Algorithm\n1. Check the LSB of Multiplier ($Q$).\n2. If $Q_0 = 1$, add Multiplicand ($B$) to Accumulator ($A$).\n3. Shift $A$ and $Q$ right. \n\nThis imitates the process of writing partial products and shifting them left, but performed in reverse via right-shifts.",
+              "mcq": {
+                "id": "m5-1",
+                "question": "In shift-and-add multiplication, what action is taken if the multiplier bit is 0?",
+                "options": [
+                  "Add and Shift",
+                  "Only Shift",
+                  "Only Add",
+                  "Subtract and Shift"
+                ],
+                "correctAnswer": 1,
+                "explanation": "If the bit is 0, the partial product is 0, so we skip the addition and only perform the right shift."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s2",
+          "title": "Step 2: Booth’s Algorithm",
+          "concepts": [
+            {
+              "id": "c5-2",
+              "title": "Signed Multiplication Mastery",
+              "theory": "Standard multiplication fails for negative numbers (Signed 2's complement). Booth’s algorithm solves this by examining bit pairs ($Q_n, Q_{n+1}$).\n\n### Pair Logic\n* **01**: End of string of 1s (Add $M$ to $A$)\n* **10**: Start of string of 1s (Subtract $M$ from $A$)\n* **00 or 11**: Middle of string (only shift)\n\nThis reduces the number of additions required, speeding up calculation.",
+              "mcq": {
+                "id": "m5-2",
+                "question": "What is the primary advantage of Booth's Algorithm?",
+                "options": [
+                  "It works only for positive numbers",
+                  "It handles signed numbers and reduces additions",
+                  "It uses less memory",
+                  "It is easier to implement"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Booth's algorithm is designed for binary signed-2's complement integers and is more efficient."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s3",
+          "title": "Step 3: Restoring Division",
+          "concepts": [
+            {
+              "id": "c5-3",
+              "title": "The Trial Subtraction",
+              "theory": "Restoring division attempts to subtract the divisor from the dividend. \n\n1. $A \\leftarrow A - B$\n2. If $A$ becomes negative (Sign bit = 1), the subtraction was 'wrong'.\n3. **Restore**: $A \\leftarrow A + B$ and set $Q_0 = 0$.\n4. Else, $Q_0 = 1$.",
+              "mcq": {
+                "id": "m5-3",
+                "question": "What happens in Restoring Division if the result of (A - B) is negative?",
+                "options": [
+                  "The bit is set to 1",
+                  "The bit is set to 0 and A is restored",
+                  "The process stops",
+                  "The divisor is doubled"
+                ],
+                "correctAnswer": 1,
+                "explanation": "If the subtraction results in a negative value, we must 'undo' or restore the previous value of A."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s4",
+          "title": "Step 4: Non-Restoring Division",
+          "concepts": [
+            {
+              "id": "c5-4",
+              "title": "Speeding Up the Divide",
+              "theory": "Non-restoring division avoids the 'Restore' addition step to save time. Instead, if $A$ is negative, it simply shifts and **Adds** in the next step instead of subtracting. \n\n$$A_{new} = (2A_{old} - B) + B = 2A_{old}$$ \n(This mathematical trick merges the restore and next-shift steps).",
+              "mcq": {
+                "id": "m5-4",
+                "question": "Which division algorithm is generally faster?",
+                "options": [
+                  "Restoring",
+                  "Non-Restoring",
+                  "Booth's",
+                  "Array Multiplier"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Non-restoring division eliminates the 'restore' cycle, reducing the total number of operations."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s5",
+          "title": "Step 5: Floating Point (IEEE 754)",
+          "concepts": [
+            {
+              "id": "c5-5",
+              "title": "Handling Decimals",
+              "theory": "To store numbers like $3.14$, computers use scientific notation: $Sign \\times 2^{Exponent} \\times Mantissa$.\n\n### 32-bit Single Precision\n* **Bit 31**: Sign (1 bit)\n* **Bits 23-30**: Biased Exponent (8 bits)\n* **Bits 0-22**: Mantissa/Fraction (23 bits)\n\nThe exponent uses a **Bias of 127** so that negative exponents can be represented as positive integers.",
+              "mcq": {
+                "id": "m5-5",
+                "question": "How many bits are used for the Exponent in IEEE 754 single precision?",
+                "options": [
+                  "1",
+                  "8",
+                  "11",
+                  "23"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Single precision uses 8 bits for the exponent, providing a range from roughly $2^{-126}$ to $2^{127}$."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s6",
+          "title": "Step 6: Memory Hierarchy Pyramid",
+          "concepts": [
+            {
+              "id": "c5-6",
+              "title": "The Speed Gap",
+              "theory": "CPU is fast; Hard Drives are slow. The hierarchy fills this gap:\n1. **Registers**: (Fastest, Smallest, Inside CPU)\n2. **Cache (L1/L2/L3)**: (Static RAM)\n3. **Main Memory**: (Dynamic RAM)\n4. **Magnetic Disk**: (Slowest, Largest, Secondary Storage)\n\nGoal: Keep frequently used data at the **Top** of the pyramid.",
+              "mcq": {
+                "id": "m5-6",
+                "question": "Which type of memory is the fastest in the hierarchy?",
+                "options": [
+                  "Registers",
+                  "Cache",
+                  "RAM",
+                  "SSD"
+                ],
+                "correctAnswer": 0,
+                "explanation": "Registers are located directly inside the CPU pipeline and operate at clock speed."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s7",
+          "title": "Step 7: RAM vs ROM Internal Logic",
+          "concepts": [
+            {
+              "id": "c5-7",
+              "title": "The Silicon Grid",
+              "theory": "Memory chips are organized as arrays of cells. \n\n* **SRAM (Static)**: Uses 6 transistors per bit. Fast but expensive. Used for Cache.\n* **DRAM (Dynamic)**: Uses 1 capacitor per bit. Cheap but needs 'Refreshing' every few ms. Used for Main RAM.\n* **ROM**: Hardwired or 'burned' once; non-volatile.",
+              "mcq": {
+                "id": "m5-7",
+                "question": "Why does DRAM require periodic refreshing?",
+                "options": [
+                  "Because it is mechanical",
+                  "Because capacitors leak charge over time",
+                  "Because it uses high voltage",
+                  "Because it is inside the CPU"
+                ],
+                "correctAnswer": 1,
+                "explanation": "DRAM stores bits as electrical charge in capacitors, which naturally dissipate, requiring a refresh to keep data."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s8",
+          "title": "Step 8: Locality of Reference",
+          "concepts": [
+            {
+              "id": "c5-8",
+              "title": "Why Cache Works",
+              "theory": "Programs don't access memory randomly. \n\n1. **Temporal Locality**: If a memory location is used, it will likely be used again soon (e.g., inside a loop).\n2. **Spatial Locality**: If a location is used, nearby locations will likely be used soon (e.g., elements in an array).",
+              "mcq": {
+                "id": "m5-8",
+                "question": "Accessing elements in an array sequentially is an example of:",
+                "options": [
+                  "Temporal Locality",
+                  "Spatial Locality",
+                  "Memory Leak",
+                  "Virtual Mapping"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Spatial locality refers to the tendency to access data items located near recently accessed ones."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s9",
+          "title": "Step 9: Direct Mapping (Cache)",
+          "concepts": [
+            {
+              "id": "c5-9",
+              "title": "Fixed Assignment",
+              "theory": "In Direct Mapping, every block in Main Memory has exactly **one** specific place it can stay in Cache.\n\n$$Cache\\_Line = Address \\pmod{Total\\_Lines}$$\n\n* **Pros**: Simple and very fast lookup.\n* **Cons**: **Thrashing**. If two frequently used variables map to the same line, they will constantly kick each other out.",
+              "mcq": {
+                "id": "m5-9",
+                "question": "What is the main disadvantage of Direct Mapping in Cache?",
+                "options": [
+                  "Slow speed",
+                  "Complexity",
+                  "High cost",
+                  "Thrashing/Conflict misses"
+                ],
+                "correctAnswer": 3,
+                "explanation": "Since each RAM block has only one possible cache line, conflicts occur if two active blocks map to the same line."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u5-s10",
+          "title": "Step 10: Associative Mapping",
+          "concepts": [
+            {
+              "id": "c5-10",
+              "title": "Ultimate Flexibility",
+              "theory": "In **Fully Associative Mapping**, any block from Main Memory can go into **any** line of the Cache. \n\n* **Pros**: Most efficient use of space; no thrashing.\n* **Cons**: To find a bit, the cache must check *every* tag simultaneously using **Content Addressable Memory (CAM)**, which is very power-hungry and expensive.",
+              "mcq": {
+                "id": "m5-10",
+                "question": "Which cache mapping technique allows a memory block to be placed in any available cache line?",
+                "options": [
+                  "Direct",
+                  "Fully Associative",
+                  "Set Associative",
+                  "Linear"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Fully Associative mapping provides the 'wildcard' flexibility to use any empty slot."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-6",
+      "title": "Unit 6: I/O Organization & Pipelining",
+      "description": "How the CPU speaks to the world and runs multiple instructions at once.",
+      "topics": [
+        {
+          "id": "u6-s1",
+          "title": "Step 1: Peripheral Communication",
+          "concepts": [
+            {
+              "id": "c6-1",
+              "title": "Connecting the Outside World",
+              "theory": "The CPU doesn't connect directly to the keyboard or mouse. It uses an **I/O Interface**. \n\n### Why an Interface?\n1. **Speed Matching**: CPU is GHz; mouse is Hz.\n2. **Signal Conversion**: CPU is digital bits; printer may need serial pulses.\n3. **Data Format**: CPU uses 64-bit words; peripherals use bytes.",
+              "mcq": {
+                "id": "m6-1",
+                "question": "What is the primary reason for using an I/O Interface?",
+                "options": [
+                  "To increase CPU speed",
+                  "To resolve differences in speed and data format between CPU and peripherals",
+                  "To store permanent data",
+                  "To manage power supply"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Interfaces act as mediators between the high-speed CPU and varied-speed external devices."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s2",
+          "title": "Step 2: I/O Bus and Interface Modules",
+          "concepts": [
+            {
+              "id": "c6-2",
+              "title": "The I/O Highway",
+              "theory": "Peripherals are attached to an **I/O Bus**. Every interface module contains:\n* **Data Register**: For the actual message.\n* **Status Register**: To tell the CPU 'I am busy' or 'I am ready'.\n* **Control Register**: To receive commands (e.g., START, STOP).",
+              "mcq": {
+                "id": "m6-2",
+                "question": "Which register in an I/O interface tells the CPU if a device is ready?",
+                "options": [
+                  "Data Register",
+                  "Control Register",
+                  "Status Register",
+                  "Instruction Register"
+                ],
+                "correctAnswer": 2,
+                "explanation": "The Status register holds flag bits that report the current state of the peripheral hardware."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s3",
+          "title": "Step 3: Strobe vs. Handshaking",
+          "concepts": [
+            {
+              "id": "c6-3",
+              "title": "Asynchronous Syncing",
+              "theory": "When two systems don't share a clock, they need a 'handshake'. \n\n1. **Strobe**: Source sends a pulse. 'Here is data!'. No way to know if it was received.\n2. **Handshaking**: \n   * Source: 'Data Ready'\n   * Destination: 'Data Accepted'\n\nHandshaking is far more reliable because it confirms the receipt before sending more.",
+              "mcq": {
+                "id": "m6-3",
+                "question": "What is the main advantage of Handshaking over Strobe control?",
+                "options": [
+                  "Higher speed",
+                  "Simplified circuitry",
+                  "Confirmation of data receipt",
+                  "Uses fewer wires"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Handshaking provides a feedback loop, ensuring the receiver actually got the data."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s4",
+          "title": "Step 4: Programmed I/O (Polling)",
+          "concepts": [
+            {
+              "id": "c6-4",
+              "title": "The Constant Questioning",
+              "theory": "In Programmed I/O, the CPU is in total control. It runs a loop (Polling) asking: \n`Is the printer ready? No. Is the printer ready? No.`\n\n* **Pros**: No complex hardware needed.\n* **Cons**: **Wastes CPU time**. The CPU cannot do anything else while waiting for slow devices.",
+              "mcq": {
+                "id": "m5-4",
+                "question": "What is the main drawback of Polling (Programmed I/O)?",
+                "options": [
+                  "Requires high voltage",
+                  "Wastes CPU processing power on waiting",
+                  "It is too fast for peripherals",
+                  "Requires a separate CPU"
+                ],
+                "correctAnswer": 1,
+                "explanation": "In polling, the CPU is 'busy-waiting', which prevents it from performing other useful computations."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s5",
+          "title": "Step 5: Interrupt-Initiated I/O",
+          "concepts": [
+            {
+              "id": "c6-5",
+              "title": "Don't Call Me, I'll Call You",
+              "theory": "With Interrupts, the CPU starts the I/O and then goes back to its work. When the device is ready, it sends an electrical signal (Interrupt) to the CPU. \n\n1. CPU stops current task.\n2. Saves state (Registers).\n3. Runs **Interrupt Service Routine (ISR)**.\n4. Restores state and continues.",
+              "mcq": {
+                "id": "m6-5",
+                "question": "Where does the CPU save its current state before jumping to an ISR?",
+                "options": [
+                  "Hard Drive",
+                  "The Stack",
+                  "Instruction Register",
+                  "ALU"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The stack is used for temporary storage of the return address and register values during an interrupt."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s6",
+          "title": "Step 6: DMA (Direct Memory Access)",
+          "concepts": [
+            {
+              "id": "c6-6",
+              "title": "Bypassing the Middleman",
+              "theory": "For large data transfers (like a file from SSD), interrupts are too slow. **DMA** allows the I/O device to write directly to RAM without involving the CPU. \n\n### Cycle Stealing\nThe DMA controller 'steals' a clock cycle from the CPU to use the memory bus. The CPU pauses for 1 tick, the DMA moves a word, and then the CPU resumes.",
+              "mcq": {
+                "id": "m6-6",
+                "question": "Which component manages data transfer between I/O and RAM in DMA mode?",
+                "options": [
+                  "ALU",
+                  "DMA Controller",
+                  "Program Counter",
+                  "Hard Drive Controller"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The DMA Controller takes temporary charge of the system bus to move data independently."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s7",
+          "title": "Step 7: Pipelining Fundamentals",
+          "concepts": [
+            {
+              "id": "c6-7",
+              "title": "The Assembly Line",
+              "theory": "Pipelining is a technique where multiple instructions are overlapped in execution. \n\nThink of a **Laundry Analogy**:\n* Load 1 in Washer.\n* When Load 1 moves to Dryer, Load 2 goes into Washer.\n* Result: You finish 2 loads in the time it usually takes for 1.5.",
+              "mcq": {
+                "id": "m6-7",
+                "question": "What is the primary goal of Pipelining?",
+                "options": [
+                  "To increase the speed of a single instruction",
+                  "To increase the throughput (tasks per second)",
+                  "To reduce power consumption",
+                  "To increase memory size"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Pipelining doesn't make one task faster, but it allows more tasks to be in progress simultaneously."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s8",
+          "title": "Step 8: Arithmetic Pipeline",
+          "concepts": [
+            {
+              "id": "c6-8",
+              "title": "Segmenting the Math",
+              "theory": "Complex math (like Floating Point addition) is broken into segments:\n1. Compare Exponents.\n2. Align Mantissas.\n3. Add Mantissas.\n4. Normalize Result.\n\nEach segment is a stage in the pipeline. Once a segment finishes, it passes the result to the next and accepts a new input.",
+              "mcq": {
+                "id": "m6-8",
+                "question": "In an arithmetic pipeline, what is each sub-task unit called?",
+                "options": [
+                  "Bit",
+                  "Register",
+                  "Segment",
+                  "Stage"
+                ],
+                "correctAnswer": 3,
+                "explanation": "A pipeline is composed of multiple stages, each performing a specific part of the operation."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s9",
+          "title": "Step 9: Instruction Pipeline",
+          "concepts": [
+            {
+              "id": "c6-9",
+              "title": "The Fetch-Execute Overlap",
+              "theory": "A standard instruction pipeline has 4-5 stages:\n* **FI**: Fetch Instruction\n* **DA**: Decode Address\n* **FO**: Fetch Operand\n* **EX**: Execute\n\nIdeally, one instruction finishes every single clock cycle ($CPI = 1$).",
+              "mcq": {
+                "id": "m6-9",
+                "question": "What happens in the 'DA' (Decode Address) stage of an instruction pipeline?",
+                "options": [
+                  "The instruction is read from memory",
+                  "The effective address of the operand is calculated",
+                  "The math is performed",
+                  "The CPU resets"
+                ],
+                "correctAnswer": 1,
+                "explanation": "DA calculates the pointer or index to find where the actual data lives in memory."
+              }
+            }
+          ]
+        },
+        {
+          "id": "u6-s10",
+          "title": "Step 10: Pipeline Hazards",
+          "concepts": [
+            {
+              "id": "c6-10",
+              "title": "The Pipeline Stalls",
+              "theory": "Hazards are factors that prevent the next instruction from executing.\n\n1. **Structural**: Two instructions need the same hardware (e.g., both need the memory bus).\n2. **Data**: Instruction 2 needs the result of Instruction 1 (Dependency).\n3. **Control**: A 'Branch' or 'Jump' instruction changes the PC, making the fetched instructions in the pipe useless.",
+              "mcq": {
+                "id": "m6-10",
+                "question": "Which hazard occurs when a 'Branch' instruction is encountered?",
+                "options": [
+                  "Data Hazard",
+                  "Structural Hazard",
+                  "Control Hazard",
+                  "Power Hazard"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Control hazards (or branch hazards) arise from the delay in determining the next instruction's address."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

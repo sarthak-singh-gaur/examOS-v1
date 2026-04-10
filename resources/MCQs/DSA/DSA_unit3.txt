@@ -1,0 +1,357 @@
+Data Structures – UNIT-3 MCQ
+Multiple Choice Questions
+Stack Basics
+1. A stack is a ______ data structure.
+a) Linear
+b) Non-linear
+c) Circular
+d) Hierarchical
+2. Stack follows the principle of
+a) FIFO
+b) LIFO
+c) LILO
+d) FILO
+3. The insertion operation in a stack is called
+a) Pop
+b) Push
+c) Peek
+d) Delete
+4. The deletion operation in a stack is called
+a) Pop
+b) Push
+c) Peek
+d) Insert
+5. The top pointer in stack indicates
+a) First element
+b) Last inserted element
+c) Empty stack
+d) Middle element
+6. Stack overflow occurs when
+a) Stack is empty
+b) Stack is full
+c) Stack is half full
+d) Stack pointer is zero
+7. Stack underflow occurs when
+a) Stack is empty
+b) Stack is full
+c) Stack has two elements
+d) Stack has one element
+8. Which function returns the top element without removing it?
+a) Pop
+b) Push
+c) Peek
+d) Insert
+9. Stack can be implemented using
+a) Arrays
+b) Linked lists
+c) Both
+d) None
+10. Time complexity of push operation is
+a) O(1)
+b) O(n)
+c) O(log n)
+d) O(n²)
+Stack Applications
+11. Stack is used for
+a) Recursion
+b) Expression evaluation
+c) Syntax parsing
+d) All of these
+12. Function calls are managed by
+a) Queue
+b) Stack
+c) Array
+d) Tree
+13. Parenthesis matching uses
+a) Queue
+b) Stack
+c) Tree
+d) Graph
+14. Undo operation in editors uses
+a) Stack
+b) Queue
+c) Linked list
+d) Array
+15. Reversing a string can be done using
+a) Queue
+b) Stack
+c) Graph
+d) Tree
+Expression Types
+16. Infix expression means operator is
+a) Before operands
+b) Between operands
+c) After operands
+d) Random
+17. Prefix expression means operator is
+a) Before operands
+b) Between operands
+c) After operands
+d) None
+18. Postfix expression means operator is
+a) Before operands
+b) Between operands
+c) After operands
+d) None
+19. Example of infix expression is
+a) AB+
+b) +AB
+c) A+B
+d) AB
+20. Example of postfix expression is
+a) AB+
+b) +AB
+c) A+B
+d) A+B+C
+21. Example of prefix expression is
+a) AB+
+b) +AB
+c) A+B
+d) ABC
+22. In postfix expression evaluation, operands appear
+a) Before operator
+b) After operator
+c) Both
+d) None
+23. In prefix expression evaluation, operator appears
+a) Before operands
+b) After operands
+c) Between operands
+d) None
+Postfix Evaluation
+24. Postfix evaluation uses
+a) Queue
+b) Stack
+c) Array
+d) Tree
+25. While evaluating postfix, operands are
+a) Pushed into stack
+b) Deleted
+c) Sorted
+d) Ignored
+26. When operator appears in postfix evaluation
+a) Two operands are popped
+b) One operand popped
+c) Three operands popped
+d) None
+27. Result of operation is
+a) Stored in queue
+b) Pushed back to stack
+c) Deleted
+d) Printed
+28. Postfix evaluation continues until
+a) Stack empty
+b) Expression ends
+c) Queue empty
+d) Two elements left
+Expression Conversion
+29. Infix to postfix conversion uses
+a) Stack
+b) Queue
+c) Tree
+d) Graph
+30. Operator precedence determines
+a) Execution order
+b) Storage order
+c) Memory location
+d) Data type
+31. Parentheses in expressions are used to
+a) Change precedence
+b) Delete operators
+c) Store values
+d) None
+32. In infix → postfix conversion, operands are
+a) Printed directly
+b) Stored in stack
+c) Ignored
+d) Sorted
+33. Operators are stored in
+a) Queue
+b) Stack
+c) Array
+d) Tree
+Queue Basics
+34. Queue follows the principle
+a) LIFO
+b) FIFO
+c) FILO
+d) LILO
+35. Insertion in queue is called
+a) Enqueue
+b) Dequeue
+c) Push
+d) Pop
+36. Deletion in queue is called
+a) Push
+b) Pop
+c) Dequeue
+d) Insert
+37. Queue has two pointers
+a) Top and bottom
+b) Front and rear
+c) Head and tail
+d) Left and right
+38. Insertion occurs at
+a) Front
+b) Rear
+c) Middle
+d) Random
+39. Deletion occurs at
+a) Rear
+b) Front
+c) Middle
+d) Anywhere
+40. Queue overflow occurs when
+a) Queue full
+b) Queue empty
+c) Queue half full
+d) Queue small
+Queue Operations
+41. Queue underflow occurs when
+a) Queue empty
+b) Queue full
+c) Queue half full
+d) Queue size 1
+42. Queue can be implemented using
+a) Arrays
+b) Linked lists
+c) Both
+d) None
+43. Circular queue helps to
+a) Avoid memory wastage
+b) Increase overflow
+c) Delete data
+d) Sort data
+Deque (Double Ended Queue)
+44. Deque means
+a) Double Ended Queue
+b) Dynamic Queue
+c) Dual Queue
+d) Data Queue
+45. Deque allows insertion
+a) Front only
+b) Rear only
+c) Both ends
+d) Middle
+46. Deque allows deletion
+a) Front only
+b) Rear only
+c) Both ends
+d) Middle
+47. Input restricted deque allows
+a) Insertion at one end
+b) Insertion at both ends
+c) Deletion at one end
+d) No insertion
+48. Output restricted deque allows
+a) Deletion at one end
+b) Deletion at both ends
+c) No deletion
+d) No insertion
+Priority Queue
+49. In priority queue elements are removed based on
+a) FIFO
+b) LIFO
+c) Priority
+d) Random
+50. Highest priority element is removed
+a) First
+b) Last
+c) Randomly
+d) None
+51. Priority queues are used in
+a) CPU scheduling
+b) Network routing
+c) Graph algorithms
+d) All
+52. In priority queue, elements with same priority follow
+a) FIFO
+b) LIFO
+c) Random
+d) None
+More MCQs (53–100)
+53. Stack pointer indicates top of stack.
+54. Push increases stack size.
+55. Pop decreases stack size.
+56. Prefix notation is also called Polish notation.
+57. Postfix notation is Reverse Polish notation.
+58. Expression evaluation commonly uses stacks.
+59. Queue front points to first element.
+60. Queue rear points to last element.
+61. Deque supports both stack and queue operations.
+62. Priority queue can be implemented using heaps.
+63. Heap is a complete binary tree.
+64. Stack supports recursion.
+65. Balanced parentheses algorithm uses stack.
+66. Queue used in breadth-first search.
+67. Deque used in sliding window algorithms.
+68. Priority queue used in Dijkstra algorithm.
+Answer Key
+1. a
+2. b
+3. b
+4. a
+5. b
+6. b
+7. a
+8. c
+9. c
+10. a
+11. d
+12. b
+13. b
+14. a
+15. b
+16. b
+17. a
+18. c
+19. c
+20. a
+21. b
+22. a
+23. a
+24. b
+25. a
+26. a
+27. b
+28. b
+29. a
+30. a
+31. a
+32. a
+33. b
+34. b
+35. a
+36. c
+37. b
+38. b
+39. b
+40. a
+41. a
+42. c
+43. a
+44. a
+45. c
+46. c
+47. a
+48. a
+49. c
+50. a
+51. d
+52. a
+53. True
+54. True
+55. True
+56. True
+57. True
+58. True
+59. True
+60. True
+61. True
+62. True
+63. True
+64. True
+65. True
+66. True
+67. True
+68. True

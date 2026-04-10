@@ -1,0 +1,529 @@
+Data Structures – UNIT-5 MCQ
+Section A – Terminology and Basics (1–20)
+1. A graph G = (V, E) consists of:
+a) Vertex set only
+b) Edge set only
+c) Vertex and edge sets
+d) None
+2. Which of these can be used to represent a network of roads?
+a) Stack
+b) Queue
+c) Graph
+d) Tree
+3. A graph with no cycle is called a:
+a) Subgraph
+b) Acyclic graph
+c) Connected graph
+d) Multigraph
+4. A vertex with no edges incident to it is called:
+a) Terminal node
+b) Isolated node
+c) Leaf node
+d) Root
+5. In a simple graph, which of the following is true?
+a) No loops, no multiple edges
+b) Loops allowed
+c) Multiple edges allowed
+d) All of the above
+6. In a directed graph, the sum of all in-degrees equals:
+a) Number of vertices
+b) Twice the number of edges
+c) Number of edges
+d) Zero
+7. What is the maximum number of edges in a simple undirected graph with n vertices?
+a) n
+b) n(n−1)
+c) n(n−1)/2
+d) n²
+8. Which of the following is not a type of graph?
+a) Directed
+b) Weighted
+c) Reflexive
+d) Undirected
+9. Two vertices are said to be adjacent if:
+a) They have equal degree
+b) They are connected by an edge
+c) Both have loops
+d) None
+10. The degree of a vertex in an undirected graph equals:
+a) Number of connections to the vertex
+b) Half of its edges
+c) Twice the number of edges
+d) Always zero
+11. In a complete graph with n vertices, the number of edges =
+a) n²
+b) n(n−1)/2
+c) n²−1
+d) n−1
+12. What is a subgraph?
+a) Graph with additional vertices
+b) Graph with fewer vertices and edges
+c) Graph with all edges reversed
+d) Graph with loops
+13. A graph that can be drawn on a plane without edges crossing is called:
+a) Simple graph
+b) Planar graph
+c) Bipartite graph
+d) Directed graph
+14. A graph is said to be connected if:
+a) It has no cycles
+b) Each vertex can be reached from every other vertex
+c) It contains a loop
+d) It is weighted
+15. The minimum number of edges for a connected graph with n vertices is:
+a) n
+b) n-1
+c) n+1
+d) n²
+16. A bipartite graph can be divided into:
+a) 2 disjoint vertex sets
+b) 3 connected components
+c) 1 independent set
+d) None
+17. The sum of degrees of all vertices in an undirected graph equals:
+a) 2 × number of edges
+b) Number of vertices
+c) Product of vertices and edges
+d) Number of edges
+18. A graph with equal number of vertices and edges where all vertices form a single
+cycle is called:
+a) Tree
+b) Circuit graph
+c) Wheel graph
+d) Complete
+19. Which of these graphs represent one-to-many relationships?
+a) Directed
+b) Undirected
+c) Both
+d) None
+20. If all vertices have equal degree, the graph is called:
+a) Regular
+b) Connected
+c) Weighted
+d) Complete
+Section B – Graph Representation (21–40)
+21. A graph can be represented using:
+a) Adjacency matrix
+b) Adjacency list
+c) Incidence matrix
+d) All of these
+22. In adjacency matrix, element A[i][j] = 1 if:
+a) There is an edge between vertex i and j
+b) i = j
+c) i or j is isolated
+d) None
+23. What is the space complexity of adjacency matrix representation?
+a) O(V + E)
+b) O(V²)
+c) O(E)
+d) O(V)
+24. Adjacency list is efficient for:
+a) Dense graphs
+b) Sparse graphs
+c) Complete graphs
+d) None
+25. The adjacency matrix for an undirected graph is:
+a) Symmetric
+b) Asymmetric
+c) Skewed
+d) Non-square
+26. Adding an edge in adjacency list takes:
+a) O(1)
+b) O(log V)
+c) O(E)
+d) O(V²)
+27. Which structure is used for adjacency list?
+a) 2D array
+b) Linked list
+c) Queue
+d) Stack
+28. Adjacency matrix is preferred when:
+a) Graph is dense
+b) Graph is sparse
+c) Vertices are dynamic
+d) None
+29. For a graph with 4 vertices, what is the size of adjacency matrix?
+a) 4×4
+b) 3×4
+c) 4×2
+d) 2×4
+30. Which representation uses less space for sparse graphs?
+a) Matrix
+b) List
+c) Both
+d) None
+31. The adjacency matrix of unweighted graph contains values:
+a) 0 or 1
+b) Weight values
+c) 1 or -1
+d) None
+32. In adjacency list representation, each vertex contains:
+a) A list of connected vertices
+b) Degree
+c) Index only
+d) Weights only
+33. Which representation efficiently checks if two vertices are adjacent?
+a) Adjacency matrix
+b) Adjacency list
+c) Incidence matrix
+d) None
+34. For a graph with n vertices, how many entries in adjacency matrix are possible?
+a) n
+b) n²
+c) 2n
+d) n+1
+35. The space complexity of adjacency list is:
+a) O(V + E)
+b) O(V²)
+c) O(E²)
+d) None
+36. When a graph is heavily connected, which representation is suitable?
+a) Matrix
+b) List
+c) Both
+d) None
+37. Deleting a vertex is easier in:
+a) Matrix
+b) List
+c) Both
+d) None
+38. Traversing neighbors of a vertex is faster in:
+a) Adjacency list
+b) Adjacency matrix
+c) None
+d) Both
+39. Which representation easily stores edge weights?
+a) Both list and matrix
+b) Only matrix
+c) Only list
+d) None
+40. Sparse graph means:
+a) Few edges relative to vertices
+b) Many edges
+c) Complete graph
+d) Disconnected graph
+Section C – Traversal (DFS, BFS) (41–60)
+41. BFS stands for:
+a) Best First Search
+b) Breadth First Search
+c) Backward First Search
+d) None
+42. DFS stands for:
+a) Directed First Search
+b) Depth First Search
+c) Distance First Search
+d) Data Flow Search
+43. BFS uses which data structure?
+a) Stack
+b) Queue
+c) Linked List
+d) Tree
+44. DFS uses:
+a) Stack
+b) Queue
+c) Linked list
+d) Array
+45. BFS traversal of graph is similar to:
+a) Preorder traversal
+b) Level order traversal
+c) Inorder traversal
+d) Postorder
+46. DFS traversal of graph is similar to:
+a) Preorder
+b) Inorder
+c) Level order
+d) None
+47. BFS guarantees:
+a) Minimum depth path
+b) Maximum depth path
+c) Random traversal
+d) None
+48. Time complexity of BFS:
+a) O(V + E)
+b) O(V²)
+c) O(E²)
+d) O(VE)
+49. DFS time complexity:
+a) O(V + E)
+b) O(V²)
+c) O(E²)
+d) O(VE)
+50. Which algorithm is recursive in nature?
+a) BFS
+b) DFS
+c) Both
+d) None
+51. BFS is preferred when:
+a) You need shortest path
+b) Need deep traversal
+c) Random order
+d) None
+52. DFS can be used to:
+a) Detect cycles
+b) Sort topologically
+c) Find connectivity
+d) All of the above
+53. BFS requires how much auxiliary space?
+a) O(V)
+b) O(E)
+c) O(V + E)
+d) O(1)
+54. The traversal that uses a queue is:
+a) BFS
+b) DFS
+c) Both
+d) None
+55. DFS traversal can be implemented:
+a) Recursively
+b) Iteratively with stack
+c) Both a & b
+d) None
+56. In DFS tree, back edges are used to detect:
+a) Cycles
+b) Tree edges
+c) Forward edges
+d) Cross edges
+57. BFS is used in:
+a) Finding shortest path in unweighted graph
+b) All pair shortest path
+c) MST generation
+d) None
+58. DFS is preferred for:
+a) Topological sorting
+b) BFS queue
+c) Minimum spanning tree
+d) None
+59. When vertex is visited in DFS, it is pushed into:
+a) Queue
+b) Stack
+c) Priority queue
+d) None
+60. BFS explores in order of:
+a) Depth
+b) Level
+c) Edge count
+d) Random
+Section D – Spanning Tree and MST (61–80)
+61. A spanning tree is:
+a) Subgraph including all vertices with minimum edges
+b) Graph with all possible edges
+c) Tree with cycles
+d) Disconnected tree
+62. Number of edges in a spanning tree =
+a) n
+b) n-1
+c) n+1
+d) n²
+63. Every connected graph has at least:
+a) One spanning tree
+b) Two spanning trees
+c) No spanning tree
+d) Infinite spanning trees
+64. For a disconnected graph, spanning tree:
+a) Doesn’t exist
+b) Exists
+c) Partial
+d) Complete
+65. Minimum Spanning Tree (MST) of a weighted graph:
+a) Connects all vertices with minimum total edge cost
+b) Has maximum weight
+c) Ignores weights
+d) May have cycles
+66. MST is defined only for:
+a) Connected, weighted, undirected graphs
+b) Directed
+c) Disconnected
+d) Any graph
+67. Total edges in MST for n vertices =
+a) n-1
+b) n
+c) n+1
+d) 2n
+68. A tree is a:
+a) Connected acyclic graph
+b) Cyclic connected
+c) Disconnected cyclic
+d) Directed
+69. Number of possible spanning trees in a complete graph Kₙ =
+a) n^(n−2)
+b) nⁿ
+c) 2ⁿ
+d) n²
+70. Which algorithm can generate MST?
+a) Prim’s
+b) Kruskal’s
+c) Both
+d) None
+71. A spanning tree does not contain:
+a) Cycles
+b) Minimum edges
+c) All vertices
+d) None
+72. In MST, all vertices are connected by:
+a) Least total weight
+b) Maximum weight
+c) Arbitrary
+d) None
+73. All MSTs of same graph have:
+a) Equal total weight
+b) Different weights
+c) Loops
+d) None
+74. Graph with unique edge weights has:
+a) Unique MST
+b) Multiple MSTs
+c) No MST
+d) Random MST
+75. Every MST is a spanning tree, but every spanning tree:
+a) Need not be MST
+b) Must be MST
+c) Is not connected
+d) Is a subgraph
+76. MST is useful in:
+a) Network design
+b) Sorting arrays
+c) Stack operations
+d) None
+77. Removing any edge from a spanning tree will make it:
+a) Disconnected
+b) Dense
+c) Cyclic
+d) Weighted
+78. Adding an edge in spanning tree will create:
+a) Cycle
+b) None
+c) Connectedness
+d) A path
+79. MST algorithms are based on:
+a) Greedy approach
+b) Divide & conquer
+c) DP
+d) Backtracking
+80. The objective of MST is to:
+a) Minimize cost
+b) Maximize edges
+c) Reduce vertices
+d) Random select
+Section E – Prim’s & Kruskal’s Algorithms (81–100)
+81. Prim’s algorithm is based on:
+a) Greedy method
+b) Dynamic programming
+c) Backtracking
+d) Branch & bound
+82. Kruskal’s algorithm is also:
+a) Greedy
+b) Divide and conquer
+c) Randomized
+d) None
+83. Prim’s algorithm starts from:
+a) A chosen vertex
+b) All vertices
+c) Random edge
+d) None
+84. Kruskal’s algorithm starts from:
+a) Smallest edge
+b) Any vertex
+c) Root
+d) Random edge
+85. Prim’s algorithm is similar to:
+a) Dijkstra’s algorithm
+b) BFS
+c) DFS
+d) None
+86. Kruskal’s algorithm uses which data structure for cycle detection?
+a) Union-Find
+b) Stack
+c) Queue
+d) Heap
+87. Time complexity of Prim’s with adjacency matrix =
+a) O(V²)
+b) O(V + E)
+c) O(E log V)
+d) O(E²)
+88. Prim’s algorithm stops when:
+a) All vertices are included
+b) All edges used
+c) A cycle is formed
+d) None
+89. Kruskal’s algorithm stops when:
+a) n−1 edges are included
+b) Cycle is formed
+c) All nodes disconnected
+d) None
+90. The output of both Prim’s and Kruskal’s is:
+a) MST
+b) Shortest Path Tree
+c) DFS Tree
+d) BFS Tree
+91. Kruskal’s sorts:
+a) Edges
+b) Vertices
+c) Adjacency lists
+d) Paths
+92. Prim’s algorithm prefers:
+a) Adjacency matrix
+b) Edge list
+c) None
+d) Linked list
+93. Kruskal’s algorithm prefers:
+a) Edge list
+b) Adjacency matrix
+c) None
+d) Tree
+94. When all edge weights are equal, MST has:
+a) Any spanning tree
+b) Unique MST
+c) Infinite cycles
+d) None
+95. Which algorithm adds only those edges which connect two different trees?
+a) Kruskal’s
+b) Prim’s
+c) BFS
+d) DFS
+96. Which algorithm extends from a single vertex outward?
+a) Prim’s
+b) Kruskal’s
+c) Dijkstra’s
+d) None
+97. Prim’s algorithm can handle:
+a) Negative weights? No
+b) Negative weights? Yes
+c) Both
+d) None
+98. Kruskal’s algorithm works best for:
+a) Sparse graphs
+b) Dense graphs
+c) Neither
+d) Directed
+99. Prim’s algorithm works faster for:
+a) Dense graphs
+b) Sparse graphs
+c) Disconnected
+d) None
+100. Both Prim’s and Kruskal’s find:
+a) Minimum spanning tree
+b) Maximum flow
+c) Shortest path
+d) Topological order
+✅ ANSWER KEY
+Qs Ans Qs Ans Qs Ans Qs Ans Qs Ans
+1 c 2 c 3 b 4 b 5 a
+6 c 7 c 8 c 9 b 10 a
+11 b 12 b 13 b 14 b 15 b
+16 a 17 a 18 b 19 a 20 a
+21 d 22 a 23 b 24 b 25 a
+26 a 27 b 28 a 29 a 30 b
+31 a 32 a 33 a 34 b 35 a
+36 a 37 b 38 a 39 a 40 a
+41 b 42 b 43 b 44 a 45 b
+46 a 47 a 48 a 49 a 50 b
+51 a 52 d 53 a 54 a 55 c
+56 a 57 a 58 a 59 b 60 b
+61 a 62 b 63 a 64 a 65 a
+66 a 67 a 68 a 69 a 70 c
+71 a 72 a 73 a 74 a 75 a
+76 a 77 a 78 a 79 a 80 a
+81 a 82 a 83 a 84 a 85 a
+86 a 87 a 88 a 89 a 90 a
+91 a 92 a 93 a 94 a 95 a
+96 a 97 a 98 a 99 a 100 a

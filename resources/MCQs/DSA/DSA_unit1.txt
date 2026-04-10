@@ -1,0 +1,603 @@
+Part A: Data, Entity, Information & Basics (1–20)
+1. Data refers to:
+a) Processed facts
+b) Raw facts and figures
+c) Meaningful output
+d) Organized knowledge
+✅ Answer: b
+2. Information is:
+a) Raw data
+b) Unprocessed data
+c) Processed and meaningful data
+d) Random facts
+✅ Answer: c
+3. An entity is:
+a) A variable
+b) A real-world object
+c) A data type
+d) An algorithm
+✅ Answer: b
+4. Which of the following best defines data?
+a) Knowledge
+b) Facts without context
+c) Results
+d) Programs
+✅ Answer: b
+5. Information is derived from:
+a) Programs
+b) Algorithms
+c) Data
+d) Hardware
+✅ Answer: c
+6. Data becomes information when it is:
+a) Stored
+b) Printed
+c) Processed
+d) Deleted
+✅ Answer: c
+7. Which is an example of data?
+a) Student report
+b) Mark sheet summary
+c) 85, 90, 78
+d) Performance analysis
+✅ Answer: c
+8. Which is an example of information?
+a) Numbers
+b) Characters
+c) Student grade report
+d) Bits
+✅ Answer: c
+9. Data without meaning is called:
+a) Information
+b) Knowledge
+c) Raw data
+d) Processed data
+✅ Answer: c
+10. Entity mainly represents:
+a) Data type
+b) Object with attributes
+c) Program
+d) Algorithm
+✅ Answer: b
+11. Data is stored in:
+a) Registers
+b) Memory
+c) CPU
+d) ALU
+✅ Answer: b
+12. Information helps in:
+a) Processing
+b) Decision making
+c) Compilation
+d) Debugging
+✅ Answer: b
+13. Data can exist in:
+a) Only numeric form
+b) Only textual form
+c) Multiple forms
+d) Binary only
+✅ Answer: c
+14. Information is always:
+a) Random
+b) Meaningless
+c) Organized
+d) Unstructured
+✅ Answer: c
+15. Which converts data into information?
+a) Storage
+b) Processing
+c) Transmission
+d) Compilation
+✅ Answer: b
+16. Data alone is not useful because it:
+a) Is incorrect
+b) Lacks context
+c) Is slow
+d) Is large
+✅ Answer: b
+17. Entity is closely related to:
+a) Attributes
+b) Operators
+c) Constants
+d) Functions
+✅ Answer: a
+18. Information is more:
+a) Meaningful
+b) Random
+c) Raw
+d) Unprocessed
+✅ Answer: a
+19. Which one is NOT data?
+a) Characters
+b) Numbers
+c) Images
+d) Decision
+✅ Answer: d
+20. Data is input for:
+a) Output
+b) Processing
+c) Memory
+d) Storage
+✅ Answer: b
+Part B: Data Types & Data Structures (21–45)
+21. Data type specifies:
+a) Size and type of data
+b) Value only
+c) Memory address
+d) Algorithm
+✅ Answer: a
+22. Built-in data types are:
+a) User-defined
+b) Predefined by language
+c) Abstract
+d) Dynamic
+✅ Answer: b
+23. Which is a built-in data type?
+a) Stack
+b) Queue
+c) Integer
+d) Tree
+✅ Answer: c
+24. Abstract Data Type (ADT) focuses on:
+a) Implementation
+b) Storage
+c) What operations are performed
+d) Memory size
+✅ Answer: c
+25. Data structure is:
+a) Algorithm
+b) Way of organizing data
+c) Compiler
+d) Software
+✅ Answer: b
+26. Which is NOT a data structure?
+a) Array
+b) Stack
+c) Algorithm
+d) Tree
+✅ Answer: c
+27. Linear data structures store data:
+a) Hierarchically
+b) Sequentially
+c) Graphically
+d) Randomly
+✅ Answer: b
+28. Example of linear data structure:
+a) Tree
+b) Graph
+c) Array
+d) Network
+✅ Answer: c
+29. Non-linear data structures store data:
+a) Sequentially
+b) Linearly
+c) Hierarchically
+d) Contiguously
+✅ Answer: c
+30. Which is a non-linear data structure?
+a) Stack
+b) Queue
+c) Tree
+d) Array
+✅ Answer: c
+31. Stack follows:
+a) FIFO
+b) LIFO
+c) Random
+d) Priority
+✅ Answer: b
+32. Queue follows:
+a) LIFO
+b) FILO
+c) FIFO
+d) Random
+✅ Answer: c
+33. ADT hides:
+a) Data
+b) Operations
+c) Implementation details
+d) Output
+✅ Answer: c
+34. Which is an ADT?
+a) Integer
+b) Stack
+c) Float
+d) Character
+✅ Answer: b
+35. Data structures improve:
+a) Memory usage
+b) Program efficiency
+c) Execution time
+d) All of the above
+✅ Answer: d
+36. Primitive data types include:
+a) Array
+b) Structure
+c) Integer
+d) File
+✅ Answer: c
+37. Which is NOT primitive?
+a) int
+b) char
+c) float
+d) array
+✅ Answer: d
+38. Data structure choice depends on:
+a) Data size
+b) Operations
+c) Memory
+d) All of the above
+✅ Answer: d
+39. Tree is used to represent:
+a) Linear data
+b) Hierarchical data
+c) Sequential data
+d) Random data
+✅ Answer: b
+40. Graph represents:
+a) Hierarchical relations
+b) Network relations
+c) Sequential relations
+d) Linear relations
+✅ Answer: b
+41. Data structure is a:
+a) Programming language
+b) Storage format
+c) Logical organization
+d) Hardware device
+✅ Answer: c
+42. Which structure allows random access?
+a) Stack
+b) Queue
+c) Array
+d) Linked list
+✅ Answer: c
+43. Linked list elements are connected using:
+a) Index
+b) Pointer
+c) Value
+d) Key
+✅ Answer: b
+44. Which is dynamic data structure?
+a) Array
+b) Linked list
+c) String
+d) Integer
+✅ Answer: b
+45. Main advantage of ADT is:
+a) Speed
+b) Security
+c) Modularity
+d) Simplicity
+✅ Answer: c
+Part C: Algorithms & Complexity (46–100)
+46. Algorithm is:
+a) Code
+b) Step-by-step procedure
+c) Program
+d) Language
+✅ Answer: b
+47. Algorithm must be:
+a) Infinite
+b) Finite
+c) Recursive only
+d) Complex
+✅ Answer: b
+48. Difference between algorithm and program:
+a) Algorithm is language-independent
+b) Program is language-independent
+c) Both same
+d) None
+✅ Answer: a
+49. Program is:
+a) Concept
+b) Implementation of algorithm
+c) Theory
+d) Flowchart
+✅ Answer: b
+50. Which is NOT a property of algorithm?
+a) Input
+b) Output
+c) Ambiguity
+d) Finiteness
+✅ Answer: c
+51. An algorithm must have:
+a) Zero input
+b) At least one output
+c) Multiple outputs only
+d) No input
+✅ Answer: b
+52. Algorithm design techniques include:
+a) Divide and conquer
+b) Greedy method
+c) Dynamic programming
+d) All of the above
+✅ Answer: d
+53. Performance analysis measures:
+a) Code length
+b) Time and space
+c) Syntax
+d) Output size
+✅ Answer: b
+54. Time complexity is:
+a) Memory usage
+b) Execution time
+c) CPU speed
+d) Disk usage
+✅ Answer: b
+55. Space complexity measures:
+a) Time
+b) Memory
+c) Speed
+d) Cost
+✅ Answer: b
+56. Best-case complexity is:
+a) Minimum time
+b) Maximum time
+c) Average time
+d) Random time
+✅ Answer: a
+57. Worst-case complexity is:
+a) Minimum time
+b) Maximum time
+c) Average time
+d) Constant time
+✅ Answer: b
+58. Average-case complexity is:
+a) Minimum
+b) Maximum
+c) Expected time
+d) Zero
+✅ Answer: c
+59. Asymptotic notation describes:
+a) Exact time
+b) Approximate growth
+c) Hardware speed
+d) Compilation time
+✅ Answer: b
+60. Big O notation represents:
+a) Best case
+b) Average case
+c) Worst case
+d) Random case
+✅ Answer: c
+61. O(1) complexity means:
+a) Linear time
+b) Constant time
+c) Quadratic time
+d) Log time
+✅ Answer: b
+62. O(n) complexity is:
+a) Constant
+b) Linear
+c) Quadratic
+d) Logarithmic
+✅ Answer: b
+63. O(n²) complexity is:
+a) Linear
+b) Quadratic
+c) Logarithmic
+d) Constant
+✅ Answer: b
+64. Binary search has complexity:
+a) O(n)
+b) O(n²)
+c) O(log n)
+d) O(1)
+✅ Answer: c
+65. Linear search complexity:
+a) O(log n)
+b) O(1)
+c) O(n)
+d) O(n²)
+✅ Answer: c
+66. Divide and conquer breaks problem into:
+a) One part
+b) Two or more subproblems
+c) Random parts
+d) Equal data only
+✅ Answer: b
+67. Greedy algorithm chooses:
+a) Optimal global solution directly
+b) Best local choice
+c) Random choice
+d) Worst choice
+✅ Answer: b
+68. Dynamic programming uses:
+a) Recursion only
+b) Overlapping subproblems
+c) Randomization
+d) Sorting
+✅ Answer: b
+69. Algorithm efficiency is independent of:
+a) Input size
+b) Hardware
+c) Algorithm design
+d) Data structure
+✅ Answer: b
+70. Big O ignores:
+a) Lower-order terms
+b) Constants
+c) Both a and b
+d) None
+✅ Answer: c
+71. O(log n) grows:
+a) Faster than O(n)
+b) Slower than O(n)
+c) Same as O(n)
+d) Faster than O(n²)
+✅ Answer: b
+72. Which is fastest growth?
+a) O(n)
+b) O(log n)
+c) O(n²)
+d) O(1)
+✅ Answer: c
+73. Which is slowest growth?
+a) O(n)
+b) O(n²)
+c) O(log n)
+d) O(1)
+✅ Answer: d
+74. Algorithm analysis helps to:
+a) Write code
+b) Compare algorithms
+c) Compile program
+d) Execute code
+✅ Answer: b
+75. Pseudocode is:
+a) Programming language
+b) Informal algorithm description
+c) Machine code
+d) Flowchart
+✅ Answer: b
+76. Flowchart uses:
+a) Symbols
+b) Code
+c) Variables
+d) Memory
+✅ Answer: a
+77. Algorithm should be:
+a) Ambiguous
+b) Clear
+c) Infinite
+d) Language-dependent
+✅ Answer: b
+78. Which affects algorithm complexity?
+a) Input size
+b) Input order
+c) Algorithm logic
+d) All of the above
+✅ Answer: d
+79. Worst-case analysis is important because:
+a) Always occurs
+b) Guarantees upper bound
+c) Fastest case
+d) Average only
+✅ Answer: b
+80. Complexity analysis ignores:
+a) Hardware
+b) Compiler
+c) Language
+d) All of the above
+✅ Answer: d
+81. Big O notation was introduced to:
+a) Measure exact time
+b) Compare algorithms
+c) Write programs
+d) Debug code
+✅ Answer: b
+82. Which is NOT asymptotic notation?
+a) Big O
+b) Omega
+c) Theta
+d) Sigma
+✅ Answer: d
+83. Big O provides:
+a) Lower bound
+b) Upper bound
+c) Exact bound
+d) Average bound
+✅ Answer: b
+84. Algorithm correctness means:
+a) Compiles correctly
+b) Produces correct output
+c) Runs fast
+d) Uses less memory
+✅ Answer: b
+85. Recursive algorithm uses:
+a) Loop only
+b) Function calling itself
+c) Stack only
+d) Queue only
+✅ Answer: b
+86. Termination condition is required in:
+a) Iteration
+b) Recursion
+c) Algorithm
+d) All of the above
+✅ Answer: d
+87. Algorithm without termination:
+a) Is correct
+b) Is infinite
+c) Is optimal
+d) Is efficient
+✅ Answer: b
+88. Algorithm design focuses on:
+a) Logic
+b) Efficiency
+c) Correctness
+d) All of the above
+✅ Answer: d
+89. Which notation is commonly used?
+a) Big O
+b) Small o
+c) Big theta
+d) All
+✅ Answer: a
+90. O(n!) complexity is:
+a) Very efficient
+b) Efficient
+c) Inefficient
+d) Constant
+✅ Answer: c
+91. Algorithm input size usually represented by:
+a) x
+b) y
+c) n
+d) k
+✅ Answer: c
+92. Space complexity includes:
+a) Input space
+b) Auxiliary space
+c) Both
+d) None
+✅ Answer: c
+93. Which case depends on input order?
+a) Best
+b) Worst
+c) Average
+d) All
+✅ Answer: d
+94. Algorithm must be:
+a) Ambiguous
+b) Deterministic
+c) Infinite
+d) Random
+✅ Answer: b
+95. Big O is machine:
+a) Dependent
+b) Independent
+c) Compiler dependent
+d) OS dependent
+✅ Answer: b
+96. Which is a design technique?
+a) Sorting
+b) Searching
+c) Divide and conquer
+d) Printing
+✅ Answer: c
+97. Algorithm analysis is done:
+a) Before coding
+b) After coding
+c) During execution
+d) Compilation
+✅ Answer: a
+98. Which factor is ignored in complexity?
+a) Constant factors
+b) Input size
+c) Growth rate
+d) Order
+✅ Answer: a
+99. Purpose of asymptotic analysis:
+a) Exact runtime
+b) Predict performance
+c) Debug code
+d) Reduce syntax errors
+✅ Answer: b
+100. Data structures and algorithms together help in:
+a) Faster execution
+b) Efficient memory use
+c) Better performance
+d) All of the above
+✅ Answer: d

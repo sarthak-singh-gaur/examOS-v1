@@ -1,0 +1,37 @@
+[
+  {
+    "id": "maths",
+    "title": "Mathematics",
+    "description": "Calculus, Linear Algebra, and Discrete Mathematics for CS",
+    "icon": "Calculator",
+    "color": "blue"
+  },
+  {
+    "id": "oops",
+    "title": "OOPS in C++",
+    "description": "Object-Oriented Programming concepts using C++",
+    "icon": "Code",
+    "color": "green"
+  },
+  {
+    "id": "dsa",
+    "title": "DSA in C",
+    "description": "Data Structures and Algorithms using C",
+    "icon": "Binary",
+    "color": "purple"
+  },
+  {
+    "id": "co",
+    "title": "Computer Organization",
+    "description": "Computer Architecture and Hardware Organizations",
+    "icon": "Cpu",
+    "color": "orange"
+  },
+  {
+    "id": "finance",
+    "title": "Finance / Accounting",
+    "description": "Financial accounting principles for business and BCA",
+    "icon": "Landmark",
+    "color": "emerald"
+  }
+]

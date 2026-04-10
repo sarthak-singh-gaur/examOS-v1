@@ -1,0 +1,4701 @@
+{
+  "subjectId": "dsa",
+  "subjectTitle": "DSA in C",
+  "topics": [
+    {
+      "id": "trees-bst",
+      "title": "Trees, BST & Heaps",
+      "unit": "Unit 4",
+      "questions": [
+        {
+          "question": "An Abstract Data Type (ADT) is characterized primarily by which property?",
+          "options": [
+            "It strictly dictates the memory allocation strategy in C++.",
+            "It exposes all internal implementation details to the compiler.",
+            "It specifies the logical behavior and operations without enforcing a specific programmatic implementation.",
+            "It relies exclusively on contiguous memory."
+          ],
+          "correctAnswer": 2,
+          "explanation": "The ADT acts as a conceptual blueprint. It exports a type and a distinct set of operational rules, entirely abstracting away how those operations are coded physically in hardware or syntax.7",
+          "id": "dsa-trees-bst-1"
+        },
+        {
+          "question": "Which of the following strictly belongs to the category of linear data structures?",
+          "options": [
+            "Adjacency Matrix",
+            "Binary Search Tree",
+            "Heap",
+            "Array"
+          ],
+          "correctAnswer": 3,
+          "explanation": "In a linear data structure, elements are sequentially attached one after the other. Arrays enforce this by maintaining an unbroken, contiguous block of memory.8",
+          "id": "dsa-trees-bst-2"
+        },
+        {
+          "question": "If an algorithm requires the extraction of BST data in perfectly sorted, ascending numerical order, which traversal is mandatory?",
+          "options": [
+            "Preorder",
+            "Inorder",
+            "Postorder",
+            "Breadth-First"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Because a BST forces smaller values left and larger values right, an Inorder traversal (Left  Root  Right) organically processes the lowest mathematical values first, guaranteeing ascending output.43",
+          "id": "dsa-trees-bst-3"
+        },
+        {
+          "question": "A Postorder recursive algorithm evaluates subtrees using which explicit sequence?",
+          "options": [
+            "Root, Left, Right",
+            "Left, Root, Right",
+            "Left, Right, Root",
+            "Right, Root, Left"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Postorder strictly dictates that the overarching parent node (Root) is evaluated exclusively after completely traversing and processing both the left and right subordinate branches.43",
+          "id": "dsa-trees-bst-4"
+        },
+        {
+          "question": "When writing a C++ destructor to physically unallocate and wipe an entire Binary Tree from RAM, which algorithmic traversal must govern the deletion sequence?",
+          "options": [
+            "Preorder",
+            "Inorder",
+            "Postorder",
+            "BFS"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Postorder strictly enforces a bottom-up destruction sequence. Children subtrees are explicitly freed before the parent node is evaluated. Reversing this orphans the children, inflicting massive, irrecoverable memory leaks.8",
+          "id": "dsa-trees-bst-5"
+        },
+        {
+          "question": "A Postorder sequence evaluates to: 2, 6, 7, 8, 9, 10, 12, 15, 16, 17, 19, 20. Based strictly on the traversal mechanics, identify the overarching Root.",
+          "options": [
+            "2",
+            "20",
+            "10",
+            "Cannot be deduced"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Postorder mechanics mandate Left, Right, Root. By definition, the ultimate parent of the entire global structure cannot be evaluated until every other node in existence has been mapped, making the final printed element 20 the absolute Root.47",
+          "id": "dsa-trees-bst-6"
+        },
+        {
+          "question": "If a network engineer requires a literal topological clone of a routing tree structure, which traversal guarantees perfect structural recreation when inserting into a new tree?",
+          "options": [
+            "Inorder",
+            "Preorder",
+            "Postorder",
+            "Diagonal"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Cloning demands top-down instantiations. Preorder evaluates the Root before the children. This ensures that when a recursive child object is spawned, a physical parent object already exists in memory to securely attach to.48",
+          "id": "dsa-trees-bst-7"
+        },
+        {
+          "question": "Conceptual Trap: Can a developer uniquely and definitively synthesize an arbitrary, generic Binary Tree utilizing exclusively a Preorder and a Postorder sequence?",
+          "options": [
+            "Yes, mathematical combinations guarantee uniqueness.",
+            "No, the lack of an Inorder sequence introduces ambiguity regarding left vs. right single-child orientation.",
+            "Yes, if the tree is an explicit BST.",
+            "Both B and C are fundamentally correct."
+          ],
+          "correctAnswer": 3,
+          "explanation": "In generic trees, Pre/Postorder cannot distinguish if a solitary child is a left or right branch, breaking uniqueness. However, if the structure is a verified BST, the Inorder sequence is automatically implied (simply sort the elements ascending), instantly resolving all ambiguity and enabling perfe",
+          "id": "dsa-trees-bst-8"
+        },
+        {
+          "question": "An AVL Tree detects a structural violation: a left child possesses a disproportionately massive right subtree (a Left-Right Heavy imbalance). What specific rotational sequence resolves this geometry?",
+          "options": [
+            "Single Left Rotation",
+            "Single Right Rotation",
+            "A localized Left Rotation on the child, followed by an overarching Right Rotation on the parent.",
+            "A Right Rotation followed by a Left Rotation."
+          ],
+          "correctAnswer": 2,
+          "explanation": "A zig-zag Left-Right geometric imbalance cannot be resolved with a single pull. The algorithm must first execute a Left Rotation on the subordinate child to straighten the kink into a uniform Left-Left line, subsequently resolving it with a master Right Rotation on the parent node.6",
+          "id": "dsa-trees-bst-9"
+        },
+        {
+          "question": "Evaluate the severe deviation in Space Complexity when executing a recursive DFS traversal on a symmetrically perfect BST versus a wholly skewed BST.",
+          "options": [
+            "Perfect is ; Skewed is .",
+            "Perfect is ; Skewed is .",
+            "Both are strictly .",
+            "Both are rigidly bounded at ."
+          ],
+          "correctAnswer": 1,
+          "explanation": "Recursive algorithms hoard memory on the operational call stack proportional to maximum depth. A balanced tree limits vertical depth to , capping stack frames efficiently. A skewed tree functions linearly, forcing depth to , bloating space complexity catastrophically to .6",
+          "id": "dsa-trees-bst-10"
+        },
+        {
+          "question": "BFS traversal physically constructs its mapping footprint utilizing what distinct geometry?",
+          "options": [
+            "Sub-tree plunge algorithms",
+            "Strict level-by-level horizontal tiers",
+            "Random walk heuristics",
+            "Cyclic loop generation"
+          ],
+          "correctAnswer": 1,
+          "explanation": "By strictly evaluating the queue, BFS generates a geometry mimicking ripples in water. It exhaustively scans the current tier radius before expanding to the next perimeter.5",
+          "id": "dsa-trees-bst-11"
+        },
+        {
+          "question": "Conversely, DFS traversal builds its structural footprint utilizing what specific methodology?",
+          "options": [
+            "Level-by-level evaluation",
+            "Deep sub-tree and branch exhaustion",
+            "Concentric circles",
+            "Shortest-distance priority mapping"
+          ],
+          "correctAnswer": 1,
+          "explanation": "DFS acts like a labyrinth solver, driving an aggressive stake down a single pathway until a terminus is reached, mapping deep singular sub-trees before laterally shifting.",
+          "id": "dsa-trees-bst-12"
+        },
+        {
+          "question": "A Topological Sort, resolving complex dependency hierarchies, is mathematically viable ONLY upon which graph topology?",
+          "options": [
+            "Undirected Cyclic Graphs",
+            "Complete Graphs",
+            "Directed Acyclic Graphs (DAG)",
+            "Trees exclusively"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Topological sorting establishes a linear timeline of events based on prerequisite arrows. If a cycle exists (A requires B, B requires A), a mathematical paradox occurs, crashing the logic. DAGs guarantee linear viability.1",
+          "id": "dsa-trees-bst-13"
+        },
+        {
+          "question": "In stark contrast to Kruskal's edge-sorting dominance, Prim's Minimum Spanning Tree algorithm initializes computation by:",
+          "options": [
+            "Sorting all edges globally.",
+            "Arbitrarily isolating a single starting vertex and greedily absorbing the cheapest perimeter edges.",
+            "Purging the graph of cycles completely.",
+            "Inverting weight values to negative."
+          ],
+          "correctAnswer": 1,
+          "explanation": "Prim's is vertex-centric. It anchors itself to a random node, treating it as a growing \"blob,\" constantly seeking out and assimilating the lowest-cost edge touching its expanding perimeter.55",
+          "id": "dsa-trees-bst-14"
+        },
+        {
+          "id": "dsa-trees-bst-txt-15",
+          "question": "Built-in data types are:",
+          "options": [
+            "User-defined",
+            "Predefined by language",
+            "Abstract",
+            "Dynamic"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-trees-bst-txt-16",
+          "question": "Abstract Data Type (ADT) focuses on:",
+          "options": [
+            "Implementation",
+            "Storage",
+            "What operations are performed",
+            "Memory size"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-trees-bst-txt-17",
+          "question": "Example of linear data structure:",
+          "options": [
+            "Tree",
+            "Graph",
+            "Array",
+            "Network"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-trees-bst-txt-18",
+          "question": "Tree is used to represent:",
+          "options": [
+            "Linear data",
+            "Hierarchical data",
+            "Sequential data",
+            "Random data"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-trees-bst-new-19",
+          "question": "Based strictly on the traversal mechanics, identify the overarching Root.",
+          "options": [
+            "2",
+            "20",
+            "10",
+            "Cannot be deduced Correct Answer: B"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Explanation available in reference materials."
+        },
+        {
+          "id": "dsa-trees-bst-new-20",
+          "question": "A graph with equal number of vertices and edges where all vertices form a single cycle is called:",
+          "options": [
+            "Tree",
+            "Circuit graph",
+            "Wheel graph",
+            "Complete"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-trees-bst-new-21",
+          "question": "In DFS tree, back edges are used to detect:",
+          "options": [
+            "Cycles",
+            "Tree edges",
+            "Forward edges",
+            "Cross edges"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-trees-bst-new-22",
+          "question": "A spanning tree is:",
+          "options": [
+            "Subgraph including all vertices with minimum edges",
+            "Graph with all possible edges",
+            "Tree with cycles",
+            "Disconnected tree"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-trees-bst-new-23",
+          "question": "Number of edges in a spanning tree =",
+          "options": [
+            "n",
+            "n-1",
+            "n+1",
+            "n²"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-trees-bst-new-24",
+          "question": "Every connected graph has at least:",
+          "options": [
+            "One spanning tree",
+            "Two spanning trees",
+            "No spanning tree",
+            "Infinite spanning trees"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-trees-bst-new-25",
+          "question": "For a disconnected graph, spanning tree:",
+          "options": [
+            "Doesn’t exist",
+            "Exists",
+            "Partial",
+            "Complete"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-trees-bst-new-26",
+          "question": "Minimum Spanning Tree (MST) of a weighted graph:",
+          "options": [
+            "Connects all vertices with minimum total edge cost",
+            "Has maximum weight",
+            "Ignores weights",
+            "May have cycles"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-trees-bst-new-27",
+          "question": "A tree is a:",
+          "options": [
+            "Connected acyclic graph",
+            "Cyclic connected",
+            "Disconnected cyclic",
+            "Directed"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-trees-bst-new-28",
+          "question": "Number of possible spanning trees in a complete graph Kₙ =",
+          "options": [
+            "n^(n−2)",
+            "nⁿ",
+            "2ⁿ",
+            "n²"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-trees-bst-new-29",
+          "question": "A spanning tree does not contain:",
+          "options": [
+            "Cycles",
+            "Minimum edges",
+            "All vertices",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-trees-bst-new-30",
+          "question": "Every MST is a spanning tree, but every spanning tree:",
+          "options": [
+            "Need not be MST",
+            "Must be MST",
+            "Is not connected",
+            "Is a subgraph"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-trees-bst-new-31",
+          "question": "Removing any edge from a spanning tree will make it:",
+          "options": [
+            "Disconnected",
+            "Dense",
+            "Cyclic",
+            "Weighted"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-trees-bst-new-32",
+          "question": "Adding an edge in spanning tree will create:",
+          "options": [
+            "Cycle",
+            "None",
+            "Connectedness",
+            "A path"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-trees-bst-new-33",
+          "question": "Kruskal’s algorithm starts from:",
+          "options": [
+            "Smallest edge",
+            "Any vertex",
+            "Root",
+            "Random edge"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-trees-bst-new-34",
+          "question": "The output of both Prim’s and Kruskal’s is:",
+          "options": [
+            "MST",
+            "Shortest Path Tree",
+            "DFS Tree",
+            "BFS Tree"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-trees-bst-new-35",
+          "question": "Kruskal’s algorithm prefers:",
+          "options": [
+            "Edge list",
+            "Adjacency matrix",
+            "None",
+            "Tree"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-trees-bst-new-36",
+          "question": "When all edge weights are equal, MST has:",
+          "options": [
+            "Any spanning tree",
+            "Unique MST",
+            "Infinite cycles",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-trees-bst-new-37",
+          "question": "Which algorithm adds only those edges which connect two different trees?",
+          "options": [
+            "Kruskal’s",
+            "Prim’s",
+            "BFS",
+            "DFS"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-trees-bst-new-38",
+          "question": "Both Prim’s and Kruskal’s find:",
+          "options": [
+            "Minimum spanning tree",
+            "Maximum flow",
+            "Shortest path",
+            "Topological order"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        }
+      ]
+    },
+    {
+      "id": "algorithms-complexity",
+      "title": "Algorithms & Complexity Analysis",
+      "unit": "Unit 1",
+      "questions": [
+        {
+          "question": "An algorithm must possess a finite number of well-defined instructions. This specific property is known as:",
+          "options": [
+            "Correctness",
+            "Definiteness",
+            "Finiteness",
+            "Effectiveness"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Finiteness mandates that regardless of the input, the algorithm must halt and terminate after executing a limited, countable number of steps, thereby preventing infinite loops.",
+          "id": "dsa-algorithms-complexity-1"
+        },
+        {
+          "question": "Which asymptotic notation represents the upper bound, or the worst-case scenario, of an algorithm's running time?",
+          "options": [
+            "Big Omega ()",
+            "Big Theta ()",
+            "Big O ()",
+            "Epsilon ()"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Big O notation provides an asymptotic ceiling, guaranteeing to system architects that the algorithm's execution time will not grow faster than the specified mathematical function.12",
+          "id": "dsa-algorithms-complexity-2"
+        },
+        {
+          "question": "The total memory required by an algorithm to execute completely, encompassing both fixed variable assignments and dynamic allocations, is termed:",
+          "options": [
+            "Time Complexity",
+            "Auxiliary Space",
+            "Space Complexity",
+            "Compilation Overhead"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Space complexity is the sum of the memory required to hold the initial input data plus any auxiliary (extra) space generated during the algorithm's operational cycle.9",
+          "id": "dsa-algorithms-complexity-3"
+        },
+        {
+          "question": "Which of the following is NOT an inherent characteristic of an algorithm?",
+          "options": [
+            "It must take zero or more inputs.",
+            "It must produce at least one output.",
+            "Every step must be ambiguous to allow compiler optimization.",
+            "Every step must be definite and clear."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Definiteness is a core property; every single instructional step must be rigorously clear, unambiguous, and precisely defined to guarantee predictable execution.",
+          "id": "dsa-algorithms-complexity-4"
+        },
+        {
+          "question": "If an algorithm operates in time complexity, what does this indicate?",
+          "options": [
+            "It executes one instruction per second.",
+            "The execution time grows linearly with the input.",
+            "The execution time is perfectly constant, entirely independent of the input scale.",
+            "The algorithm requires no memory."
+          ],
+          "correctAnswer": 2,
+          "explanation": "constant time implies that fetching or computing the target requires a single, direct operational step, such as accessing an array index via its physical memory offset.13",
+          "id": "dsa-algorithms-complexity-5"
+        },
+        {
+          "question": "Which notation is exclusively utilized to define the best-case execution scenario of an algorithm?",
+          "options": [
+            "Big O",
+            "Big Omega ()",
+            "Little o",
+            "Big Theta ()"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Big Omega defines the asymptotic lower bound, providing a mathematical guarantee that the algorithm will take at least this much time to process the optimal configuration of inputs.12",
+          "id": "dsa-algorithms-complexity-6"
+        },
+        {
+          "question": "The evaluation of an algorithm's performance prior to its actual physical implementation in code is called:",
+          "options": [
+            "Posteriori Analysis",
+            "Priori Analysis",
+            "Empirical Testing",
+            "System Profiling"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Priori analysis theoretically derives the time and space complexity based on the underlying logic and input scales, entirely independent of specific hardware clock speeds or operating systems.9",
+          "id": "dsa-algorithms-complexity-7"
+        },
+        {
+          "question": "Analyze the time complexity of the following code structure: for(int i=1; i<n; i*=2) { process(i); }",
+          "options": [
+            "B)  C)  D)  Correct Answer: C Explanation: The loop control variable  scales geometrically, doubling in every iteration. The loop terminates when . Solving for  iterations yields a base-2 logarithmic ",
+            "C)  D)  Correct Answer: C Explanation: In asymptotic Big O analysis, lower-order terms and constant coefficients are structurally dropped because the highest-degree term () overwhelmingly dominates th",
+            "D)  Correct Answer: D Explanation: Factorial time  scales astronomically faster than exponential  or polynomial  time, often rendering algorithms like naive traveling salesperson permutations uncomput",
+            "Big Theta cannot be applied here."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Big Theta () establishes a tight, exact bound. It is only mathematically valid when an algorithm's upper bound () and lower bound () share the identical asymptotic growth rate.12",
+          "id": "dsa-algorithms-complexity-8"
+        },
+        {
+          "question": "Consider the nested loops: for(int i=0; i<n; i++) { for(int j=i; j<n; j++) { sum++; } }. What is the precise time complexity?",
+          "options": [
+            "B)  C)  D)  Correct Answer: B Explanation: The inner loop executes  times, then , then , down to . This forms an arithmetic series summing to . Dropping constants yields a tight quadratic bound of .16",
+            "C)  D)  Correct Answer: C Explanation: Total space complexity equals input space () plus auxiliary space (). The sum is , which asymptotically simplifies to linear  space complexity.10 Question 19: If",
+            "It increases by slightly more than a factor of two.",
+            "It squares."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Plugging  into the equation yields . This indicates the time will double due to the  scalar, plus a small additive algorithmic overhead from the logarithm.8",
+          "id": "dsa-algorithms-complexity-9"
+        },
+        {
+          "question": "Which analytical framework utilizes real-world clock time, processor architecture, and compiler optimizations to benchmark an algorithm?",
+          "options": [
+            "Priori Analysis",
+            "Asymptotic Analysis",
+            "Posteriori Analysis",
+            "Algorithmic Amortization"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Posteriori testing involves compiling and physically executing the code. The runtime metrics gathered are entirely hardware-dependent, unlike theoretical mathematical analyses.9",
+          "id": "dsa-algorithms-complexity-10"
+        },
+        {
+          "question": "In relation to algorithm complexity, what does the mathematical statement rigorously mean?",
+          "options": [
+            "grows significantly faster than .",
+            "There exist positive constants  and  such that  for all .",
+            "and  are perfectly equal.",
+            "is the lower bound of ."
+          ],
+          "correctAnswer": 1,
+          "explanation": "This is the formal definition of Big O. It guarantees that beyond a certain input threshold (), the function  will always be bounded below a constant multiple of .11",
+          "id": "dsa-algorithms-complexity-11"
+        },
+        {
+          "question": "What is the fundamental difference between an Algorithm and a Program?",
+          "options": [
+            "Algorithms are hardware-dependent; programs are theoretical.",
+            "Algorithms are written in machine code.",
+            "An algorithm is a logical, language-agnostic blueprint, while a program is its physical implementation in a specific syntax.",
+            "There is no difference; they are synonymous."
+          ],
+          "correctAnswer": 2,
+          "explanation": "An algorithm designs the step-by-step logic independently of the execution environment. A program translates that logic into a syntax (like Java or C) executable by a compiler.9",
+          "id": "dsa-algorithms-complexity-12"
+        },
+        {
+          "question": "Determine the complexity of the following specific code segment: int i = n; while(i > 0) { i = i / 2; }",
+          "options": [
+            "B)  C)  D)  Correct Answer: C Explanation: The variable  halves consecutively. The sheer number of division steps required to drive  down to  (utilizing integer truncation) equals the base-2 logarithm",
+            "Approximately 10 seconds.",
+            "It will exceed the known lifespan of the universe.",
+            "It will execute instantly due to processor pipelining."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Factorial growth is explosively catastrophic. Transitioning from  to  requires multiplying the previous time by , amplifying the runtime by a scalar factor exceeding , cementing mathematical intractability.11",
+          "id": "dsa-algorithms-complexity-13"
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-14",
+          "question": "An entity is:",
+          "options": [
+            "A variable",
+            "A real-world object",
+            "A data type",
+            "An algorithm"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-15",
+          "question": "Information is derived from:",
+          "options": [
+            "Programs",
+            "Algorithms",
+            "Data",
+            "Hardware"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-16",
+          "question": "Entity mainly represents:",
+          "options": [
+            "Data type",
+            "Object with attributes",
+            "Program",
+            "Algorithm"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-17",
+          "question": "Data type specifies:",
+          "options": [
+            "Size and type of data",
+            "Value only",
+            "Memory address",
+            "Algorithm"
+          ],
+          "correctAnswer": 0,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-18",
+          "question": "Data structure is:",
+          "options": [
+            "Algorithm",
+            "Way of organizing data",
+            "Compiler",
+            "Software"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-19",
+          "question": "Algorithm is:",
+          "options": [
+            "Code",
+            "Step-by-step procedure",
+            "Program",
+            "Language"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-20",
+          "question": "Algorithm must be:",
+          "options": [
+            "Infinite",
+            "Finite",
+            "Recursive only",
+            "Complex"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-21",
+          "question": "Difference between algorithm and program:",
+          "options": [
+            "Algorithm is language-independent",
+            "Program is language-independent",
+            "Both same",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-22",
+          "question": "Program is:",
+          "options": [
+            "Concept",
+            "Implementation of algorithm",
+            "Theory",
+            "Flowchart"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-23",
+          "question": "Which is NOT a property of algorithm?",
+          "options": [
+            "Input",
+            "Output",
+            "Ambiguity",
+            "Finiteness"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-24",
+          "question": "An algorithm must have:",
+          "options": [
+            "Zero input",
+            "At least one output",
+            "Multiple outputs only",
+            "No input"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-25",
+          "question": "Algorithm design techniques include:",
+          "options": [
+            "Divide and conquer",
+            "Greedy method",
+            "Dynamic programming",
+            "All of the above"
+          ],
+          "correctAnswer": 3,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-26",
+          "question": "Time complexity is:",
+          "options": [
+            "Memory usage",
+            "Execution time",
+            "CPU speed",
+            "Disk usage"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-27",
+          "question": "Space complexity measures:",
+          "options": [
+            "Time",
+            "Memory",
+            "Speed",
+            "Cost"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-28",
+          "question": "Best-case complexity is:",
+          "options": [
+            "Minimum time",
+            "Maximum time",
+            "Average time",
+            "Random time"
+          ],
+          "correctAnswer": 0,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-29",
+          "question": "Worst-case complexity is:",
+          "options": [
+            "Minimum time",
+            "Maximum time",
+            "Average time",
+            "Constant time"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-30",
+          "question": "Average-case complexity is:",
+          "options": [
+            "Minimum",
+            "Maximum",
+            "Expected time",
+            "Zero"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-31",
+          "question": "Big O notation represents:",
+          "options": [
+            "Best case",
+            "Average case",
+            "Worst case",
+            "Random case"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-32",
+          "question": "O(1) complexity means:",
+          "options": [
+            "Linear time",
+            "Constant time",
+            "Quadratic time",
+            "Log time"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-33",
+          "question": "O(n) complexity is:",
+          "options": [
+            "Constant",
+            "Linear",
+            "Quadratic",
+            "Logarithmic"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-34",
+          "question": "O(n²) complexity is:",
+          "options": [
+            "Linear",
+            "Quadratic",
+            "Logarithmic",
+            "Constant"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-35",
+          "question": "Binary search has complexity:",
+          "options": [
+            "O(n)",
+            "O(n²)",
+            "O(log n)",
+            "O(1)"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-36",
+          "question": "Linear search complexity:",
+          "options": [
+            "O(log n)",
+            "O(1)",
+            "O(n)",
+            "O(n²)"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-37",
+          "question": "Greedy algorithm chooses:",
+          "options": [
+            "Optimal global solution directly",
+            "Best local choice",
+            "Random choice",
+            "Worst choice"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-38",
+          "question": "Algorithm efficiency is independent of:",
+          "options": [
+            "Input size",
+            "Hardware",
+            "Algorithm design",
+            "Data structure"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-39",
+          "question": "Big O ignores:",
+          "options": [
+            "Lower-order terms",
+            "Constants",
+            "Both a and b",
+            "None"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-40",
+          "question": "Algorithm analysis helps to:",
+          "options": [
+            "Write code",
+            "Compare algorithms",
+            "Compile program",
+            "Execute code"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-41",
+          "question": "Pseudocode is:",
+          "options": [
+            "Programming language",
+            "Informal algorithm description",
+            "Machine code",
+            "Flowchart"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-42",
+          "question": "Algorithm should be:",
+          "options": [
+            "Ambiguous",
+            "Clear",
+            "Infinite",
+            "Language-dependent"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-43",
+          "question": "Which affects algorithm complexity?",
+          "options": [
+            "Input size",
+            "Input order",
+            "Algorithm logic",
+            "All of the above"
+          ],
+          "correctAnswer": 3,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-44",
+          "question": "Complexity analysis ignores:",
+          "options": [
+            "Hardware",
+            "Compiler",
+            "Language",
+            "All of the above"
+          ],
+          "correctAnswer": 3,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-45",
+          "question": "Big O notation was introduced to:",
+          "options": [
+            "Measure exact time",
+            "Compare algorithms",
+            "Write programs",
+            "Debug code"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-46",
+          "question": "Which is NOT asymptotic notation?",
+          "options": [
+            "Big O",
+            "Omega",
+            "Theta",
+            "Sigma"
+          ],
+          "correctAnswer": 3,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-47",
+          "question": "Big O provides:",
+          "options": [
+            "Lower bound",
+            "Upper bound",
+            "Exact bound",
+            "Average bound"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-48",
+          "question": "Algorithm correctness means:",
+          "options": [
+            "Compiles correctly",
+            "Produces correct output",
+            "Runs fast",
+            "Uses less memory"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-49",
+          "question": "Termination condition is required in:",
+          "options": [
+            "Iteration",
+            "Recursion",
+            "Algorithm",
+            "All of the above"
+          ],
+          "correctAnswer": 3,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-50",
+          "question": "Algorithm without termination:",
+          "options": [
+            "Is correct",
+            "Is infinite",
+            "Is optimal",
+            "Is efficient"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-51",
+          "question": "Algorithm design focuses on:",
+          "options": [
+            "Logic",
+            "Efficiency",
+            "Correctness",
+            "All of the above"
+          ],
+          "correctAnswer": 3,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-52",
+          "question": "Which notation is commonly used?",
+          "options": [
+            "Big O",
+            "Small o",
+            "Big theta",
+            "All"
+          ],
+          "correctAnswer": 0,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-53",
+          "question": "O(n!) complexity is:",
+          "options": [
+            "Very efficient",
+            "Efficient",
+            "Inefficient",
+            "Constant"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-54",
+          "question": "Algorithm input size usually represented by:",
+          "options": [
+            "x",
+            "y",
+            "n",
+            "k"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-55",
+          "question": "Space complexity includes:",
+          "options": [
+            "Input space",
+            "Auxiliary space",
+            "Both",
+            "None"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-56",
+          "question": "Algorithm must be:",
+          "options": [
+            "Ambiguous",
+            "Deterministic",
+            "Infinite",
+            "Random"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-57",
+          "question": "Big O is machine:",
+          "options": [
+            "Dependent",
+            "Independent",
+            "Compiler dependent",
+            "OS dependent"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-58",
+          "question": "Algorithm analysis is done:",
+          "options": [
+            "Before coding",
+            "After coding",
+            "During execution",
+            "Compilation"
+          ],
+          "correctAnswer": 0,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-59",
+          "question": "Which factor is ignored in complexity?",
+          "options": [
+            "Constant factors",
+            "Input size",
+            "Growth rate",
+            "Order"
+          ],
+          "correctAnswer": 0,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-algorithms-complexity-txt-60",
+          "question": "Data structures and algorithms together help in:",
+          "options": [
+            "Faster execution",
+            "Efficient memory use",
+            "Better performance",
+            "All of the above"
+          ],
+          "correctAnswer": 3,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        }
+      ]
+    },
+    {
+      "id": "general",
+      "title": "General DSA",
+      "unit": "Mixed",
+      "questions": [
+        {
+          "question": "Data that has been processed, organized, and structurally presented to provide context is defined as:",
+          "options": [
+            "Information",
+            "Raw Data",
+            "An Entity",
+            "A Variable"
+          ],
+          "correctAnswer": 0,
+          "explanation": "While data constitutes unstructured raw facts, information is the result of applying logic and structure to data, yielding meaningful contextual output.",
+          "id": "dsa-general-1"
+        }
+      ]
+    },
+    {
+      "id": "stacks-expressions",
+      "title": "Stacks & Expression Evaluation",
+      "unit": "Unit 3",
+      "questions": [
+        {
+          "question": "Which data structure inherently violates the sequential access patterns of linear algorithms?",
+          "options": [
+            "Stack",
+            "Queue",
+            "Tree",
+            "Linked List"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Trees are hierarchical, non-linear structures. A parent node forks into multiple child pathways, meaning a single, sequential, straight-line traversal cannot natively capture all elements.8",
+          "id": "dsa-stacks-expressions-1"
+        },
+        {
+          "question": "Which dynamic data structure natively eliminates memory fragmentation by allocating individual fragmented memory blocks during runtime insertion?",
+          "options": [
+            "Multi-dimensional Array",
+            "Sparse Matrix",
+            "Linked List",
+            "Stack Array"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Linked lists pull individual node blocks from the operating system's heap exclusively when needed, preventing the necessity for massive, contiguous unbroken memory reservations.8",
+          "id": "dsa-stacks-expressions-2"
+        },
+        {
+          "question": "Architecturally, elements are exclusively inserted (Pushed) and removed (Popped) from a singular terminal known as the 'Top'. This backtracking mechanism is the mathematical engine behind recursion, undo states, and complex syntax parsing algorithms.8 Conversely, the Queue enforces a First-In-First-",
+          "options": [
+            "First-In-First-Out (FIFO)",
+            "Last-In-First-Out (LIFO)",
+            "Random Access",
+            "Heuristic Priority"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Stacks behave like a physical pile of plates. The very last element placed atop the stack is the absolute first element subjected to removal (LIFO).8",
+          "id": "dsa-stacks-expressions-3"
+        },
+        {
+          "question": "What precise terminology describes the action of inserting a new element onto a Stack?",
+          "options": [
+            "Push",
+            "Pop",
+            "Enqueue",
+            "Inject"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The \"Push\" operation increments the Top pointer and deposits the new data payload. Attempting this on an exhausted array structure triggers a Stack Overflow.37",
+          "id": "dsa-stacks-expressions-4"
+        },
+        {
+          "question": "A Queue operates natively on which chronological principle?",
+          "options": [
+            "LIFO",
+            "First-In-First-Out (FIFO)",
+            "Double-Ended Access",
+            "Least Recently Used"
+          ],
+          "correctAnswer": 1,
+          "explanation": "A queue mimics a standard physical waiting line. The first entity to arrive (Enqueue at Rear) is the primary entity serviced and removed (Dequeue from Front).8",
+          "id": "dsa-stacks-expressions-5"
+        },
+        {
+          "question": "If a compiler attempts to execute a 'Pop' operation on an entirely empty stack, it generates an exception termed:",
+          "options": [
+            "Memory Leak",
+            "Segmentation Fault",
+            "Underflow",
+            "Overflow"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Underflow physically prevents structural damage. Because there is no data to retrieve, and the Top pointer is already positioned at its lowest bound (e.g., -",
+          "id": "dsa-stacks-expressions-6"
+        },
+        {
+          "question": ", the system rejects the pop.37 Question 65: Which task is fundamentally engineered to utilize a Stack data structure?",
+          "options": [
+            "CPU Round-Robin Scheduling",
+            "Ensuring syntax validity via Balanced Parentheses",
+            "Graph shortest path discovery",
+            "Network packet buffering"
+          ],
+          "correctAnswer": 1,
+          "explanation": "As syntax strings are parsed, opening brackets are Pushed. Closing brackets trigger a Pop. If the popped bracket does not match mathematically, the syntax is invalid. This perfectly exploits LIFO memory.8",
+          "id": "dsa-stacks-expressions-7"
+        },
+        {
+          "question": "The core operation of discarding and retrieving an element from a Queue is known as:",
+          "options": [
+            "Push",
+            "Dequeue",
+            "Free",
+            "Eject"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Dequeue accesses the data situated at the current Front pointer, retrieves it, and subsequently shifts the Front pointer forward to the next chronological element.38",
+          "id": "dsa-stacks-expressions-8"
+        },
+        {
+          "question": "Which computational structure is mandatory to programmatically evaluate Postfix (Reverse Polish) mathematical expressions?",
+          "options": [
+            "Binary Search Tree",
+            "Linked List",
+            "Priority Queue",
+            "Stack"
+          ],
+          "correctAnswer": 3,
+          "explanation": "The evaluator Pushes numeric operands onto a stack. Upon encountering a mathematical operator, it Pops the top two operands, executes the calculation, and Pushes the result back.26",
+          "id": "dsa-stacks-expressions-9"
+        },
+        {
+          "question": "Which mathematical notation physically places the operator completely ahead of its corresponding operands (e.g., + A B)?",
+          "options": [
+            "Infix",
+            "Postfix",
+            "Prefix",
+            "Subfix"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Prefix notation (Polish Notation) consolidates parsing by leading with the operator, bypassing the ambiguity and precedence rules natively plaguing standard Infix notation.39",
+          "id": "dsa-stacks-expressions-10"
+        },
+        {
+          "question": "What fatal limitation plagues a basic Array-based Linear Queue?",
+          "options": [
+            "Elements randomly shift positions.",
+            "The Rear pointer cannot advance.",
+            "Space freed at the front cannot be reused, causing False Overflows.",
+            "It converts to a stack autonomously."
+          ],
+          "correctAnswer": 2,
+          "explanation": "As elements Dequeue, the Front advances, leaving empty array slots behind it. When the Rear hits the array's physical limit, the queue screams \"Full\", despite massive empty space at the beginning.26",
+          "id": "dsa-stacks-expressions-11"
+        },
+        {
+          "question": "The architectural flow of cars utilizing a toll booth that permits both entrance and exit from either parallel side is a conceptual analog for a:",
+          "options": [
+            "Stack",
+            "Priority Queue",
+            "Double-Ended Queue (Deque)",
+            "Circular Queue"
+          ],
+          "correctAnswer": 2,
+          "explanation": "A standard queue strictly separates entry and exit points. A Deque permits bidirectional traversal, exactly modeling scenarios where resources are pushed or pulled from both extremities.36",
+          "id": "dsa-stacks-expressions-12"
+        },
+        {
+          "question": "Evaluate the numerical outcome of the postfix string: 6 3 2 4 + - *",
+          "options": [
+            "1",
+            "-18",
+            "40",
+            "74"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Push 6, 3, 2,",
+          "id": "dsa-stacks-expressions-13"
+        },
+        {
+          "question": "Hit +: Pop 4, 2. Compute . Push 6. Stack: ``. Hit -: Pop 6, 3. Compute . Push -3. Stack: [6, -3]. Hit *: Pop -3, 6. Compute . Output is -18.3 Question 74: Algorithmically translate the infix expression (A + B) * C into rigorous postfix notation:",
+          "options": [
+            "+ A B * C",
+            "A B + C *",
+            "A B C + *",
+            "* + A B C"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Parentheses enforce maximum precedence. Evaluate A + B first, generating AB+. The entire block acts as the first operand for multiplication. Adding C and * yields AB+C*.27",
+          "id": "dsa-stacks-expressions-14"
+        },
+        {
+          "question": "Mathematically, what is the strict minimum number of discrete Stacks required to synthesize the functionality of a single Queue?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "correctAnswer": 1,
+          "explanation": "One stack strictly accepts Enqueues (LIFO). When a Dequeue is triggered, the first stack entirely pops its contents into the second stack. This violently reverses the sequence into FIFO, enabling authentic queue output.7",
+          "id": "dsa-stacks-expressions-15"
+        },
+        {
+          "question": "% n resolves perfectly to , seamlessly wrapping the pointer to the array's beginning.35 Question 77: Data stream 1, 2, 3, 4 is enqueued into Queue . It is dequeued sequentially, pushed onto Stack , immediately popped from , and enqueued back into . What is the final topological state of ?",
+          "options": [
+            "1, 2, 3, 4",
+            "4, 3, 2, 1",
+            "2, 4, 1, 3",
+            "4, 1, 2, 3"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Extracting from the queue maintains 1, 2, 3,",
+          "id": "dsa-stacks-expressions-16"
+        },
+        {
+          "question": "Pushing to the stack stacks 4 at the very top. Popping the stack extracts elements in reverse LIFO order: 4, 3, 2, 1. The queue subsequently absorbs this reversed stream.41 Question 78: An algorithm processes the string (()(())(())) for syntax balancing. What is the absolute maximum depth/height of",
+          "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Tracking pushes (open) and pops (close): ( [depth",
+          "id": "dsa-stacks-expressions-17"
+        },
+        {
+          "question": ", ( , ) , ( , ( , ) , ) , ( , (... The stack physically never exceeds 3 elements concurrently.26 Question 79: A standard Circular Queue of size 5 exhibits Front = 0 and Rear = 4. What is the verifiable structural state of this queue?",
+          "options": [
+            "Underflow / Empty",
+            "Completely Full",
+            "Contains a single element",
+            "Corrupted"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Evaluate the Full condition: (Rear +",
+          "id": "dsa-stacks-expressions-18"
+        },
+        {
+          "question": "% n == Front. Plugging the integers: (4 + 1) % 5 resolves to 0, which identically matches the Front. The system is locked and Full.38 Question 80: The architectural exploration algorithms of Breadth-First Search (BFS) strictly mandate the implementation of a:",
+          "options": [
+            "Priority Queue",
+            "Tree",
+            "Queue",
+            "Stack"
+          ],
+          "correctAnswer": 2,
+          "explanation": "BFS demands horizontal mapping, exploring concentric distance levels radially. A FIFO Queue perfectly captures neighbors, ensuring all distance-1 nodes are dequeued and processed before any distance-2 nodes are triggered.5",
+          "id": "dsa-stacks-expressions-19"
+        },
+        {
+          "question": "Which data architecture guarantees constant-time operations to flawlessly implement software \"Undo\" capabilities?",
+          "options": [
+            "Binary Search Tree",
+            "Stack",
+            "Queue",
+            "Matrix"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Application states are Pushed chronologically. Invoking \"Undo\" Pops the top state, seamlessly rewinding the program backward sequentially through its history via LIFO logic.8",
+          "id": "dsa-stacks-expressions-20"
+        },
+        {
+          "question": "Enq 1, 2, 3 Front = 0, Rear = 2. Deq Front shifts to 1. Enq 4 Rear shifts to 3. Enq 5 Rear wraps via modulo (3+1)%4, landing at 0. Final state: Front=1, Rear=0.41 Question 83: Stack A holds a, b, c (a on top). Stack B is empty. Valid moves: Pop A and Print, or Pop A and Push to B. Elements poppe",
+          "options": [
+            "b a c",
+            "b c a",
+            "c a b",
+            "a b c"
+          ],
+          "correctAnswer": 2,
+          "explanation": "To access c, elements a and b are forced into B (b atop a). B holds [b, a]. After printing c, you must extract from B. The very next element extracted must be b. Therefore, printing a directly after c violates physical stack laws.33",
+          "id": "dsa-stacks-expressions-21"
+        },
+        {
+          "question": "Execute Prefix conversion on the complex infix string: ((a/b)+c)-(d+(e*f))",
+          "options": [
+            "- + / a b c + d * e f",
+            "+ - / a b c + d * e f",
+            "- + a / b c d + * e f",
+            "- / a b + c + d * e f"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Inner: a/b  /ab. Add c: + /ab c. Inner right: e*f  *ef. Add d: + d *ef. Subtract left from right: Combine operators forward: - + / a b c + d * e f.39",
+          "id": "dsa-stacks-expressions-22"
+        },
+        {
+          "question": "Trace the stack state converting infix 4 + 3 * (6 * 3 - 12) to postfix. What is the maximum concurrent volume of operators/symbols occupying the stack?",
+          "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Precedence algorithms force operators onto the stack. Trace: Push +. Push *. Push (. Push inner *. At the precise moment of evaluating the numeral 3, the stack physically groans under 4 concurrent symbols: [+, *, (, *], before any reductive popping initiates.26",
+          "id": "dsa-stacks-expressions-23"
+        },
+        {
+          "question": "A Priority Queue is physically manifested via a Max-Heap array architecture. What is the absolute worst-case time penalty for injecting a new element?",
+          "options": [
+            "B)  C)  D)  Correct Answer: C Explanation: Insertion appends the element at the physical array terminus. It must then iteratively \"bubble-up\" (heapify) to satisfy the Max-Heap property. Because the tr",
+            "An output-restricted Deque.",
+            "A Deque where both push and pop operations are aggressively locked to a single extremity (e.g., exclusively the Front).",
+            "A Deque prioritizing Rear enqueue and Front dequeue."
+          ],
+          "correctAnswer": 2,
+          "explanation": "A stack is defined solely by forcing all interaction through one portal (the Top). By configuring a Deque to violently reject any operations at the Rear, forcing all insertions and deletions exclusively through the Front, it perfectly clones LIFO stack mechanics.36",
+          "id": "dsa-stacks-expressions-24"
+        },
+        {
+          "question": "Which scenario represents an invalid application of hierarchical Tree structures?",
+          "options": [
+            "Rendering Document Object Models (DOM).",
+            "Architecting Database indexing (B-Trees).",
+            "Processing LIFO Undo/Redo historical states.",
+            "Compiling abstract syntax logic into expression trees."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Historical Undo algorithms are perfectly linear and natively mapped by Stacks. Imposing a multidimensional hierarchical tree upon a strictly linear LIFO pipeline is architecturally nonsensical.8",
+          "id": "dsa-stacks-expressions-25"
+        },
+        {
+          "question": "During standard BST deletion algorithms, if the target node unfortunately possesses two actively populated children, how is structural integrity maintained?",
+          "options": [
+            "The parent node adopts the children directly.",
+            "The tree is destroyed and recompiled.",
+            "The node's payload is forcefully overwritten by its Inorder Successor (or Predecessor), and the Successor node is subsequently deleted.",
+            "A stack overflow is triggered."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Ripping out a dual-child node fragments the tree. Finding the Successor (smallest value right) or Predecessor (largest value left) yields a value that flawlessly satisfies the BST invariant if placed in the target's position, safely patching the hierarchy.44",
+          "id": "dsa-stacks-expressions-26"
+        },
+        {
+          "question": "When evaluating a mathematical Expression Tree, running an Inorder algorithm projects the syntax into what standardized notation?",
+          "options": [
+            "Reverse Polish",
+            "Prefix",
+            "Infix",
+            "Scientific"
+          ],
+          "correctAnswer": 2,
+          "explanation": "An expression tree houses operators in parent nodes and numbers in leaves. Inorder (Left, Root, Right) mechanically places the operator precisely between its corresponding variables, authentically synthesizing standard human Infix algebra.43",
+          "id": "dsa-stacks-expressions-27"
+        },
+        {
+          "question": "Which pathological edge case will inevitably trigger a recursive Stack Overflow during Deep Tree traversal?",
+          "options": [
+            "Operating on an optimally balanced AVL tree.",
+            "Evaluating an empty tree structure.",
+            "Traversing a massively corrupted, unidirectional right-skewed tree scaling into the millions of nodes.",
+            "Implementing iterative Queue logic."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Recursion burns stack memory proportional to tree height. A skewed tree functions identically to a linear linked list; traversing a million skewed nodes pushes a million un-popped recursive frames onto the call stack, blowing past operating system limits.",
+          "id": "dsa-stacks-expressions-28"
+        },
+        {
+          "question": "Inorder partitions the left hemisphere as 6,4,7,2,12,5. Looking at Preorder, 2 rules this left hemisphere. Inorder splits 2 into left 6,4,7 and right 12,5. For the sub-array 12,5, Preorder dictates 5 is the root. Inorder logic (12 precedes 5) mechanically locks 12 into position as the Left Child of",
+          "options": [
+            "10 overrides 8; 9 shifts to become the left child of 10.",
+            "9 overrides 8; 10 maintains its position but permanently loses its left child.",
+            "4 overrides 8.",
+            "A stack overflow terminates execution."
+          ],
+          "correctAnswer": 1,
+          "explanation": "The Inorder Successor is mathematically the absolute minimum of the right subtree. Exploring left from 10 isolates 9 as the Successor. 9's value is ripped out and overwrites 8 at the apex. The original node 9 is then targeted for standard leaf deletion, leaving 10 structurally intact but stripped of",
+          "id": "dsa-stacks-expressions-29"
+        },
+        {
+          "question": "When overriding recursive compilers by designing a purely Iterative Inorder Traversal algorithm, which specific physical data structure must you manually initialize to simulate the backtracking logic?",
+          "options": [
+            "Circular Queue",
+            "Max-Heap",
+            "Stack",
+            "Multi-dimensional Array"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Because Inorder requires plunging left, then backtracking up to print the root before diving right, the algorithm must explicitly \"remember\" ancestral nodes. Pushing parent pointers onto a manually controlled Stack perfectly simulates recursive suspension and resumption mechanisms.8",
+          "id": "dsa-stacks-expressions-30"
+        },
+        {
+          "question": "Breadth-First Search (BFS) algorithmic architecture relies fundamentally on which operational data structure?",
+          "options": [
+            "Stack",
+            "Priority Queue",
+            "Queue",
+            "Binary Search Tree"
+          ],
+          "correctAnswer": 2,
+          "explanation": "BFS explores space radially. A FIFO Queue mandates that immediately discovered neighbors (distance",
+          "id": "dsa-stacks-expressions-31"
+        },
+        {
+          "question": "are processed thoroughly before the algorithm is allowed to touch deeper nodes (distance 2).5 Question 123: Depth-First Search (DFS) mechanics are natively driven by which processing structure?",
+          "options": [
+            "Stack",
+            "Queue",
+            "Adjacency Matrix",
+            "Circular Linked List"
+          ],
+          "correctAnswer": 0,
+          "explanation": "DFS mandates extreme exploration down a singular path before retreating. This backtracking relies on a LIFO Stack (or system recursion) to \"remember\" abandoned branching intersections.5",
+          "id": "dsa-stacks-expressions-32"
+        },
+        {
+          "question": "To efficiently combat the massive memory waste generated by an Adjacency Matrix mapping a heavily Sparse graph, engineers pivot to:",
+          "options": [
+            "Adjacency Lists",
+            "Hyper-cubes",
+            "Multi-dimensional Arrays",
+            "Deep Stacks"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Adjacency lists fuse arrays with linked lists. They allocate pointers exclusively for edges that physically exist, collapsing memory constraints to a vastly leaner .8",
+          "id": "dsa-stacks-expressions-33"
+        },
+        {
+          "question": "Kruskal's Minimum Spanning Tree algorithm rapidly sorts edges and constructs the tree. What data mechanism does it deploy to instantly halt cyclic formations during construction?",
+          "options": [
+            "BFS Queues",
+            "Stacks",
+            "Union-Find (Disjoint Set)",
+            "Adjacency Matrices"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Union-Find maintains separate clusters. Before fusing an edge, it executes an  amortized check to see if both vertices belong to the same parent set. If so, a cycle is imminent, and the edge is ruthlessly discarded.8",
+          "id": "dsa-stacks-expressions-34"
+        },
+        {
+          "question": "Conceptual Trap Matrix: If a junior developer overrides the FIFO Queue within a BFS algorithm and substitutes a LIFO Stack, what explicit topological traversal occurs?",
+          "options": [
+            "The program immediately halts via compilation error.",
+            "It executes a mathematically pure, standard DFS traversal.",
+            "It executes a pseudo-DFS that navigates branching paths in reverse/mirror order compared to standard recursive DFS.",
+            "It enters a perpetual cyclic loop."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Inserting a stack simulates DFS depth-plunging behavior. However, a recursive DFS processes the first child found. The stack pushes all children, meaning the last child pushed is popped first. This maps the graph deeply, but entirely backward mechanically.5",
+          "id": "dsa-stacks-expressions-35"
+        },
+        {
+          "question": "You must architect an algorithm tracking the absolute shortest unweighted path. Why is deploying DFS for this task considered an algorithmic catastrophe?",
+          "options": [
+            "DFS inherently corrupts edge weights.",
+            "DFS locks origin paths instantly; it might plunge down a massive 100-hop detour, flag the destination as \"Visited,\" and permanently blind the system to a 2-hop shortcut evaluated later.",
+            "DFS algorithms crash on acyclic graphs.",
+            "Stacks cannot count numerical hops natively."
+          ],
+          "correctAnswer": 1,
+          "explanation": "DFS greedily chases deep paths without concern for proximity. By marking nodes \"Visited\" upon discovery, a terrible, convoluted route locks out adjacent, highly efficient shortcuts. BFS universally solves this by expanding by proximity.1",
+          "id": "dsa-stacks-expressions-36"
+        },
+        {
+          "question": "During an intense DFS traversal across a massive directed topology, the pointer targets edge . Node is flagged \"Visited,\" but its recursive completion state is \"Active\" (it remains suspended in the system stack). Identify the edge.",
+          "options": [
+            "Forward Edge",
+            "Cross Edge",
+            "Tree Edge",
+            "Back Edge"
+          ],
+          "correctAnswer": 3,
+          "explanation": "A node is \"Visited\" but not \"Completed\" strictly while the algorithm is currently exploring its descendants. Hitting it again implies a descendant has looped an edge directly backward into its own active ancestral lineage, physically proving a graph cycle via a Back Edge.52",
+          "id": "dsa-stacks-expressions-37"
+        },
+        {
+          "id": "dsa-stacks-expressions-txt-38",
+          "question": "Which is a built-in data type?",
+          "options": [
+            "Stack",
+            "Queue",
+            "Integer",
+            "Tree"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-stacks-expressions-txt-39",
+          "question": "Which is NOT a data structure?",
+          "options": [
+            "Array",
+            "Stack",
+            "Algorithm",
+            "Tree"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-stacks-expressions-txt-40",
+          "question": "Which is a non-linear data structure?",
+          "options": [
+            "Stack",
+            "Queue",
+            "Tree",
+            "Array"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-stacks-expressions-txt-41",
+          "question": "Stack follows:",
+          "options": [
+            "FIFO",
+            "LIFO",
+            "Random",
+            "Priority"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-stacks-expressions-txt-42",
+          "question": "Queue follows:",
+          "options": [
+            "LIFO",
+            "FILO",
+            "FIFO",
+            "Random"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-stacks-expressions-txt-43",
+          "question": "Which is an ADT?",
+          "options": [
+            "Integer",
+            "Stack",
+            "Float",
+            "Character"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-stacks-expressions-txt-44",
+          "question": "Which structure allows random access?",
+          "options": [
+            "Stack",
+            "Queue",
+            "Array",
+            "Linked list"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-stacks-expressions-txt-45",
+          "question": "Recursive algorithm uses:",
+          "options": [
+            "Loop only",
+            "Function calling itself",
+            "Stack only",
+            "Queue only"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-stacks-expressions-new-46",
+          "question": "to postfix. What is the maximum concurrent volume of operators/symbols occupying the stack?",
+          "options": [
+            "2",
+            "3",
+            "4",
+            "5 Correct Answer: C"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Explanation available in reference materials."
+        },
+        {
+          "id": "dsa-stacks-expressions-new-47",
+          "question": "Which of these can be used to represent a network of roads?",
+          "options": [
+            "Stack",
+            "Queue",
+            "Graph",
+            "Tree"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-stacks-expressions-new-48",
+          "question": "Which structure is used for adjacency list?",
+          "options": [
+            "2D array",
+            "Linked list",
+            "Queue",
+            "Stack"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-stacks-expressions-new-49",
+          "question": "BFS uses which data structure?",
+          "options": [
+            "Stack",
+            "Queue",
+            "Linked List",
+            "Tree"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-stacks-expressions-new-50",
+          "question": "DFS uses:",
+          "options": [
+            "Stack",
+            "Queue",
+            "Linked list",
+            "Array"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-stacks-expressions-new-51",
+          "question": "DFS traversal can be implemented:",
+          "options": [
+            "Recursively",
+            "Iteratively with stack",
+            "Both a & b",
+            "None"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-stacks-expressions-new-52",
+          "question": "When vertex is visited in DFS, it is pushed into:",
+          "options": [
+            "Queue",
+            "Stack",
+            "Priority queue",
+            "None"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-stacks-expressions-new-53",
+          "question": "MST is useful in:",
+          "options": [
+            "Network design",
+            "Sorting arrays",
+            "Stack operations",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-stacks-expressions-new-54",
+          "question": "Kruskal’s algorithm uses which data structure for cycle detection?",
+          "options": [
+            "Union-Find",
+            "Stack",
+            "Queue",
+            "Heap"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        }
+      ]
+    },
+    {
+      "id": "arrays-matrices",
+      "title": "Arrays & Sparse Matrices",
+      "unit": "Unit 2",
+      "questions": [
+        {
+          "question": "If evaluating the complexity of finding a specific target in a linear, unsorted array, what constitutes the \"Best-Case\" scenario?",
+          "options": [
+            "The target is not in the array, requiring  time.",
+            "The target is the very first element, resolving in  time.",
+            "The array is sorted.",
+            "The target is the middle element."
+          ],
+          "correctAnswer": 1,
+          "explanation": "The best-case scenario triggers the earliest possible termination of an algorithm. Finding the element on the absolute first comparison halts the loop instantly.13",
+          "id": "dsa-arrays-matrices-1"
+        },
+        {
+          "question": "A Sparse Matrix is structurally defined as a 2D matrix where:",
+          "options": [
+            "All diagonal elements are exactly zero.",
+            "The vast majority of its elements hold a value of zero.",
+            "The number of rows strictly exceeds the number of columns.",
+            "All elements are mathematically negative."
+          ],
+          "correctAnswer": 1,
+          "explanation": "Sparse matrices contain disproportionately high counts of zeroes. Standard 2D array representation wastes significant memory storing these zeroes, necessitating compressed representations.21",
+          "id": "dsa-arrays-matrices-2"
+        },
+        {
+          "question": "In modern programming environments like Java and C, what is the default lower bound (starting index) of an array?",
+          "options": [
+            "1",
+            "-1",
+            "0",
+            "Hexadecimal 0xFFFF"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Arrays are natively 0-indexed. The index represents the offset distance from the base address. The first element has zero offset from the start.25",
+          "id": "dsa-arrays-matrices-3"
+        },
+        {
+          "question": "If a mathematical array is defined with arbitrary bounds , what is the formula to calculate the total number of elements?",
+          "options": [
+            "B)  C)  D)  Correct Answer: C Explanation: To calculate the absolute count inclusively between a lower bound and upper bound, the lower bound is subtracted from the upper, and 1 is added to correct th",
+            "Row-Major Order",
+            "Diagonal-Major Order",
+            "Column-Major Order"
+          ],
+          "correctAnswer": 3,
+          "explanation": "While C traverses horizontally, Fortran and mathematical processing environments natively map 2D grids vertically down columns into 1D memory blocks.2",
+          "id": "dsa-arrays-matrices-4"
+        },
+        {
+          "question": "What is the most severe operational disadvantage of utilizing a static array?",
+          "options": [
+            "Memory size is permanently fixed at compilation and cannot expand dynamically during runtime.",
+            "Traversing the array requires  time.",
+            "CPU caches reject array data.",
+            "Elements cannot be accessed randomly."
+          ],
+          "correctAnswer": 0,
+          "explanation": "Arrays cannot adapt. If initialized to hold 100 elements, inserting a 101st element causes a fatal overflow, while storing only 5 elements wastes 95% of the allocated memory.3",
+          "id": "dsa-arrays-matrices-5"
+        },
+        {
+          "question": "When compressing a Sparse Matrix into a 1D Array representation, the table requires exactly how many columns to represent a non-zero element?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The standard triple-array representation requires three specific fields per entry: the original Row index, the original Column index, and the actual non-zero Value.21",
+          "id": "dsa-arrays-matrices-6"
+        },
+        {
+          "question": "Calculate the address of in a 2D array stored in Row-Major order. Base Address , Word Size bytes, utilizing 0-based indexing.",
+          "options": [
+            "508",
+            "512",
+            "514",
+            "516"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The Row-Major formula is . Here, total columns , target row , target column . .28",
+          "id": "dsa-arrays-matrices-7"
+        },
+        {
+          "question": "Given array stored in Column-Major order. Base Address = 1000, Word Size = 4 bytes. Determine the address of (0-based indexing).",
+          "options": [
+            "1076",
+            "1092",
+            "1100",
+            "1088"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The Column-Major formula is . Total rows , target row , target column . .19",
+          "id": "dsa-arrays-matrices-8"
+        },
+        {
+          "question": "An array is stored in memory. Exactly how many total elements are contained within this matrix?",
+          "options": [
+            "16",
+            "20",
+            "24",
+            "25"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Using the range formula . Rows . Columns . The Cartesian product yields  elements.19",
+          "id": "dsa-arrays-matrices-9"
+        },
+        {
+          "question": "A Sparse Matrix contains 5 non-zero elements out of a grid. Assuming 4-byte integers, what is the data payload size utilizing the Triple Array representation?",
+          "options": [
+            "4,000,000 bytes",
+            "60 bytes",
+            "20 bytes",
+            "120 bytes"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The Triple Array utilizes 3 columns (Row, Col, Val). 5 elements  values per element = 15 integers. 15 integers  bytes = 60 bytes of strictly necessary data, neutralizing immense waste.22",
+          "id": "dsa-arrays-matrices-10"
+        },
+        {
+          "question": "A complex array utilizes non-zero lower bounds. What is the rigorously correct Row-Major address calculation formula?",
+          "options": [
+            "B)  C)  D)  Correct Answer: A Explanation: The bounds  and  act as offsets. To correctly identify how many rows/cols to physically skip, the target indices () must be normalized by subtracting the ori",
+            "218",
+            "210",
+            "220"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Calculate columns . Formula:  .29",
+          "id": "dsa-arrays-matrices-11"
+        },
+        {
+          "question": "Matrix is stored in Column-Major order. Base = 1000, Word Size = 1. What is the address of ?",
+          "options": [
+            "1010",
+            "1012",
+            "1014",
+            "1016"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Calculate rows . Formula:  .19",
+          "id": "dsa-arrays-matrices-12"
+        },
+        {
+          "question": "Why does a brute-force array transposition algorithm catastrophically degrade performance on massive Sparse Matrices?",
+          "options": [
+            "Zeroes cannot be transposed computationally.",
+            "The algorithm aggressively scans immense voids of irrelevant zeroes, triggering massive cache misses and squandering CPU cycles on null operations.",
+            "The base address shifts dynamically.",
+            "The algorithm violates asymptotic bounds."
+          ],
+          "correctAnswer": 1,
+          "explanation": "Sparse matrices are dominated by zeroes. Scanning an entire matrix blindly forces the CPU to evaluate millions of zeroes. Efficient transposition parses only the compressed Triple Array representation, exchanging rows and columns in  time.21",
+          "id": "dsa-arrays-matrices-13"
+        },
+        {
+          "id": "dsa-arrays-matrices-txt-14",
+          "question": "Primitive data types include:",
+          "options": [
+            "Array",
+            "Structure",
+            "Integer",
+            "File"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-arrays-matrices-txt-15",
+          "question": "Which is NOT primitive?",
+          "options": [
+            "int",
+            "char",
+            "float",
+            "array"
+          ],
+          "correctAnswer": 3,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        }
+      ]
+    },
+    {
+      "id": "graphs",
+      "title": "Graphs & Traversals",
+      "unit": "Unit 5",
+      "questions": [
+        {
+          "question": "If memory usage is strictly independent of the input size and no dynamically scaling structures are initialized, the space complexity is denoted as:",
+          "options": [
+            "B)  C)  D) Variable Correct Answer: B Explanation: Declaring a fixed number of standard primitive variables (like loop counters) utilizes a constant amount of byte space, denoted algorithmically as .1",
+            "C)  D)  Correct Answer: C Explanation: The outer loop variable scales geometrically, executing  times. For every single iteration of the outer loop, the inner loop executes exactly  times. Multiplying",
+            "D)  Correct Answer: B Explanation: By dividing both functions by , we compare  against . Because polynomial growth () invariably outpaces logarithmic exponentiation for significantly large inputs,  do",
+            "Correct Answer: C Explanation: The recursion relation is . This mirrors the exact divide-and-conquer architecture of Merge Sort, resolving mathematically to a tight linearithmic bound of .13 Question "
+          ],
+          "correctAnswer": 1,
+          "explanation": "Compilers optimize scope variables inside loops. The space is allocated once in the stack frame and simply overwritten continuously. Thus, auxiliary space does not scale with , maintaining an  constant bound.10",
+          "id": "dsa-graphs-1"
+        },
+        {
+          "question": "An unweighted Adjacency Matrix mapping a graph containing vertices strictly demands what degree of memory allocation?",
+          "options": [
+            "B)  C)  D)  Correct Answer: D Explanation: The matrix allocates a rigorous  Cartesian grid. Even if zero edges exist, the architecture immovably blocks  memory slots, dominating space complexity.8 Que",
+            "Pure Diagonal composition",
+            "Bilateral Symmetry across the main diagonal",
+            "Exponential compression"
+          ],
+          "correctAnswer": 2,
+          "explanation": "An undirected edge  automatically implies an edge . The matrix maps a 1 at both coordinates, generating a flawless mirror reflection diagonally across the grid.54",
+          "id": "dsa-graphs-2"
+        },
+        {
+          "question": "A directional graph structurally devoid of any internal cyclic loops is formally labeled as:",
+          "options": [
+            "Bipartite Graph",
+            "Complete Graph",
+            "Directed Acyclic Graph (DAG)",
+            "Multigraph"
+          ],
+          "correctAnswer": 2,
+          "explanation": "A DAG restricts edges such that traversing a path infinitely forward will never mathematically deposit the pointer back onto a previously visited ancestor node.5",
+          "id": "dsa-graphs-3"
+        },
+        {
+          "question": "Which traversal heuristic is significantly more aggressive and suitable for algorithmic Maze pathfinding where the destination is anticipated to be deeply buried?",
+          "options": [
+            "Binary Search",
+            "BFS",
+            "DFS",
+            "Hash Probing"
+          ],
+          "correctAnswer": 2,
+          "explanation": "BFS explores every dead-end adjacent to the start simultaneously, acting sluggishly in tight mazes. DFS drives fiercely forward to the maze's absolute end boundaries, making it exceptionally fast for deep-target extractions.",
+          "id": "dsa-graphs-4"
+        },
+        {
+          "question": "During a DFS progression through a directed graph, the discovery of a 'Back Edge' fundamentally proves the existence of:",
+          "options": [
+            "A disconnected graph component",
+            "An articulation fault",
+            "A cyclic loop",
+            "A bipartite structure"
+          ],
+          "correctAnswer": 2,
+          "explanation": "A Back Edge occurs when the algorithm's probe detects an ancestral node that is already marked \"active\" but not yet \"completed.\" Looping back to an active origin definitively proves a closed cyclic circle.5",
+          "id": "dsa-graphs-5"
+        },
+        {
+          "question": "In network fault-tolerance analysis, an \"Articulation Point\" identifies a specific vertex whose physical deletion causes what catastrophic event?",
+          "options": [
+            "The graph inverts.",
+            "Cycles are instantly generated.",
+            "The entire graph violently fractures into two or more entirely disconnected sub-networks.",
+            "Edge weights shift to negative."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Articulation points (Cut Vertices) represent single points of failure. Routing traffic relies on these bottlenecks; removing them permanently severs communication bridges between disparate network clusters.52",
+          "id": "dsa-graphs-6"
+        },
+        {
+          "question": "You deploy a DFS algorithm over a highly dense graph structured entirely within an Adjacency Matrix. What is the catastrophic time penalty?",
+          "options": [
+            "B)  C)  D)  Correct Answer: C Explanation: For every single vertex parsed, the DFS must forcefully scan the entire row array of  elements simply to verify boolean 0 or 1 edge connections. Scanning  el",
+            "DFS must dictate the color order.",
+            "Absolutely no two physically adjacent vertices may share an identical color state.",
+            "Directed edges mandate secondary coloring."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Adjacent vertices represent conflicting entities (e.g., overlapping radio frequencies). The entire algorithm optimizes minimal color deployment while strictly ensuring bordering entities are visibly distinct.26",
+          "id": "dsa-graphs-7"
+        },
+        {
+          "question": "Which highly specialized algorithmic framework utilizes the extreme inverse Ackermann function —providing practically instantaneous amortized constant time—to execute rapid graph connectivity and cyclic queries?",
+          "options": [
+            "Tarjan's strongly connected components algorithm.",
+            "Disjoint Set (Union-Find) utilizing intelligent path compression and union by rank.",
+            "Bellman-Ford's negative weight detector.",
+            "Floyd-Warshall's all-pairs shortest path matrix."
+          ],
+          "correctAnswer": 1,
+          "explanation": "Union-Find operates by assigning parent representatives to clustered sets. \"Path compression\" aggressively flattens the tree structure during queries, causing future lookups to execute in , a time bound so minuscule it acts as  for all conceivable computational bounds.8",
+          "id": "dsa-graphs-8"
+        },
+        {
+          "id": "dsa-graphs-txt-9",
+          "question": "Data refers to:",
+          "options": [
+            "Processed facts",
+            "Raw facts and figures",
+            "Meaningful output",
+            "Organized knowledge"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-graphs-txt-10",
+          "question": "Which of the following best defines data?",
+          "options": [
+            "Knowledge",
+            "Facts without context",
+            "Results",
+            "Programs"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-graphs-txt-11",
+          "question": "Data without meaning is called:",
+          "options": [
+            "Information",
+            "Knowledge",
+            "Raw data",
+            "Processed data"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-graphs-txt-12",
+          "question": "Linear data structures store data:",
+          "options": [
+            "Hierarchically",
+            "Sequentially",
+            "Graphically",
+            "Randomly"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-graphs-txt-13",
+          "question": "Graph represents:",
+          "options": [
+            "Hierarchical relations",
+            "Network relations",
+            "Sequential relations",
+            "Linear relations"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-graphs-new-14",
+          "question": "A graph G = (V, E) consists of:",
+          "options": [
+            "Vertex set only",
+            "Edge set only",
+            "Vertex and edge sets",
+            "None"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-15",
+          "question": "A graph with no cycle is called a:",
+          "options": [
+            "Subgraph",
+            "Acyclic graph",
+            "Connected graph",
+            "Multigraph"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-16",
+          "question": "In a simple graph, which of the following is true?",
+          "options": [
+            "No loops, no multiple edges",
+            "Loops allowed",
+            "Multiple edges allowed",
+            "All of the above"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-17",
+          "question": "In a directed graph, the sum of all in-degrees equals:",
+          "options": [
+            "Number of vertices",
+            "Twice the number of edges",
+            "Number of edges",
+            "Zero"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-18",
+          "question": "What is the maximum number of edges in a simple undirected graph with n vertices?",
+          "options": [
+            "n",
+            "n(n−1)",
+            "n(n−1)/2",
+            "n²"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-19",
+          "question": "Which of the following is not a type of graph?",
+          "options": [
+            "Directed",
+            "Weighted",
+            "Reflexive",
+            "Undirected"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-20",
+          "question": "Two vertices are said to be adjacent if:",
+          "options": [
+            "They have equal degree",
+            "They are connected by an edge",
+            "Both have loops",
+            "None"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-21",
+          "question": "The degree of a vertex in an undirected graph equals:",
+          "options": [
+            "Number of connections to the vertex",
+            "Half of its edges",
+            "Twice the number of edges",
+            "Always zero"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-22",
+          "question": "In a complete graph with n vertices, the number of edges =",
+          "options": [
+            "n²",
+            "n(n−1)/2",
+            "n²−1",
+            "n−1"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-23",
+          "question": "What is a subgraph?",
+          "options": [
+            "Graph with additional vertices",
+            "Graph with fewer vertices and edges",
+            "Graph with all edges reversed",
+            "Graph with loops"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-24",
+          "question": "A graph that can be drawn on a plane without edges crossing is called:",
+          "options": [
+            "Simple graph",
+            "Planar graph",
+            "Bipartite graph",
+            "Directed graph"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-25",
+          "question": "A graph is said to be connected if:",
+          "options": [
+            "It has no cycles",
+            "Each vertex can be reached from every other vertex",
+            "It contains a loop",
+            "It is weighted"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-26",
+          "question": "The minimum number of edges for a connected graph with n vertices is:",
+          "options": [
+            "n",
+            "n-1",
+            "n+1",
+            "n²"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-27",
+          "question": "A bipartite graph can be divided into:",
+          "options": [
+            "2 disjoint vertex sets",
+            "3 connected components",
+            "1 independent set",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-28",
+          "question": "The sum of degrees of all vertices in an undirected graph equals:",
+          "options": [
+            "2 × number of edges",
+            "Number of vertices",
+            "Product of vertices and edges",
+            "Number of edges"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-29",
+          "question": "Which of these graphs represent one-to-many relationships?",
+          "options": [
+            "Directed",
+            "Undirected",
+            "Both",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-30",
+          "question": "If all vertices have equal degree, the graph is called:",
+          "options": [
+            "Regular",
+            "Connected",
+            "Weighted",
+            "Complete"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-31",
+          "question": "A graph can be represented using:",
+          "options": [
+            "Adjacency matrix",
+            "Adjacency list",
+            "Incidence matrix",
+            "All of these"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-32",
+          "question": "In adjacency matrix, element A[i][j] = 1 if:",
+          "options": [
+            "There is an edge between vertex i and j",
+            "i = j",
+            "i or j is isolated",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-33",
+          "question": "Adjacency list is efficient for:",
+          "options": [
+            "Dense graphs",
+            "Sparse graphs",
+            "Complete graphs",
+            "None"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-34",
+          "question": "The adjacency matrix for an undirected graph is:",
+          "options": [
+            "Symmetric",
+            "Asymmetric",
+            "Skewed",
+            "Non-square"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-35",
+          "question": "Adding an edge in adjacency list takes:",
+          "options": [
+            "O(1)",
+            "O(log V)",
+            "O(E)",
+            "O(V²)"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-36",
+          "question": "Adjacency matrix is preferred when:",
+          "options": [
+            "Graph is dense",
+            "Graph is sparse",
+            "Vertices are dynamic",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-37",
+          "question": "For a graph with 4 vertices, what is the size of adjacency matrix?",
+          "options": [
+            "4×4",
+            "3×4",
+            "4×2",
+            "2×4"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-38",
+          "question": "Which representation uses less space for sparse graphs?",
+          "options": [
+            "Matrix",
+            "List",
+            "Both",
+            "None"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-39",
+          "question": "The adjacency matrix of unweighted graph contains values:",
+          "options": [
+            "0 or 1",
+            "Weight values",
+            "1 or -1",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-40",
+          "question": "In adjacency list representation, each vertex contains:",
+          "options": [
+            "A list of connected vertices",
+            "Degree",
+            "Index only",
+            "Weights only"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-41",
+          "question": "For a graph with n vertices, how many entries in adjacency matrix are possible?",
+          "options": [
+            "n",
+            "n²",
+            "2n",
+            "n+1"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-42",
+          "question": "When a graph is heavily connected, which representation is suitable?",
+          "options": [
+            "Matrix",
+            "List",
+            "Both",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-43",
+          "question": "Deleting a vertex is easier in:",
+          "options": [
+            "Matrix",
+            "List",
+            "Both",
+            "None"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-44",
+          "question": "Traversing neighbors of a vertex is faster in:",
+          "options": [
+            "Adjacency list",
+            "Adjacency matrix",
+            "None",
+            "Both"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-45",
+          "question": "Which representation easily stores edge weights?",
+          "options": [
+            "Both list and matrix",
+            "Only matrix",
+            "Only list",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-46",
+          "question": "Sparse graph means:",
+          "options": [
+            "Few edges relative to vertices",
+            "Many edges",
+            "Complete graph",
+            "Disconnected graph"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-47",
+          "question": "BFS traversal of graph is similar to:",
+          "options": [
+            "Preorder traversal",
+            "Level order traversal",
+            "Inorder traversal",
+            "Postorder"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-48",
+          "question": "DFS traversal of graph is similar to:",
+          "options": [
+            "Preorder",
+            "Inorder",
+            "Level order",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-49",
+          "question": "BFS is used in:",
+          "options": [
+            "Finding shortest path in unweighted graph",
+            "All pair shortest path",
+            "MST generation",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-50",
+          "question": "BFS explores in order of:",
+          "options": [
+            "Depth",
+            "Level",
+            "Edge count",
+            "Random"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-51",
+          "question": "MST is defined only for:",
+          "options": [
+            "Connected, weighted, undirected graphs",
+            "Directed",
+            "Disconnected",
+            "Any graph"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-52",
+          "question": "Total edges in MST for n vertices =",
+          "options": [
+            "n-1",
+            "n",
+            "n+1",
+            "2n"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-53",
+          "question": "All MSTs of same graph have:",
+          "options": [
+            "Equal total weight",
+            "Different weights",
+            "Loops",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-54",
+          "question": "Graph with unique edge weights has:",
+          "options": [
+            "Unique MST",
+            "Multiple MSTs",
+            "No MST",
+            "Random MST"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-55",
+          "question": "The objective of MST is to:",
+          "options": [
+            "Minimize cost",
+            "Maximize edges",
+            "Reduce vertices",
+            "Random select"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-56",
+          "question": "Prim’s algorithm starts from:",
+          "options": [
+            "A chosen vertex",
+            "All vertices",
+            "Random edge",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-57",
+          "question": "Prim’s algorithm stops when:",
+          "options": [
+            "All vertices are included",
+            "All edges used",
+            "A cycle is formed",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-58",
+          "question": "Kruskal’s sorts:",
+          "options": [
+            "Edges",
+            "Vertices",
+            "Adjacency lists",
+            "Paths"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-59",
+          "question": "Which algorithm extends from a single vertex outward?",
+          "options": [
+            "Prim’s",
+            "Kruskal’s",
+            "Dijkstra’s",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-60",
+          "question": "Kruskal’s algorithm works best for:",
+          "options": [
+            "Sparse graphs",
+            "Dense graphs",
+            "Neither",
+            "Directed"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-graphs-new-61",
+          "question": "Prim’s algorithm works faster for:",
+          "options": [
+            "Dense graphs",
+            "Sparse graphs",
+            "Disconnected",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        }
+      ]
+    },
+    {
+      "id": "linked-lists",
+      "title": "Linked Lists",
+      "unit": "Unit 2",
+      "questions": [
+        {
+          "question": "This contiguous nature yields profound advantages in spatial locality; modern CPU architectures aggressively pre-fetch sequential memory blocks into high-speed caches, granting arrays constant-time random access. However, this rigidity introduces scaling paradoxes—arrays cannot dynamically expand w",
+          "options": [
+            "Nodes are scattered randomly and connected by pointers.",
+            "Elements of the same data type are stored in perfectly contiguous memory blocks.",
+            "Elements follow a strict Last-In-First-Out hierarchy.",
+            "Size dynamically adjusts automatically."
+          ],
+          "correctAnswer": 1,
+          "explanation": "Arrays require a single, unbroken sequence of memory addresses. This enables instant mathematical calculation of any element's position relative to the base pointer.17",
+          "id": "dsa-linked-lists-1"
+        },
+        {
+          "question": "A single unit of a Singly Linked List (a Node) encapsulates which two primary fields?",
+          "options": [
+            "Base Address and Limit Pointer",
+            "Left Child and Right Child",
+            "Data payload and a memory pointer to the Next node",
+            "Data and a Previous node pointer"
+          ],
+          "correctAnswer": 2,
+          "explanation": "A singly linked list node strictly maintains the user's data and exactly one explicit directional pointer addressing the physical memory location of the subsequent node.23",
+          "id": "dsa-linked-lists-2"
+        },
+        {
+          "question": "What physical pointer manipulation distinguishes a Circular Linked List from a Singly Linked List?",
+          "options": [
+            "The head pointer is set to NULL.",
+            "The next pointer of the final tail node points directly back to the head node.",
+            "Every node has two pointers.",
+            "Pointers are replaced with integer offsets."
+          ],
+          "correctAnswer": 1,
+          "explanation": "Circular lists eliminate the terminal NULL pointer. By looping the tail's reference back to the origin node, the structure enables endless, cyclic traversal algorithms.4",
+          "id": "dsa-linked-lists-3"
+        },
+        {
+          "question": "Accessing an element directly by its index within an array executes in what time complexity?",
+          "options": [
+            "B)  C)  D)  Correct Answer: B Explanation: Arrays bypass sequential traversal. The compiler calculates the exact physical byte address instantly via mathematical offset multiplication, achieving absol",
+            "The immediate Next node",
+            "NULL",
+            "A randomized garbage value"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The Head node possesses no predecessor. Consequently, to signal the definitive absolute start of the bidirectional list, its previous pointer is grounded to NULL.24",
+          "id": "dsa-linked-lists-4"
+        },
+        {
+          "question": "What is the strict time complexity to append a new node to the absolute end of a Singly Linked List, assuming only the Head pointer is provided?",
+          "options": [
+            "B)  C)  D)  Correct Answer: C Explanation: Without a dedicated Tail pointer, the algorithm is forced to initialize at the Head and step forward through all  nodes consecutively until hitting NULL befo",
+            "Deletes the Tail node.",
+            "Deletes the Head node.",
+            "Inserts a node at the Head."
+          ],
+          "correctAnswer": 2,
+          "explanation": "The logic isolates the current Head in temp, forcefully shifts the official Head pointer to the second node, and safely deallocates the isolated first node, successfully deleting it.23",
+          "id": "dsa-linked-lists-5"
+        },
+        {
+          "question": "What is the exact loop condition required to safely halt traversal precisely on the Tail node of a Singly Linked List?",
+          "options": [
+            "while (curr!= NULL)",
+            "while (curr->next!= NULL)",
+            "while (curr->data!= 0)",
+            "while (curr->prev!= NULL)"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Evaluating curr!= NULL pushes the pointer entirely off the list into the void. Checking curr->next!= NULL detects the termination of the list while the pointer is still actively sitting on the final valid node.23",
+          "id": "dsa-linked-lists-6"
+        },
+        {
+          "question": "Why is polynomial addition heavily optimized by utilizing Linked Lists instead of Arrays?",
+          "options": [
+            "Arrays cannot store negative coefficients.",
+            "Linked lists organically support polynomials of arbitrary lengths and massive exponent gaps without explicitly wasting memory on missing exponential terms.",
+            "Linked lists execute addition in  time.",
+            "Polynomials require multi-dimensional arrays natively."
+          ],
+          "correctAnswer": 1,
+          "explanation": "In arrays,  requires an array of size 101 to store two values. A linked list simply creates two dynamic nodes housing the coefficient and exponent, mapping sparse polynomial terms efficiently.27",
+          "id": "dsa-linked-lists-7"
+        },
+        {
+          "question": "In a Sparse Matrix Linked List architecture, every individual node utilizes four fields. What are they?",
+          "options": [
+            "Prev, Next, Row, Data",
+            "Row, Column, Value, Next Node Pointer",
+            "Matrix Size, Base Address, Row, Col",
+            "Up, Down, Left, Right"
+          ],
+          "correctAnswer": 1,
+          "explanation": "To accurately place the sparse element back into a hypothetical grid, the node must physically record its Cartesian Row coordinate, Column coordinate, its numerical Value, and a pointer linking to the next non-zero element.21",
+          "id": "dsa-linked-lists-8"
+        },
+        {
+          "question": "Which operation guarantees mathematically strict time complexity in an arbitrary, standard Singly Linked List?",
+          "options": [
+            "Deleting the Tail node.",
+            "Deleting an element by its value.",
+            "Inserting a new node directly at the Head.",
+            "Finding the mathematical median."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Head insertion bypasses traversal. The new node's pointer is directed to the current Head, and the master Head pointer is shifted to the new node, executing instantaneously.31",
+          "id": "dsa-linked-lists-9"
+        },
+        {
+          "question": "In a Doubly Linked List, what pointer operation correctly bypasses a node P to delete it?",
+          "options": [
+            "P->next = P->prev;",
+            "P->prev->next = NULL;",
+            "P->prev->next = P->next; P->next->prev = P->prev;",
+            "P->data = 0;"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Bilateral bridging is required. The predecessor's forward pointer must aim at P's successor, and the successor's backward pointer must aim at P's predecessor, perfectly isolating P.24",
+          "id": "dsa-linked-lists-10"
+        },
+        {
+          "question": "When compared directly, what advantage does an Array retain over a Linked List?",
+          "options": [
+            "Dynamic expansion without overhead.",
+            "Zero memory fragmentation natively.",
+            "Constant-time  index lookup and spatial locality CPU cache optimization.",
+            "Effortless  insertion at arbitrary mid-points."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Arrays leverage offset math to provide instant access. Furthermore, because their memory blocks are sequential, modern CPU caching architectures aggressively pre-fetch adjacent data, dramatically accelerating operations.2",
+          "id": "dsa-linked-lists-11"
+        },
+        {
+          "question": "What is the output of the following dereferencing chain on a standard linked list 10 -> 20 -> 30 -> 40 -> 50: print(head->next->next->dat",
+          "options": [
+            "; A) 10",
+            "20",
+            "30",
+            "40"
+          ],
+          "correctAnswer": 2,
+          "explanation": "head points to the node holding",
+          "id": "dsa-linked-lists-12"
+        },
+        {
+          "question": "head->next traverses to 20. Appending another ->next traverses to 30. Finally, ->data extracts the payload, printing 30.31 Question 58: Conceptual Trap: You must delete an intermediate node Q in a Singly Linked List. However, you are ONLY given the pointer to Q, not the Head. How is deletion achiev",
+          "options": [
+            "It is mathematically impossible without traversal from the Head.",
+            "Execute Q = Q->next and free Q.",
+            "Copy Q->next->data into Q, then securely bypass and delete Q->next.",
+            "Reverse the pointer direction."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Because you lack a predecessor pointer to bypass Q, you morph Q into its successor. You absorb the successor's data, then point Q->next to Q->next->next, seamlessly eliminating the duplicate.32",
+          "id": "dsa-linked-lists-13"
+        },
+        {
+          "question": "Hierarchical data structures, specifically Trees, shatter this barrier by mapping elements via multi-branching vertical layers. A Binary Tree restricts structural divergence, allowing a parent node an absolute maximum of two children (Left and Right).8 The Binary Search Tree (BST) supercharges this",
+          "options": [
+            "It must have exactly two children.",
+            "It can possess a maximum of two children.",
+            "It has infinite out-degree.",
+            "It relies on circular pointers."
+          ],
+          "correctAnswer": 1,
+          "explanation": "A binary tree strictly caps divergence. Every node can have zero, one, or at most two children, commonly referred to physically as the left child and the right child.8",
+          "id": "dsa-linked-lists-14"
+        },
+        {
+          "question": "The fundamental property governing a Binary Search Tree (BST) states that:",
+          "options": [
+            "All left child values are strictly less than the parent, and right child values are greater.",
+            "The root holds the maximum value.",
+            "All leaf nodes exist precisely on the same level.",
+            "Parent nodes must be mathematically equal to their children."
+          ],
+          "correctAnswer": 0,
+          "explanation": "This rigorous invariant partitions data geographically. Smaller values aggressively filter left, and larger values filter right, creating an organic binary search mechanism mapped to memory.8",
+          "id": "dsa-linked-lists-15"
+        },
+        {
+          "question": "Which precise traversal methodology evaluates the Root node first, then recursively maps the entire left subtree, and finally the right?",
+          "options": [
+            "Level-order",
+            "Inorder",
+            "Postorder",
+            "Preorder"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Preorder literally implies processing the overarching parent (Root) prior to traversing any deeper into the subordinate left or right descendant structures.43",
+          "id": "dsa-linked-lists-16"
+        },
+        {
+          "question": "The maximum number of consecutive physical edges traced from the absolute Root node down to the deepest isolated Leaf node is termed the tree's:",
+          "options": [
+            "Degree",
+            "Breadth",
+            "Height",
+            "Topology"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The height dictates the mathematical worst-case recursive depth of the structure, severely impacting time and space complexities during top-down traversal algorithms.",
+          "id": "dsa-linked-lists-17"
+        },
+        {
+          "question": "In arboreal data structures, what defines a \"Leaf\" node?",
+          "options": [
+            "The primary overarching root.",
+            "An intermediate node with exactly one child.",
+            "A terminal node completely lacking any children (out-degree zero).",
+            "A node possessing a NULL parent pointer."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Leaf nodes signify the absolute bottom perimeter of the tree. Their left and right structural pointers both terminate squarely at NULL.42",
+          "id": "dsa-linked-lists-18"
+        },
+        {
+          "question": "If a target node destined for deletion in a BST is identified as a Leaf (Case 1), what is the requisite pointer manipulation?",
+          "options": [
+            "Conduct an Inorder Successor replacement.",
+            "Sever the node by setting its Parent's targeting pointer directly to NULL.",
+            "Rotate the entire structural hierarchy.",
+            "Promote the root to a leaf."
+          ],
+          "correctAnswer": 1,
+          "explanation": "Because leaf nodes carry zero dependent child structures, their physical deletion demands no complex hierarchy patching. The parent simply nullifies the connection.42",
+          "id": "dsa-linked-lists-19"
+        },
+        {
+          "question": "If a massive Binary Search Tree remains perfectly symmetrically balanced, searching for a deeply buried value resolves in what time bound?",
+          "options": [
+            "B)  C)  D)  Correct Answer: C Explanation: At every single node comparison, the algorithm abandons exactly half of the remaining search space. This recursive halving defines base-2 logarithmic degrada",
+            "A, B, C, D, E, F, G",
+            "D, E, F, G, B, C, A",
+            "D, B, E, F, G, C, A"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Preorder establishes A as Root. Inorder partitions `` Left and [F,C,G] Right. Recursively: Left preorder root is B, partitioning D left, E right, yielding postorder D,E,B. Right preorder root C, F left, G right, yielding F,G,C. Combining Left-Right-Root constructs D, E, B, F, G, C, A.43",
+          "id": "dsa-linked-lists-20"
+        },
+        {
+          "question": "A developer carelessly inserts the sorted sequence 1, 2, 3, 4, 5 into a raw BST. What is the catastrophic worst-case time complexity for searching within this structure?",
+          "options": [
+            "B)  C)  D)  Correct Answer: C Explanation: Inserting pre-sorted data strips the BST of its branching topology. It mutates into a completely skewed, linear linked list drifting exclusively rightward, d",
+            "Plunging into the Left child, then diving exclusively rightward until hitting a NULL right pointer.",
+            "Traversing horizontally to a sibling.",
+            "Scanning the minimum value universally."
+          ],
+          "correctAnswer": 1,
+          "explanation": "The predecessor is definitionally the absolute largest numerical value smaller than the target. This value hides at the very bottom right extremity of the target's left dependent subtree.45",
+          "id": "dsa-linked-lists-21"
+        },
+        {
+          "question": "Consider a mathematically perfect Binary Tree constructed to a depth of 5 levels (height = 4). Calculate the precise maximum volume of nodes it can contain.",
+          "options": [
+            "15",
+            "16",
+            "31",
+            "32"
+          ],
+          "correctAnswer": 2,
+          "explanation": "A full geometric binary progression utilizes the formula . Given height , the calculation resolves to  total saturated nodes.",
+          "id": "dsa-linked-lists-22"
+        },
+        {
+          "question": "A fresh BST absorbs the following input stream sequentially: 10, 15, 12, 11, 20. Without drawing the tree, identify the absolute Root node.",
+          "options": [
+            "10",
+            "15",
+            "20",
+            "12"
+          ],
+          "correctAnswer": 0,
+          "explanation": "A BST builds top-down. The initial element deposited into a completely void structure establishes itself immovably as the permanent absolute root, forcing all subsequent elements to pivot dynamically around it.43",
+          "id": "dsa-linked-lists-23"
+        },
+        {
+          "question": "Identifying the absolute Minimum payload value within a BST resolves dynamically to what time complexity?",
+          "options": [
+            "universally",
+            "average,  worst-case",
+            "average,  worst-case",
+            "Correct Answer: B Explanation: The minimum value is located by repeatedly traversing the Left pointer. In a balanced hierarchy, this descent takes  hops. However, if the tree is heavily left-skewed, t"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Preorder Root is",
+          "id": "dsa-linked-lists-24"
+        },
+        {
+          "question": "This makes them universally applicable for modeling complex routing, from geographic GPS shortest paths to social network clustering. In memory, graphs are mapped primarily via two structures. An Adjacency Matrix utilizes a rigid 2D array, delivering instant edge verification but hemorrhaging mem",
+          "options": [
+            "Only unidirectional hierarchical nodes.",
+            "A finite set of Vertices coupled with a set of interconnecting Edges.",
+            "A strictly acyclic tree structure.",
+            "A continuous linear loop."
+          ],
+          "correctAnswer": 1,
+          "explanation": "A graph  explicitly abandons strict hierarchy, defining itself purely by the presence of nodes (Vertices) and the defined relationship links (Edges) binding them, regardless of cycles.1",
+          "id": "dsa-linked-lists-25"
+        },
+        {
+          "question": "Which prominent algorithmic construct computes the absolute minimum weighted shortest path from a singular source node to all perimeter nodes?",
+          "options": [
+            "Kruskal's Algorithm",
+            "Topological Search",
+            "Dijkstra's Algorithm",
+            "Depth-First Search"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Dijkstra's methodology aggressively utilizes a priority queue to greedily \"relax\" edge weights, successfully extracting the lowest-cost pathing routes outward from a source epicenter.33",
+          "id": "dsa-linked-lists-26"
+        },
+        {
+          "question": "If grid index within an Adjacency Matrix, what physical network condition exists?",
+          "options": [
+            "The nodes are disconnected.",
+            "Node  and  are isolated.",
+            "A direct, verifiable edge links originating node  to destination node .",
+            "The graph contains a fault."
+          ],
+          "correctAnswer": 2,
+          "explanation": "The Cartesian intersection of row  and column  acts as a boolean flag. A state of 1 (True) confirms a physical edge connection exists mapping the two variables.",
+          "id": "dsa-linked-lists-27"
+        },
+        {
+          "question": "Evaluate a DFS Spanning Tree mapped over a connected, undirected network. What explicit mathematical rule dictates if the overarching Root node is an Articulation Point?",
+          "options": [
+            "It is universally an articulation point.",
+            "It is an articulation point strictly if and only if it possesses two or more distinct, unconnected sub-trees (children) in the DFS hierarchy.",
+            "It is never an articulation point because it anchors the tree.",
+            "It relies on back-edge quantities."
+          ],
+          "correctAnswer": 1,
+          "explanation": "If the Root branches into two separate sub-trees during DFS, it means those entire networks have zero physical cross-connections linking them (otherwise DFS would have traversed across them). Therefore, deleting the Root permanently severs the networks, defining an articulation point.52",
+          "id": "dsa-linked-lists-28"
+        },
+        {
+          "question": "An artificial intelligence routine must continuously query \"Does a valid path exist between Node X and Node Y?\" within a massively expanding, dynamic social network graph. Which architecture averts a system overload?",
+          "options": [
+            "Deploying  BFS transversals per individual query.",
+            "Utilizing recursive DFS loops for targeted pathing.",
+            "Abstracting the entire architecture into an Adjacency Matrix array.",
+            "Maintaining a continuously updating Union-Find (Disjoint Set) topology."
+          ],
+          "correctAnswer": 3,
+          "explanation": "Executing BFS/DFS per query incurs catastrophic, repetitive  time penalties. A Union-Find framework instantly clusters connected nodes behind the scenes as edges form. Querying \"Are X and Y connected?\" simply checks if they share a parent cluster, executing nearly instantaneously.8",
+          "id": "dsa-linked-lists-29"
+        },
+        {
+          "id": "dsa-linked-lists-txt-30",
+          "question": "Linked list elements are connected using:",
+          "options": [
+            "Index",
+            "Pointer",
+            "Value",
+            "Key"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-linked-lists-txt-31",
+          "question": "Which is dynamic data structure?",
+          "options": [
+            "Array",
+            "Linked list",
+            "String",
+            "Integer"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-linked-lists-new-32",
+          "question": ", what is the requisite pointer manipulation?",
+          "options": [
+            "Conduct an Inorder Successor replacement.",
+            "Sever the node by setting its Parent's targeting pointer directly to NULL.",
+            "Rotate the entire structural hierarchy.",
+            "Promote the root to a leaf. Correct Answer: B"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Explanation available in reference materials."
+        },
+        {
+          "id": "dsa-linked-lists-new-33",
+          "question": ". Calculate the precise maximum volume of nodes it can contain.",
+          "options": [
+            "15",
+            "16",
+            "31",
+            "32 Correct Answer: C"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Explanation available in reference materials."
+        },
+        {
+          "id": "dsa-linked-lists-new-34",
+          "question": "Without drawing the tree, identify the absolute Root node.",
+          "options": [
+            "10",
+            "15",
+            "20",
+            "12 Correct Answer: A"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Explanation available in reference materials."
+        },
+        {
+          "id": "dsa-linked-lists-new-35",
+          "question": "Identify the specific Left Child of node 5.",
+          "options": [
+            "12",
+            "7",
+            "18",
+            "It possesses no left child. Correct Answer: A"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Explanation available in reference materials."
+        },
+        {
+          "id": "dsa-linked-lists-new-36",
+          "question": "A vertex with no edges incident to it is called:",
+          "options": [
+            "Terminal node",
+            "Isolated node",
+            "Leaf node",
+            "Root"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-linked-lists-new-37",
+          "question": "Kruskal’s algorithm stops when:",
+          "options": [
+            "n−1 edges are included",
+            "Cycle is formed",
+            "All nodes disconnected",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-linked-lists-new-38",
+          "question": "Prim’s algorithm prefers:",
+          "options": [
+            "Adjacency matrix",
+            "Edge list",
+            "None",
+            "Linked list"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        }
+      ]
+    },
+    {
+      "id": "queues",
+      "title": "Queues & Variants",
+      "unit": "Unit 3",
+      "questions": [
+        {
+          "question": "A specialized Queue that abandons chronological FIFO order to process elements based strictly on their assigned urgency weight is called a:",
+          "options": [
+            "Priority Queue",
+            "Circular Queue",
+            "Deque",
+            "Linear Queue"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Priority Queues rank elements. Even if an element arrives last, possessing the highest absolute priority guarantees it will be dequeued next, highly useful in emergency interrupt handling.8",
+          "id": "dsa-queues-1"
+        },
+        {
+          "question": "What does the acronym DEQUE signify?",
+          "options": [
+            "Deleted Queue",
+            "Deferred Queue",
+            "Double-Ended Queue",
+            "Data Evaluation Queue"
+          ],
+          "correctAnswer": 2,
+          "explanation": "A Deque (Double-Ended Queue) shatters strict constraints by permitting Push/Pop and Enqueue/Dequeue operations identically at both the absolute Front and Rear.35",
+          "id": "dsa-queues-2"
+        },
+        {
+          "question": "In a Circular Queue mapping to an array of size , what is the exact algebraic mechanism to safely increment the Rear pointer?",
+          "options": [
+            "Rear = Rear + 1",
+            "Rear = (Rear % n) + 1",
+            "Rear = (Rear + 1) % n",
+            "Rear = Rear % (n + 1)"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Modulo arithmetic provides a continuous cyclic ring. When Rear equals , (n-1 +",
+          "id": "dsa-queues-3"
+        },
+        {
+          "question": "A 4-slot circular queue starts empty. Trace: Enqueue 1, 2, 3. Dequeue. Enqueue 4, 5. Predict the absolute final positions of Front and Rear (0-indexed).",
+          "options": [
+            "Front = 0, Rear = 3",
+            "Front = 1, Rear = 0",
+            "Front = 2, Rear = 1",
+            "Front = 1, Rear = 1"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Size is",
+          "id": "dsa-queues-4"
+        },
+        {
+          "question": "When tracking indices in a dynamic Circular Queue of capacity , what is the rigorous mathematical condition proving total Emptiness?",
+          "options": [
+            "Rear == Front",
+            "(Rear + 1) % n == Front",
+            "Front == -1",
+            "Both A and C are universally applicable depending exclusively on index initialization rules."
+          ],
+          "correctAnswer": 3,
+          "explanation": "Implementation architectures dictate this. If tracking an explicit size variable starting at 0, Rear == Front works if size is verified as",
+          "id": "dsa-queues-5"
+        },
+        {
+          "question": "However, the globally accepted failsafe methodology initializes indices to -1, making Front == -1 the absolute, foolproof empty check.35 Question 86: Conceptual Trap Analysis: Why does a Queue fundamentally fail to balance nested syntax parentheses?",
+          "options": [
+            "Queues inherently corrupt string variables.",
+            "Queues enforce FIFO processing. They attempt to close the oldest opened bracket first, violently collapsing deeply nested inner brackets.",
+            "They trigger false overflows faster than arrays.",
+            "They cannot expand dynamically."
+          ],
+          "correctAnswer": 1,
+          "explanation": "Nested parentheses demand that the most recently opened bracket ( is the very first one closed ). This is a classic LIFO scenario. A queue's chronological FIFO pipeline completely inverses this logic, causing catastrophic validation failures on ((())).1",
+          "id": "dsa-queues-6"
+        },
+        {
+          "question": "To engineer an ultra-efficient Queue utilizing a purely standard Singly Linked List, how must the architectural pointers map to operations?",
+          "options": [
+            "Insert at Head, Delete at Tail.",
+            "Insert at Tail, Delete at Head (requires maintaining a separate Tail pointer).",
+            "Insert at Head, Delete at Head.",
+            "Insert at Tail, Delete at Tail."
+          ],
+          "correctAnswer": 1,
+          "explanation": "Deleting at the Head is natively . Inserting at the Tail is typically , but explicitly establishing and maintaining an external Tail pointer drops insertion to . Reversing this (Delete at Tail) is disastrous because updating the Tail pointer demands finding the predecessor via  traversal.32",
+          "id": "dsa-queues-7"
+        },
+        {
+          "question": "When a complete Binary Tree is flattened into an Array representation, if a parent node resides at index (0-indexed), where is its Left Child located?",
+          "options": [
+            "B)  C)  D)  Correct Answer: B Explanation: Array implementations bypass pointers via strict mathematics. The left child invariably sits at , and the right child occupies , eliminating pointer memory o",
+            "It restricts nodes to a solitary child.",
+            "It autonomously rotates nodes to enforce balanced height, preserving rigid  bounds.",
+            "It converts into a queue instantly."
+          ],
+          "correctAnswer": 2,
+          "explanation": "A basic BST degrades into a linear  linked list if given pre-sorted input. An AVL tree deploys rotational algorithms during insertion to ensure branch heights never differ by more than 1, shielding the logarithmic performance.7",
+          "id": "dsa-queues-8"
+        },
+        {
+          "question": "Calculate the precise runtime time complexity of executing a full BFS traversal over a graph mapped via an Adjacency List.",
+          "options": [
+            "B)  C)  D)  Correct Answer: D Explanation: The BFS algorithm enqueues and dequeues every individual vertex exactly once . Simultaneously, it iterates over the linked list of edges attached to those ve",
+            "BFS",
+            "Prim's Algorithm",
+            "Bellman-Ford"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Because BFS radiates concentrically outward level-by-level, the exact moment its wavefront collides with the target destination node, it mathematically guarantees that route contains the fewest possible hops.5",
+          "id": "dsa-queues-9"
+        },
+        {
+          "question": "Why is a Min-Heap (Priority Queue) absolutely critical for the operational efficiency of Dijkstra's Algorithm?",
+          "options": [
+            "It stores path history for backward tracking.",
+            "It executes topological sorting dynamically.",
+            "It extracts the absolute lowest-cost unvisited vertex in ultra-fast  time instead of  linear array scanning.",
+            "It prevents negative weight cycling."
+          ],
+          "correctAnswer": 2,
+          "explanation": "Dijkstra is a greedy algorithm demanding continuous access to the smallest available path weight. A priority queue naturally bubbles this minimum value to the top, slashing extraction processing times exponentially.8",
+          "id": "dsa-queues-10"
+        },
+        {
+          "question": "Let represent a standard BFS spanning tree. For any arbitrary visited node , and a subsequently later visited node , what spatial truth mathematically dictates their distance relative to the root ?",
+          "options": [
+            "B)  C)  D) Spatial distortion prevents distance mapping. Correct Answer: B Explanation: BFS expands concentrically. If node  is deposited into the queue after ,  must reside on the exact same distance",
+            "DFS",
+            "BFS",
+            "Prim"
+          ],
+          "correctAnswer": 2,
+          "explanation": "BFS paints concentric rings with alternating colors (e.g., Tier 1 Red, Tier 2 Blue, Tier 3 Red). If the BFS scans an adjacent neighbor existing on its exact same tier sharing the exact same color, the bipartite test instantly fails.",
+          "id": "dsa-queues-11"
+        },
+        {
+          "id": "dsa-queues-new-12",
+          "question": "What is the verifiable structural state of this queue?",
+          "options": [
+            "Underflow / Empty",
+            "Completely Full",
+            "Contains a single element",
+            "Corrupted Correct Answer: B"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Explanation available in reference materials."
+        },
+        {
+          "id": "dsa-queues-new-13",
+          "question": "Dequeue. Enqueue 4, 5. Predict the absolute final positions of Front and Rear (0-indexed).",
+          "options": [
+            "Front = 0, Rear = 3",
+            "Front = 1, Rear = 0",
+            "Front = 2, Rear = 1",
+            "Front = 1, Rear = 1 Correct Answer: B"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Explanation available in reference materials."
+        },
+        {
+          "id": "dsa-queues-new-14",
+          "question": "The traversal that uses a queue is:",
+          "options": [
+            "BFS",
+            "DFS",
+            "Both",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-queues-new-15",
+          "question": "DFS is preferred for:",
+          "options": [
+            "Topological sorting",
+            "BFS queue",
+            "Minimum spanning tree",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        }
+      ]
+    },
+    {
+      "id": "data-structures-basics",
+      "title": "Data Structures Basics",
+      "unit": "Unit 1",
+      "questions": [
+        {
+          "id": "dsa-data-structures-basics-txt-1",
+          "question": "Information is:",
+          "options": [
+            "Raw data",
+            "Unprocessed data",
+            "Processed and meaningful data",
+            "Random facts"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-2",
+          "question": "Data becomes information when it is:",
+          "options": [
+            "Stored",
+            "Printed",
+            "Processed",
+            "Deleted"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-3",
+          "question": "Which is an example of data?",
+          "options": [
+            "Student report",
+            "Mark sheet summary",
+            "85, 90, 78",
+            "Performance analysis"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-4",
+          "question": "Which is an example of information?",
+          "options": [
+            "Numbers",
+            "Characters",
+            "Student grade report",
+            "Bits"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-5",
+          "question": "Data is stored in:",
+          "options": [
+            "Registers",
+            "Memory",
+            "CPU",
+            "ALU"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-6",
+          "question": "Information helps in:",
+          "options": [
+            "Processing",
+            "Decision making",
+            "Compilation",
+            "Debugging"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-7",
+          "question": "Data can exist in:",
+          "options": [
+            "Only numeric form",
+            "Only textual form",
+            "Multiple forms",
+            "Binary only"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-8",
+          "question": "Information is always:",
+          "options": [
+            "Random",
+            "Meaningless",
+            "Organized",
+            "Unstructured"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-9",
+          "question": "Which converts data into information?",
+          "options": [
+            "Storage",
+            "Processing",
+            "Transmission",
+            "Compilation"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-10",
+          "question": "Data alone is not useful because it:",
+          "options": [
+            "Is incorrect",
+            "Lacks context",
+            "Is slow",
+            "Is large"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-11",
+          "question": "Entity is closely related to:",
+          "options": [
+            "Attributes",
+            "Operators",
+            "Constants",
+            "Functions"
+          ],
+          "correctAnswer": 0,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-12",
+          "question": "Information is more:",
+          "options": [
+            "Meaningful",
+            "Random",
+            "Raw",
+            "Unprocessed"
+          ],
+          "correctAnswer": 0,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-13",
+          "question": "Which one is NOT data?",
+          "options": [
+            "Characters",
+            "Numbers",
+            "Images",
+            "Decision"
+          ],
+          "correctAnswer": 3,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-14",
+          "question": "Data is input for:",
+          "options": [
+            "Output",
+            "Processing",
+            "Memory",
+            "Storage"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-15",
+          "question": "Non-linear data structures store data:",
+          "options": [
+            "Sequentially",
+            "Linearly",
+            "Hierarchically",
+            "Contiguously"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-16",
+          "question": "ADT hides:",
+          "options": [
+            "Data",
+            "Operations",
+            "Implementation details",
+            "Output"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-17",
+          "question": "Data structures improve:",
+          "options": [
+            "Memory usage",
+            "Program efficiency",
+            "Execution time",
+            "All of the above"
+          ],
+          "correctAnswer": 3,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-18",
+          "question": "Data structure choice depends on:",
+          "options": [
+            "Data size",
+            "Operations",
+            "Memory",
+            "All of the above"
+          ],
+          "correctAnswer": 3,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-19",
+          "question": "Data structure is a:",
+          "options": [
+            "Programming language",
+            "Storage format",
+            "Logical organization",
+            "Hardware device"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-20",
+          "question": "Main advantage of ADT is:",
+          "options": [
+            "Speed",
+            "Security",
+            "Modularity",
+            "Simplicity"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-21",
+          "question": "Performance analysis measures:",
+          "options": [
+            "Code length",
+            "Time and space",
+            "Syntax",
+            "Output size"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-22",
+          "question": "Asymptotic notation describes:",
+          "options": [
+            "Exact time",
+            "Approximate growth",
+            "Hardware speed",
+            "Compilation time"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-23",
+          "question": "Divide and conquer breaks problem into:",
+          "options": [
+            "One part",
+            "Two or more subproblems",
+            "Random parts",
+            "Equal data only"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-24",
+          "question": "Dynamic programming uses:",
+          "options": [
+            "Recursion only",
+            "Overlapping subproblems",
+            "Randomization",
+            "Sorting"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-25",
+          "question": "O(log n) grows:",
+          "options": [
+            "Faster than O(n)",
+            "Slower than O(n)",
+            "Same as O(n)",
+            "Faster than O(n²)"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-26",
+          "question": "Which is fastest growth?",
+          "options": [
+            "O(n)",
+            "O(log n)",
+            "O(n²)",
+            "O(1)"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-27",
+          "question": "Which is slowest growth?",
+          "options": [
+            "O(n)",
+            "O(n²)",
+            "O(log n)",
+            "O(1)"
+          ],
+          "correctAnswer": 3,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-28",
+          "question": "Flowchart uses:",
+          "options": [
+            "Symbols",
+            "Code",
+            "Variables",
+            "Memory"
+          ],
+          "correctAnswer": 0,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-29",
+          "question": "Worst-case analysis is important because:",
+          "options": [
+            "Always occurs",
+            "Guarantees upper bound",
+            "Fastest case",
+            "Average only"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-30",
+          "question": "Which case depends on input order?",
+          "options": [
+            "Best",
+            "Worst",
+            "Average",
+            "All"
+          ],
+          "correctAnswer": 3,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-31",
+          "question": "Which is a design technique?",
+          "options": [
+            "Sorting",
+            "Searching",
+            "Divide and conquer",
+            "Printing"
+          ],
+          "correctAnswer": 2,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-txt-32",
+          "question": "Purpose of asymptotic analysis:",
+          "options": [
+            "Exact runtime",
+            "Predict performance",
+            "Debug code",
+            "Reduce syntax errors"
+          ],
+          "correctAnswer": 1,
+          "explanation": "This question is part of Unit 1 fundamentals."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-33",
+          "question": "{ process(i); }",
+          "options": [
+            "(formula)",
+            "(formula)",
+            "(formula)",
+            "Correct Answer: C"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Explanation available in reference materials."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-34",
+          "question": "{ for(int j=1; j<=n; j++) { print(i, j); } }",
+          "options": [
+            "(formula)",
+            "(formula)",
+            "(formula)",
+            "Correct Answer: C"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Explanation available in reference materials."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-35",
+          "question": "{ i = i / 2; }",
+          "options": [
+            "(formula)",
+            "(formula)",
+            "(formula)",
+            "Correct Answer: C"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Explanation available in reference materials."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-36",
+          "question": "What is the address of ?",
+          "options": [
+            "1010",
+            "1012",
+            "1014",
+            "1016 Correct Answer: A"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Explanation available in reference materials."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-37",
+          "question": "An entity is:",
+          "options": [
+            "A variable",
+            "A real-world object",
+            "A data type",
+            "An algorithm"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-38",
+          "question": "Information is derived from:",
+          "options": [
+            "Programs",
+            "Algorithms",
+            "Data",
+            "Hardware"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-39",
+          "question": "Entity mainly represents:",
+          "options": [
+            "Data type",
+            "Object with attributes",
+            "Program",
+            "Algorithm"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-40",
+          "question": "Data type specifies:",
+          "options": [
+            "Size and type of data",
+            "Value only",
+            "Memory address",
+            "Algorithm"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-41",
+          "question": "Data structure is:",
+          "options": [
+            "Algorithm",
+            "Way of organizing data",
+            "Compiler",
+            "Software"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-42",
+          "question": "Primitive data types include:",
+          "options": [
+            "Array",
+            "Structure",
+            "Integer",
+            "File"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-43",
+          "question": "Which is NOT primitive?",
+          "options": [
+            "int",
+            "char",
+            "float",
+            "array"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-44",
+          "question": "Algorithm is:",
+          "options": [
+            "Code",
+            "Step-by-step procedure",
+            "Program",
+            "Language"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-45",
+          "question": "Algorithm must be:",
+          "options": [
+            "Infinite",
+            "Finite",
+            "Recursive only",
+            "Complex"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-46",
+          "question": "Difference between algorithm and program:",
+          "options": [
+            "Algorithm is language-independent",
+            "Program is language-independent",
+            "Both same",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-47",
+          "question": "Program is:",
+          "options": [
+            "Concept",
+            "Implementation of algorithm",
+            "Theory",
+            "Flowchart"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-48",
+          "question": "Which is NOT a property of algorithm?",
+          "options": [
+            "Input",
+            "Output",
+            "Ambiguity",
+            "Finiteness"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-49",
+          "question": "An algorithm must have:",
+          "options": [
+            "Zero input",
+            "At least one output",
+            "Multiple outputs only",
+            "No input"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-50",
+          "question": "Algorithm design techniques include:",
+          "options": [
+            "Divide and conquer",
+            "Greedy method",
+            "Dynamic programming",
+            "All of the above"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-51",
+          "question": "Time complexity is:",
+          "options": [
+            "Memory usage",
+            "Execution time",
+            "CPU speed",
+            "Disk usage"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-52",
+          "question": "Space complexity measures:",
+          "options": [
+            "Time",
+            "Memory",
+            "Speed",
+            "Cost"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-53",
+          "question": "Best-case complexity is:",
+          "options": [
+            "Minimum time",
+            "Maximum time",
+            "Average time",
+            "Random time"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-54",
+          "question": "Worst-case complexity is:",
+          "options": [
+            "Minimum time",
+            "Maximum time",
+            "Average time",
+            "Constant time"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-55",
+          "question": "Average-case complexity is:",
+          "options": [
+            "Minimum",
+            "Maximum",
+            "Expected time",
+            "Zero"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-56",
+          "question": "Big O notation represents:",
+          "options": [
+            "Best case",
+            "Average case",
+            "Worst case",
+            "Random case"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-57",
+          "question": "O(1) complexity means:",
+          "options": [
+            "Linear time",
+            "Constant time",
+            "Quadratic time",
+            "Log time"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-58",
+          "question": "O(n) complexity is:",
+          "options": [
+            "Constant",
+            "Linear",
+            "Quadratic",
+            "Logarithmic"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-59",
+          "question": "O(n²) complexity is:",
+          "options": [
+            "Linear",
+            "Quadratic",
+            "Logarithmic",
+            "Constant"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-60",
+          "question": "Binary search has complexity:",
+          "options": [
+            "O(n)",
+            "O(n²)",
+            "O(log n)",
+            "O(1)"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-61",
+          "question": "Linear search complexity:",
+          "options": [
+            "O(log n)",
+            "O(1)",
+            "O(n)",
+            "O(n²)"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-62",
+          "question": "Greedy algorithm chooses:",
+          "options": [
+            "Optimal global solution directly",
+            "Best local choice",
+            "Random choice",
+            "Worst choice"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-63",
+          "question": "Algorithm efficiency is independent of:",
+          "options": [
+            "Input size",
+            "Hardware",
+            "Algorithm design",
+            "Data structure"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-64",
+          "question": "Big O ignores:",
+          "options": [
+            "Lower-order terms",
+            "Constants",
+            "Both a and b",
+            "None"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-65",
+          "question": "Algorithm analysis helps to:",
+          "options": [
+            "Write code",
+            "Compare algorithms",
+            "Compile program",
+            "Execute code"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-66",
+          "question": "Pseudocode is:",
+          "options": [
+            "Programming language",
+            "Informal algorithm description",
+            "Machine code",
+            "Flowchart"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-67",
+          "question": "Algorithm should be:",
+          "options": [
+            "Ambiguous",
+            "Clear",
+            "Infinite",
+            "Language-dependent"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-68",
+          "question": "Which affects algorithm complexity?",
+          "options": [
+            "Input size",
+            "Input order",
+            "Algorithm logic",
+            "All of the above"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-69",
+          "question": "Complexity analysis ignores:",
+          "options": [
+            "Hardware",
+            "Compiler",
+            "Language",
+            "All of the above"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-70",
+          "question": "Big O notation was introduced to:",
+          "options": [
+            "Measure exact time",
+            "Compare algorithms",
+            "Write programs",
+            "Debug code"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-71",
+          "question": "Which is NOT asymptotic notation?",
+          "options": [
+            "Big O",
+            "Omega",
+            "Theta",
+            "Sigma"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-72",
+          "question": "Big O provides:",
+          "options": [
+            "Lower bound",
+            "Upper bound",
+            "Exact bound",
+            "Average bound"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-73",
+          "question": "Algorithm correctness means:",
+          "options": [
+            "Compiles correctly",
+            "Produces correct output",
+            "Runs fast",
+            "Uses less memory"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-74",
+          "question": "Termination condition is required in:",
+          "options": [
+            "Iteration",
+            "Recursion",
+            "Algorithm",
+            "All of the above"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-75",
+          "question": "Algorithm without termination:",
+          "options": [
+            "Is correct",
+            "Is infinite",
+            "Is optimal",
+            "Is efficient"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-76",
+          "question": "Algorithm design focuses on:",
+          "options": [
+            "Logic",
+            "Efficiency",
+            "Correctness",
+            "All of the above"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-77",
+          "question": "Which notation is commonly used?",
+          "options": [
+            "Big O",
+            "Small o",
+            "Big theta",
+            "All"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-78",
+          "question": "O(n!) complexity is:",
+          "options": [
+            "Very efficient",
+            "Efficient",
+            "Inefficient",
+            "Constant"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-79",
+          "question": "Algorithm input size usually represented by:",
+          "options": [
+            "x",
+            "y",
+            "n",
+            "k"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-80",
+          "question": "Space complexity includes:",
+          "options": [
+            "Input space",
+            "Auxiliary space",
+            "Both",
+            "None"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-81",
+          "question": "Big O is machine:",
+          "options": [
+            "Dependent",
+            "Independent",
+            "Compiler dependent",
+            "OS dependent"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-82",
+          "question": "Algorithm analysis is done:",
+          "options": [
+            "Before coding",
+            "After coding",
+            "During execution",
+            "Compilation"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-83",
+          "question": "Which factor is ignored in complexity?",
+          "options": [
+            "Constant factors",
+            "Input size",
+            "Growth rate",
+            "Order"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-84",
+          "question": "Data structures and algorithms together help in:",
+          "options": [
+            "Faster execution",
+            "Efficient memory use",
+            "Better performance",
+            "All of the above"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Core DSA principle covered in foundational units."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-85",
+          "question": "What is the space complexity of adjacency matrix representation?",
+          "options": [
+            "O(V + E)",
+            "O(V²)",
+            "O(E)",
+            "O(V)"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-86",
+          "question": "Which representation efficiently checks if two vertices are adjacent?",
+          "options": [
+            "Adjacency matrix",
+            "Adjacency list",
+            "Incidence matrix",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-87",
+          "question": "The space complexity of adjacency list is:",
+          "options": [
+            "O(V + E)",
+            "O(V²)",
+            "O(E²)",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-88",
+          "question": "BFS stands for:",
+          "options": [
+            "Best First Search",
+            "Breadth First Search",
+            "Backward First Search",
+            "None"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-89",
+          "question": "DFS stands for:",
+          "options": [
+            "Directed First Search",
+            "Depth First Search",
+            "Distance First Search",
+            "Data Flow Search"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-90",
+          "question": "BFS guarantees:",
+          "options": [
+            "Minimum depth path",
+            "Maximum depth path",
+            "Random traversal",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-91",
+          "question": "Time complexity of BFS:",
+          "options": [
+            "O(V + E)",
+            "O(V²)",
+            "O(E²)",
+            "O(VE)"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-92",
+          "question": "DFS time complexity:",
+          "options": [
+            "O(V + E)",
+            "O(V²)",
+            "O(E²)",
+            "O(VE)"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-93",
+          "question": "Which algorithm is recursive in nature?",
+          "options": [
+            "BFS",
+            "DFS",
+            "Both",
+            "None"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-94",
+          "question": "BFS is preferred when:",
+          "options": [
+            "You need shortest path",
+            "Need deep traversal",
+            "Random order",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-95",
+          "question": "DFS can be used to:",
+          "options": [
+            "Detect cycles",
+            "Sort topologically",
+            "Find connectivity",
+            "All of the above"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-96",
+          "question": "BFS requires how much auxiliary space?",
+          "options": [
+            "O(V)",
+            "O(E)",
+            "O(V + E)",
+            "O(1)"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-97",
+          "question": "Which algorithm can generate MST?",
+          "options": [
+            "Prim’s",
+            "Kruskal’s",
+            "Both",
+            "None"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-98",
+          "question": "In MST, all vertices are connected by:",
+          "options": [
+            "Least total weight",
+            "Maximum weight",
+            "Arbitrary",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-99",
+          "question": "MST algorithms are based on:",
+          "options": [
+            "Greedy approach",
+            "Divide & conquer",
+            "DP",
+            "Backtracking"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-100",
+          "question": "Prim’s algorithm is based on:",
+          "options": [
+            "Greedy method",
+            "Dynamic programming",
+            "Backtracking",
+            "Branch & bound"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-101",
+          "question": "Kruskal’s algorithm is also:",
+          "options": [
+            "Greedy",
+            "Divide and conquer",
+            "Randomized",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-102",
+          "question": "Prim’s algorithm is similar to:",
+          "options": [
+            "Dijkstra’s algorithm",
+            "BFS",
+            "DFS",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-103",
+          "question": "Time complexity of Prim’s with adjacency matrix =",
+          "options": [
+            "O(V²)",
+            "O(V + E)",
+            "O(E log V)",
+            "O(E²)"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        },
+        {
+          "id": "dsa-data-structures-basics-new-104",
+          "question": "Prim’s algorithm can handle:",
+          "options": [
+            "Negative weights? No",
+            "Negative weights? Yes",
+            "Both",
+            "None"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fundamental topic in basic Data Structures."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1019 @@
+{
+  "subjectId": "oops",
+  "units": [
+    {
+      "id": "unit-1",
+      "title": "Unit 1: Fundamentals & C++ Extensions",
+      "description": "The foundation of object-oriented design and the modern C++ extensions.",
+      "topics": [
+        {
+          "id": "u1-s1",
+          "title": "Step 1: OOPS vs Procedural (POP)",
+          "concepts": [{
+            "id": "c1-1",
+            "title": "Shifting Paradigms",
+            "theory": "In **Procedural Programming (POP)**, the focus is on *functions* and step-by-step logic. Data moves freely which can lead to insecurity.\n\nIn **Object-Oriented Programming (OOPS)**, the focus is on *objects*. Data is hidden inside objects and accessed only through functions. \n\n### Key Benefits\n1. **Modularity**: Code is organized into classes.\n2. **Reusability**: Through inheritance.\n3. **Security**: Through data hiding (encapsulation).",
+            "mcq": {
+              "id": "m1-1",
+              "question": "Which paradigm focuses primarily on data security and encapsulation?",
+              "options": ["Procedural Programming", "Object-Oriented Programming", "Functional Programming", "Assembly"],
+              "correctAnswer": 1,
+              "explanation": "OOPS was designed to protect data by wrapping it inside objects."
+            }
+          }]
+        },
+        {
+          "id": "u1-s2",
+          "title": "Step 2: Basic C++ I/O",
+          "concepts": [{
+            "id": "c1-2",
+            "title": "Streams and Namespaces",
+            "theory": "C++ uses **Streams** for I/O operations instead of standard buffers like `printf`.\n\n* **cout**: Standard output stream (connected to monitor).\n* **cin**: Standard input stream (connected to keyboard).\n* **endl**: Flushes the buffer and moves to a new line.\n\n### Usage\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int x;\n    cout << \"Enter a number: \";\n    cin >> x;\n    cout << \"You entered: \" << x << endl;\n    return 0;\n}\n```",
+            "mcq": {
+              "id": "m1-2",
+              "question": "Which operator is used with 'cout' for output?",
+              "options": ["Extraction (>>)", "Insertion (<<)", "Dot (.)", "Arrow (->)"],
+              "correctAnswer": 1,
+              "explanation": "The '<<' operator inserts data into the output stream."
+            }
+          }]
+        },
+        {
+          "id": "u1-s3",
+          "title": "Step 3: Reference Variables",
+          "concepts": [{
+            "id": "c1-3",
+            "title": "The Alias Name",
+            "theory": "A **Reference Variable** is an alias (another name) for an existing variable. Both variables share the same memory location.\n\n**Syntax**: `type &ref = original;` \n\n### Key Rules\n1. Must be initialized at the time of declaration.\n2. Once initialized, it cannot be reassigned to refer to another variable.",
+            "mcq": {
+              "id": "m1-3",
+              "question": "If 'int x = 10; int &y = x;', what happens to x if y is changed to 20?",
+              "options": ["x remains 10", "x becomes 20", "Error occurs", "x becomes 30"],
+              "correctAnswer": 1,
+              "explanation": "Since y is an alias for x, changing y directly modifies the memory address shared by x."
+            }
+          }]
+        },
+        {
+          "id": "u1-s4",
+          "title": "Step 4: Default Arguments",
+          "concepts": [{
+            "id": "c1-4",
+            "title": "Function Flexibility",
+            "theory": "C++ allows functions to have **Default Arguments**. If the caller doesn't provide a value, the default is used.\n\n**Syntax**: `void func(int x, int y = 10);` \n\n### Rules\n* Default arguments must be added from **Right to Left**. \n* Valid: `(int a, int b=5)`\n* Invalid: `(int a=5, int b)`",
+            "mcq": {
+              "id": "m1-4",
+              "question": "Where should default arguments be placed in a function signature?",
+              "options": ["Anywhere", "From left to right", "From right to left only", "Only in the middle"],
+              "correctAnswer": 2,
+              "explanation": "The compiler fills arguments from left, so defaults must exist at the end to be optional."
+            }
+          }]
+        },
+        {
+          "id": "u1-s5",
+          "title": "Step 5: Inline Functions",
+          "concepts": [{
+            "id": "c1-5",
+            "title": "Speed vs Binary Size",
+            "theory": "When a function is marked **inline**, the compiler replaces the function call with the actual code of the function. This saves the overhead of jumping to a memory address.\n\n**Usage**: Small, frequently called functions.\n**Warning**: Inlining large functions can lead to 'Code Bloat' (massively increased executable size).",
+            "mcq": {
+              "id": "m1-5",
+              "question": "What is the primary benefit of an inline function?",
+              "options": ["Recursion support", "Faster execution by avoiding call overhead", "Reduced binary size", "Easier debugging"],
+              "correctAnswer": 1,
+              "explanation": "Inline functions remove the jump and stack setup instructions associated with a standard call."
+            }
+          }]
+        },
+        {
+          "id": "u1-s6",
+          "title": "Step 6: Function Overloading",
+          "concepts": [{
+            "id": "c1-6",
+            "title": "Static Polymorphism",
+            "theory": "**Function Overloading** allows multiple functions to share the same name if they have different **Signatures** (number or types of arguments).\n\n### Examples\n* `int add(int, int)`\n* `double add(double, double)`\n* `int add(int, int, int)`\n\n**Note**: Changing only the return type is NOT sufficient for overloading.",
+            "mcq": {
+              "id": "m1-6",
+              "question": "Can you overload a function based ONLY on its return type?",
+              "options": ["Yes", "No", "Only for integers", "Only for classes"],
+              "correctAnswer": 1,
+              "explanation": "Return types are not considered part of the function signature during overloading resolution."
+            }
+          }]
+        },
+        {
+          "id": "u1-s7",
+          "title": "Step 7: Dynamic Memory Allocation",
+          "concepts": [{
+            "id": "c1-7",
+            "title": "The Heap and new/delete",
+            "theory": "C++ uses the `new` operator to allocate memory on the **Heap** and `delete` to release it.\n\n* **Allocation**: `int *p = new int(10);`\n* **Release**: `delete p;`\n\n**Arrays**: `int *arr = new int[5];` -> `delete[] arr;` \nFailure to use `delete` leads to **Memory Leaks**.",
+            "mcq": {
+              "id": "m1-7",
+              "question": "Which operator is used to free memory allocated using 'new'?",
+              "options": ["free()", "delete", "clear", "remove"],
+              "correctAnswer": 1,
+              "explanation": "While 'free' is for C, modern C++ requires the 'delete' operator."
+            }
+          }]
+        },
+        {
+          "id": "u1-s8",
+          "title": "Step 8: Scope Resolution Operator (::)",
+          "concepts": [{
+            "id": "c1-8",
+            "title": "Global vs Local",
+            "theory": "The **Scope Resolution Operator (`::`)** is used to:\n1. Access a global variable when a local variable with the same name exists.\n2. Define a member function outside the class definition.\n3. Access static members of a class.",
+            "mcq": {
+              "id": "m1-8",
+              "question": "What symbol represents the Scope Resolution Operator?",
+              "options": [".", "->", "::", "@@"],
+              "correctAnswer": 2,
+              "explanation": "Double colons (::) are used to clarify which scope a variable or function belongs to."
+            }
+          }]
+        },
+        {
+          "id": "u1-s9",
+          "title": "Step 9: Classes & Encapsulation",
+          "concepts": [{
+            "id": "c1-9",
+            "title": "Blueprint of Reality",
+            "theory": "A **Class** is a template for objects. **Encapsulation** binds data and functions into this single unit.\n\n### Access Modifiers\n* **Private**: Only accessible within the class (Default).\n* **Public**: Accessible from anywhere.\n* **Protected**: Accessible within class and child classes.",
+            "flowchart": "classDiagram\n    class Student {\n        -int rollNumber\n        -string name\n        +void setDetails()\n        +void showDetails()\n    }\n    style Student fill:#f1f5f9",
+            "mcq": {
+              "id": "m1-9",
+              "question": "What is the default access modifier in a C++ class?",
+              "options": ["Public", "Private", "Protected", "Internal"],
+              "correctAnswer": 1,
+              "explanation": "Classes default to private to enforce security; structs default to public."
+            }
+          }]
+        },
+        {
+          "id": "u1-s10",
+          "title": "Step 10: Data Hiding",
+          "concepts": [{
+            "id": "c1-10",
+            "title": "Why Private?",
+            "theory": "**Data Hiding** is achieved by making member variables `private`. This prevents external code from corrupting the internal state of an object.\n\nAccess is provided via **Getters** and **Setters** (mutator methods). \n\n### Example\n`obj.balance = -100` (Direct access - DANGEROUS)\n`obj.setBalance(-100)` (Validation inside method - SECURE)",
+            "mcq": {
+              "id": "m1-10",
+              "question": "Directly making variables 'private' and providing 'get/set' methods is an example of:",
+              "options": ["Inheritance", "Data Hiding", "Compile-time binding", "Generic programming"],
+              "correctAnswer": 1,
+              "explanation": "Data hiding ensures that the implementation details are shielded from the end-user."
+            }
+          }]
+        }
+      ]
+    },
+    {
+      "id": "unit-2",
+      "title": "Unit 2: Classes & Objects in Depth",
+      "description": "Mastering the behavior and internal mechanics of objects.",
+      "topics": [
+        {
+          "id": "u2-s1",
+          "title": "Step 1: Defining Class Structure",
+          "concepts": [{
+            "id": "c2-1",
+            "title": "The Specification",
+            "theory": "A class definition has two parts:\n1. **Class Declaration**: Describes member variables and function prototypes.\n2. **Class Function Definitions**: Describes how functions are implemented.\n\n**Best Practice**: Keep variables `private` and utility functions `public`.",
+            "mcq": {
+              "id": "m2-1",
+              "question": "Which of these is NOT a component of a C++ class?",
+              "options": ["Data Members", "Member Functions", "Access Modifiers", "Recursive Includes"],
+              "correctAnswer": 3,
+              "explanation": "Data, functions, and visibility are the core pillars of class structure."
+            }
+          }]
+        },
+        {
+          "id": "u2-s2",
+          "title": "Step 2: Inside vs Outside Definitions",
+          "concepts": [{
+            "id": "c2-2",
+            "title": "Defining Behavior",
+            "theory": "Member functions can be defined:\n1. **Inside**: Automatically treated as `inline`.\n2. **Outside**: Uses the scope resolution operator `::`.\n\n**Example Outside**:\n```cpp\nvoid Student::getData() {\n    // Code here\n}\n```",
+            "mcq": {
+              "id": "m2-2",
+              "question": "What is the primary benefit of defining a function inside the class body?",
+              "options": ["Better readability", "It is automatically inlined", "It can access private data", "It uses less memory"],
+              "correctAnswer": 1,
+              "explanation": "C++ optimizes small functions defined inside class declarations by inlining them."
+            }
+          }]
+        },
+        {
+          "id": "u2-s3",
+          "title": "Step 3: Nesting Member Functions",
+          "concepts": [{
+            "id": "c2-3",
+            "title": "Internal Communication",
+            "theory": "A member function can call another member function of the **same class** without using the dot operator. This is called **Nesting**.\n\nUseful for breaking down a large complex procedure into smaller private helper functions.",
+            "mcq": {
+              "id": "m2-3",
+              "question": "Do you need an object name to call one member function from another in the same class?",
+              "options": ["Yes", "No", "Only for private functions", "Only for static functions"],
+              "correctAnswer": 1,
+              "explanation": "Internal calls happen within the object's own scope."
+            }
+          }]
+        },
+        {
+          "id": "u2-s4",
+          "title": "Step 4: Memory Allocation for Objects",
+          "concepts": [{
+            "id": "c2-4",
+            "title": "Code vs Data",
+            "theory": "When an object is created, memory is allocated **only for its data members**. \n\nMember functions are stored separately in the code segment and shared by **all** objects of that class to save memory.",
+            "flowchart": "graph LR\n    OBJ1[Object A Data] --> CODE[Shared Member Functions]\n    OBJ2[Object B Data] --> CODE\n    style CODE fill:#fff7ed",
+            "mcq": {
+              "id": "m2-4",
+              "question": "How is memory allocated for class member functions?",
+              "options": ["Separate copy for every object", "Single shared copy for all objects", "Allocated only when called", "Never allocated"],
+              "correctAnswer": 1,
+              "explanation": "Functions are logic (code), and since logic is identical for all instances, C++ shares one copy to conserve RAM."
+            }
+          }]
+        },
+        {
+          "id": "u2-s5",
+          "title": "Step 5: Static Data Members",
+          "concepts": [{
+            "id": "c2-5",
+            "title": "Class-Level Variables",
+            "theory": "A **Static** variable is shared by all objects. It is initialized to zero when the first object is created.\n\nOnly one copy exists in memory. Changes by one object are visible to all others. \n\n**Common Use**: Counting the total number of objects created.",
+            "mcq": {
+              "id": "m2-5",
+              "question": "When is a static data member initialized?",
+              "options": ["On every object creation", "Once, when the first object is created", "Only manually by user", "Once per function call"],
+              "correctAnswer": 1,
+              "explanation": "Static members belong to the class as a whole, not individual instances."
+            }
+          }]
+        },
+        {
+          "id": "u2-s6",
+          "title": "Step 6: Static Member Functions",
+          "concepts": [{
+            "id": "c2-6",
+            "title": "Object-Independent Logic",
+            "theory": "A **Static Member Function** can only access other static members (variables or functions).\n\nIt can be called using the class name: `ClassName::FunctionName();` without creating any object.",
+            "mcq": {
+              "id": "m2-6",
+              "question": "What can a static member function access?",
+              "options": ["All member variables", "Only private members", "Only other static members", "Nothing"],
+              "correctAnswer": 2,
+              "explanation": "Since static functions don't belong to an object, they cannot access non-static (instance-specific) data."
+            }
+          }]
+        },
+        {
+          "id": "u2-s7",
+          "title": "Step 7: Arrays of Objects",
+          "concepts": [{
+            "id": "c2-7",
+            "title": "Bulk Instance Management",
+            "theory": "Just like an array of integers, we can create an array of objects. \n\n**Syntax**: `Student bca[30];` \n\nThis creates 30 separate instances of the `Student` class, each with its own data members.",
+            "mcq": {
+              "id": "m2-7",
+              "question": "If 'Employee workers[5];' is declared, how many copies of instance variables exist?",
+              "options": ["1", "5", "None", "Infinite"],
+              "correctAnswer": 1,
+              "explanation": "Each element in the array is a full object instantiation."
+            }
+          }]
+        },
+        {
+          "id": "u2-s8",
+          "title": "Step 8: Objects as Function Arguments",
+          "concepts": [{
+            "id": "c2-8",
+            "title": "Passing Complexity",
+            "theory": "Objects can be passed to functions in two ways:\n1. **Pass by Value**: A copy of the object is made. Changes inside the function won't affect the original.\n2. **Pass by Reference**: Direct access to the original object. Efficient (no copying overhead).",
+            "mcq": {
+              "id": "m2-8",
+              "question": "Why is pass-by-reference often preferred for large objects?",
+              "options": ["It is safer", "It avoids the overhead of copying large data structures", "It is easier to write", "It makes variables global"],
+              "correctAnswer": 1,
+              "explanation": "Copying an object with many attributes can waste significant time and memory."
+            }
+          }]
+        },
+        {
+          "id": "u2-s9",
+          "title": "Step 9: Returning Objects",
+          "concepts": [{
+            "id": "c2-9",
+            "title": "The Factory Concept",
+            "theory": "A function can return an object of a class. This allows for complex operations that produce a new object as a result. \n\nExample: `Complex add(Complex c1, Complex c2)` returning a new Complex object representing the sum.",
+            "mcq": {
+              "id": "m2-9",
+              "question": "What is the return type of a function that creates and returns a 'Point' object?",
+              "options": ["void", "int", "Point", "bool"],
+              "correctAnswer": 2,
+              "explanation": "The return type must match the class name."
+            }
+          }]
+        },
+        {
+          "id": "u2-s10",
+          "title": "Step 10: Friend Functions",
+          "concepts": [{
+            "id": "c2-10",
+            "title": "Authorized Breach",
+            "theory": "A **Friend Function** is a non-member function that has permission to access the `private` and `protected` members of a class.\n\n**Keyword**: `friend` inside the class declaration.\n\nIt is useful for operations that involve two different classes (e.g., adding a Matrix to a Vector).",
+            "mcq": {
+              "id": "m3-10",
+              "question": "Is a friend function a member of the class it is friends with?",
+              "options": ["Yes", "No", "Only if it is public", "Only if it is static"],
+              "correctAnswer": 1,
+              "explanation": "Friend functions are external entities granted special security permissions."
+            }
+          }]
+        }
+      ]
+    },
+    {
+      "id": "unit-3",
+      "title": "Unit 3: Constructors & Destructors",
+      "description": "Managing the creation and destruction of objects safely.",
+      "topics": [
+        {
+          "id": "u3-s1",
+          "title": "Step 1: Introduction to Constructors",
+          "concepts": [{
+            "id": "c3-1",
+            "title": "Auto-Initialization",
+            "theory": "A **Constructor** is a special member function which is invoked **automatically** whenever an object of that class is created.\n\nIt is used to initialize the data members of the object to a valid state.",
+            "mcq": {
+              "id": "m3-1",
+              "question": "When is a constructor called?",
+              "options": ["When the function is explicitly called", "When the object is destroyed", "Automatically when an object is created", "Only when using 'new'"],
+              "correctAnswer": 2,
+              "explanation": "Constructors ensure an object starts its life with valid data."
+            }
+          }]
+        },
+        {
+          "id": "u3-s2",
+          "title": "Step 2: Rules for Constructors",
+          "concepts": [{
+            "id": "c3-2",
+            "title": "Mandatory Syntax",
+            "theory": "1. Its name must be exactly the same as the **Class name**.\n2. It **does not have a return type** (not even `void`).\n3. It should usually be declared in the `public` section.",
+            "mcq": {
+              "id": "m3-2",
+              "question": "What is the return type of a constructor?",
+              "options": ["int", "void", "The class name", "None"],
+              "correctAnswer": 3,
+              "explanation": "Constructors are unique because they return the newly created object implicitly; no type is specified."
+            }
+          }]
+        },
+        {
+          "id": "u3-s3",
+          "title": "Step 3: Parameterized Constructors",
+          "concepts": [{
+            "id": "c3-3",
+            "title": "Custom Setup",
+            "theory": "A constructor that takes arguments is called a **Parameterized Constructor**. \n\n**Example**:\n```cpp\nInteger(int m, int n) {\n    x = m; y = n;\n}\n```\n**Calling**: `Integer int1(10, 20);` or `Integer int1 = Integer(10, 20);`",
+            "mcq": {
+              "id": "m3-3",
+              "question": "How do you pass values to a parameterized constructor during object creation?",
+              "options": ["Using the dot operator", "Inside parentheses after the object name", "By calling it later", "Using cin"],
+              "correctAnswer": 1,
+              "explanation": "Arguments are passed during the declaration of the object instance."
+            }
+          }]
+        },
+        {
+          "id": "u3-s4",
+          "title": "Step 4: Multiple Constructors",
+          "concepts": [{
+            "id": "c3-4",
+            "title": "Constructor Overloading",
+            "theory": "A class can have more than one constructor. This is called **Constructor Overloading**.\n\nThe compiler determines which one to call based on the number and type of arguments passed.",
+            "mcq": {
+              "id": "m3-4",
+              "question": "Can a class have a default constructor and a parameterized constructor simultaneously?",
+              "options": ["Yes", "No", "Only if static", "Only if friend"],
+              "correctAnswer": 0,
+              "explanation": "This is standard overloading, allowing for multiple ways to initialize an object."
+            }
+          }]
+        },
+        {
+          "id": "u3-s5",
+          "title": "Step 5: Default Arguments in Constructors",
+          "concepts": [{
+            "id": "c3-5",
+            "title": "Hybrid Flexibility",
+            "theory": "Like normal functions, constructors can have default values for their parameters. \n\n**Example**: `Complex(double r, double i = 0);` \nCalling `Complex c(5);` sets `r=5, i=0`.",
+            "mcq": {
+              "id": "m3-5",
+              "question": "If a constructor 'A(int x=0)' is defined, will 'A obj;' call it?",
+              "options": ["Yes", "No", "Only if it is public", "Only if it is private"],
+              "correctAnswer": 0,
+              "explanation": "A constructor where all arguments have defaults acts as a default constructor."
+            }
+          }]
+        },
+        {
+          "id": "u3-s6",
+          "title": "Step 6: Copy Constructors",
+          "concepts": [{
+            "id": "c3-6",
+            "title": "Cloning Objects",
+            "theory": "A **Copy Constructor** is used to initialize an object using another object of the same class.\n\n**Syntax**: `ClassName (const ClassName &obj);` \nExample: `Integer i2(i1);` or `Integer i2 = i1;`",
+            "mcq": {
+              "id": "m3-6",
+              "question": "Which operator is used to define a copy constructor parameter?",
+              "options": ["*", "&", "::", "->"],
+              "correctAnswer": 1,
+              "explanation": "Copy constructors MUST take the argument by reference (usually const) to avoid infinite recursion."
+            }
+          }]
+        },
+        {
+          "id": "u3-s7",
+          "title": "Step 7: Deep Copy vs Shallow Copy",
+          "concepts": [{
+            "id": "c3-7",
+            "title": "The Pointer Danger",
+            "theory": "1. **Shallow Copy**: Default behavior. It copies values. If a member is a pointer, both objects point to the same memory.\n2. **Deep Copy**: Manually defined. It allocates new memory and copies the data the pointer was pointing to.",
+            "flowchart": "graph TD\n    S[Shallow Copy] --> P1[Pointer A]\n    S --> P2[Pointer B]\n    P1 --> DATA[Same Memory Address]\n    P2 --> DATA\n    D[Deep Copy] --> PA[Pointer A] --> DA[Addr 100]\n    D --> PB[Pointer B] --> DB[Addr 200]\n    style DATA fill:#fee2e2",
+            "mcq": {
+              "id": "m3-7",
+              "question": "Which copy type leads to 'Dangling Pointers' when one object is destroyed?",
+              "options": ["Deep Copy", "Static Copy", "Shallow Copy", "Direct Copy"],
+              "correctAnswer": 2,
+              "explanation": "In shallow copy, deleting one object frees the memory that the other object is still trying to use."
+            }
+          }]
+        },
+        {
+          "id": "u3-s8",
+          "title": "Step 8: Initialization Lists",
+          "concepts": [{
+            "id": "c3-8",
+            "title": "Efficient Assignment",
+            "theory": "Initialization lists provide a way to initialize data members before the constructor body executes.\n\n**Syntax**: `ClassName() : member1(v1), member2(v2) {}` \nIt is mandatory for `const` members and `reference` members.",
+            "mcq": {
+              "id": "m3-8",
+              "question": "Which keyword is used for members that MUST be initialized using an initialization list?",
+              "options": ["static", "const", "volatile", "mutable"],
+              "correctAnswer": 1,
+              "explanation": "Constants cannot be assigned inside the body; they must be initialized at birth."
+            }
+          }]
+        },
+        {
+          "id": "u3-s9",
+          "title": "Step 9: The 'this' Pointer",
+          "concepts": [{
+            "id": "c3-9",
+            "title": "Self-Awareness",
+            "theory": "The **`this`** pointer is a hidden object pointer available inside every non-static member function. It points to the object that invoked the function.\n\nUseful when a parameter name is the same as a data member name: `this->x = x;`",
+            "mcq": {
+              "id": "m3-9",
+              "question": "What does the 'this' pointer contain?",
+              "options": ["The value of the object", "The address of the object", "The class name", "The type of the object"],
+              "correctAnswer": 1,
+              "explanation": "It is a pointer to the current instance's memory location."
+            }
+          }]
+        },
+        {
+          "id": "u3-s10",
+          "title": "Step 10: Destructors",
+          "concepts": [{
+            "id": "c3-10",
+            "title": "Final Cleanup",
+            "theory": "A **Destructor** is called automatically when an object goes out of scope or is explicitly deleted. \n\n**Syntax**: `~ClassName();` \nIt never takes arguments and never returns a value. It is vital for releasing heap memory.",
+            "mcq": {
+              "id": "m3-10",
+              "question": "What is the prefix for a destructor name?",
+              "options": ["-", "!", "~", "#"],
+              "correctAnswer": 2,
+              "explanation": "The tilde (~) symbol identifies the destructor."
+            }
+          }]
+        }
+      ]
+    },
+    {
+      "id": "unit-4",
+      "title": "Unit 4: Inheritance (Extending Classes)",
+      "description": "Building complex systems through class hierarchies and reusability.",
+      "topics": [
+        {
+          "id": "u4-s1",
+          "title": "Step 1: The Concept of Inheritance",
+          "concepts": [{
+            "id": "c4-1",
+            "title": "Why Reusable Code?",
+            "theory": "**Inheritance** is the process by which objects of one class acquire the properties of objects of another class. It supports the concept of hierarchical classification.\n\nIt allows programmers to build new classes upon existing ones, adding only the features that are unique to the new class.",
+            "mcq": {
+              "id": "m4-1",
+              "question": "What is the primary technical benefit of Inheritance?",
+              "options": ["Faster compilation", "Code Reusability", "Reduced RAM usage", "Simpler syntax"],
+              "correctAnswer": 1,
+              "explanation": "Inheritance prevents 'reinventing the wheel' by allowing new classes to inherit vetted code."
+            }
+          }]
+        },
+        {
+          "id": "u4-s2",
+          "title": "Step 2: Base and Derived Classes",
+          "concepts": [{
+            "id": "c4-2",
+            "title": "The Parent-Child Contract",
+            "theory": "* **Base Class (Parent)**: The class being inherited from.\n* **Derived Class (Child)**: The class that inherits from the base class.\n\n**Syntax**:\n```cpp\nclass Derived : visibility Base {\n    // Child logic\n};\n```",
+            "mcq": {
+              "id": "m4-2",
+              "question": "Which keyword is functionally equivalent to 'Subclass' in OOPS?",
+              "options": ["Base Class", "Super Class", "Derived Class", "Friend Class"],
+              "correctAnswer": 2,
+              "explanation": "Derived Class and Subclass are used interchangeably to describe the inheriting entity."
+            }
+          }]
+        },
+        {
+          "id": "u4-s3",
+          "title": "Step 3: Visibility Modes",
+          "concepts": [{
+            "id": "c4-3",
+            "title": "Access Control through Generations",
+            "theory": "| Base Member | Public Inherit | Private Inherit | Protected Inherit |\n|---|---|---|---|\n| Public | Public | Private | Protected |\n| Protected | Protected | Private | Protected |\n| Private | Hidden | Hidden | Hidden |\n\n**Note**: Private members of a base class are NEVER inherited directly.",
+            "mcq": {
+              "id": "m4-3",
+              "question": "What becomes of a public base member when inherited 'privately'?",
+              "options": ["It remains public", "It becomes protected", "It becomes private", "It is hidden"],
+              "correctAnswer": 2,
+              "explanation": "Private inheritance restricts all inherited members to the private scope of the child."
+            }
+          }]
+        },
+        {
+          "id": "u4-s4",
+          "title": "Step 4: Single Inheritance",
+          "concepts": [{
+            "id": "c4-4",
+            "title": "Linear Extension",
+            "theory": "**Single Inheritance** is when a derived class inherits from only ONE base class.\n\nThis is the simplest form of hierarchy. ",
+            "flowchart": "graph TD\n    A[Class A] --> B[Class B]\n    style A fill:#dbeafe",
+            "mcq": {
+              "id": "m4-4",
+              "question": "If Class B inherits from Class A, and there are no other inheritance relationships, this is:",
+              "options": ["Multiple", "Multilevel", "Single", "Hybrid"],
+              "correctAnswer": 2,
+              "explanation": "A single parent-child link defines single inheritance."
+            }
+          }]
+        },
+        {
+          "id": "u4-s5",
+          "title": "Step 5: Multilevel Inheritance",
+          "concepts": [{
+            "id": "c4-5",
+            "title": "The Bloodline",
+            "theory": "**Multilevel Inheritance** is when a class is derived from another derived class (A -> B -> C).\n\nClass C inherits properties from Class B, which in turn inherited from Class A.",
+            "flowchart": "graph TD\n    A[Grandparent] --> B[Parent]\n    B --> C[Child]\n    style A fill:#f8fafc",
+            "mcq": {
+              "id": "m4-5",
+              "question": "In A->B->C, does C have access to A's public members?",
+              "options": ["Yes", "No", "Only if static", "Only if friend"],
+              "correctAnswer": 0,
+              "explanation": "Inheritance properties propagate down the chain of generations."
+            }
+          }]
+        },
+        {
+          "id": "u4-s6",
+          "title": "Step 6: Multiple Inheritance",
+          "concepts": [{
+            "id": "c4-6",
+            "title": "Merging Parents",
+            "theory": "**Multiple Inheritance** is when a class inherits from MORE THAN ONE base class simultaneously.\n\n**Syntax**: `class Derived : public Base1, public Base2 {};` \n\n**C++ Note**: Java and C# do not support this directly to avoid complexity.",
+            "mcq": {
+              "id": "m4-6",
+              "question": "Multiple inheritance involves how many base classes for a single child?",
+              "options": ["1", "Exactly 2", "2 or more", "None"],
+              "correctAnswer": 2,
+              "explanation": "A child can have multiple parents in C++ to combine functionalities."
+            }
+          }]
+        },
+        {
+          "id": "u4-s7",
+          "title": "Step 7: Hierarchical Inheritance",
+          "concepts": [{
+            "id": "c4-7",
+            "title": "One Source, Many Paths",
+            "theory": "**Hierarchical Inheritance** is when multiple classes are derived from a SINGLE base class.\n\nExample: `Animal` base class with `Dog`, `Cat`, and `Horse` as derived classes.",
+            "flowchart": "graph TD\n    A[Entity] --> B[Student]\n    A --> C[Staff]\n    style A fill:#f1f5f9",
+            "mcq": {
+              "id": "m4-7",
+              "question": "Which inheritance pattern represents a one-to-many relationship?",
+              "options": ["Multiple", "Hierarchical", "Single", "Multilevel"],
+              "correctAnswer": 1,
+              "explanation": "Hierarchical inheritance fans out from a single root."
+            }
+          }]
+        },
+        {
+          "id": "u4-s8",
+          "title": "Step 8: Hybrid Inheritance",
+          "concepts": [{
+            "id": "c4-8",
+            "title": "The Combination",
+            "theory": "**Hybrid Inheritance** is a combination of two or more types of inheritance. It often involves both Multiple and Multilevel patterns.",
+            "mcq": {
+              "id": "m4-8",
+              "question": "What is Hybrid inheritance?",
+              "options": ["Inheriting from 10 classes", "A mix of different inheritance types", "Inheriting only data members", "Inheriting only functions"],
+              "correctAnswer": 1,
+              "explanation": "Hybrid allows for complex, real-world hierarchical modeling."
+            }
+          }]
+        },
+        {
+          "id": "u4-s9",
+          "title": "Step 9: The Diamond Problem",
+          "concepts": [{
+            "id": "c4-9",
+            "title": "The Ambiguity Bug",
+            "theory": "When a class inherits from two classes that both inherit from the same common base class, a 'Diamond' is formed.\n\n**Problem**: The child class receives **two copies** of the common base class members, leading to compiler errors when trying to access those members.",
+            "flowchart": "graph TD\n    A[Base] --> B[Child 1]\n    A --> C[Child 2]\n    B --> D[Grandchild]\n    C --> D\n    style A fill:#fee2e2",
+            "mcq": {
+              "id": "m4-9",
+              "question": "Why is the Diamond problem an issue for the compiler?",
+              "options": ["Memory shortage", "Ambiguity in member access", "Slow execution", "It is not an issue"],
+              "correctAnswer": 1,
+              "explanation": "The compiler doesn't know which parent's copy of the grandparent member to use."
+            }
+          }]
+        },
+        {
+          "id": "u4-s10",
+          "title": "Step 10: Virtual Base Classes",
+          "concepts": [{
+            "id": "c4-10",
+            "title": "Solving Ambiguity",
+            "theory": "By declaring the intermediate base classes as **`virtual`**, we ensure that only **one copy** of the original base class members is passed to the final grandchild.\n\n**Syntax**: `class B : virtual public A {};` \nThis effectively collapses the multiple copies into one.",
+            "mcq": {
+              "id": "m4-10",
+              "question": "Which keyword solves the Diamond Problem in C++?",
+              "options": ["inline", "static", "virtual", "friend"],
+              "correctAnswer": 2,
+              "explanation": "Virtual base classes ensure a singleton-like inheritance for the root members."
+            }
+          }]
+        }
+      ]
+    },
+    {
+      "id": "unit-5",
+      "title": "Unit 5: Polymorphism & Operator Overloading",
+      "description": "Enabling 'One Name, Many Forms' through symbols and custom types.",
+      "topics": [
+        {
+          "id": "u5-s1",
+          "title": "Step 1: Introduction to Polymorphism",
+          "concepts": [{
+            "id": "c5-1",
+            "title": "One Name, Many Forms",
+            "theory": "**Polymorphism** is a Greek word meaning 'many forms'. It allows a single name to trigger different behaviors.\n\nTwo Types:\n1. **Compile-time (Static)**: Function Overloading and Operator Overloading.\n2. **Run-time (Dynamic)**: Virtual Functions.",
+            "mcq": {
+              "id": "m5-1",
+              "question": "Operator Overloading is an example of which type of polymorphism?",
+              "options": ["Run-time", "Compile-time", "Recursive", "Generic"],
+              "correctAnswer": 1,
+              "explanation": "The compiler decides which operator function to call based on the operand types at compile time."
+            }
+          }]
+        },
+        {
+          "id": "u5-s2",
+          "title": "Step 2: Operator Overloading Basics",
+          "concepts": [{
+            "id": "c5-2",
+            "title": "Symbol Redefinition",
+            "theory": "C++ allows us to assign additional meanings to most built-in operators (+, -, *, etc.) when applied to objects.\n\n**Syntax**: `returnType operator symbol (arguments) {}` \nIt does not change the operator's precedence or associativity.",
+            "mcq": {
+              "id": "m5-2",
+              "question": "Can you change the priority (precedence) of an operator by overloading it?",
+              "options": ["Yes", "No", "Only for math symbols", "Only for classes"],
+              "correctAnswer": 1,
+              "explanation": "Overloading keeps the original grammar rules of the operator intact."
+            }
+          }]
+        },
+        {
+          "id": "u5-s3",
+          "title": "Step 3: Overloading Unary Operators",
+          "concepts": [{
+            "id": "c5-3",
+            "title": "Single Operand Logic",
+            "theory": "Unary operators act on a single object. \n\n**Example**: Overloading `-` to negate values.\n```cpp\nvoid operator - () {\n    x = -x;\n    y = -y;\n}\n```\n**Usage**: `-obj1;`",
+            "mcq": {
+              "id": "m5-3",
+              "question": "How many arguments does a member unary operator function take?",
+              "options": ["None", "One", "Two", "Flexible"],
+              "correctAnswer": 0,
+              "explanation": "Since it's a member function, it uses the 'this' object as the operand implicitly."
+            }
+          }]
+        },
+        {
+          "id": "u5-s4",
+          "title": "Step 4: Overloading Binary Operators",
+          "concepts": [{
+            "id": "c5-4",
+            "title": "Dual Operand Logic",
+            "theory": "Binary operators take two operands. \n\n**Example**: `+` operator for Vector addition.\n```cpp\nVector operator + (Vector v2) {\n    Vector temp;\n    temp.x = x + v2.x;\n    return temp;\n}\n```\n**Usage**: `v3 = v1 + v2;` (where v1 is the caller and v2 is the argument).",
+            "mcq": {
+              "id": "m5-4",
+              "question": "In 'obj3 = obj1 + obj2', which object invokes the operator function?",
+              "options": ["obj1", "obj2", "obj3", "None"],
+              "correctAnswer": 0,
+              "explanation": "The object on the left of the operator is always the caller."
+            }
+          }]
+        },
+        {
+          "id": "u5-s5",
+          "title": "Step 5: Overloading with Friend Functions",
+          "concepts": [{
+            "id": "c5-5",
+            "title": "External Commutativity",
+            "theory": "Sometimes we need the left operand to be a basic type (e.g., `5 + obj`). Member functions can't handle this as `5` isn't an object. \n\n**Solution**: Friend functions take BOTH operands as arguments.\n`friend Vector operator+(int x, Vector v);`",
+            "mcq": {
+              "id": "m5-5",
+              "question": "Why use a friend function for '5 + obj'?",
+              "options": ["To save memory", "Because '5' cannot invoke a member function", "It is faster", "It is more secure"],
+              "correctAnswer": 1,
+              "explanation": "A member function requires the left-hand side to be an instance of the class."
+            }
+          }]
+        },
+        {
+          "id": "u5-s6",
+          "title": "Step 6: Rules for Overloading",
+          "concepts": [{
+            "id": "c5-6",
+            "title": "The Restrictions",
+            "theory": "1. Cannot create NEW operators (like `**`).\n2. At least one operand must be a user-defined type.\n3. **Cannot be overloaded**: Scope Resolution `::`, Sizeof `sizeof`, Ternary `?:`, Class Member Access `.`",
+            "mcq": {
+              "id": "m5-6",
+              "question": "Which of these operators CANNOT be overloaded?",
+              "options": ["+", "==", "::", "[]"],
+              "correctAnswer": 2,
+              "explanation": "Scope resolution is fundamental to the C++ grammar and cannot be redefined."
+            }
+          }]
+        },
+        {
+          "id": "u5-s7",
+          "title": "Step 7: Type Conversion: Basic to Class",
+          "concepts": [{
+            "id": "c5-7",
+            "title": "The Conversion Constructor",
+            "theory": "To convert `int` or `float` to an object, we use a single-argument constructor.\n\n**Example**:\n```cpp\nTime(int mins) {\n    hours = mins / 60;\n    minutes = mins % 60;\n}\n```\n**Usage**: `Time t = 135;`",
+            "mcq": {
+              "id": "m5-7",
+              "question": "Which constructor handles 'Time t = 100;'?",
+              "options": ["Default", "Copy", "Single-argument Parameterized", "Multiple-argument"],
+              "correctAnswer": 2,
+              "explanation": "The int is automatically cast using the constructor that takes an int."
+            }
+          }]
+        },
+        {
+          "id": "u5-s8",
+          "title": "Step 8: Type Conversion: Class to Basic",
+          "concepts": [{
+            "id": "c5-8",
+            "title": "Casting Operators",
+            "theory": "To convert an object back to an `int` or `float`, we use a **Casting Operator**.\n\n**Syntax**: `operator type() { return value; }` \nIt has no return type and no arguments.",
+            "mcq": {
+              "id": "m5-8",
+              "question": "Does a casting operator function have a specified return type?",
+              "options": ["Yes, at the start", "No, it is implied by the name", "Only void", "Always int"],
+              "correctAnswer": 1,
+              "explanation": "The type it converts to acts as its name and return type simultaneously."
+            }
+          }]
+        },
+        {
+          "id": "u5-s9",
+          "title": "Step 9: Type Conversion: Class to Class",
+          "concepts": [{
+            "id": "c5-9",
+            "title": "Cross-Object Translation",
+            "theory": "Can be handled either by:\n1. A **Constructor** in the destination class.\n2. A **Casting Operator** in the source class.",
+            "mcq": {
+              "id": "m5-9",
+              "question": "Where should the conversion logic live if using a constructor?",
+              "options": ["Source class", "Destination class", "Main function", "Global scope"],
+              "correctAnswer": 1,
+              "explanation": "Constructors are definitions within the class being initialized."
+            }
+          }]
+        },
+        {
+          "id": "u5-s10",
+          "title": "Step 10: Pointers to Objects",
+          "concepts": [{
+            "id": "c5-10",
+            "title": "Indirect Access",
+            "theory": "We can use pointers to store the address of an object. \n\n**Syntax**: `Item *ptr = &obj;` \nMembers are accessed using the **Arrow Operator (`->`)** instead of the dot operator.\n`ptr->show();` ",
+            "mcq": {
+              "id": "m5-10",
+              "question": "Which operator replaces '.' when using an object pointer?",
+              "options": ["::", "->", "=>", "&&"],
+              "correctAnswer": 1,
+              "explanation": "The arrow operator dereferences the pointer and accesses the member in one step."
+            }
+          }]
+        }
+      ]
+    },
+    {
+      "id": "unit-6",
+      "title": "Unit 6: Virtual Functions, Templates & File I/O",
+      "description": "Advanced C++ features for robust, high-performance applications.",
+      "topics": [
+        {
+          "id": "u6-s1",
+          "title": "Step 1: Introduction to Run-time Polymorphism",
+          "concepts": [{
+            "id": "c6-1",
+            "title": "Late Binding",
+            "theory": "**Run-time Polymorphism** (or Late Binding) is when the selection of the function to be called is deferred until the program is actually running.\n\nThis is essential when a pointer to a base class is used to refer to a derived class object.",
+            "mcq": {
+              "id": "m6-1",
+              "question": "What is another name for Run-time polymorphism?",
+              "options": ["Static Binding", "Late Binding", "Early Binding", "Compile Binding"],
+              "correctAnswer": 1,
+              "explanation": "Selection happens at runtime, hence it is 'late'."
+            }
+          }]
+        },
+        {
+          "id": "u6-s2",
+          "title": "Step 2: Virtual Functions",
+          "concepts": [{
+            "id": "c6-2",
+            "title": "The Virtual Keyword",
+            "theory": "By marking a base class function as **`virtual`**, we tell the compiler: 'Look at the actual object type at runtime, not the pointer type'.\n\nThis ensures the derived class version of the function is called even when accessed through a base pointer.",
+            "mcq": {
+              "id": "m6-2",
+              "question": "If 'Base *ptr = new Derived();', and 'display()' is NOT virtual, which version is called?",
+              "options": ["Base version", "Derived version", "Both", "Error"],
+              "correctAnswer": 0,
+              "explanation": "Without the virtual keyword, the compiler defaults to the pointer's type (Base)."
+            }
+          }]
+        },
+        {
+          "id": "u6-s3",
+          "title": "Step 3: Rules of Virtual Functions",
+          "concepts": [{
+            "id": "c6-3",
+            "title": "Standard Restrictions",
+            "theory": "1. Must be members of a class.\n2. CANNOT be static members.\n3. Are accessed via object pointers.\n4. A virtual function can be a friend of another class.",
+            "mcq": {
+              "id": "m6-3",
+              "question": "Can a constructor be virtual?",
+              "options": ["Yes", "No", "Only in C++20", "Only if protected"],
+              "correctAnswer": 1,
+              "explanation": "Constructors strictly belong to a specific class and cannot be overridden as virtual."
+            }
+          }]
+        },
+        {
+          "id": "u6-s4",
+          "title": "Step 4: Pure Virtual Functions",
+          "concepts": [{
+            "id": "c6-4",
+            "title": "The Do-Nothing Function",
+            "theory": "A **Pure Virtual Function** is a virtual function with no implementation in the base class. It acts as a placeholder for derived classes to fill.\n\n**Syntax**: `virtual void display() = 0;` ",
+            "mcq": {
+              "id": "m6-4",
+              "question": "What does '= 0' signify in a function declaration?",
+              "options": ["Return value is 0", "The function is pure virtual", "The function is static", "The function is deleted"],
+              "correctAnswer": 1,
+              "explanation": "It forces derived classes to provide their own implementation."
+            }
+          }]
+        },
+        {
+          "id": "u6-s5",
+          "title": "Step 5: Abstract Classes",
+          "concepts": [{
+            "id": "c6-5",
+            "title": "The Interface Skeleton",
+            "theory": "A class that contains at least one **Pure Virtual Function** is called an **Abstract Class**.\n\n**Crucial Rule**: You cannot create objects (instances) of an abstract class. It only exists to be inherited from.",
+            "mcq": {
+              "id": "m6-5",
+              "question": "Can you instantiate an abstract class?",
+              "options": ["Yes", "No", "Only using new", "Only inside main"],
+              "correctAnswer": 1,
+              "explanation": "Abstract classes are incomplete blueprints; they must be completed by a child class."
+            }
+          }]
+        },
+        {
+          "id": "u6-s6",
+          "title": "Step 6: Virtual Destructors",
+          "concepts": [{
+            "id": "c6-6",
+            "title": "Memory Leak Prevention",
+            "theory": "If you delete a derived object through a base pointer, only the base destructor is called unless the base destructor is marked **`virtual`**.\n\nAlways use virtual destructors in classes meant for inheritance.",
+            "mcq": {
+              "id": "m6-6",
+              "question": "What is the danger of a non-virtual destructor in a base class?",
+              "options": ["Compilation error", "Infinite loop", "Memory leak of derived class members", "Crashing browser"],
+              "correctAnswer": 2,
+              "explanation": "The derived class part of the object remains in memory because its destructor was never reached."
+            }
+          }]
+        },
+        {
+          "id": "u6-s7",
+          "title": "Step 7: Introduction to Templates",
+          "concepts": [{
+            "id": "c6-7",
+            "title": "Generic Programming",
+            "theory": "**Templates** allow you to write a single function or class that works with any data type (int, float, string, etc.).\n\nThis is known as **Parameterized Types**.",
+            "mcq": {
+              "id": "m6-7",
+              "question": "What is the primary keyword used for defining templates?",
+              "options": ["generic", "template", "auto", "typedef"],
+              "correctAnswer": 1,
+              "explanation": "The 'template' keyword introduces a generic type definition."
+            }
+          }]
+        },
+        {
+          "id": "u6-s8",
+          "title": "Step 8: Function and Class Templates",
+          "concepts": [{
+            "id": "c6-8",
+            "title": "Reusable Logic",
+            "theory": "* **Function Templates**: Overloading logic for different types.\n* **Class Templates**: Creating generic containers like a 'Stack' or 'List' that can hold any type.",
+            "mcq": {
+              "id": "m6-8",
+              "question": "A Stack that can hold both 'int' and 'Point' objects (not at once) is best implemented using:",
+              "options": ["Inheritance", "Templates", "Static members", "Global arrays"],
+              "correctAnswer": 1,
+              "explanation": "Templates allow the same structure to be reused for different data types."
+            }
+          }]
+        },
+        {
+          "id": "u6-s9",
+          "title": "Step 9: Introduction to STL",
+          "concepts": [{
+            "id": "c6-9",
+            "title": "The Library of Experts",
+            "theory": "The **Standard Template Library (STL)** is a powerful collection of templates representing core Data Structures (containers) and Algorithms.\n\nKey Concepts: Containers (Vector, List), Algorithms (Sort, Search), and Iterators.",
+            "mcq": {
+              "id": "m6-9",
+              "question": "Which component of STL is used to navigate through containers?",
+              "options": ["Pointers", "Iterators", "Indices", "Streams"],
+              "correctAnswer": 1,
+              "explanation": "Iterators act as a generic interface to access elements in any STL container."
+            }
+          }]
+        },
+        {
+          "id": "u6-s10",
+          "title": "Step 10: Exception Handling",
+          "concepts": [{
+            "id": "c6-10",
+            "title": "Try, Catch, Throw",
+            "theory": "Exception handling provides a way to separate error-handling code from main logic.\n\n* **try**: Identifies a block of code for which exceptions are activated.\n* **catch**: Specific code to handle a particular exception.\n* **throw**: Signals that an error has occurred.",
+            "mcq": {
+              "id": "m6-10",
+              "question": "Which block is used to 'catch' an error signal?",
+              "options": ["try", "throw", "catch", "if-else"],
+              "correctAnswer": 2,
+              "explanation": "The catch block filters and handles the error object thrown by the application."
+            }
+          }]
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+
