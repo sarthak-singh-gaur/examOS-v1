@@ -6,8 +6,11 @@ const ExamContext = createContext(null);
 export const ExamProvider = ({ children }) => {
   const [userId, setUserId] = useState(() => loadLastUser());
   const [state, setState] = useState(() => {
-    if (userId) return loadState(userId) || getInitialState();
-    return getInitialState();
+    if (userId) {
+      const saved = loadState(userId);
+      return saved || { ...getInitialState(), isDarkMode: true }; // Default to dark for "Wow"
+    }
+    return { ...getInitialState(), isDarkMode: true };
   });
 
   // Hot reload state if userId changes
@@ -70,6 +73,13 @@ export const ExamProvider = ({ children }) => {
     }));
   };
 
+  const toggleTheme = () => {
+    setState(prev => ({
+      ...prev,
+      isDarkMode: !prev.isDarkMode
+    }));
+  };
+
   return (
     <ExamContext.Provider value={{
       userId,
@@ -78,7 +88,8 @@ export const ExamProvider = ({ children }) => {
       state,
       updateProgress,
       addWeakTopic,
-      updateLastVisited
+      updateLastVisited,
+      toggleTheme
     }}>
       {children}
     </ExamContext.Provider>

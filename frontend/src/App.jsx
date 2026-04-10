@@ -10,7 +10,7 @@ import PracticeHub from './pages/PracticeHub';
 
 import { useExam } from './context/ExamContext';
 import BootScreen from './pages/BootScreen';
-import { Power, PlayCircle } from 'lucide-react';
+import { Power, PlayCircle, Sun, Moon } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 
 const TrackLocation = () => {
@@ -18,7 +18,6 @@ const TrackLocation = () => {
   const { updateLastVisited } = useExam();
   
   React.useEffect(() => {
-    // We don't save '/' as a resume point usually, but let's save everywhere except maybe PracticeHub for simplicity
     if (location.pathname !== '/') {
        updateLastVisited(location.pathname);
     }
@@ -27,33 +26,48 @@ const TrackLocation = () => {
 };
 
 const Layout = ({ children }) => {
-  const { userId, resetOS, state } = useExam();
+  const { userId, resetOS, state, toggleTheme } = useExam();
+
+  React.useEffect(() => {
+    if (state.isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [state.isDarkMode]);
 
   if (!userId) {
     return <BootScreen />;
   }
 
   return (
-    <div className="min-h-screen bg-background-main font-sans text-text-primary p-4 md:p-8">
-      <div className="max-w-7xl mx-auto flex flex-col gap-6">
-        <nav className="flex items-center justify-between p-4 bg-card rounded-2xl shadow-sm border border-border">
+    <div className="min-h-screen font-sans">
+      <div className="max-w-7xl mx-auto p-4 md:p-8 flex flex-col gap-6">
+        <nav className="glass flex items-center justify-between p-4 rounded-2xl shadow-lg border-primary/20">
           <div className="flex items-center gap-4">
-            <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mr-4">ExamOS</h1>
-            <a href="/" className="hover:text-primary transition-colors font-medium">Dashboard</a>
-            <a href="/practice" className="hover:text-primary transition-colors font-medium">Practice Hub</a>
+            <h1 className="text-2xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mr-4">ExamOS</h1>
+            <a href="/" className="hover:text-primary transition-colors font-semibold text-text-dim">Dashboard</a>
+            <a href="/practice" className="hover:text-primary transition-colors font-semibold text-text-dim">Practice Hub</a>
           </div>
           
-          <div className="flex items-center gap-4 border-l pl-4 ml-2 border-border">
-            <span className="text-sm font-medium text-text-secondary hidden sm:inline-block">Logged in as <b className="text-text-primary uppercase">{userId}</b></span>
+          <div className="flex items-center gap-3 border-l pl-4 ml-2 border-border-subtle">
+            <button 
+              onClick={toggleTheme}
+              className="p-2 rounded-xl bg-primary/10 text-primary hover:bg-primary/20 transition-all active:scale-90"
+            >
+              {state.isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
+
+            <span className="text-sm font-medium text-text-soft hidden md:inline-block">User: <b className="text-text-main uppercase">{userId}</b></span>
             
             {state.lastVisited !== '/' && (
-               <a href={state.lastVisited} className="flex items-center gap-1 text-sm bg-primary/10 text-primary px-3 py-1.5 rounded-lg hover:bg-primary/20 font-medium transition-colors">
-                 <PlayCircle className="w-4 h-4" /> Resume Action
+               <a href={state.lastVisited} className="flex items-center gap-1 text-sm bg-primary text-white px-4 py-2 rounded-xl hover:bg-primary-hover font-bold transition-all shadow-md shadow-primary/20">
+                 <PlayCircle className="w-4 h-4" /> Resume
                </a>
             )}
 
-            <button onClick={resetOS} className="flex items-center gap-1 text-sm text-error bg-error/10 hover:bg-error hover:text-white px-3 py-1.5 rounded-lg font-medium transition-colors">
-               <Power className="w-4 h-4" /> Reset OS
+            <button onClick={resetOS} className="p-2 text-error bg-error/10 hover:bg-error hover:text-white rounded-xl transition-all">
+               <Power className="w-5 h-5" />
             </button>
           </div>
         </nav>

@@ -9,6 +9,7 @@ import mathsData from '../data/maths_data.json';
 import financeData from '../data/finance_data.json';
 import { ArrowLeft, CheckCircle, XCircle, Lock, BookOpen } from 'lucide-react';
 import MermaidChart from '../components/MermaidChart';
+import { playFeedback } from '../utils/audio';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
@@ -220,10 +221,11 @@ export default function ConceptLearningPage() {
 
   const checkAnswer = (index) => {
     setSelectedOption(index);
-    if (index === concept.mcq.correctAnswer) {
-      setMcqStatus('correct');
-    } else {
-      setMcqStatus('incorrect');
+    const isCorrect = index === concept.mcq.correctAnswer;
+    setMcqStatus(isCorrect ? 'correct' : 'incorrect');
+    playFeedback(isCorrect);
+    
+    if (!isCorrect) {
       addWeakTopic(topic.title);
     }
   };

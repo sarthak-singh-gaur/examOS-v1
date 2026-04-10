@@ -6,6 +6,7 @@ import coMcqs from '../data/mcq_bank_co.json';
 import oopsMcqs from '../data/mcq_bank_oops.json';
 import mathsMcqs from '../data/mcq_bank_maths.json';
 import financeMcqs from '../data/mcq_bank_finance.json';
+import { playFeedback } from '../utils/audio';
 import { Filter, CheckCircle, XCircle, AlertTriangle, RotateCcw, Trophy, BookOpen, ChevronRight } from 'lucide-react';
 
 const McqBanks = {
@@ -80,11 +81,13 @@ export default function PracticeHub() {
 
   const checkAnswer = (index) => {
     setSelectedOption(index);
-    if (index === question.correctAnswer) {
-      setStatus('correct');
+    const isCorrect = index === question.correctAnswer;
+    setStatus(isCorrect ? 'correct' : 'incorrect');
+    playFeedback(isCorrect);
+    
+    if (isCorrect) {
       setScore(prev => ({ ...prev, correct: prev.correct + 1, total: prev.total + 1 }));
     } else {
-      setStatus('incorrect');
       setScore(prev => ({ ...prev, incorrect: prev.incorrect + 1, total: prev.total + 1 }));
     }
   };
