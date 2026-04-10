@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
 import { ExamProvider } from './context/ExamContext';
 
 import Dashboard from './pages/Dashboard';
@@ -11,7 +11,6 @@ import PracticeHub from './pages/PracticeHub';
 import { useExam } from './context/ExamContext';
 import BootScreen from './pages/BootScreen';
 import { Power, PlayCircle, Sun, Moon } from 'lucide-react';
-import { useLocation } from 'react-router-dom';
 
 const TrackLocation = () => {
   const location = useLocation();
@@ -46,8 +45,8 @@ const Layout = ({ children }) => {
         <nav className="glass flex items-center justify-between p-4 rounded-2xl shadow-lg border-primary/20">
           <div className="flex items-center gap-4">
             <h1 className="text-2xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mr-4">ExamOS</h1>
-            <a href="/" className="hover:text-primary transition-colors font-semibold text-text-dim">Dashboard</a>
-            <a href="/practice" className="hover:text-primary transition-colors font-semibold text-text-dim">Practice Hub</a>
+            <Link to="/" className="hover:text-primary transition-colors font-semibold text-text-dim">Dashboard</Link>
+            <Link to="/practice" className="hover:text-primary transition-colors font-semibold text-text-dim">Practice Hub</Link>
           </div>
           
           <div className="flex items-center gap-3 border-l pl-4 ml-2 border-border-subtle">
@@ -61,9 +60,9 @@ const Layout = ({ children }) => {
             <span className="text-sm font-medium text-text-soft hidden md:inline-block">User: <b className="text-text-main uppercase">{userId}</b></span>
             
             {state.lastVisited !== '/' && (
-               <a href={state.lastVisited} className="flex items-center gap-1 text-sm bg-primary text-white px-4 py-2 rounded-xl hover:bg-primary-hover font-bold transition-all shadow-md shadow-primary/20">
+               <Link to={state.lastVisited} className="flex items-center gap-1 text-sm bg-primary text-white px-4 py-2 rounded-xl hover:bg-primary-hover font-bold transition-all shadow-md shadow-primary/20">
                  <PlayCircle className="w-4 h-4" /> Resume
-               </a>
+               </Link>
             )}
 
             <button onClick={resetOS} className="p-2 text-error bg-error/10 hover:bg-error hover:text-white rounded-xl transition-all">
