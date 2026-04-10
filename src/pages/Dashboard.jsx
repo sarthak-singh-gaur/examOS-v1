@@ -84,6 +84,39 @@ export default function Dashboard() {
             </Card>
           );
         })}
+        
+        {/* Practice Hub Quick Access Card */}
+        <Card 
+          className="p-8 flex flex-col glass glass-hover border-success/30 cursor-pointer group rounded-[2.5rem] bg-success/5"
+          onClick={() => navigate('/practice')}
+        >
+          <div className="flex items-start justify-between mb-6">
+            <div className="p-4 rounded-2xl bg-success/10 text-success shadow-inner">
+               <Play className="w-8 h-8 fill-current" />
+            </div>
+            <Badge variant="success" className="animate-pulse">Live Engine</Badge>
+          </div>
+          
+          <div className="mb-8 flex-1">
+            <h3 className="text-2xl font-black mb-3 group-hover:text-success transition-colors text-text-main">Practice Hub</h3>
+            <p className="text-lg text-text-dim line-clamp-2 leading-relaxed">Dynamic MCQ engine to test your mastery across all subjects.</p>
+          </div>
+
+          <div className="space-y-4">
+            <div className="flex justify-between text-sm">
+              <span className="font-bold text-text-dim">Quick Access</span>
+              <span className="font-black text-success">READY</span>
+            </div>
+            <div className="h-4 w-full bg-success/10 rounded-full overflow-hidden">
+              <div className="h-full bg-success w-full opacity-50 animate-shimmer" />
+            </div>
+          </div>
+          
+          <Button className="w-full mt-6 bg-success hover:bg-success-hover text-white gap-2 shadow-lg shadow-success/20">
+            Open Practice Hub
+            <ArrowRight className="w-4 h-4 ml-1" />
+          </Button>
+        </Card>
       </div>
 
       {state.weakTopics && state.weakTopics.length > 0 && (
