@@ -37,8 +37,8 @@ export default function Dashboard() {
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       <header>
-        <h1 className="text-4xl font-black tracking-tight text-text-main">Welcome back!</h1>
-        <p className="text-text-dim mt-2 text-xl">Pick up right where you left off or start a new topic.</p>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-text-main">Welcome back!</h1>
+        <p className="text-text-dim mt-2 text-base sm:text-xl">Pick up right where you left off or start a new topic.</p>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -50,12 +50,12 @@ export default function Dashboard() {
           return (
             <Card 
               key={subject.id} 
-              className="p-8 flex flex-col glass glass-hover cursor-pointer group rounded-[2.5rem]"
+              className="p-5 sm:p-8 flex flex-col glass glass-hover cursor-pointer group rounded-[2rem] sm:rounded-[2.5rem]"
               onClick={() => navigate(`/subject/${subject.id}`)}
             >
-              <div className="flex items-start justify-between mb-6">
-                <div className={`p-4 rounded-2xl bg-${subject.color}-500/10 text-${subject.color}-500 shadow-inner`}>
-                   <Icon className="w-8 h-8" />
+              <div className="flex items-start justify-between mb-4 sm:mb-6">
+                <div className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-${subject.color}-500/10 text-${subject.color}-500 shadow-inner`}>
+                   <Icon className="w-6 h-6 sm:w-8 sm:h-8" />
                 </div>
                 {hasStarted ? (
                   <Badge variant="success">In Progress</Badge>
@@ -64,9 +64,9 @@ export default function Dashboard() {
                 )}
               </div>
               
-              <div className="mb-8 flex-1">
-                <h3 className="text-2xl font-black mb-3 group-hover:text-primary transition-colors text-text-main">{subject.title}</h3>
-                <p className="text-lg text-text-dim line-clamp-2 leading-relaxed">{subject.description}</p>
+              <div className="mb-6 sm:mb-8 flex-1">
+                <h3 className="text-xl sm:text-2xl font-black mb-2 sm:mb-3 group-hover:text-primary transition-colors text-text-main">{subject.title}</h3>
+                <p className="text-sm sm:text-lg text-text-dim line-clamp-2 leading-relaxed">{subject.description}</p>
               </div>
 
               <div className="space-y-4">
@@ -77,7 +77,7 @@ export default function Dashboard() {
                 <ProgressBar progress={progress} />
               </div>
               
-              <Button className="w-full mt-6 group-hover:bg-primary-hover gap-2">
+              <Button className="w-full mt-4 sm:mt-6 group-hover:bg-primary-hover gap-2 h-10 sm:h-auto text-sm sm:text-base">
                 {hasStarted ? 'Continue Learning' : 'Start Learning'} 
                 <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
@@ -87,32 +87,32 @@ export default function Dashboard() {
         
         {/* Practice Hub Quick Access Card */}
         <Card 
-          className="p-8 flex flex-col glass glass-hover border-success/30 cursor-pointer group rounded-[2.5rem] bg-success/5"
+          className="p-5 sm:p-8 flex flex-col glass glass-hover border-success/30 cursor-pointer group rounded-[2rem] sm:rounded-[2.5rem] bg-success/5"
           onClick={() => navigate('/practice')}
         >
-          <div className="flex items-start justify-between mb-6">
-            <div className="p-4 rounded-2xl bg-success/10 text-success shadow-inner">
-               <Play className="w-8 h-8 fill-current" />
+          <div className="flex items-start justify-between mb-4 sm:mb-6">
+            <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-success/10 text-success shadow-inner">
+               <Play className="w-6 h-6 sm:w-8 sm:h-8 fill-current" />
             </div>
-            <Badge variant="success" className="animate-pulse">Live Engine</Badge>
+            <Badge variant="success" className="animate-pulse text-[10px] sm:text-xs">Live Engine</Badge>
           </div>
           
-          <div className="mb-8 flex-1">
-            <h3 className="text-2xl font-black mb-3 group-hover:text-success transition-colors text-text-main">Practice Hub</h3>
-            <p className="text-lg text-text-dim line-clamp-2 leading-relaxed">Dynamic MCQ engine to test your mastery across all subjects.</p>
+          <div className="mb-6 sm:mb-8 flex-1">
+            <h3 className="text-xl sm:text-2xl font-black mb-2 sm:mb-3 group-hover:text-success transition-colors text-text-main">Practice Hub</h3>
+            <p className="text-sm sm:text-lg text-text-dim line-clamp-2 leading-relaxed">Dynamic MCQ engine to test your mastery across all subjects.</p>
           </div>
 
           <div className="space-y-4">
-            <div className="flex justify-between text-sm">
+            <div className="flex justify-between text-xs sm:text-sm">
               <span className="font-bold text-text-dim">Quick Access</span>
               <span className="font-black text-success">READY</span>
             </div>
-            <div className="h-4 w-full bg-success/10 rounded-full overflow-hidden">
+            <div className="h-2.5 sm:h-4 w-full bg-success/10 rounded-full overflow-hidden">
               <div className="h-full bg-success w-full opacity-50 animate-shimmer" />
             </div>
           </div>
           
-          <Button className="w-full mt-6 bg-success hover:bg-success-hover text-white gap-2 shadow-lg shadow-success/20">
+          <Button className="w-full mt-4 sm:mt-6 bg-success hover:bg-success-hover text-white gap-2 shadow-lg shadow-success/20 h-10 sm:h-auto text-sm sm:text-base">
             Open Practice Hub
             <ArrowRight className="w-4 h-4 ml-1" />
           </Button>

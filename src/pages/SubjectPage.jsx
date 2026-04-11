@@ -72,33 +72,33 @@ export default function SubjectPage() {
   if (!subjectInfo || !curriculum) return <div className="p-8">Loading syllabus...</div>;
 
   return (
-    <div className="max-w-6xl mx-auto space-y-10 animate-in slide-in-from-bottom-4 duration-500 pb-20">
-      <header className="relative p-12 rounded-[3.5rem] glass border-primary/20 shadow-2xl overflow-hidden">
+    <div className="max-w-6xl mx-auto space-y-6 sm:space-y-10 animate-in slide-in-from-bottom-4 duration-500 pb-20">
+      <header className="relative p-6 sm:p-8 md:p-12 rounded-[2rem] sm:rounded-[3.5rem] glass border-primary/20 shadow-2xl overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full -mr-48 -mt-48 blur-[100px]"></div>
         <div className="relative z-10">
           <button onClick={() => navigate('/')} className="flex items-center text-sm font-bold text-text-secondary hover:text-primary mb-8 transition-all group">
             <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" /> Back to Dashboard
           </button>
-          <div className="flex items-start gap-8">
-            <div className={`p-6 rounded-3xl bg-primary shadow-xl shadow-primary/20 text-white`}>
-               <LayoutGrid className="w-12 h-12" />
+          <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-8">
+            <div className={`p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-primary shadow-xl shadow-primary/20 text-white`}>
+               <LayoutGrid className="w-8 h-8 sm:w-12 sm:h-12" />
             </div>
             <div>
-              <div className="flex items-center gap-3 mb-2">
-                <h1 className="text-4xl font-black tracking-tight">{subjectInfo.title}</h1>
-                <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5">Core Subject</Badge>
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight">{subjectInfo.title}</h1>
+                <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 text-[10px] sm:text-xs">Core Subject</Badge>
               </div>
-              <p className="text-text-dim text-xl max-w-3xl leading-relaxed">{subjectInfo.description}</p>
+              <p className="text-text-dim text-base sm:text-xl max-w-3xl leading-relaxed">{subjectInfo.description}</p>
             </div>
           </div>
         </div>
       </header>
 
       <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <h2 className="text-4xl font-black text-text-main">Learning Pathway</h2>
-          <div className="flex items-center gap-2 text-sm font-bold text-text-dim glass px-5 py-2.5 rounded-full">
-            <CheckCircle2 className="w-4 h-4 text-success" />
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-text-main">Learning Pathway</h2>
+          <div className="flex items-center gap-2 text-xs font-bold text-text-dim glass px-4 py-2 rounded-full w-fit">
+            <CheckCircle2 className="w-3.5 h-3.5 text-success" />
             Adaptive curriculum enabled
           </div>
         </div>
@@ -112,55 +112,55 @@ export default function SubjectPage() {
             return (
               <Card key={unit.id} className={`group overflow-hidden border-2 transition-all duration-300 ${isAccessible ? 'hover:border-primary/50 shadow-md hover:shadow-2xl glass' : 'opacity-70 grayscale bg-text-soft/5 cursor-not-allowed'}`}>
                 <div className="flex flex-col lg:flex-row">
-                  <div className="p-8 flex-1 space-y-6">
+                  <div className="p-5 sm:p-8 flex-1 space-y-4 sm:space-y-6">
                     <div className="flex justify-between items-start">
                       <div className="space-y-1">
-                        <span className="text-xs font-black uppercase tracking-[0.2em] text-primary/60">Unit 0{unitIdx + 1}</span>
-                        <h3 className="text-2xl font-bold flex items-center gap-3">
+                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary/60">Unit 0{unitIdx + 1}</span>
+                        <h3 className="text-xl sm:text-2xl font-bold flex items-center gap-2 sm:gap-3 text-text-main">
                           {unit.title}
-                          {isCompleted && <CheckCircle2 className="w-6 h-6 text-success fill-success/10" />}
+                          {isCompleted && <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-success fill-success/10" />}
                         </h3>
                       </div>
-                      <ProgressRing progress={unitProgress} color={isCompleted ? 'success' : 'primary'} />
+                      <ProgressRing progress={unitProgress} size={44} strokeWidth={4} color={isCompleted ? 'success' : 'primary'} className="sm:scale-125" />
                     </div>
 
-                    <p className="text-text-dim text-lg leading-relaxed">{unit.description || "Deep dive into the core architecture and problem-solving methodologies of this unit."}</p>
+                    <p className="text-text-dim text-sm sm:text-lg leading-relaxed">{unit.description || "Deep dive into the core architecture and problem-solving methodologies."}</p>
                     
-                    <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                    <div className="grid grid-cols-2 lg:grid-cols-5 gap-2 sm:gap-3">
                       {unit.topics.map((topic, tIdx) => {
                         const isTopicLocked = false; // Unlocked by user request
                         return (
                           <div 
                             key={topic.id} 
                             onClick={() => !isTopicLocked && isAccessible && navigate(`/subject/${subjectId}/unit/${unit.id}/topic/${topic.id}`)}
-                            className={`flex items-center justify-between p-3 rounded-xl border transition-all cursor-pointer
+                            className={`flex items-center justify-between p-2.5 sm:p-3 rounded-xl border transition-all cursor-pointer
                               ${isTopicLocked ? 'bg-text-soft/5 text-text-soft border-border-subtle opacity-50' : 'bg-text-soft/5 hover:bg-primary/10 hover:border-primary/50 border-border-subtle shadow-sm'}
                             `}
                           >
                             <span className="text-[10px] font-bold truncate pr-1 text-text-main">{topic.title}</span>
-                            {isTopicLocked ? <Lock className="w-3 h-3 text-text-soft" /> : <ChevronRight className="w-3 h-3 text-primary" />}
+                            {isTopicLocked ? <Lock className="w-3 h-3 text-text-soft" /> : <ChevronRight className="w-3 h-3 text-primary shrink-0" />}
                           </div>
                         );
                       })}
                     </div>
                   </div>
 
-                  <div className={`lg:w-72 p-8 flex flex-col justify-center gap-4 bg-primary/5 border-l border-border-subtle`}>
+                  <div className={`lg:w-72 p-5 sm:p-8 flex flex-col justify-center gap-4 bg-primary/5 border-t lg:border-t-0 lg:border-l border-border-subtle`}>
                     <div className="space-y-1">
-                       <p className="text-sm font-bold text-text-dim">Overall Mastery</p>
-                       <div className="h-2 w-full bg-text-soft/20 rounded-full overflow-hidden">
+                       <p className="text-xs sm:text-sm font-bold text-text-dim">Overall Mastery</p>
+                       <div className="h-1.5 sm:h-2 w-full bg-text-soft/20 rounded-full overflow-hidden">
                           <div className={`h-full transition-all duration-1000 ${isCompleted ? 'bg-success' : 'bg-primary shadow-[0_0_10px_rgba(99,102,241,0.5)]'}`} style={{ width: `${unitProgress}%` }} />
                        </div>
                     </div>
                     
                     <Button 
                       disabled={!isAccessible}
-                      className="w-full py-6 text-lg font-bold shadow-lg" 
+                      className="w-full py-4 sm:py-6 text-sm sm:text-lg font-bold shadow-lg h-auto" 
                       variant={isCompleted ? 'outline' : 'primary'}
                       onClick={() => navigate(`/subject/${subjectId}/unit/${unit.id}/topic/${unit.topics[0].id}`)}
                     >
                       {isAccessible ? (unitProgress > 0 ? (isCompleted ? 'Review Mastery' : 'Resume Flow') : 'Start Journey') : 'Locked Unit'}
-                      {isAccessible ? <Play className="w-5 h-5 ml-2 fill-current" /> : <Lock className="w-5 h-5 ml-2" />}
+                      {isAccessible ? <Play className="w-4 h-4 sm:w-5 sm:h-5 ml-2 fill-current" /> : <Lock className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />}
                     </Button>
                   </div>
                 </div>

@@ -237,72 +237,75 @@ export default function ConceptLearningPage() {
           <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" /> Back to Curriculum
         </button>
         <ProgressBar progress={stepProgress} className="h-3" />
-        <div className="flex justify-between items-end">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4">
           <div>
             <span className="text-primary font-black tracking-[0.2em] text-[10px] uppercase mb-1 block opacity-80">Topic {currentTopicIndex + 1} of {unit.topics.length}</span>
-            <h1 className="text-4xl font-black text-text-main">{topic.title}</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-text-main leading-tight">{topic.title}</h1>
           </div>
-          <div className="glass text-primary px-5 py-3 rounded-2xl border-primary/20 flex items-center gap-3 shadow-lg">
-            <BookOpen className="w-5 h-5" />
-            <span className="text-sm font-black">Step {currentStep + 1} of {topic.concepts.length}</span>
+          <div className="glass text-primary px-4 sm:px-5 py-2 sm:py-3 rounded-2xl border-primary/20 flex items-center gap-3 shadow-lg w-fit">
+            <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span className="text-xs sm:text-sm font-black">Step {currentStep + 1} of {topic.concepts.length}</span>
           </div>
         </div>
       </header>
 
-      <Card className="p-10 glass-heavy shadow-2xl space-y-10 border-primary/10">
-        <div className="prose dark:prose-invert prose-slate max-w-none text-text-dim text-xl leading-relaxed">
+      <Card className="p-5 sm:p-10 glass-heavy shadow-2xl space-y-6 sm:space-y-10 border-primary/10">
+        <div className="prose dark:prose-invert prose-slate max-w-none text-text-dim text-base sm:text-xl leading-relaxed">
           <ReactMarkdown 
             remarkPlugins={[remarkGfm, remarkMath]} 
             rehypePlugins={[rehypeKatex]}
             components={{
-              h3: ({node, ...props}) => <h3 className="text-3xl font-black text-text-main mt-12 mb-6 tracking-tight border-b border-primary/10 pb-2" {...props} />,
-              p: ({node, ...props}) => <p className="mb-6" {...props} />,
-              table: ({node, ...props}) => <div className="overflow-x-auto my-8 rounded-2xl glass border-primary/10 shadow-inner"><table className="min-w-full border-collapse" {...props} /></div>,
-              th: ({node, ...props}) => <th className="bg-primary/5 border-b border-primary/10 p-4 text-left font-black text-text-main uppercase tracking-widest text-xs" {...props} />,
-              td: ({node, ...props}) => <td className="border-b border-primary/5 p-4 text-text-dim" {...props} />,
+              h3: ({node, ...props}) => <h3 className="text-xl sm:text-3xl font-black text-text-main mt-8 sm:mt-12 mb-4 sm:mb-6 tracking-tight border-b border-primary/10 pb-2" {...props} />,
+              p: ({node, ...props}) => <p className="mb-4 sm:mb-6" {...props} />,
+              table: ({node, ...props}) => <div className="overflow-x-auto my-6 sm:my-8 rounded-2xl glass border-primary/10 shadow-inner"><table className="min-w-full border-collapse" {...props} /></div>,
+              th: ({node, ...props}) => <th className="bg-primary/5 border-b border-primary/10 p-3 sm:p-4 text-left font-black text-text-main uppercase tracking-widest text-[10px] sm:text-xs" {...props} />,
+              td: ({node, ...props}) => <td className="border-b border-primary/5 p-3 sm:p-4 text-text-dim text-sm sm:text-base" {...props} />,
               code: ({node, inline, ...props}) => inline 
                 ? <code className="glass-light px-2 py-0.5 rounded text-primary font-mono text-sm border-primary/20" {...props} /> 
-                : <code className="block black-glass text-slate-100 p-6 rounded-2xl font-mono text-sm my-8 shadow-2xl border border-primary/20 overflow-x-auto" {...props} />
+                : <code className="block black-glass text-slate-100 p-4 sm:p-6 rounded-2xl font-mono text-xs sm:text-sm my-6 sm:my-8 shadow-2xl border border-primary/20 overflow-x-auto" {...props} />
             }}
           >
             {concept.theory}
           </ReactMarkdown>
         </div>
 
-        {concept.interactive === 'MemoryAnalogy' && <MemoryAnalogy />}
-        {concept.interactive === 'ALUSimulator' && <ALUSimulator />}
-        {concept.interactive === 'StackSimulator' && <StackSimulator />}
-        
-        {concept.flowchart && <div className="p-8 glass-light rounded-[2.5rem] border border-primary/10 shadow-inner"><MermaidChart chart={concept.flowchart} /></div>}
-      </Card>
-
-      <div className="pt-12 border-t border-primary/10">
-        <div className="flex items-center gap-4 mb-8">
-          <div className="w-12 h-12 rounded-2xl glass-heavy flex items-center justify-center text-primary shadow-lg border-primary/20">
-             <CheckCircle className="w-7 h-7" />
+        <div className="overflow-x-auto pb-4">
+          <div className="min-w-[300px]">
+            {concept.interactive === 'MemoryAnalogy' && <MemoryAnalogy />}
+            {concept.interactive === 'ALUSimulator' && <ALUSimulator />}
+            {concept.interactive === 'StackSimulator' && <StackSimulator />}
           </div>
-          <h3 className="text-3xl font-black text-text-main">Knowledge Verification</h3>
         </div>
         
-        <Card className={`p-10 glass shadow-2xl transition-all duration-500 border-2 ${mcqStatus === 'correct' ? 'border-success/50 bg-success/5' : mcqStatus === 'incorrect' ? 'border-error/50 bg-error/5' : 'border-primary/10'}`}>
-          <div className="font-black text-2xl text-text-main mb-10 leading-relaxed tracking-tight">
+        {concept.flowchart && <div className="p-4 sm:p-8 glass-light rounded-[1.5rem] sm:rounded-[2.5rem] border border-primary/10 shadow-inner overflow-x-auto"><MermaidChart chart={concept.flowchart} /></div>}
+      </Card>
+
+      <div className="pt-12 border-t border-primary/10        <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl glass-heavy flex items-center justify-center text-primary shadow-lg border-primary/20">
+             <CheckCircle className="w-5 h-5 sm:w-7 sm:h-7" />
+          </div>
+          <h3 className="text-2xl sm:text-3xl font-black text-text-main">Knowledge Verification</h3>
+        </div>
+        
+        <Card className={`p-5 sm:p-10 glass shadow-2xl transition-all duration-500 border-2 ${mcqStatus === 'correct' ? 'border-success/50 bg-success/5' : mcqStatus === 'incorrect' ? 'border-error/50 bg-error/5' : 'border-primary/10'}`}>
+          <div className="font-black text-lg sm:text-2xl text-text-main mb-6 sm:mb-10 leading-relaxed tracking-tight">
             <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{concept.mcq.question}</ReactMarkdown>
           </div>
           
-          <div className="grid grid-cols-1 gap-4 mb-8">
+          <div className="grid grid-cols-1 gap-3 sm:gap-4 mb-6 sm:mb-8">
              {concept.mcq.options.map((opt, i) => (
                <Button
                  key={i}
                  variant="outline"
                  onClick={() => !mcqStatus && checkAnswer(i)}
-                 className={`h-auto py-6 px-8 justify-start text-left normal-case tracking-normal text-xl rounded-2xl border-2 transition-all group
-                  ${selectedOption === i ? 
-                    (mcqStatus === 'correct' ? 'border-success bg-success/10 text-success' : 'border-error bg-error/10 text-error') : 
-                    'glass-light hover:border-primary/50 hover:bg-primary/5 border-primary/5 text-text-dim hover:text-text-main'}
-                  ${mcqStatus && selectedOption !== i ? 'opacity-40 grayscale-[0.8]' : ''}
+                 className={`h-auto py-4 sm:py-6 px-5 sm:px-8 justify-start text-left normal-case tracking-normal text-sm sm:text-xl rounded-xl sm:rounded-2xl border-2 transition-all group
+                   ${selectedOption === i ? 
+                     (mcqStatus === 'correct' ? 'border-success bg-success/10 text-success' : 'border-error bg-error/10 text-error') : 
+                     'glass-light hover:border-primary/50 hover:bg-primary/5 border-primary/5 text-text-dim hover:text-text-main'}
+                   ${mcqStatus && selectedOption !== i ? 'opacity-40 grayscale-[0.8]' : ''}
                  `}
                >
-                 <span className={`w-10 h-10 rounded-xl flex items-center justify-center mr-5 text-base font-black border-2 transition-colors
+                 <span className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center mr-3 sm:mr-5 text-sm sm:text-base font-black border-2 transition-colors shrink-0
                    ${selectedOption === i ? 'bg-current text-white border-transparent shadow-lg' : 'glass border-primary/10 group-hover:border-primary/50'}
                  `}>
                    {String.fromCharCode(65 + i)}
@@ -310,53 +313,61 @@ export default function ConceptLearningPage() {
                  <div className="flex-1 font-bold">
                     <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{opt}</ReactMarkdown>
                  </div>
-                 {mcqStatus === 'correct' && i === concept.mcq.correctAnswer && <CheckCircle className="w-8 h-8 text-success ml-4 shrink-0" />}
-                 {mcqStatus === 'incorrect' && selectedOption === i && <XCircle className="w-8 h-8 text-error ml-4 shrink-0" />}
+                 {mcqStatus === 'correct' && i === concept.mcq.correctAnswer && <CheckCircle className="w-6 h-6 sm:w-8 sm:h-8 text-success ml-3 sm:ml-4 shrink-0" />}
+                 {mcqStatus === 'incorrect' && selectedOption === i && <XCircle className="w-6 h-6 sm:w-8 sm:h-8 text-error ml-3 sm:ml-4 shrink-0" />}
                </Button>
              ))}
           </div>
 
           {mcqStatus && (
-            <div className={`p-10 rounded-[2.5rem] animate-in slide-in-from-top-4 flex flex-col gap-8 border-2 backdrop-blur-xl ${mcqStatus === 'correct' ? 'border-success/30 bg-success/10' : 'border-error/30 bg-error/10'}`}>
-               <div className="flex items-start gap-6">
-                 <div className={`w-16 h-16 rounded-3xl flex items-center justify-center shrink-0 shadow-2xl ${mcqStatus === 'correct' ? 'bg-success text-white shadow-success/40' : 'bg-error text-white shadow-error/40'}`}>
-                    {mcqStatus === 'correct' ? <CheckCircle className="w-10 h-10"/> : <XCircle className="w-10 h-10"/>}
+            <div className={`p-6 sm:p-10 rounded-[1.5rem] sm:rounded-[2.5rem] animate-in slide-in-from-top-4 flex flex-col gap-6 sm:gap-8 border-2 backdrop-blur-xl ${mcqStatus === 'correct' ? 'border-success/30 bg-success/10' : 'border-error/30 bg-error/10'}`}>
+               <div className="flex items-start gap-4 sm:gap-6">
+                 <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-2xl sm:rounded-3xl flex items-center justify-center shrink-0 shadow-2xl ${mcqStatus === 'correct' ? 'bg-success text-white shadow-success/40' : 'bg-error text-white shadow-error/40'}`}>
+                    {mcqStatus === 'correct' ? <CheckCircle className="w-6 h-6 sm:w-10 sm:h-10"/> : <XCircle className="w-6 h-6 sm:w-10 sm:h-10"/>}
                  </div>
                  <div>
-                   <p className={`font-black text-3xl tracking-tighter mb-2 ${mcqStatus === 'correct' ? 'text-success' : 'text-error'}`}>{mcqStatus === 'correct' ? 'Brilliant Mastery!' : 'Knowledge Gap Found'}</p>
-                   <p className="text-text-dim text-xl font-medium leading-relaxed opacity-90">{concept.mcq.explanation}</p>
+                   <p className={`font-black text-xl sm:text-3xl tracking-tighter mb-1 sm:mb-2 ${mcqStatus === 'correct' ? 'text-success' : 'text-error'}`}>{mcqStatus === 'correct' ? 'Brilliant Mastery!' : 'Knowledge Gap Found'}</p>
+                   <p className="text-text-dim text-sm sm:text-xl font-medium leading-relaxed opacity-90">{concept.mcq.explanation}</p>
                  </div>
                </div>
-               <Button variant="primary" className="w-full sm:w-fit px-16 py-6 text-2xl font-black shadow-2xl shadow-primary/30 rounded-[2rem] active:scale-95 transition-transform" onClick={handleNext}>
+               <Button variant="primary" className="w-full sm:w-fit px-8 sm:px-16 py-4 sm:py-6 text-lg sm:text-2xl font-black shadow-2xl shadow-primary/30 rounded-xl sm:rounded-[2rem] active:scale-95 transition-transform" onClick={handleNext}>
                   {currentStep < topic.concepts.length - 1 ? 'Next Step' : currentTopicIndex < unit.topics.length - 1 ? 'Next Topic' : 'Finish Unit'}
                </Button>
             </div>
           )}
-        </Card>
+        </Card>rd>
       {/* Topic Navigation Bar */}
-      <footer className="fixed bottom-0 left-0 right-0 glass backdrop-blur-2xl border-t border-primary/20 p-6 z-50 shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
-        <div className="max-w-4xl mx-auto flex justify-between items-center">
+      <footer className="fixed bottom-0 left-0 right-0 glass backdrop-blur-2xl border-t border-primary/20 p-4 sm:p-6 z-50 shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
+        <div className="max-w-4xl mx-auto flex justify-between items-center gap-2 sm:gap-4">
           <Button 
             variant="outline" 
             onClick={goToPrevTopic} 
             disabled={!hasPrevTopic}
-            className="flex items-center gap-3 px-8 h-12 rounded-2xl font-bold transition-all hover:scale-105 active:scale-95"
+            className="flex items-center gap-2 sm:gap-3 px-3 sm:px-8 h-10 sm:h-12 rounded-xl sm:rounded-2xl font-bold transition-all hover:scale-105 active:scale-95 text-xs sm:text-base"
           >
-            <ArrowLeft className="w-5 h-5" /> Previous Topic
+            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" /> <span className="hidden xs:inline">Prev Topic</span>
+            <span className="xs:hidden">Prev</span>
           </Button>
           
-          <div className="hidden sm:flex items-center gap-6 text-sm text-text-soft font-black uppercase tracking-widest">
+          <div className="hidden md:flex items-center gap-6 text-sm text-text-soft font-black uppercase tracking-widest">
             <span className="glass px-4 py-1.5 rounded-xl border-primary/10 text-text-dim transition-all">{topic.title}</span>
             <div className="w-1.5 h-1.5 bg-primary/30 rounded-full"></div>
             <span className="text-text-soft">{currentTopicIndex + 1} of {unit.topics.length}</span>
           </div>
 
+          <div className="md:hidden flex flex-col items-center">
+             <span className="text-[8px] font-black uppercase tracking-tighter text-text-soft">Topic {currentTopicIndex + 1}/{unit.topics.length}</span>
+             <span className="text-[10px] font-bold text-primary truncate max-w-[80px]">{topic.title}</span>
+          </div>
+
           <Button 
             variant={hasNextTopic ? "outline" : "primary"}
             onClick={hasNextTopic ? goToNextTopic : () => navigate(`/subject/${subjectId}`)} 
-            className="flex items-center gap-3 px-8 h-12 rounded-2xl font-bold transition-all hover:scale-105 active:scale-95"
+            className="flex items-center gap-2 sm:gap-3 px-3 sm:px-8 h-10 sm:h-12 rounded-xl sm:rounded-2xl font-bold transition-all hover:scale-105 active:scale-95 text-xs sm:text-base"
           >
-            {hasNextTopic ? 'Next Topic' : 'Finish Unit'} <ArrowLeft className="w-5 h-5 rotate-180" />
+            <span className="hidden xs:inline">{hasNextTopic ? 'Next Topic' : 'Finish Unit'}</span>
+            <span className="xs:hidden">{hasNextTopic ? 'Next' : 'Finish'}</span>
+            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 rotate-180" />
           </Button>
         </div>
       </footer>

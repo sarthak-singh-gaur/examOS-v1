@@ -41,32 +41,34 @@ const Layout = ({ children }) => {
 
   return (
     <div className="min-h-screen font-sans">
-      <div className="max-w-7xl mx-auto p-4 md:p-8 flex flex-col gap-6">
-        <nav className="glass flex items-center justify-between p-4 rounded-2xl shadow-lg border-primary/20">
-          <div className="flex items-center gap-4">
-            <h1 className="text-2xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mr-4">ExamOS</h1>
-            <Link to="/" className="hover:text-primary transition-colors font-semibold text-text-dim">Dashboard</Link>
-            <Link to="/practice" className="hover:text-primary transition-colors font-semibold text-text-dim">Practice Hub</Link>
+      <div className="max-w-7xl mx-auto p-3 sm:p-6 md:p-8 flex flex-col gap-4 sm:gap-6">
+        <nav className="glass flex items-center justify-between p-3 sm:p-4 rounded-2xl shadow-lg border-primary/20">
+          <div className="flex items-center gap-2 sm:gap-4">
+            <h1 className="text-xl sm:text-2xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mr-1 sm:mr-4">ExamOS</h1>
+            <div className="flex items-center gap-2 sm:gap-4">
+              <Link to="/" className="hover:text-primary transition-colors font-bold text-text-dim text-[10px] sm:text-sm uppercase tracking-wider">Dashboard</Link>
+              <Link to="/practice" className="hover:text-primary transition-colors font-bold text-text-dim text-[10px] sm:text-sm uppercase tracking-wider">Practice</Link>
+            </div>
           </div>
           
-          <div className="flex items-center gap-3 border-l pl-4 ml-2 border-border-subtle">
+          <div className="flex items-center gap-1.5 sm:gap-3 border-l pl-2 sm:pl-4 ml-1 sm:ml-2 border-border-subtle">
             <button 
               onClick={toggleTheme}
-              className="p-2 rounded-xl bg-primary/10 text-primary hover:bg-primary/20 transition-all active:scale-90"
+              className="p-1.5 sm:p-2 rounded-xl bg-primary/10 text-primary hover:bg-primary/20 transition-all active:scale-90"
             >
-              {state.isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              {state.isDarkMode ? <Sun className="w-4 h-4 sm:w-5 sm:h-5" /> : <Moon className="w-4 h-4 sm:w-5 sm:h-5" />}
             </button>
 
-            <span className="text-sm font-medium text-text-soft hidden md:inline-block">User: <b className="text-text-main uppercase">{userId}</b></span>
+            <span className="text-xs font-medium text-text-soft hidden lg:inline-block">User: <b className="text-text-main uppercase">{userId}</b></span>
             
             {state.lastVisited !== '/' && (
-               <Link to={state.lastVisited} className="flex items-center gap-1 text-sm bg-primary text-white px-4 py-2 rounded-xl hover:bg-primary-hover font-bold transition-all shadow-md shadow-primary/20">
-                 <PlayCircle className="w-4 h-4" /> Resume
+               <Link to={state.lastVisited} className="flex items-center gap-1 text-[10px] sm:text-sm bg-primary text-white px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl hover:bg-primary-hover font-bold transition-all shadow-md shadow-primary/20">
+                 <PlayCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> <span className="hidden xs:inline">Resume</span>
                </Link>
             )}
 
-            <button onClick={resetOS} className="p-2 text-error bg-error/10 hover:bg-error hover:text-white rounded-xl transition-all">
-               <Power className="w-5 h-5" />
+            <button onClick={resetOS} className="p-1.5 sm:p-2 text-error bg-error/10 hover:bg-error hover:text-white rounded-xl transition-all">
+               <Power className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
         </nav>
