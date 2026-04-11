@@ -280,7 +280,8 @@ export default function ConceptLearningPage() {
         {concept.flowchart && <div className="p-4 sm:p-8 glass-light rounded-[1.5rem] sm:rounded-[2.5rem] border border-primary/10 shadow-inner overflow-x-auto"><MermaidChart chart={concept.flowchart} /></div>}
       </Card>
 
-      <div className="pt-12 border-t border-primary/10        <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+      <div className="pt-12 border-t border-primary/10">
+        <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
           <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl glass-heavy flex items-center justify-center text-primary shadow-lg border-primary/20">
              <CheckCircle className="w-5 h-5 sm:w-7 sm:h-7" />
           </div>
@@ -335,7 +336,7 @@ export default function ConceptLearningPage() {
                </Button>
             </div>
           )}
-        </Card>rd>
+        </Card>
       {/* Topic Navigation Bar */}
       <footer className="fixed bottom-0 left-0 right-0 glass backdrop-blur-2xl border-t border-primary/20 p-4 sm:p-6 z-50 shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
         <div className="max-w-4xl mx-auto flex justify-between items-center gap-2 sm:gap-4">
