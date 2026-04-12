@@ -140,92 +140,149 @@ export default function PracticeHub() {
   // --- TOPIC SELECTION MODE ---
   if (mode === 'select') {
     return (
-      <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8 animate-in slide-in-from-bottom-4 duration-500">
+      <div className="max-w-6xl mx-auto space-y-8 animate-in slide-in-from-bottom-4 duration-500 pb-32 lg:pb-10">
         <header>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-text-main mb-2 leading-tight">Practice Engine</h1>
-          <p className="text-text-dim text-base sm:text-xl">Choose a subject and filter topics to begin.</p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-text-main mb-3 leading-tight">Practice Engine</h1>
+          <p className="text-text-dim text-lg sm:text-xl font-medium">Configure your session parameters to begin.</p>
         </header>
 
-        {/* Subject Selector */}
-        <div className="flex flex-wrap gap-3">
-          {subjectsData.map(sub => (
-            <button
-              key={sub.id}
-              className={`px-4 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-bold text-xs sm:text-sm transition-all border-2 ${
-                selectedSubject === sub.id 
-                  ? 'bg-primary text-white border-primary shadow-xl shadow-primary/30 scale-105' 
-                  : 'glass border-primary/10 text-text-dim hover:border-primary/50 hover:text-primary'
-              }`}
-              onClick={() => setSelectedSubject(sub.id)}
-            >
-              {sub.title}
-            </button>
-          ))}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Main Content Area */}
+          <div className="lg:col-span-8 space-y-8">
+            {/* Subject Selector */}
+            <section className="space-y-4">
+              <h3 className="text-xs font-black text-primary uppercase tracking-[0.2em] px-1">Select Subject</h3>
+              <div className="flex flex-wrap gap-3">
+                {subjectsData.map(sub => (
+                  <button
+                    key={sub.id}
+                    className={`px-6 py-3 rounded-2xl font-black text-sm transition-all border-2 ${
+                      selectedSubject === sub.id 
+                        ? 'bg-primary text-white border-primary shadow-xl shadow-primary/30 scale-105' 
+                        : 'glass border-primary/10 text-text-dim hover:border-primary/50 hover:text-primary'
+                    }`}
+                    onClick={() => setSelectedSubject(sub.id)}
+                  >
+                    {sub.title}
+                  </button>
+                ))}
+              </div>
+            </section>
+
+            {/* Topic Filter Area */}
+            <section className="space-y-6">
+              <div className="flex items-center justify-between gap-4 px-1">
+                <h2 className="text-2xl font-black flex items-center gap-3 text-text-main">
+                  <Filter className="w-6 h-6 text-primary" /> Topics
+                  <Badge variant="outline" className="border-primary/20 bg-primary/5 text-primary uppercase text-[10px] px-2 py-0.5">
+                    {currentBank?.subjectTitle}
+                  </Badge>
+                </h2>
+                <Button variant="outline" className="text-xs font-black px-4 py-2 rounded-xl" onClick={selectAll}>
+                  {selectedTopics.size === 0 ? 'Select All' : 'Reset Selection'}
+                </Button>
+              </div>
+
+              <div className="space-y-8">
+                {groupedTopics.map((unit) => (
+                  <div key={unit.id} className="space-y-4">
+                    <div className="flex items-center gap-4">
+                      <h3 className="font-black text-[11px] text-primary/60 tracking-[0.3em] uppercase whitespace-nowrap">{unit.title}</h3>
+                      <div className="h-[1px] flex-1 bg-primary/10"></div>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {unit.topics.map(topic => {
+                        const isSelected = selectedTopics.size === 0 || selectedTopics.has(topic.id);
+                        return (
+                          <button
+                            key={topic.id}
+                            onClick={() => toggleTopic(topic.id)}
+                            className={`flex items-center justify-between text-left p-5 rounded-[1.5rem] border-2 transition-all duration-300 ${
+                              isSelected 
+                                ? 'border-primary bg-primary/10 text-text-main shadow-lg shadow-primary/5' 
+                                : 'border-primary/5 bg-primary/5 text-text-dim opacity-60 hover:opacity-100 hover:border-primary/20 hover:bg-primary/5'
+                            }`}
+                          >
+                            <div className="flex-1 mr-4">
+                              <p className="font-black text-base leading-tight mb-1">{topic.title}</p>
+                              <div className="flex items-center gap-2">
+                                <span className="text-[10px] font-bold text-text-soft uppercase tracking-widest">{topic.questions.length} Qs</span>
+                              </div>
+                            </div>
+                            <div className={`w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-all ${
+                              isSelected ? 'bg-primary border-primary shadow-md shadow-primary/20' : 'border-primary/20 bg-background-main/50'
+                            }`}>
+                              {isSelected && <CheckCircle className="w-4 h-4 text-white" />}
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+
+          {/* Sticky Sidebar (Desktop) */}
+          <aside className="hidden lg:block lg:col-span-4 sticky top-24 space-y-6">
+            <div className="glass p-8 rounded-[2.5rem] border-primary/20 shadow-2xl space-y-8">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 text-primary">
+                  <Zap className="w-6 h-6 fill-current" />
+                  <h3 className="text-xl font-black uppercase tracking-tight">Engine Status</h3>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex justify-between items-end">
+                    <span className="text-text-dim font-bold text-sm uppercase tracking-widest">Active Pool</span>
+                    <span className="text-3xl font-black text-text-main">{questions.length}</span>
+                  </div>
+                  <div className="h-2 bg-primary/10 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full bg-primary transition-all duration-500 shadow-[0_0_10px_rgba(var(--color-primary-rgb),0.5)]" 
+                      style={{ width: `${Math.min(100, (questions.length / 500) * 100)}%` }}
+                    ></div>
+                  </div>
+                </div>
+                <p className="text-xs font-bold text-text-soft leading-relaxed">
+                  {selectedTopics.size === 0 
+                    ? 'Processing entire subject syllabus for maximum coverage.' 
+                    : `Optimizing session for ${selectedTopics.size} specific topic branches.`}
+                </p>
+              </div>
+
+              <Button 
+                variant="primary" 
+                className="w-full text-xl py-6 rounded-2xl font-black shadow-2xl shadow-primary/30 active:scale-95 group" 
+                onClick={startQuiz} 
+                disabled={questions.length === 0}
+              >
+                Launch Engine 
+                <ChevronRight className="w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
+          </aside>
         </div>
 
-        {/* Topic Filter */}
-        <Card className="p-5 sm:p-10 space-y-4 sm:space-y-6 glass shadow-2xl rounded-[1.5rem] sm:rounded-[2.5rem] border-primary/10">
-          <div className="flex items-center justify-between gap-2">
-            <h2 className="text-xl sm:text-2xl font-black flex items-center gap-2 sm:gap-3 text-text-main">
-              <Filter className="w-5 h-5 sm:w-6 sm:h-6 text-primary" /> Topics
-              <Badge variant="outline" className="border-primary/20 bg-primary/5 text-primary uppercase text-[8px] sm:text-[10px] px-2 py-0.5">{currentBank?.subjectTitle}</Badge>
-            </h2>
-            <Button variant="outline" className="text-[10px] font-black px-3 py-1.5 rounded-lg" onClick={selectAll}>
-              {selectedTopics.size === 0 ? 'All' : 'Reset'}
+        {/* Sticky Bottom Bar (Mobile) */}
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 p-4 animate-in slide-in-from-bottom-10 duration-700">
+          <div className="glass p-4 rounded-3xl border-primary/30 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] flex items-center justify-between gap-4">
+            <div className="flex-1 px-2">
+              <p className="font-black text-xl text-text-main leading-none">{questions.length} <span className="text-[10px] uppercase text-primary tracking-widest ml-1">Questions</span></p>
+              <p className="text-[10px] font-bold text-text-soft uppercase tracking-tighter mt-1">
+                {selectedTopics.size === 0 ? 'Full Syllabus' : `${selectedTopics.size} Topics Filtered`}
+              </p>
+            </div>
+            <Button 
+              variant="primary" 
+              className="px-6 py-4 rounded-2xl font-black shadow-xl shadow-primary/20 active:scale-95 flex items-center gap-2" 
+              onClick={startQuiz} 
+              disabled={questions.length === 0}
+            >
+              Start <ChevronRight className="w-5 h-5" />
             </Button>
           </div>
-
-          <div className="space-y-6 max-h-[50vh] overflow-y-auto pr-2 custom-scrollbar">
-            {groupedTopics.map((unit) => (
-              <div key={unit.id} className="space-y-3">
-                <div className="flex items-center gap-3 px-1">
-                  <div className="h-[2px] flex-1 bg-primary/10"></div>
-                  <h3 className="font-black text-[10px] sm:text-xs text-primary tracking-[0.2em] uppercase">{unit.title}</h3>
-                  <div className="h-[2px] flex-1 bg-primary/10"></div>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {unit.topics.map(topic => {
-                    const isSelected = selectedTopics.size === 0 || selectedTopics.has(topic.id);
-                    return (
-                      <button
-                        key={topic.id}
-                        onClick={() => toggleTopic(topic.id)}
-                        className={`flex items-center justify-between text-left p-3 sm:p-5 rounded-xl sm:rounded-2xl border-2 transition-all ${
-                          isSelected 
-                            ? 'border-primary bg-primary/10 text-text-main shadow-lg' 
-                            : 'border-primary/5 bg-primary/5 text-text-dim opacity-60 hover:opacity-100 hover:border-primary/20'
-                        }`}
-                      >
-                        <div className="flex-1 mr-2 sm:mr-4">
-                          <p className="font-black text-sm sm:text-base leading-tight">{topic.title}</p>
-                          <p className="text-[10px] font-bold text-text-soft mt-0.5 sm:mt-1 uppercase tracking-widest">{unit.title} · {topic.questions.length} Qs</p>
-                        </div>
-                        <div className={`w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-all ${
-                          isSelected ? 'bg-primary border-primary shadow-md shadow-primary/20' : 'border-primary/20 bg-background-main/50'
-                        }`}>
-                          {isSelected && <CheckCircle className="w-4 h-4 text-white" />}
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
-          </div>
-        </Card>
-
-        {/* Start Button */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 glass p-6 sm:p-8 rounded-[1.5rem] sm:rounded-[2.5rem] border-primary/20 shadow-2xl">
-          <div className="text-center sm:text-left">
-            <p className="font-black text-xl sm:text-2xl text-text-main">{questions.length} Questions Indexed</p>
-            <p className="text-text-dim text-base sm:text-lg font-bold">
-              {selectedTopics.size === 0 ? 'Full subject syllabus' : `${selectedTopics.size} Topic${selectedTopics.size > 1 ? 's' : ''} filtered`}
-            </p>
-          </div>
-          <Button variant="primary" className="w-full sm:w-auto text-lg sm:text-xl px-12 py-4 sm:py-5 rounded-xl sm:rounded-2xl font-black shadow-2xl shadow-primary/30 active:scale-95" onClick={startQuiz} disabled={questions.length === 0}>
-            Start Engine <ChevronRight className="w-6 h-6 ml-2" />
-          </Button>
         </div>
       </div>
     );
