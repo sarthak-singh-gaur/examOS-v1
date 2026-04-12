@@ -16,12 +16,7 @@ const iconMap = {
 export default function Dashboard() {
   const navigate = useNavigate();
   const { state } = useExam();
-  const [subjects, setSubjects] = useState([]);
-
-  useEffect(() => {
-    // In a real app this might be a fetch or dynamic injection
-    setSubjects(subjectsData);
-  }, []);
+  const [subjects] = useState(subjectsData);
 
   const calculateOverallProgress = (subjectId) => {
     const subjectProgress = state.progress?.[subjectId];

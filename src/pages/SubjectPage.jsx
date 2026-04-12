@@ -59,15 +59,8 @@ export default function SubjectPage() {
   const navigate = useNavigate();
   const { state } = useExam();
   
-  const [subjectInfo, setSubjectInfo] = useState(null);
-  const [curriculum, setCurriculum] = useState(null);
-
-  useEffect(() => {
-    const info = subjectsData.find(s => s.id === subjectId);
-    setSubjectInfo(info);
-    const db = SubjectDatabases[subjectId] || dsaData;
-    setCurriculum(db);
-  }, [subjectId]);
+  const [subjectInfo] = useState(() => subjectsData.find(s => s.id === subjectId));
+  const [curriculum] = useState(() => SubjectDatabases[subjectId] || dsaData);
 
   if (!subjectInfo || !curriculum) return <div className="p-8">Loading syllabus...</div>;
 
@@ -127,7 +120,7 @@ export default function SubjectPage() {
                     <p className="text-text-dim text-sm sm:text-lg leading-relaxed">{unit.description || "Deep dive into the core architecture and problem-solving methodologies."}</p>
                     
                     <div className="grid grid-cols-2 lg:grid-cols-5 gap-2 sm:gap-3">
-                      {unit.topics.map((topic, tIdx) => {
+                      {unit.topics.map((topic) => {
                         const isTopicLocked = false; // Unlocked by user request
                         return (
                           <div 

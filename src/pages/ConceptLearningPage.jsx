@@ -255,12 +255,12 @@ export default function ConceptLearningPage() {
             remarkPlugins={[remarkGfm, remarkMath]} 
             rehypePlugins={[rehypeKatex]}
             components={{
-              h3: ({node, ...props}) => <h3 className="text-xl sm:text-3xl font-black text-text-main mt-8 sm:mt-12 mb-4 sm:mb-6 tracking-tight border-b border-primary/10 pb-2" {...props} />,
-              p: ({node, ...props}) => <p className="mb-4 sm:mb-6" {...props} />,
-              table: ({node, ...props}) => <div className="overflow-x-auto my-6 sm:my-8 rounded-2xl glass border-primary/10 shadow-inner"><table className="min-w-full border-collapse" {...props} /></div>,
-              th: ({node, ...props}) => <th className="bg-primary/5 border-b border-primary/10 p-3 sm:p-4 text-left font-black text-text-main uppercase tracking-widest text-[10px] sm:text-xs" {...props} />,
-              td: ({node, ...props}) => <td className="border-b border-primary/5 p-3 sm:p-4 text-text-dim text-sm sm:text-base" {...props} />,
-              code: ({node, inline, ...props}) => inline 
+              h3: ({...props}) => <h3 className="text-xl sm:text-3xl font-black text-text-main mt-8 sm:mt-12 mb-4 sm:mb-6 tracking-tight border-b border-primary/10 pb-2" {...props} />,
+              p: ({...props}) => <p className="mb-4 sm:mb-6" {...props} />,
+              table: ({...props}) => <div className="overflow-x-auto my-6 sm:my-8 rounded-2xl glass border-primary/10 shadow-inner"><table className="min-w-full border-collapse" {...props} /></div>,
+              th: ({...props}) => <th className="bg-primary/5 border-b border-primary/10 p-3 sm:p-4 text-left font-black text-text-main uppercase tracking-widest text-[10px] sm:text-xs" {...props} />,
+              td: ({...props}) => <td className="border-b border-primary/5 p-3 sm:p-4 text-text-dim text-sm sm:text-base" {...props} />,
+              code: ({inline, ...props}) => inline 
                 ? <code className="glass-light px-2 py-0.5 rounded text-primary font-mono text-sm border-primary/20" {...props} /> 
                 : <code className="block black-glass text-slate-100 p-4 sm:p-6 rounded-2xl font-mono text-xs sm:text-sm my-6 sm:my-8 shadow-2xl border border-primary/20 overflow-x-auto" {...props} />
             }}

@@ -32,12 +32,17 @@ export default function PracticeHub() {
 
   // Build filtered question pool
   const questions = useMemo(() => {
+    let pool = [];
     if (selectedTopics.size === 0) {
-      return allTopics.flatMap(t => t.questions.map(q => ({ ...q, topicTitle: t.title, unit: t.unit })));
+      pool = allTopics.flatMap(t => t.questions.map(q => ({ ...q, topicTitle: t.title, unit: t.unit })));
+    } else {
+      pool = allTopics
+        .filter(t => selectedTopics.has(t.id))
+        .flatMap(t => t.questions.map(q => ({ ...q, topicTitle: t.title, unit: t.unit })));
     }
-    return allTopics
-      .filter(t => selectedTopics.has(t.id))
-      .flatMap(t => t.questions.map(q => ({ ...q, topicTitle: t.title, unit: t.unit })));
+    
+    // Shuffle the pool for randomization
+    return [...pool].sort(() => Math.random() - 0.5);
   }, [selectedSubject, selectedTopics, allTopics]);
 
   const question = questions[activeQuestionIndex];
@@ -244,11 +249,11 @@ export default function PracticeHub() {
 
   // --- ACTIVE QUIZ MODE ---
   return (
-    <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-6 sm:gap-8 animate-in slide-in-from-bottom-4 duration-500 pb-10">
+    <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-start gap-6 sm:gap-8 animate-in slide-in-from-bottom-4 duration-500 pb-10">
       
       {/* Sidebar: Score & Progress */}
-      <aside className="w-full md:w-72 flex-shrink-0 space-y-4 sm:space-y-6">
-        <Card className="p-4 sm:p-6 space-y-4 sm:space-y-6 glass border-primary/20 shadow-2xl rounded-2xl sm:rounded-3xl sticky top-8">
+      <aside className="w-full md:w-72 flex-shrink-0 md:sticky md:top-8 space-y-4 sm:space-y-6">
+        <Card className="p-4 sm:p-6 space-y-4 sm:space-y-6 glass border-primary/20 shadow-2xl rounded-2xl sm:rounded-3xl">
           <div className="flex justify-between items-center">
             <h3 className="font-black text-xs text-text-soft tracking-widest uppercase">Engine Status</h3>
             <button onClick={resetQuiz} className="text-xs text-error hover:text-error-dark font-black tracking-widest flex items-center gap-1 uppercase transition-colors">
@@ -315,7 +320,7 @@ export default function PracticeHub() {
                     ${selectedOption === i ? 
                       (status === 'correct' ? 'border-success bg-success/10 text-success' : 'border-error bg-error/10 text-error') : 
                       'glass-light border-primary/5 text-text-dim hover:border-primary/50 hover:text-text-main hover:bg-primary/5'}
-                    ${status !== null && i === question.correctAnswer && i !== selectedOption ? 'border-success/50 text-success bg-success/5 border-dashed active:scale-100 font-bold' : ''}
+                    ${status !== null && i === question.correctAnswer ? (status === 'correct' ? 'border-success shadow-[0_0_20px_rgba(16,185,129,0.2)]' : 'border-success animate-pulse shadow-[0_0_25px_rgba(16,185,129,0.3)] ring-2 ring-success/20 z-10 scale-105') : ''}
                     ${status !== null && i !== question.correctAnswer && i !== selectedOption ? 'opacity-40 grayscale-[0.8]' : ''}
                   `}
                 >
