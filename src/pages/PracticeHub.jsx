@@ -7,7 +7,7 @@ import oopsMcqs from '../data/mcq_bank_oops.json';
 import mathsMcqs from '../data/mcq_bank_maths.json';
 import financeMcqs from '../data/mcq_bank_finance.json';
 import { playFeedback } from '../utils/audio';
-import { Filter, CheckCircle, XCircle, AlertTriangle, RotateCcw, Trophy, BookOpen, ChevronRight } from 'lucide-react';
+import { Filter, CheckCircle, XCircle, AlertTriangle, RotateCcw, Trophy, BookOpen, ChevronRight, Zap } from 'lucide-react';
 
 const McqBanks = {
   dsa: dsaMcqs,
