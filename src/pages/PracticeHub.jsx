@@ -157,31 +157,43 @@ export default function PracticeHub() {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {allTopics.map(topic => {
-              const isSelected = selectedTopics.size === 0 || selectedTopics.has(topic.id);
-              return (
-                <button
-                  key={topic.id}
-                  onClick={() => toggleTopic(topic.id)}
-                  className={`flex items-center justify-between text-left p-3 sm:p-5 rounded-xl sm:rounded-2xl border-2 transition-all ${
-                    isSelected 
-                      ? 'border-primary bg-primary/10 text-text-main shadow-lg' 
-                      : 'border-primary/5 bg-primary/5 text-text-dim opacity-60'
-                  }`}
-                >
-                  <div className="flex-1 mr-2 sm:mr-4">
-                    <p className="font-black text-sm sm:text-base leading-tight">{topic.title}</p>
-                    <p className="text-[10px] font-bold text-text-soft mt-0.5 sm:mt-1 uppercase tracking-widest">{topic.unit} · {topic.questions.length} Qs</p>
-                  </div>
-                  <div className={`w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-all ${
-                    isSelected ? 'bg-primary border-primary shadow-md shadow-primary/20' : 'border-primary/20 bg-background-main/50'
-                  }`}>
-                    {isSelected && <CheckCircle className="w-4 h-4 text-white" />}
-                  </div>
-                </button>
-              );
-            })}
+          <div className="space-y-6 max-h-[50vh] overflow-y-auto pr-2 custom-scrollbar">
+            {SubjectDatabases[selectedSubject].units.map((unit) => (
+              <div key={unit.id} className="space-y-3">
+                <div className="flex items-center gap-3 px-1">
+                  <div className="h-[2px] flex-1 bg-primary/10"></div>
+                  <h3 className="font-black text-[10px] sm:text-xs text-primary tracking-[0.2em] uppercase">{unit.title}</h3>
+                  <div className="h-[2px] flex-1 bg-primary/10"></div>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {unit.topics.map(topic => {
+                    const isSelected = selectedTopics.size === 0 || selectedTopics.has(topic.id);
+                    return (
+                      <button
+                        key={topic.id}
+                        onClick={() => toggleTopic(topic.id)}
+                        className={`flex items-center justify-between text-left p-3 sm:p-5 rounded-xl sm:rounded-2xl border-2 transition-all ${
+                          isSelected 
+                            ? 'border-primary bg-primary/10 text-text-main shadow-lg' 
+                            : 'border-primary/5 bg-primary/5 text-text-dim opacity-60 hover:opacity-100 hover:border-primary/20'
+                        }`}
+                      >
+                        <div className="flex-1 mr-2 sm:mr-4">
+                          <p className="font-black text-sm sm:text-base leading-tight">{topic.title}</p>
+                          <p className="text-[10px] font-bold text-text-soft mt-0.5 sm:mt-1 uppercase tracking-widest">{unit.id} · {topic.questions.length} Qs</p>
+                        </div>
+                        <div className={`w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-all ${
+                          isSelected ? 'bg-primary border-primary shadow-md shadow-primary/20' : 'border-primary/20 bg-background-main/50'
+                        }`}>
+                          {isSelected && <CheckCircle className="w-4 h-4 text-white" />}
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
           </div>
         </Card>
 
