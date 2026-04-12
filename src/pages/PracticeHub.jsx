@@ -30,6 +30,24 @@ export default function PracticeHub() {
   const currentBank = McqBanks[selectedSubject];
   const allTopics = currentBank?.topics || [];
 
+  // Group topics by unit for the selector
+  const groupedTopics = useMemo(() => {
+    const groups = {};
+    allTopics.forEach(topic => {
+      const unitLabel = topic.unit || 'Miscellaneous';
+      if (!groups[unitLabel]) groups[unitLabel] = [];
+      groups[unitLabel].push(topic);
+    });
+    
+    return Object.keys(groups)
+      .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
+      .map(unit => ({
+        id: unit,
+        title: unit,
+        topics: groups[unit]
+      }));
+  }, [allTopics]);
+
   // Build filtered question pool
   const questions = useMemo(() => {
     let pool = [];
@@ -158,7 +176,7 @@ export default function PracticeHub() {
           </div>
 
           <div className="space-y-6 max-h-[50vh] overflow-y-auto pr-2 custom-scrollbar">
-            {SubjectDatabases[selectedSubject].units.map((unit) => (
+            {groupedTopics.map((unit) => (
               <div key={unit.id} className="space-y-3">
                 <div className="flex items-center gap-3 px-1">
                   <div className="h-[2px] flex-1 bg-primary/10"></div>
@@ -181,7 +199,7 @@ export default function PracticeHub() {
                       >
                         <div className="flex-1 mr-2 sm:mr-4">
                           <p className="font-black text-sm sm:text-base leading-tight">{topic.title}</p>
-                          <p className="text-[10px] font-bold text-text-soft mt-0.5 sm:mt-1 uppercase tracking-widest">{unit.id} · {topic.questions.length} Qs</p>
+                          <p className="text-[10px] font-bold text-text-soft mt-0.5 sm:mt-1 uppercase tracking-widest">{unit.title} · {topic.questions.length} Qs</p>
                         </div>
                         <div className={`w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-all ${
                           isSelected ? 'bg-primary border-primary shadow-md shadow-primary/20' : 'border-primary/20 bg-background-main/50'
