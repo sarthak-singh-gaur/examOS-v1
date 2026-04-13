@@ -146,16 +146,13 @@ export default function PracticeHub() {
         transition={{ duration: 0.5 }}
         className="max-w-6xl mx-auto space-y-8 pb-32 lg:pb-10"
       >
-
         <header>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-text-main mb-3 leading-tight">Practice Engine</h1>
           <p className="text-text-dim text-lg sm:text-xl font-medium">Configure your session parameters to begin.</p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Main Content Area */}
           <div className="lg:col-span-8 space-y-8">
-            {/* Subject Selector */}
             <section className="space-y-4">
               <h3 className="text-xs font-black text-primary uppercase tracking-[0.2em] px-1">Select Subject</h3>
               <div className="flex flex-wrap gap-3">
@@ -290,13 +287,18 @@ export default function PracticeHub() {
             </Button>
           </div>
         </div>
-      </div>
+      </motion.div>
     );
   }
 
   if (quizCompleted) {
     return (
-      <div className="max-w-2xl mx-auto space-y-6 sm:space-y-8 animate-in zoom-in-95 duration-500">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-2xl mx-auto space-y-6 sm:space-y-8 pb-10"
+      >
         <Card className="p-8 sm:p-16 text-center space-y-6 sm:space-y-10 glass shadow-2xl rounded-[2rem] sm:rounded-[3rem] border-primary/10">
           <div className="w-20 h-20 sm:w-28 sm:h-28 rounded-2xl sm:rounded-[2rem] bg-primary/10 flex items-center justify-center mx-auto shadow-inner border border-primary/20">
             <Trophy className="w-10 h-10 sm:w-14 sm:h-14 text-primary" />
@@ -336,13 +338,18 @@ export default function PracticeHub() {
             </Button>
           </div>
         </Card>
-      </div>
+      </motion.div>
     );
   }
 
   // --- ACTIVE QUIZ MODE ---
   return (
-    <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-start gap-6 sm:gap-8 animate-in slide-in-from-bottom-4 duration-500 pb-10">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+      className="max-w-5xl mx-auto flex flex-col md:flex-row items-start gap-6 sm:gap-8 pb-10"
+    >
       
       {/* Sidebar: Score & Progress */}
       <aside className="w-full md:w-72 flex-shrink-0 md:sticky md:top-8 space-y-4 sm:space-y-6">
@@ -455,6 +462,6 @@ export default function PracticeHub() {
           <div className="p-12 text-center text-text-muted">No questions found for this filter.</div>
         )}
       </main>
-    </div>
+    </motion.div>
   );
 }

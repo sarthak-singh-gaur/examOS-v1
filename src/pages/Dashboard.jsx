@@ -14,6 +14,7 @@ const iconMap = {
   Landmark
 };
 
+export default function Dashboard() {
   const navigate = useNavigate();
   const { state } = useExam();
   const [subjects] = useState(subjectsData);
@@ -135,6 +136,6 @@ const iconMap = {
           </Button>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }

@@ -127,9 +127,9 @@ export default function SubjectPage() {
 
                     <p className="text-text-dim text-sm sm:text-lg leading-relaxed">{unit.description || "Deep dive into the core architecture and problem-solving methodologies."}</p>
                     
-                    <div className="grid grid-cols-2 lg:grid-cols-5 gap-2 sm:gap-3">
+                    <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3">
                       {unit.topics.map((topic) => {
-                        const isTopicLocked = false; // Unlocked by user request
+                        const isTopicLocked = false;
                         return (
                           <div 
                             key={topic.id} 
@@ -146,13 +146,13 @@ export default function SubjectPage() {
                     </div>
                   </div>
 
-                  <div className={`lg:w-72 p-5 sm:p-8 flex flex-col justify-center gap-4 bg-primary/5 border-t lg:border-t-0 lg:border-l border-border-subtle`}>
-                    <div className="space-y-1">
-                       <p className="text-xs sm:text-sm font-bold text-text-dim">Overall Mastery</p>
-                       <div className="h-1.5 sm:h-2 w-full bg-text-soft/20 rounded-full overflow-hidden">
-                          <div className={`h-full transition-all duration-1000 ${isCompleted ? 'bg-success' : 'bg-primary shadow-[0_0_10px_rgba(99,102,241,0.5)]'}`} style={{ width: `${unitProgress}%` }} />
-                       </div>
-                    </div>
+                  <div className="lg:w-80 p-5 sm:p-8 flex flex-col justify-center gap-4 bg-primary/5 border-t lg:border-t-0 lg:border-l border-border-subtle">
+                     <div className="space-y-1">
+                        <p className="text-xs sm:text-sm font-bold text-text-dim">Unit Mastery</p>
+                        <div className="h-2.5 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden shadow-inner">
+                           <div className={`h-full transition-all duration-1000 ${isCompleted ? 'bg-success shadow-[0_0_10px_rgba(16,185,129,0.3)]' : 'bg-primary shadow-[0_0_10px_rgba(99,102,241,0.5)]'}`} style={{ width: `${unitProgress}%` }} />
+                        </div>
+                     </div>
                     
                     <Button 
                       disabled={!isAccessible}
@@ -165,11 +165,13 @@ export default function SubjectPage() {
                     </Button>
                   </div>
                 </div>
+
               </Card>
             );
           })}
         </div>
       </div>
-    </div>
+    </motion.div>
+
   );
 }

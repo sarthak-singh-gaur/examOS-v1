@@ -43,7 +43,7 @@
 @layer base {
   .dark {
     --color-bg-mesh: #000000;
-    --color-bg-card: rgba(12, 12, 12, 0.8);
+    --color-bg-card: rgba(12, 12, 12, 0.85);
     --color-border-subtle: rgba(255, 255, 255, 0.1);
     
     --color-text-main: #ffffff;
@@ -64,6 +64,20 @@
     transition: background-color 0.5s ease, color 0.5s ease;
     overflow-x: hidden;
   }
+
+  /* Code Block Accessibility Fix for Light Mode */
+  pre, code {
+    @apply text-text-main font-mono;
+  }
+
+  .prose code {
+    @apply text-primary font-bold bg-primary/5 px-1.5 py-0.5 rounded-md border border-primary/10;
+  }
+
+  .dark .prose code {
+    @apply text-accent bg-accent/10 border-accent/20;
+  }
+
 
   /* Premium Mesh Background */
   body::before {
@@ -88,10 +102,34 @@
     background: var(--color-bg-card);
     border-color: var(--color-border-subtle);
   }
+
+  .glass-light {
+    @apply backdrop-blur-md border;
+    background: rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .black-glass {
+    @apply backdrop-blur-2xl border;
+    background: rgba(15, 23, 42, 0.9);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .dark .black-glass {
+    background: rgba(0, 0, 0, 0.8);
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-heavy {
+    @apply backdrop-blur-2xl border;
+    background: var(--color-bg-card);
+    border-color: var(--color-border-subtle);
+  }
   
   .glass-hover {
     @apply transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30;
   }
+
 
   .animate-shimmer {
     animation: shimmer 2s infinite linear;

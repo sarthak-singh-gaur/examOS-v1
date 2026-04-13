@@ -7,7 +7,7 @@ import coData from '../data/co_data.json';
 import oopsData from '../data/oops_data.json';
 import mathsData from '../data/maths_data.json';
 import financeData from '../data/finance_data.json';
-import { ArrowLeft, CheckCircle, XCircle, Lock, BookOpen } from 'lucide-react';
+import { ArrowLeft, CheckCircle, XCircle, Lock, BookOpen, AlertTriangle } from 'lucide-react';
 import MermaidChart from '../components/MermaidChart';
 import { playFeedback } from '../utils/audio';
 import ReactMarkdown from 'react-markdown';
@@ -15,7 +15,7 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const SubjectDatabases = {
   dsa: dsaData,
@@ -83,7 +83,75 @@ const MemoryAnalogy = () => {
     </Card>
   );
 };
-// ... other simulators updated to use motion similarly ...
+const ALUSimulator = () => {
+  const [mode, setMode] = useState(0); // 0 or 1 for C0
+  return (
+    <Card className="p-6 bg-slate-50 dark:bg-slate-900/50 mb-8 border-2 border-primary/20">
+      <h3 className="font-bold mb-4 text-text-main">Hardware Level: Binary Adder-Subtractor Logic</h3>
+      <div className="flex flex-col sm:flex-row justify-between items-center bg-white dark:bg-slate-800 p-4 rounded-xl border mb-4 shadow-sm gap-4">
+         <div className="flex flex-col items-center gap-2">
+            <span className="font-bold text-xs uppercase tracking-widest text-text-soft">Mode (C0)</span>
+            <button onClick={() => setMode(mode === 0 ? 1 : 0)} className={`w-16 h-8 rounded-full border-2 transition-colors relative ${mode ? 'bg-primary border-primary' : 'bg-slate-200 border-slate-300'}`}>
+              <motion.div 
+                animate={{ x: mode ? 30 : 2 }}
+                className="w-6 h-6 bg-white rounded-full absolute top-[0.1rem] shadow-sm"
+              />
+            </button>
+            <span className="text-xs font-mono font-black text-primary">{mode === 0 ? "ADDITION" : "SUBTRACTION"}</span>
+         </div>
+         <div className="border-l border-border-subtle pl-0 sm:pl-6 space-y-2">
+            <p className="font-mono text-sm">Input A: <span className="font-bold">1010</span></p>
+            <p className="font-mono text-sm flex items-center gap-2">Input B: <span className="font-bold">0011</span> <ArrowLeft className="w-3 h-3 rotate-180"/> 
+              <span className={`text-xs p-1 rounded font-bold ${mode ? 'bg-error/10 text-error' : 'bg-success/10 text-success'}`}>
+                {mode ? "XOR Inverted: 1100" : "XOR Passed: 0011"}
+              </span>
+            </p>
+         </div>
+         <div className="border-l border-border-subtle pl-0 sm:pl-6">
+            <p className="text-sm font-bold text-text-soft uppercase tracking-widest text-[10px]">Result Logic</p>
+            <p className="text-lg sm:text-xl font-black font-mono tracking-widest text-primary mt-1">
+               {mode ? "A + NOT(B) + 1" : "A + B + 0"}
+            </p>
+         </div>
+      </div>
+    </Card>
+  );
+};
+
+const StackSimulator = () => {
+  const [stack, setStack] = useState([]);
+  const push = () => { if (stack.length < 5) setStack([...stack, Math.floor(Math.random() * 100)]); };
+  const pop = () => { if (stack.length > 0) setStack(stack.slice(0, -1)); };
+  return (
+    <Card className="p-6 bg-slate-50 dark:bg-slate-900/50 mb-8 border-2 border-primary/20">
+      <h3 className="font-bold mb-4 flex items-center justify-between text-text-main">
+        <span>Interactive: Stack (LIFO) Operations</span>
+        <Badge variant={stack.length === 5 ? "warning" : "default"}>{stack.length === 5 ? "Full" : stack.length === 0 ? "Empty" : `${stack.length}/5`}</Badge>
+      </h3>
+      <div className="flex flex-col sm:flex-row gap-8 items-end">
+        <div className="flex-1 flex gap-2 w-full">
+          <Button onClick={push} disabled={stack.length >= 5} variant="primary" className="flex-1">Push</Button>
+          <Button onClick={pop} disabled={stack.length === 0} variant="outline" className="flex-1">Pop</Button>
+        </div>
+        <div className="w-32 h-48 border-x-4 border-b-4 border-slate-800 dark:border-slate-100 rounded-b-lg flex flex-col-reverse justify-start items-center p-2 gap-1 bg-white dark:bg-slate-700 shadow-inner">
+          <AnimatePresence mode="popLayout">
+            {stack.map((item, index) => (
+              <motion.div 
+                key={`${item}-${index}`}
+                initial={{ y: -50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -50, opacity: 0 }}
+                className="w-full bg-primary text-white text-center rounded py-1 font-black shadow-md text-sm"
+              >
+                {item}
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
+      </div>
+    </Card>
+  );
+};
 
 export default function ConceptLearningPage() {
   const { subjectId, unitId, topicId } = useParams();
@@ -201,11 +269,13 @@ export default function ConceptLearningPage() {
               table: ({...props}) => <div className="overflow-x-auto my-6 sm:my-8 rounded-2xl glass border-primary/10 shadow-inner"><table className="min-w-full border-collapse" {...props} /></div>,
               th: ({...props}) => <th className="bg-primary/5 border-b border-primary/10 p-3 sm:p-4 text-left font-black text-text-main uppercase tracking-widest text-[10px] sm:text-xs" {...props} />,
               td: ({...props}) => <td className="border-b border-primary/5 p-3 sm:p-4 text-text-dim text-sm sm:text-base" {...props} />,
+              pre: ({children}) => <pre className="bg-slate-900 text-slate-100 p-4 sm:p-6 rounded-2xl font-mono text-xs sm:text-sm my-6 sm:my-8 shadow-2xl border-2 border-primary/20 overflow-x-auto whitespace-pre-wrap">{children}</pre>,
               code: ({inline, ...props}) => inline 
-                ? <code className="glass-light px-2 py-0.5 rounded text-primary font-mono text-sm border-primary/20" {...props} /> 
-                : <code className="block black-glass text-slate-100 p-4 sm:p-6 rounded-2xl font-mono text-xs sm:text-sm my-6 sm:my-8 shadow-2xl border border-primary/20 overflow-x-auto" {...props} />
+                ? <code className="bg-primary/10 dark:bg-primary/20 px-2 py-0.5 rounded text-primary font-mono text-sm border border-primary/20" {...props} /> 
+                : <code {...props} />
             }}
           >
+
             {concept.theory}
           </ReactMarkdown>
         </div>
@@ -314,6 +384,6 @@ export default function ConceptLearningPage() {
         </div>
       </footer>
       </div>
-    </div>
+    </motion.div>
   );
 }
