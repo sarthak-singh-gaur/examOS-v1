@@ -10,6 +10,8 @@ import mathsData from '../data/maths_data.json';
 import financeData from '../data/finance_data.json';
 import { ArrowLeft, Play, LayoutGrid, CheckCircle2, ChevronRight, Lock } from 'lucide-react';
 
+import { motion } from 'framer-motion';
+
 const SubjectDatabases = {
   dsa: dsaData,
   co: coData,
@@ -65,7 +67,13 @@ export default function SubjectPage() {
   if (!subjectInfo || !curriculum) return <div className="p-8">Loading syllabus...</div>;
 
   return (
-    <div className="max-w-6xl mx-auto space-y-6 sm:space-y-10 animate-in slide-in-from-bottom-4 duration-500 pb-20">
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.98 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+      className="max-w-6xl mx-auto space-y-6 sm:space-y-10 pb-20"
+    >
+
       <header className="relative p-6 sm:p-8 md:p-12 rounded-[2rem] sm:rounded-[3.5rem] glass border-primary/20 shadow-2xl overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full -mr-48 -mt-48 blur-[100px]"></div>
         <div className="relative z-10">

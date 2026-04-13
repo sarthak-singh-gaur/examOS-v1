@@ -140,7 +140,13 @@ export default function PracticeHub() {
   // --- TOPIC SELECTION MODE ---
   if (mode === 'select') {
     return (
-      <div className="max-w-6xl mx-auto space-y-8 animate-in slide-in-from-bottom-4 duration-500 pb-32 lg:pb-10">
+      <motion.div 
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-6xl mx-auto space-y-8 pb-32 lg:pb-10"
+      >
+
         <header>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-text-main mb-3 leading-tight">Practice Engine</h1>
           <p className="text-text-dim text-lg sm:text-xl font-medium">Configure your session parameters to begin.</p>

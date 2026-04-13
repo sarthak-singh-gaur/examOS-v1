@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, Button, ProgressBar, Badge } from '../components/ui';
 import { useExam } from '../context/ExamContext';
 import { Calculator, Code, Binary, Cpu, Landmark, ArrowRight, Play, BookOpen, AlertTriangle } from 'lucide-react';
 import subjectsData from '../data/subjects.json';
+import { motion } from 'framer-motion';
 
 const iconMap = {
   Calculator,
@@ -13,7 +14,6 @@ const iconMap = {
   Landmark
 };
 
-export default function Dashboard() {
   const navigate = useNavigate();
   const { state } = useExam();
   const [subjects] = useState(subjectsData);
@@ -30,7 +30,13 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-500">
+    <motion.div 
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="space-y-8 pb-10"
+    >
+
       <header>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-text-main">Welcome back!</h1>
         <p className="text-text-dim mt-2 text-base sm:text-xl">Pick up right where you left off or start a new topic.</p>
