@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Card, Button, Badge, ProgressBar } from '../components/ui';
 import subjectsData from '../data/subjects.json';
 import dsaMcqs from '../data/mcq_bank_dsa.json';
